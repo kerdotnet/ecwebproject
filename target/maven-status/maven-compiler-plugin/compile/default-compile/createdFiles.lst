@@ -1,0 +1,7 @@
+com\kerdotnet\dao\DaoFactory.class
+com\kerdotnet\dao\UserDao.class
+com\kerdotnet\dao\transactions\TransactionManager.class
+com\kerdotnet\dao\implementations\MySqlDaoFactoryImpl.class
+com\kerdotnet\beans\User.class
+com\kerdotnet\controllers\LoginServlet.class
+com\kerdotnet\dao\GenericDao.class

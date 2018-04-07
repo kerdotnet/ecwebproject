@@ -8,24 +8,25 @@ import java.util.List;
  *  Yevhen Ivanov, 2018-04-01
  */
 
-public class User implements Serializable{
+public class User extends Entity{
     private String username;
     private String password;
     private String emailId;
     private String firstName;
     private String lastName;
+    private String mobile;
     private boolean enabled;
     private List<String> authorities;
 
-    public User() {
-    }
-
-    public User(String username, String password, String emailId, String firstName, String lastName, boolean enabled, List<String> authorities) {
+    public User(String username, String password, String emailId,
+                String firstName, String lastName,
+                String mobile, boolean enabled, List<String> authorities) {
         this.username = username;
         this.password = password;
         this.emailId = emailId;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.mobile  = mobile;
         this.enabled = enabled;
         this.authorities = authorities;
     }
@@ -76,6 +77,14 @@ public class User implements Serializable{
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public List<String> getAuthorities() {

@@ -4,6 +4,7 @@ import java.util.concurrent.Callable;
 
 /**
  * interface for transactions management
+ * now is not used in Library app
  * Yevhen Ivanov, 2018-04-02
  */
 

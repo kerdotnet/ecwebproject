@@ -2,11 +2,11 @@
     <a href="/" class="navbar-brand">LibraryMS</a>
     <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-        <li><a href="/book-catalog.do">Book catalog</a></li>
+        <li><a href="/main.jsp">Book catalog</a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="/logout.do">Logout</a></li>
+        <li><a href="controller?command=logout">Logout</a></li>
     </ul>
 
 </nav>

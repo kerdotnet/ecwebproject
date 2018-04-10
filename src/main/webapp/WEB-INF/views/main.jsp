@@ -4,19 +4,10 @@
 <%@include file="common/navigation.jspf"%>
 
 <div class="container">
-    <form action = "controller" method="post">
-        <input type="hidden" name="command" value="login">
-
-        Login:<br>
-        <input type = "text" name = "login"/>
-        <br>Password:<br>
-        <input type = "password" name = "password"/>
-        <br>
-        <p><font color = "red">${errorMessage}</font></p>
-        <p><font color = "red">${wrongCommand}</font></p>
-        <p><font color = "red">${nullPage}</font></p>
-        <input type = "submit" value = "login">
-    </form>
+    <h3>Welcome to the Library Management System</h3>
+    <hr>
+    ${user}, hello!
+    <hr>
 </div>
 
 

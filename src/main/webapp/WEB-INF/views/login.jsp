@@ -4,10 +4,17 @@
 <%@include file="common/navigation.jspf"%>
 
 <div class="container">
-    <form action = "/login.do" method="post">
-        <p><font color = "red">${errorMessage}</font></p>
-        Enter your name <input type = "text" name = "name"/>
-        password <input type = "password" name = "password"/>
+    <form action = "controller" method="post">
+        <input type="hidden" name="command" value="login">
+
+        Login:<br>
+        <input type = "text" name = "login"/>
+        <br>Password:<br>
+        <input type = "password" name = "password"/>
+        <br>
+        <p><font color = "red">${errorLoginPassMessage}</font></p>
+        <p><font color = "red">${wrongCommand}</font></p>
+        <p><font color = "red">${nullPage}</font></p>
         <input type = "submit" value = "login">
     </form>
 </div>

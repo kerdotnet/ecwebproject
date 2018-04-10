@@ -1,16 +1,17 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: IvanovE
-  Date: 09.04.2018
-  Time: 11:31
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+
+<%@ page isErrorPage="true"%>
+<%@include file="common/header.jspf"%>
+<%@include file="common/navigation.jspf"%>
+
+<div class="container">
+    Request from ${pageContext.errorData.requestURI} is failed
+    <br>
+    Servlet name or type: ${pageContext.errorData.servletName}
+    <br>
+    Status code: ${pageContext.errorData.statusCode}
+    <br>
+    Exception: ${pageContext.errorData.throwable}
+</div>
+
+
+<%@include file="common/footer.jspf"%>

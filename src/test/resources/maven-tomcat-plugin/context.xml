@@ -29,19 +29,6 @@
     <Manager pathname="" />
     -->
 
-    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver"
-              factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory" logAbandoned="true" maxActive="75"
-              maxIdle="10" maxWait="10000" name="jdbc/data_source_1" password="password1" removeAbandoned="true"
-              removeAbandonedTimeout="60" scope="Shareable" type="javax.sql.DataSource"
-              url="jdbc:mysql://localhost:3306/data_source_1?autoReconnect=true" username="data_source_1_username" validationQuery="SELECT 1"
-              testOnBorrow="true"/>
-    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver"
-              factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory" logAbandoned="true" maxActive="75"
-              maxIdle="10" maxWait="10000" name="jdbc/data_source_2" password="password2" removeAbandoned="true"
-              removeAbandonedTimeout="60" scope="Shareable" type="javax.sql.DataSource"
-              url="jdbc:mysql://another_mysql_host:3306/data_source_2?autoReconnect=true" username="data_source_1_username"
-              validationQuery="SELECT 1" testOnBorrow="true"/>
-
     <description>MySQL</description>
     <Resource name="jdbc/libraryDB" auth="Container" description="DB Container"
               driverClass="com.mysql.jdbc.Driver" maxPoolSize="50" minPoolSize="10"

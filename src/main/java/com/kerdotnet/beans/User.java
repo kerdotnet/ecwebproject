@@ -1,6 +1,5 @@
 package com.kerdotnet.beans;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -11,19 +10,22 @@ import java.util.List;
 public class User extends Entity{
     private String username;
     private String password;
-    private String emailId;
+    private String email;
     private String firstName;
     private String lastName;
     private String mobile;
     private boolean enabled;
     private List<String> authorities;
 
+    public User() {
+    }
+
     public User(String username, String password, String emailId,
                 String firstName, String lastName,
                 String mobile, boolean enabled, List<String> authorities) {
         this.username = username;
         this.password = password;
-        this.emailId = emailId;
+        this.email = emailId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.mobile  = mobile;
@@ -47,12 +49,12 @@ public class User extends Entity{
         this.password = password;
     }
 
-    public String getEmailId() {
-        return emailId;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getFirstName() {

@@ -1,5 +1,9 @@
-package com.kerdotnet.command;
+package com.kerdotnet.command.factory;
 
+import com.kerdotnet.command.ActionCommand;
+import com.kerdotnet.command.EmptyCommand;
+import com.kerdotnet.command.client.CommandEnum;
+import com.kerdotnet.resource.MessageManager;
 import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,6 +20,7 @@ public class ActionFactory {
         ActionCommand current = new EmptyCommand();
 
         String action = request.getParameter("command");
+        LOGGER.info("Action: " + action);
 
         if (action == null || action.isEmpty()){
             return current;
@@ -25,10 +30,12 @@ public class ActionFactory {
             CommandEnum currentEnum =
                     CommandEnum.valueOf(action.toUpperCase());
             current = currentEnum.getCurrentCommand();
+            LOGGER.info("current command: " + current);
         } catch (IllegalArgumentException e){
             LOGGER.error("Unexpected error", e);
             request.setAttribute("wrongAction", action +
                     MessageManager.getProperty("message.wrongaction"));
         }
+        return current;
     }
 }

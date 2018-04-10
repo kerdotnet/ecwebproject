@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Todos</title>
+    <title>Library Management System</title>
     <link href="webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .footer {

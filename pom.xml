@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.kerdotnet</groupId>
-  <artifactId>ec-web-project</artifactId>
+  <artifactId>weblibrary</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>ec-web-project Maven Webapp</name>
+  <name>weblibrary Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -63,7 +63,7 @@
   </dependencies>
 
   <build>
-    <finalName>ec-web-project</finalName>
+    <finalName>weblibrary</finalName>
     <pluginManagement>
       <plugins>
         <plugin>
@@ -84,6 +84,9 @@
           <configuration>
             <path>/</path>
             <contextReloadable>true</contextReloadable>
+            <contextFile>
+                ${basedir}/src/test/resources/maven-tomcat-plugin/context.xml
+            </contextFile>
           </configuration>
         </plugin>
       </plugins>

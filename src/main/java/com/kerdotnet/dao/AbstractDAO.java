@@ -38,13 +38,13 @@ public abstract class AbstractDAO<K, T extends Entity> {
         }
     }
 
-    public void close(Connection connection){
-        try {
-            if (connection != null){
-                connection.close();
-            }
-        } catch (SQLException e){
-            LOGGER.error("Unexpected error", e);
-        }
-    }
+//    public void close(Connection connection){
+//        try {
+//            if (connection != null){
+//                connection.close();
+//            }
+//        } catch (SQLException e){
+//            LOGGER.error("Unexpected error", e);
+//        }
+//    }
 }

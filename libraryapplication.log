@@ -1,3 +1,220 @@
-INFO    2018-04-07 15:37:43,152 [http-bio-8080-exec-6] com.kerdotnet.controllers.Controller  - doGet in Controller accomplished successfully
-INFO    2018-04-07 15:38:11,941 [http-bio-8080-exec-10] com.kerdotnet.controllers.Controller  - doGet in Controller accomplished successfully
-INFO    2018-04-07 15:38:55,251 [http-bio-8080-exec-10] com.kerdotnet.controllers.Controller  - doGet in Controller accomplished successfully
+INFO    2018-04-09 11:11:43,374 [http-bio-8080-exec-6] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 11:11:43,409 [http-bio-8080-exec-6] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 11:11:43,427 [http-bio-8080-exec-6] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b0p31l14ma6rk|2b5147b0] registered.
+INFO    2018-04-09 11:11:43,434 [http-bio-8080-exec-6] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 11:11:43,435 [http-bio-8080-exec-6] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 11:12:47,015 [http-bio-8080-exec-9] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 11:12:59,910 [http-bio-8080-exec-9] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 11:26:36,609 [http-bio-8080-exec-4] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 11:26:36,648 [http-bio-8080-exec-4] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 11:26:36,667 [http-bio-8080-exec-4] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b1889r24pv4l|2a69235b] registered.
+INFO    2018-04-09 11:26:36,680 [http-bio-8080-exec-4] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 11:26:36,681 [http-bio-8080-exec-4] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 11:42:35,083 [http-bio-8080-exec-5] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 11:42:35,147 [http-bio-8080-exec-5] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 11:42:35,176 [http-bio-8080-exec-5] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b1sruir941jf|7267cc72] registered.
+INFO    2018-04-09 11:42:35,188 [http-bio-8080-exec-5] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 11:42:35,189 [http-bio-8080-exec-5] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 13:33:38,688 [http-bio-8080-exec-7] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 13:33:38,725 [http-bio-8080-exec-7] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 13:33:38,743 [http-bio-8080-exec-7] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b5rli2zpx8kg|b660ed0] registered.
+INFO    2018-04-09 13:33:38,756 [http-bio-8080-exec-7] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 13:37:43,211 [http-bio-8080-exec-1] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 13:37:43,249 [http-bio-8080-exec-1] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 13:37:43,269 [http-bio-8080-exec-1] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b5wu6f98v9nu|3d656b91] registered.
+INFO    2018-04-09 13:37:43,298 [http-bio-8080-exec-1] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 13:39:04,918 [http-bio-8080-exec-3] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 13:39:04,953 [http-bio-8080-exec-3] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 13:39:04,968 [http-bio-8080-exec-3] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b5yl7zu59i65|64b2caf3] registered.
+INFO    2018-04-09 13:39:04,977 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 13:41:03,233 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 13:41:03,275 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 13:41:03,293 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b614inkxlgun|531b1d98] registered.
+INFO    2018-04-09 13:41:03,304 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 13:46:18,815 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 13:46:18,849 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 13:46:18,868 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b67w0pts64sa|7de15448] registered.
+INFO    2018-04-09 13:46:18,875 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 13:48:11,870 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 13:48:11,910 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 13:48:11,925 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b6ab991tu4c6r|7b0e03ce] registered.
+INFO    2018-04-09 13:48:11,937 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 13:57:56,763 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 13:57:56,799 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 13:57:56,821 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b6muk71jo80uk|51f1567b] registered.
+INFO    2018-04-09 13:57:56,831 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 13:58:44,548 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 13:58:44,593 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 13:58:44,613 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b6nvfp1oa50k5|52643062] registered.
+INFO    2018-04-09 13:58:44,624 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 14:11:12,373 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 14:11:12,417 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 14:11:12,436 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b73wgmwzm04x|e397b4] registered.
+INFO    2018-04-09 14:11:12,449 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 14:14:10,390 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 14:14:10,425 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 14:14:10,441 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b77ptc1sjey17|73a5d48c] registered.
+INFO    2018-04-09 14:14:10,449 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 14:24:17,683 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 14:24:17,726 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 14:24:17,744 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b7kqeqf59lv0|26618c9] registered.
+INFO    2018-04-09 14:24:17,753 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 14:27:16,853 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 14:27:16,890 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 14:27:16,905 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b7oknmg9lswp|6719dd6d] registered.
+INFO    2018-04-09 14:27:16,914 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 14:34:51,085 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 14:34:51,127 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 14:34:51,151 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b7yb59e6vvj1|35c9c0d9] registered.
+INFO    2018-04-09 14:34:51,162 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 14:34:51,163 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 14:35:00,338 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 14:39:17,548 [http-bio-8080-exec-5] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 14:39:17,594 [http-bio-8080-exec-5] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 14:39:17,618 [http-bio-8080-exec-5] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b840r1aogbgk|2cba21ff] registered.
+INFO    2018-04-09 14:39:17,629 [http-bio-8080-exec-5] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 14:39:17,646 [http-bio-8080-exec-5] com.kerdotnet.controllers.Controller  - Locale: <em>ru_RU</em>, Language: <em>ru</em>, Country: <em>RU</em>, Display name: <em>русский (Россия)</em><br/>
+INFO    2018-04-09 14:52:48,652 [http-bio-8080-exec-1] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 14:52:48,687 [http-bio-8080-exec-1] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 14:52:48,719 [http-bio-8080-exec-1] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b8leliuioi85|7b39d1e6] registered.
+INFO    2018-04-09 14:52:48,733 [http-bio-8080-exec-1] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 14:52:48,758 [http-bio-8080-exec-1] com.kerdotnet.controllers.Controller  - Locale: <em>ru_RU</em>, Language: <em>ru</em>, Country: <em>RU</em>, Display name: <em>русский (Россия)</em><br/>
+INFO    2018-04-09 14:52:48,761 [http-bio-8080-exec-1] com.kerdotnet.controllers.Controller  - Question: Âû ãîâîðèòå ïî àíëãèéñêè?
+INFO    2018-04-09 14:52:48,761 [http-bio-8080-exec-1] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 14:52:57,221 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - Locale: <em>ru_RU</em>, Language: <em>ru</em>, Country: <em>RU</em>, Display name: <em>русский (Россия)</em><br/>
+INFO    2018-04-09 14:52:57,222 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - Question: Âû ãîâîðèòå ïî àíëãèéñêè?
+INFO    2018-04-09 14:52:57,222 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 14:54:33,628 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 14:54:33,670 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 14:54:33,691 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b8nnln1oz6smf|1cf2a9f9] registered.
+INFO    2018-04-09 14:54:33,703 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 14:54:33,716 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - Locale: <em>ru_RU</em>, Language: <em>ru</em>, Country: <em>RU</em>, Display name: <em>русский (Россия)</em><br/>
+INFO    2018-04-09 14:55:57,652 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 14:55:57,691 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 14:55:57,709 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b8pgfm1mty2ip|b37b6a0] registered.
+INFO    2018-04-09 14:55:57,719 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 14:55:57,729 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - Locale: <em>ru_RU</em>, Language: <em>ru</em>, Country: <em>RU</em>, Display name: <em>русский (Россия)</em><br/>
+INFO    2018-04-09 14:55:57,731 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - Question: /index.jsp
+INFO    2018-04-09 14:55:57,731 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 14:58:36,697 [http-bio-8080-exec-1] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 14:58:36,740 [http-bio-8080-exec-1] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 14:58:36,761 [http-bio-8080-exec-1] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b8sv5j10jr8dx|6634679e] registered.
+INFO    2018-04-09 14:58:36,775 [http-bio-8080-exec-1] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 14:59:31,035 [http-bio-8080-exec-4] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 14:59:31,075 [http-bio-8080-exec-4] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 14:59:31,096 [http-bio-8080-exec-4] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b8u12x518l7y|52e49934] registered.
+INFO    2018-04-09 14:59:31,106 [http-bio-8080-exec-4] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 14:59:31,114 [http-bio-8080-exec-4] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 14:59:56,126 [http-bio-8080-exec-6] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:03:16,184 [http-bio-8080-exec-6] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 15:03:16,224 [http-bio-8080-exec-6] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 15:03:16,243 [http-bio-8080-exec-6] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b8yut2q4qyro|2b830c87] registered.
+INFO    2018-04-09 15:03:16,253 [http-bio-8080-exec-6] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 15:03:16,264 [http-bio-8080-exec-6] com.kerdotnet.controllers.Controller  - /login.jsp
+INFO    2018-04-09 15:03:16,265 [http-bio-8080-exec-6] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:05:06,530 [http-bio-8080-exec-1] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 15:05:06,570 [http-bio-8080-exec-1] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 15:05:06,611 [http-bio-8080-exec-1] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b917y51px7gl0|5896d3b9] registered.
+INFO    2018-04-09 15:05:06,621 [http-bio-8080-exec-1] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 15:05:06,637 [http-bio-8080-exec-1] com.kerdotnet.controllers.Controller  - /main.jsp
+INFO    2018-04-09 15:05:06,640 [http-bio-8080-exec-1] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:05:21,714 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - /views/login.jsp
+INFO    2018-04-09 15:05:21,716 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:05:28,632 [http-bio-8080-exec-5] com.kerdotnet.controllers.Controller  - /main.jsp
+INFO    2018-04-09 15:05:28,633 [http-bio-8080-exec-5] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:06:04,725 [http-bio-8080-exec-7] com.kerdotnet.controllers.Controller  - /views/login.jsp
+INFO    2018-04-09 15:06:04,726 [http-bio-8080-exec-7] com.kerdotnet.controllers.Controller  - doGet in Controller accomplished successfully
+INFO    2018-04-09 15:06:14,005 [http-bio-8080-exec-9] com.kerdotnet.controllers.Controller  - /views/login.jsp
+INFO    2018-04-09 15:06:14,006 [http-bio-8080-exec-9] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:06:33,179 [http-bio-8080-exec-10] com.kerdotnet.controllers.Controller  - /main.jsp
+INFO    2018-04-09 15:06:33,179 [http-bio-8080-exec-10] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:07:38,536 [http-bio-8080-exec-3] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 15:07:38,575 [http-bio-8080-exec-3] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 15:07:38,592 [http-bio-8080-exec-3] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b94h8l126orh3|33a1859d] registered.
+INFO    2018-04-09 15:07:38,600 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 15:07:38,608 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - /main.jsp
+INFO    2018-04-09 15:07:38,608 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:08:31,484 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 15:08:31,523 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 15:08:31,543 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b95m3d6zwn0l|18c53c46] registered.
+INFO    2018-04-09 15:08:31,553 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 15:08:31,559 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - /views//main.jsp
+INFO    2018-04-09 15:08:31,560 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:12:46,391 [http-bio-8080-exec-3] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 15:12:46,429 [http-bio-8080-exec-3] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 15:12:46,448 [http-bio-8080-exec-3] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b9b2s5pj63dl|6f849cb8] registered.
+INFO    2018-04-09 15:12:46,458 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 15:12:46,460 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-09 15:12:46,462 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@1c0564c
+INFO    2018-04-09 15:12:46,465 [http-bio-8080-exec-3] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /views//main.jsp
+INFO    2018-04-09 15:12:46,465 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - /views//main.jsp
+INFO    2018-04-09 15:12:46,465 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:13:21,713 [http-bio-8080-exec-7] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-09 15:13:21,714 [http-bio-8080-exec-7] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@1c0564c
+INFO    2018-04-09 15:13:21,717 [http-bio-8080-exec-7] com.kerdotnet.command.LoginCommand  - Error login, return page: /views/login.jsp
+INFO    2018-04-09 15:13:21,717 [http-bio-8080-exec-7] com.kerdotnet.controllers.Controller  - /views/login.jsp
+INFO    2018-04-09 15:13:21,718 [http-bio-8080-exec-7] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:22:41,644 [http-bio-8080-exec-10] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-09 15:22:41,645 [http-bio-8080-exec-10] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@1c0564c
+INFO    2018-04-09 15:22:41,645 [http-bio-8080-exec-10] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /views//main.jsp
+INFO    2018-04-09 15:22:41,645 [http-bio-8080-exec-10] com.kerdotnet.controllers.Controller  - /views//main.jsp
+INFO    2018-04-09 15:22:41,645 [http-bio-8080-exec-10] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:23:14,112 [http-bio-8080-exec-3] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 15:23:14,159 [http-bio-8080-exec-3] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 15:23:14,175 [http-bio-8080-exec-3] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b9oj4zley4vs|6ee27eb2] registered.
+INFO    2018-04-09 15:23:14,188 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 15:23:14,191 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-09 15:23:14,194 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@287aa05b
+INFO    2018-04-09 15:23:14,198 [http-bio-8080-exec-3] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /views/main.jsp
+INFO    2018-04-09 15:23:14,199 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - Page in Controller: /views/main.jsp
+INFO    2018-04-09 15:23:14,199 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:25:54,187 [http-bio-8080-exec-9] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 15:25:54,224 [http-bio-8080-exec-9] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 15:25:54,240 [http-bio-8080-exec-9] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1b9ryna1occhro|247553d2] registered.
+INFO    2018-04-09 15:25:54,252 [http-bio-8080-exec-9] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 15:25:54,254 [http-bio-8080-exec-9] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-09 15:25:54,256 [http-bio-8080-exec-9] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@6ec4485c
+INFO    2018-04-09 15:25:54,262 [http-bio-8080-exec-9] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /views/main.jsp
+INFO    2018-04-09 15:25:54,263 [http-bio-8080-exec-9] com.kerdotnet.controllers.Controller  - Page in Controller: /views/main.jsp
+INFO    2018-04-09 15:25:54,263 [http-bio-8080-exec-9] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:37:37,131 [http-bio-8080-exec-3] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 15:37:37,174 [http-bio-8080-exec-3] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 15:37:37,192 [http-bio-8080-exec-3] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1ba711n198h89l|d39107a] registered.
+INFO    2018-04-09 15:37:37,201 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 15:37:37,203 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-09 15:37:37,206 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@2a185d5f
+INFO    2018-04-09 15:37:37,210 [http-bio-8080-exec-3] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /WEB-INF/views/main.jsp
+INFO    2018-04-09 15:37:37,210 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - Page in Controller: /WEB-INF/views/main.jsp
+INFO    2018-04-09 15:37:37,820 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:39:12,446 [http-bio-8080-exec-3] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 15:39:12,492 [http-bio-8080-exec-3] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 15:39:12,507 [http-bio-8080-exec-3] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1ba92ld9ioleq|5dc4fafd] registered.
+INFO    2018-04-09 15:39:12,517 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 15:39:12,520 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-09 15:39:12,524 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@1f51f488
+INFO    2018-04-09 15:39:12,529 [http-bio-8080-exec-3] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /WEB-INF/views/main.jsp
+INFO    2018-04-09 15:39:12,529 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - Page in Controller: /WEB-INF/views/main.jsp
+INFO    2018-04-09 15:39:12,538 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:39:25,180 [http-bio-8080-exec-7] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-09 15:39:25,181 [http-bio-8080-exec-7] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@1f51f488
+INFO    2018-04-09 15:39:25,184 [http-bio-8080-exec-7] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+INFO    2018-04-09 15:39:25,184 [http-bio-8080-exec-7] com.kerdotnet.controllers.Controller  - Page in Controller: /WEB-INF/views/login.jsp
+INFO    2018-04-09 15:39:25,186 [http-bio-8080-exec-7] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:48:33,942 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 15:48:33,984 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 15:48:34,003 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1bal3uf14685h3|7b797841] registered.
+INFO    2018-04-09 15:48:34,014 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 15:48:34,016 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-09 15:48:34,018 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@59722258
+INFO    2018-04-09 15:48:34,028 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+INFO    2018-04-09 15:48:34,028 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - Page in Controller: /WEB-INF/views/login.jsp
+INFO    2018-04-09 15:48:34,029 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully
+INFO    2018-04-09 15:50:09,775 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-09 15:50:09,814 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-09 15:50:09,831 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1ban5sd18wn8ir|6719dd6d] registered.
+INFO    2018-04-09 15:50:09,843 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+INFO    2018-04-09 15:50:09,845 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-09 15:50:09,847 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@714b2072
+INFO    2018-04-09 15:50:09,852 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+INFO    2018-04-09 15:50:09,854 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - Page in Controller: /WEB-INF/views/login.jsp
+INFO    2018-04-09 15:50:09,856 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - doPost in Controller accomplished successfully

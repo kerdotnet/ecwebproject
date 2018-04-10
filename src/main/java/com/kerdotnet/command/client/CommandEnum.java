@@ -1,4 +1,8 @@
-package com.kerdotnet.command;
+package com.kerdotnet.command.client;
+
+import com.kerdotnet.command.ActionCommand;
+import com.kerdotnet.command.LoginCommand;
+import com.kerdotnet.command.LogoutCommand;
 
 /**
  * Command Enum which contains all commands in the application

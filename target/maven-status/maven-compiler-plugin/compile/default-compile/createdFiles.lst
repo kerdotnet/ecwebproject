@@ -1,12 +1,16 @@
 com\kerdotnet\command\client\CommandEnum.class
+com\kerdotnet\dao\factory\DAOManager$DAOManagerSingleton.class
 com\kerdotnet\command\client\CommandEnum$2.class
-com\kerdotnet\dao\transactions\TransactionManager.class
 com\kerdotnet\logic\LoginLogic.class
 com\kerdotnet\resource\MessageManager.class
+com\kerdotnet\beans\UserAuthority.class
 com\kerdotnet\dao\AbstractDAO.class
+com\kerdotnet\dao\factory\DAOManager$1.class
 com\kerdotnet\resource\ConfigurationManager.class
+com\kerdotnet\dao\factory\DAOEnum.class
 com\kerdotnet\command\LoginCommand.class
 com\kerdotnet\command\LogoutCommand.class
+com\kerdotnet\utility\transactions\TransactionManager.class
 com\kerdotnet\command\ActionCommand.class
 com\kerdotnet\beans\Entity.class
 com\kerdotnet\controllers\ContextListener.class
@@ -15,5 +19,7 @@ com\kerdotnet\command\client\CommandEnum$1.class
 com\kerdotnet\controllers\Controller.class
 com\kerdotnet\controllers\SessionRequestContent.class
 com\kerdotnet\dao\UserDAO.class
+com\kerdotnet\dao\factory\DAOManager.class
+com\kerdotnet\dao\UserAuthorityDAO.class
 com\kerdotnet\command\factory\ActionFactory.class
 com\kerdotnet\command\EmptyCommand.class

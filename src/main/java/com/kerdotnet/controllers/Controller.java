@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.IOException;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 import com.kerdotnet.command.ActionCommand;
 import com.kerdotnet.command.factory.ActionFactory;
@@ -24,29 +22,20 @@ import org.apache.log4j.Logger;
  * Yevhen Ivanov, 2018-04-02
  */
 
-@WebServlet("/controller")
+@WebServlet(urlPatterns = "/controller",
+        loadOnStartup = 0)
 public class Controller extends HttpServlet{
 
     static final Logger LOGGER = Logger.getLogger(Controller.class);
-    protected DataSource dataSource;
-
-    @Override
-    public void init() throws ServletException {
-        initDataSource();
-    }
 
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
-
         processRequest(request, response);
-        LOGGER.info("doGet in Controller accomplished successfully");
     }
 
     protected void doPost(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
-
         processRequest(request, response);
-        LOGGER.info("doPost in Controller accomplished successfully");
     }
 
     private void processRequest(HttpServletRequest request,
@@ -71,17 +60,4 @@ public class Controller extends HttpServlet{
         }
     }
 
-    private void initDataSource(){
-        dataSource = null;
-        try {
-            Context initContext = new InitialContext();
-            Context envContext = (Context)initContext.lookup("java:/comp/env");
-            dataSource = (DataSource) envContext.lookup("jdbc/libraryDB");
-
-            LOGGER.info("DataSource was successfully initialized");
-
-        } catch (NamingException e) {
-            LOGGER.error("Unexpected error", e);
-        }
-    }
 }

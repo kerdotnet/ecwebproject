@@ -15,31 +15,61 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT, 
   `username` varchar(50) NOT NULL,
   `password` char(68) NOT NULL,
   `email` varchar(255) NOT NULL,
   `first_name` varchar(255) DEFAULT NULL,
-  `lastn_ame` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
   `mobile` varchar(20) DEFAULT NULL,
-  `enabled` tinyint(1) NOT NULL,
+  `flag_enabled` tinyint(1) NOT NULL,
   
-  PRIMARY KEY (`username`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `FK_USER_USERNAME_idx`(`username`),
+  UNIQUE KEY `FK_USER_EMAIL_idx`(`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `authority`
+--
+
+DROP TABLE IF EXISTS `authority`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `authority` (
+  `id` int(11) NOT NULL AUTO_INCREMENT, 
+  `name` varchar(50) NOT NULL,
+  
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `user_authority`
+--
 
 DROP TABLE IF EXISTS `user_authority`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user_authority` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) NOT NULL,
-  `authority` varchar(50) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `authority_id` int(11) NOT NULL,
   
   PRIMARY KEY (`id`),
   
-  UNIQUE KEY `FK_USER_AUTHORITY_idx` (`username`),
+  KEY `FK_USER_AUTHORITY_idx` (`user_id`),
+  KEY `FK_AUTHORITY_idx` (`authority_id`),
   
-  CONSTRAINT `FK_USER_AUTHORITY` FOREIGN KEY (`username`) REFERENCES `user` (`username`)
+  CONSTRAINT `FK_USER_AUTHORITY` 
+  FOREIGN KEY (`user_id`)
+  REFERENCES `user` (`id`)
+  
+  CONSTRAINT `FK_AUTHORITY` 
+  FOREIGN KEY (`authority_id`)
+  REFERENCES `authority` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -138,8 +168,45 @@ CREATE TABLE `bookshelf` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `bookitem`
+--
+
+DROP TABLE IF EXISTS `bookitem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bookitem` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bookcatalog_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `bookshelf_id` int(11) NOT NULL,
+  `bookshelf_adress` varchar(20) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `lastchange_time` DATETIME NOT NULL,
+  `flag_enabled` boolean NOT NULL default TRUE,
+  
+  PRIMARY KEY (`id`),
+  
+  KEY `FK_USER_AUTHORITY_BOOKITEM_idx` (`user_id`),
+  KEY `FK_BOOKCATALOG_BOOKITEM_idx` (`bookcatalog_id`),
+  KEY `FK_BOOKSHELF_BOOKITEM_idx` (`bookshelf_id`),
+  
+  CONSTRAINT `FK_USER_AUTHORITY_BOOKITEM` 
+  FOREIGN KEY (`user_id`) 
+  REFERENCES `user` (`id`),
+  
+  CONSTRAINT `FK_BOOKCATALOG_BOOKITEM` 
+  FOREIGN KEY (`bookcatalog_id`) 
+  REFERENCES `bookcatalog` (`id`),
+  
+  CONSTRAINT `FK_BOOKSHELF_BOOKITEM` 
+  FOREIGN KEY (`bookshelf_id`) 
+  REFERENCES `bookshelf` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 -- Working with Data ****************************************************************
+
 --
 -- Dumping data for table `user`
 --
@@ -147,7 +214,8 @@ CREATE TABLE `bookshelf` (
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 
-INSERT INTO `user` VALUES 
+INSERT INTO `user`  (`username`, `password`, `email`, `first_name`, `last_name`, `mobile`, `flag_enabled`)
+VALUES 
 	('kerdotnet','{bcrypt}$2y$10$SqJfO2qBQ7oy3PzWNEVwUeNXc12SijvCudykYFbt7VVEGJRMA7tyK','evgenys.ivanov@gmail.com','Евгений','Иванов', '+380952711261', 1),
 	('marylogin','{bcrypt}$2y$10$rGwm3NiPYLtp7RhNx7ChIeGhimxm.Sz06GdzHYexbnK2x9T4.6Ydy','mary_ecproj@gmail.com','Mary','Grunvald', '+380951112233', 1),
 	('susanlogin','{bcrypt}$2y$10$Ja.P9VEbf9rVB7JjHDfO6.sPbMaSlCaelFhjS0gL5wuO3tVJjMCka','susan_ecproj@gmail.com','Susan','Zimmerman', '+380951114433', 1),
@@ -157,17 +225,33 @@ INSERT INTO `user` VALUES
 UNLOCK TABLES;
 
 --
--- Dumping data for table `authorities`
+-- Dumping data for table `authority`
+--
+
+LOCK TABLES `authority` WRITE;
+/*!40000 ALTER TABLE `authority` DISABLE KEYS */;
+
+INSERT INTO `authority`  (`name`)
+VALUES 
+	('USER'),
+	('ADMINISTRATOR');
+
+/*!40000 ALTER TABLE `authority` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `user_authority`
 --
 
 LOCK TABLES `user_authority` WRITE;
 
-INSERT INTO `user_authority` (`username`, `authority`) 
+INSERT INTO `user_authority` (`user_id`, `authority_id`) 
 VALUES 
-('kerdotnet','ADMINISTRATOR'),
-('marylogin','USER'),
-('susanlogin','USER'),
-('piterlogin','USER');
+(1,2),
+(1,1),
+(2,1),
+(3,1),
+(4,1);
 
 /*!40000 ALTER TABLE `user_authority` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -242,6 +326,9 @@ VALUES
 ('Fiction',4)
 ;
 
+/*!40000 ALTER TABLE `keywords` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Dumping data for table `bookshelf`
 --
@@ -258,7 +345,22 @@ VALUES
 /*!40000 ALTER TABLE `bookshelf` ENABLE KEYS */;
 UNLOCK TABLES;
 
-/*!40000 ALTER TABLE `keywords` ENABLE KEYS */;
+--
+-- Dumping data for table `bookitem`
+--
+
+LOCK TABLES `bookitem` WRITE;
+
+INSERT INTO `bookitem` (`bookcatalog_id`, `description`,  `bookshelf_id`, `bookshelf_adress`, `user_id`,`lastchange_time`) 
+VALUES 
+(1, 'The first edition',    1, 'A1',    0, '2018-04-01 04:30:00'),
+(1, 'Потрепанный переплет', 1, 'A2',    0, '2018-04-01 04:30:00'),
+(2, 'SN 000123',            1, 'A3',    0, '2018-04-01 04:30:00'),
+(3, 'Издание 2017',         2, 'n1',    0, '2018-04-01 04:30:00'),
+(4, 'Издание 2018',         3, '3-1',   0, '2018-04-01 04:30:00'),
+(4, 'Издание 2015',         0,  '' ,    1, '2018-04-01 04:30:00')
+;
+
 UNLOCK TABLES;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -15,14 +15,14 @@ public class User extends Entity{
     private String lastName;
     private String mobile;
     private boolean enabled;
-    private List<String> authorities;
+    private List<UserAuthority> authorities;
 
     public User() {
     }
 
     public User(String username, String password, String emailId,
                 String firstName, String lastName,
-                String mobile, boolean enabled, List<String> authorities) {
+                String mobile, boolean enabled, List<UserAuthority> authorities) {
         this.username = username;
         this.password = password;
         this.email = emailId;
@@ -89,11 +89,26 @@ public class User extends Entity{
         this.mobile = mobile;
     }
 
-    public List<String> getAuthorities() {
+    public List<UserAuthority> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthorities(List<String> authorities) {
+    public void setAuthorities(List<UserAuthority> authorities) {
         this.authorities = authorities;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + getId() + '\'' +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", enabled=" + enabled +
+                ", authorities=" + authorities +
+                '}';
     }
 }

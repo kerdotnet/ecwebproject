@@ -28,7 +28,7 @@ public abstract class AbstractDAO<K, T extends Entity> {
         this.connection = connection;
     }
 
-    public void close(Statement statement){
+    protected void close(Statement statement){
         try {
             if (statement != null){
                 statement.close();
@@ -38,13 +38,4 @@ public abstract class AbstractDAO<K, T extends Entity> {
         }
     }
 
-//    public void close(Connection connection){
-//        try {
-//            if (connection != null){
-//                connection.close();
-//            }
-//        } catch (SQLException e){
-//            LOGGER.error("Unexpected error", e);
-//        }
-//    }
 }

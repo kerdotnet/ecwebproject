@@ -1,5 +1,12 @@
 package com.kerdotnet.logic;
 
+import com.kerdotnet.beans.User;
+import com.kerdotnet.dao.UserDAO;
+import com.kerdotnet.dao.factory.DAOEnum;
+import com.kerdotnet.dao.factory.DAOManager;
+
+import java.sql.SQLException;
+
 /**
  * Implementation of Login command
  * Yevhen Ivanov; 2018-04-09

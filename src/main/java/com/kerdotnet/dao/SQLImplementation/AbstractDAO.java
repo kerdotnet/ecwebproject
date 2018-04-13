@@ -30,7 +30,7 @@ public abstract class AbstractDAO<T extends Entity> {
                 statement.close();
             }
         } catch (SQLException e){
-            LOGGER.error("Unexpected error", e);
+            LOGGER.error("Unexpected error in closing of Statement", e);
             throw new DAOSystemException("Error in close method() of DAO system", e);
         }
     }
@@ -41,31 +41,8 @@ public abstract class AbstractDAO<T extends Entity> {
                 resultSet.close();
             }
         } catch (SQLException e){
-            LOGGER.error("Unexpected error", e);
+            LOGGER.error("Unexpected error in closing of Result Set", e);
             throw new DAOSystemException("Error in close method() of DAO system", e);
-        }
-    }
-
-    public List<T> findAll(String sql, Extractor<T> extractor,
-                           Enricher<T> enricher) throws DAOSystemException {
-        Statement statement = null;
-        ResultSet resultSet = null;
-        try {
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery(sql);
-            List<T> result = new ArrayList<>();
-            while (resultSet.next()){
-                T record = extractor.extractOne(resultSet);
-                enricher.enrich(record);
-                result.add(record);
-            }
-            return result;
-        } catch (SQLException e){
-            LOGGER.error("Unexpected error", e);
-            throw new DAOSystemException("Can't execute findAll method in UserDAOimpl " + sql, e);
-        } finally {
-            close(resultSet);
-            close(statement);
         }
     }
 
@@ -92,39 +69,27 @@ public abstract class AbstractDAO<T extends Entity> {
         return record;
     }
 
-    public boolean delete(String sql, T entity) throws DAOSystemException {
-        boolean flag = false;
-        PreparedStatement preparedStatement = null;
+    public List<T> findAll(String sql, Extractor<T> extractor,
+                           Enricher<T> enricher) throws DAOSystemException {
+        Statement statement = null;
+        ResultSet resultSet = null;
         try {
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, entity.getId());
-            preparedStatement.executeUpdate();
-            flag = true;
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+            List<T> result = new ArrayList<>();
+            while (resultSet.next()){
+                T record = extractor.extractOne(resultSet);
+                enricher.enrich(record);
+                result.add(record);
+            }
+            return result;
         } catch (SQLException e){
             LOGGER.error("Unexpected error", e);
-            throw new DAOSystemException("Can't execute delete method in UserDAOimpl", e);
+            throw new DAOSystemException("Can't execute findAll method in UserDAOimpl " + sql, e);
         } finally {
-            close(preparedStatement);
+            close(resultSet);
+            close(statement);
         }
-        return flag;
-    }
-
-    public boolean update(String sql, T entity,
-                    Extractor<T> extractor) throws DAOSystemException {
-        boolean flag = false;
-        PreparedStatement preparedStatement = null;
-        try {
-            preparedStatement = connection.prepareStatement(sql);
-            extractor.setOne(preparedStatement, entity);
-            preparedStatement.executeUpdate();
-            flag = true;
-        } catch (SQLException e){
-            LOGGER.error("Unexpected error", e);
-            throw new DAOSystemException("Can't execute update method in UserDAOimpl", e);
-        } finally {
-            close(preparedStatement);
-        }
-        return flag;
     }
 
     public boolean create(String sql, T entity,
@@ -135,7 +100,7 @@ public abstract class AbstractDAO<T extends Entity> {
         try {
             preparedStatement = connection.prepareStatement(sql,
                     Statement.RETURN_GENERATED_KEYS);
-            extractor.setOne(preparedStatement, entity);
+            extractor.setOneCreate(preparedStatement, entity);
             preparedStatement.executeUpdate();
             generatedKeys = preparedStatement.getGeneratedKeys();
             if (generatedKeys.next()) {
@@ -155,4 +120,87 @@ public abstract class AbstractDAO<T extends Entity> {
         }
         return flag;
     }
+
+    public boolean update(String sql, T entity,
+                    Extractor<T> extractor) throws DAOSystemException {
+        boolean flag = false;
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            extractor.setOneUpdate(preparedStatement, entity);
+            preparedStatement.executeUpdate();
+            flag = true;
+        } catch (SQLException e){
+            LOGGER.error("Unexpected error", e);
+            throw new DAOSystemException("Can't execute update method in UserDAOimpl", e);
+        } finally {
+            close(preparedStatement);
+        }
+        return flag;
+    }
+
+    public boolean delete(String sql, T entity) throws DAOSystemException {
+        boolean flag = false;
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, entity.getId());
+            preparedStatement.executeUpdate();
+            flag = true;
+        } catch (SQLException e){
+            LOGGER.error("Unexpected error", e);
+            throw new DAOSystemException("Can't execute delete method in UserDAOimpl", e);
+        } finally {
+            close(preparedStatement);
+        }
+        return flag;
+    }
+
+    public T findUserByStringParameter(String sql, String param, Extractor<T> extractor,
+                                       Enricher<T> enricher) throws DAOSystemException {
+        T user = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, param);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()){
+                user = extractor.extractOne(resultSet);
+                enricher.enrich(user);
+            }
+        } catch (SQLException e){
+            LOGGER.error("Unexpected error", e);
+            throw new DAOSystemException("Can't execute findUserByUserName method in UserDAOimpl", e);
+        } finally {
+            close(resultSet);
+            close(preparedStatement);
+        }
+        return user;
+    }
+
+    public List<T> findAllByInt(String sql, int param, Extractor<T> extractor,
+                           Enricher<T> enricher) throws DAOSystemException {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, param);
+            resultSet = preparedStatement.executeQuery();
+            List<T> result = new ArrayList<>();
+            while (resultSet.next()){
+                T record = extractor.extractOne(resultSet);
+                enricher.enrich(record);
+                result.add(record);
+            }
+            return result;
+        } catch (SQLException e){
+            LOGGER.error("Unexpected error", e);
+            throw new DAOSystemException("Can't execute findAll method in UserDAOimpl " + sql, e);
+        } finally {
+            close(resultSet);
+            close(preparedStatement);
+        }
+    }
+
 }

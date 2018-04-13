@@ -2,14 +2,12 @@ package com.kerdotnet.dao.SQLImplementation;
 
 import com.kerdotnet.beans.UserAuthority;
 import com.kerdotnet.dao.UserAuthorityDAO;
+import com.kerdotnet.dao.helpers.Enricher;
+import com.kerdotnet.dao.helpers.UserAuthorityExtractor;
+import com.kerdotnet.exceptions.DAOSystemException;
 
 import java.sql.Connection;
 import java.util.List;
-
-/**
- * User Authority DAO implementation
- * Yevhen Ivanov, 2018-04-10
- */
 
 public class UserAuthorityDAOImpl extends AbstractDAO implements UserAuthorityDAO {
 
@@ -32,31 +30,33 @@ public class UserAuthorityDAOImpl extends AbstractDAO implements UserAuthorityDA
     }
 
     @Override
-    public List<UserAuthority> findAll() {
-        return null;
-    }
-
-    public List<UserAuthority> findAllByUserId(int userId) {
-        return null;
+    public UserAuthority findEntity(Integer id) throws DAOSystemException {
+        return (UserAuthority) findEntity(SQL_SELECT_BY_ID, id,  new UserAuthorityExtractor(),
+                Enricher.NULL);
     }
 
     @Override
-    public boolean delete(UserAuthority entity) {
-        return false;
+    public List<UserAuthority> findAll() throws DAOSystemException {
+        return findAll(SQL_SELECT_ALL, new UserAuthorityExtractor(),
+                Enricher.NULL);
+    }
+    @Override
+    public boolean create(UserAuthority entity) throws DAOSystemException {
+        return create(SQL_INSERT_ONE, entity, new UserAuthorityExtractor());
     }
 
     @Override
-    public boolean create(UserAuthority entity) {
-        return false;
+    public boolean update(UserAuthority entity) throws DAOSystemException {
+        return update(SQL_DELETE_ONE, entity, new UserAuthorityExtractor());
     }
 
     @Override
-    public boolean update(UserAuthority entity) {
-        throw new UnsupportedOperationException();
+    public boolean delete(UserAuthority entity) throws DAOSystemException {
+        return delete(SQL_DELETE_ONE, entity);
     }
 
-    @Override
-    public UserAuthority findEntity(Integer id) {
-        throw new UnsupportedOperationException();
+    public List<UserAuthority> findAllByUserId(int userId) throws DAOSystemException {
+        return findAllByInt(SQL_SELECT_BY_USER_ID, userId,  new UserAuthorityExtractor(),
+                Enricher.NULL);
     }
 }

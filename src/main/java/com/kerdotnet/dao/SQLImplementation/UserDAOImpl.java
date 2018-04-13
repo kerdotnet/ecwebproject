@@ -9,10 +9,6 @@ import com.kerdotnet.exceptions.DAOSystemException;
 import java.sql.*;
 import java.util.List;
 
-/**User DAO implementation
- * Yevhen Ivanov, 2018-04-07
- */
-
 public class UserDAOImpl extends AbstractDAO implements UserDAO {
 
     public static final String SQL_SELECT_ALL =
@@ -46,11 +42,6 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
     }
 
     @Override
-    public boolean delete(User entity) throws DAOSystemException {
-       return delete(SQL_DELETE_ONE, entity);
-    }
-
-    @Override
     public boolean create(User entity) throws DAOSystemException {
         return create(SQL_INSERT_ONE, entity, new UserExtractor());
     }
@@ -60,27 +51,14 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
         return update(SQL_DELETE_ONE, entity, new UserExtractor());
     }
 
+    @Override
+    public boolean delete(User entity) throws DAOSystemException {
+        return delete(SQL_DELETE_ONE, entity);
+    }
+
+    @Override
     public User findUserByUserName(String userName) throws DAOSystemException {
-        User user = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        try {
-            preparedStatement = connection.prepareStatement(SQL_SELECT_BY_USERNAME);
-            preparedStatement.setString(1, userName);
-            resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()){
-                UserExtractor userExtractor = new UserExtractor();
-                user = userExtractor.extractOne(resultSet);
-                UserEnricher userEnricher = new UserEnricher(new UserAuthorityDAOImpl(connection));
-                userEnricher.enrich(user);
-            }
-        } catch (SQLException e){
-            LOGGER.error("Unexpected error", e);
-            throw new DAOSystemException("Can't execute findUserByUserName method in UserDAOimpl", e);
-        } finally {
-            close(resultSet);
-            close(preparedStatement);
-        }
-        return user;
+        return (User) findUserByStringParameter(SQL_SELECT_BY_ID, userName,  new UserExtractor(),
+                new UserEnricher(new UserAuthorityDAOImpl(connection)));
     }
 }

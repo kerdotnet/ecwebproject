@@ -12,7 +12,8 @@ public class UserAuthority extends Entity {
     public UserAuthority() {
     }
 
-    public UserAuthority(int userId, int authorityId) {
+    public UserAuthority(int id, int userId, int authorityId) {
+        this.setId(id);
         this.userId = userId;
         this.authorityId = authorityId;
     }
@@ -33,11 +34,19 @@ public class UserAuthority extends Entity {
         this.authorityId = authorityId;
     }
 
+    public Authority getAuthority(){
+        return Authority.getById(authorityId);
+    }
+
+    public void setAuthority(Authority authority){
+        this.authorityId = authority.getAuthorityId();
+    }
+
     @Override
     public String toString() {
         return "UserAuthority{" +
                 "Id=" + getId() +
-                "userId=" + userId +
+                ", userId=" + userId +
                 ", authorityId='" + authorityId + '\'' +
                 '}';
     }

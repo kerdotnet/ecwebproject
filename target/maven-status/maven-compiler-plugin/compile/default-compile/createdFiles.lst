@@ -5,6 +5,7 @@ com\kerdotnet\dao\DAO.class
 com\kerdotnet\logic\LoginLogic.class
 com\kerdotnet\resource\MessageManager.class
 com\kerdotnet\dao\helpers\Extractor.class
+com\kerdotnet\beans\Authority.class
 com\kerdotnet\beans\UserAuthority.class
 com\kerdotnet\dao\factory\DAOManager$1.class
 com\kerdotnet\dao\helpers\UserEnricher.class
@@ -26,6 +27,7 @@ com\kerdotnet\controllers\SessionRequestContent.class
 com\kerdotnet\dao\helpers\Enricher.class
 com\kerdotnet\dao\UserDAO.class
 com\kerdotnet\dao\factory\DAOManager.class
+com\kerdotnet\dao\helpers\UserAuthorityExtractor.class
 com\kerdotnet\dao\SQLImplementation\AbstractDAO.class
 com\kerdotnet\dao\UserAuthorityDAO.class
 com\kerdotnet\exceptions\DAOSystemException.class

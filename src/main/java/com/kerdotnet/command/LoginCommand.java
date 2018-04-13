@@ -1,7 +1,10 @@
 package com.kerdotnet.command;
 
+import com.kerdotnet.beans.Authority;
 import com.kerdotnet.beans.User;
+import com.kerdotnet.beans.UserAuthority;
 import com.kerdotnet.dao.SQLImplementation.UserDAOImpl;
+import com.kerdotnet.dao.UserAuthorityDAO;
 import com.kerdotnet.dao.UserDAO;
 import com.kerdotnet.dao.factory.DAOEnum;
 import com.kerdotnet.dao.factory.DAOManager;
@@ -19,7 +22,7 @@ import java.util.List;
  * Yevhen Ivanov; 2018-04-09
  */
 
-public class LoginCommand implements ActionCommand{
+public class LoginCommand implements ActionCommand {
 
     private static final String PARAM_NAME_LOGIN = "login";
     private static final String PARAM_NAME_PASSWORD = "password";
@@ -28,17 +31,24 @@ public class LoginCommand implements ActionCommand{
     @Override
     public String execute(HttpServletRequest request) {
 
-
         //testing DAO
-        //delete these code
+        //DELETE THIS CODE
         DAOManager daoManager = DAOManager.getInstance();
         UserDAO userDAO = null;
+        UserAuthorityDAO uaDAO = null;
         try {
             userDAO = (UserDAO) daoManager.getDAO(DAOEnum.USER);
+            uaDAO = (UserAuthorityDAO) daoManager.getDAO(DAOEnum.USER_AUTHORITY);
             List<User> users = userDAO.findAll();
             for (User user :
                     users) {
                 System.out.println(user);
+                //if (user.getId() == 1){
+                UserAuthority ua = new UserAuthority();
+                ua.setUserId(user.getId());
+                ua.setAuthority(Authority.ADMINISTRATOR);
+                uaDAO.create(ua);
+                //}
             }
 
             System.out.println(userDAO.findEntity(1));
@@ -51,10 +61,10 @@ public class LoginCommand implements ActionCommand{
         }
 
         String page = null;
-        String login= request.getParameter(PARAM_NAME_LOGIN);
+        String login = request.getParameter(PARAM_NAME_LOGIN);
         String password = request.getParameter(PARAM_NAME_PASSWORD);
 
-        if (LoginLogic.checkLogin(login, password)){
+        if (LoginLogic.checkLogin(login, password)) {
             request.setAttribute("user", login);
             page = ConfigurationManager.getProperty("path.page.main");
             LOGGER.info("Login accomplished successfully, return page: " +

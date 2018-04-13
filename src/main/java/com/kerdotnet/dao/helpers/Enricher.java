@@ -7,6 +7,7 @@ import javax.ejb.NoSuchEntityException;
 
 /**
  * Helper class abstract Enricher
+ * enrich DAO with sub DAO
  * Yevhen Ivanov, 2018-04-12
  */
 

@@ -59,18 +59,19 @@ CREATE TABLE `user_authority` (
   `authority_id` int(11) NOT NULL,
   
   PRIMARY KEY (`id`),
-  
+  UNIQUE KEY `FK_USERAUTHORITY_idx` (`user_id`, `authority_id`),
   KEY `FK_USER_AUTHORITY_idx` (`user_id`),
   KEY `FK_AUTHORITY_idx` (`authority_id`),
   
   CONSTRAINT `FK_USER_AUTHORITY` 
   FOREIGN KEY (`user_id`)
-  REFERENCES `user` (`id`)
+  REFERENCES `user` (`id`),
   
   CONSTRAINT `FK_AUTHORITY` 
   FOREIGN KEY (`authority_id`)
   REFERENCES `authority` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `bookcatalog`
@@ -162,7 +163,7 @@ DROP TABLE IF EXISTS `bookshelf`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bookshelf` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(50) NOT NULL,
   
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -179,31 +180,112 @@ CREATE TABLE `bookitem` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `bookcatalog_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL,
-  `bookshelf_id` int(11) NOT NULL,
-  `bookshelf_adress` varchar(20) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `lastchange_time` DATETIME NOT NULL,
   `flag_enabled` boolean NOT NULL default TRUE,
   
   PRIMARY KEY (`id`),
   
-  KEY `FK_USER_AUTHORITY_BOOKITEM_idx` (`user_id`),
   KEY `FK_BOOKCATALOG_BOOKITEM_idx` (`bookcatalog_id`),
-  KEY `FK_BOOKSHELF_BOOKITEM_idx` (`bookshelf_id`),
+    
+  CONSTRAINT `FK_BOOKCATALOG_BOOKITEM` 
+  FOREIGN KEY (`bookcatalog_id`) 
+  REFERENCES `bookcatalog` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `bookitem_user`
+--
+
+DROP TABLE IF EXISTS `bookitem_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bookitem_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bookitem_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `date` DATE NOT NULL,
+  `flag_enabled` boolean NOT NULL default TRUE,
   
-  CONSTRAINT `FK_USER_AUTHORITY_BOOKITEM` 
+  PRIMARY KEY (`id`),
+  
+  KEY `FK_USER_USER_BOOKITEM_idx` (`user_id`),
+  KEY `FK_BOOKTIME_USER_BOOKITEM_idx` (`bookitem_id`),
+  
+  CONSTRAINT `FK_USER_USER_BOOKITEM` 
   FOREIGN KEY (`user_id`) 
   REFERENCES `user` (`id`),
   
-  CONSTRAINT `FK_BOOKCATALOG_BOOKITEM` 
-  FOREIGN KEY (`bookcatalog_id`) 
-  REFERENCES `bookcatalog` (`id`),
+  CONSTRAINT `FK_BOOKTIME_USER_BOOKITEM_` 
+  FOREIGN KEY (`bookitem_id`) 
+  REFERENCES `bookitem` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `bookitem_bookshelf`
+--
+
+DROP TABLE IF EXISTS `bookitem_bookshelf`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bookitem_bookshelf` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bookitem_id` int(11) NOT NULL,
+  `bookshelf_id` int(11) NOT NULL,
+  `bookshelf_adress` varchar(20) NOT NULL,
+  `flag_enabled` boolean NOT NULL default TRUE,
   
-  CONSTRAINT `FK_BOOKSHELF_BOOKITEM` 
+  
+  PRIMARY KEY (`id`),
+  
+  KEY `FK_BOOKITEM_BOOKSHEHLF_BOOKITEM_idx` (`bookitem_id`),
+  KEY `FK_BOOKITEM_BOOKSHEHLF_BOOKSHELF_idx` (`bookshelf_id`),
+    
+  CONSTRAINT `FK_BOOKITEM_BOOKSHEHLF_BOOKITEM` 
+  FOREIGN KEY (`bookitem_id`) 
+  REFERENCES `bookitem` (`id`),
+  
+  CONSTRAINT `FK_BOOKITEM_BOOKSHEHLF_BOOKSHELF` 
   FOREIGN KEY (`bookshelf_id`) 
   REFERENCES `bookshelf` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `transaction`
+--
+
+DROP TABLE IF EXISTS `transaction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transaction` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` DATETIME NOT NULL,
+  `bookitem_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `bookshelf_id` int(11) NOT NULL,
+  `bookshelf_adress` varchar(20) NOT NULL,
+  `flag_enabled` boolean NOT NULL default TRUE,
+  
+  PRIMARY KEY (`id`),
+  
+  KEY `FK_TRANSACTION_idx` (`bookitem_id`),
+  KEY `FK_TRANSACTION_BOOKSHEHLF_BOOKSHELF_idx` (`bookshelf_id`),
+  KEY `FK_TRANSACTION_USER_idx` (`user_id`),
+    
+  CONSTRAINT `FK_TRANSACTION` 
+  FOREIGN KEY (`bookitem_id`) 
+  REFERENCES `bookitem` (`id`),
+  
+  CONSTRAINT `FK_TRANSACTION_BOOKSHEHLF_BOOKSHELF` 
+  FOREIGN KEY (`bookshelf_id`) 
+  REFERENCES `bookshelf` (`id`),
+  
+  CONSTRAINT `FK_TRANSACTION_USER` 
+  FOREIGN KEY (`user_id`) 
+  REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 -- Working with Data ****************************************************************
 
@@ -302,8 +384,7 @@ VALUES
 (2,2),
 (2,3),
 (3,1),
-(4,2)
-;
+(4,2);
 
 /*!40000 ALTER TABLE `bookcatalog_author` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -351,16 +432,48 @@ UNLOCK TABLES;
 
 LOCK TABLES `bookitem` WRITE;
 
-INSERT INTO `bookitem` (`bookcatalog_id`, `description`,  `bookshelf_id`, `bookshelf_adress`, `user_id`,`lastchange_time`) 
+INSERT INTO `bookitem` (`bookcatalog_id`, `description`) 
 VALUES 
-(1, 'The first edition',    1, 'A1',    0, '2018-04-01 04:30:00'),
-(1, 'Потрепанный переплет', 1, 'A2',    0, '2018-04-01 04:30:00'),
-(2, 'SN 000123',            1, 'A3',    0, '2018-04-01 04:30:00'),
-(3, 'Издание 2017',         2, 'n1',    0, '2018-04-01 04:30:00'),
-(4, 'Издание 2018',         3, '3-1',   0, '2018-04-01 04:30:00'),
-(4, 'Издание 2015',         0,  '' ,    1, '2018-04-01 04:30:00')
-;
+(1, 'The first edition'),
+(1, 'Потрепанный переплет'),
+(2, 'SN 000123'),
+(3, 'Издание 2017'),
+(4, 'Издание 2018'),
+(4, 'Издание 2015');
 
+/*!40000 ALTER TABLE `bookitem` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `bookitem_user`
+--
+
+LOCK TABLES `bookitem_user` WRITE;
+
+INSERT INTO `bookitem_user` (`bookitem_id`, `user_id`, `date`)
+VALUES 
+(1, 1, "2018-02-18"),
+(2, 1, "2018-04-12");
+
+/*!40000 ALTER TABLE `bookitem_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `bookitem_bookshelf`
+--
+
+LOCK TABLES `bookitem_bookshelf` WRITE;
+
+INSERT INTO `bookitem_bookshelf` (`bookitem_id`, `bookshelf_id`, `bookshelf_adress`) 
+VALUES 
+(1, 1, "A1"),
+(2, 2, "A1"),
+(3, 3, "A1"),
+(4, 1, "A2"),
+(5, 2, "A2"),
+(6, 3, "A2");
+
+/*!40000 ALTER TABLE `bookitem_bookshelf` ENABLE KEYS */;
 UNLOCK TABLES;
 
 SET FOREIGN_KEY_CHECKS = 1;

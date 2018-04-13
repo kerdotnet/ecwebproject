@@ -1,9 +1,10 @@
 package com.kerdotnet.dao.factory;
 
 import com.kerdotnet.controllers.Controller;
-import com.kerdotnet.dao.AbstractDAO;
-import com.kerdotnet.dao.UserAuthorityDAO;
-import com.kerdotnet.dao.UserDAO;
+import com.kerdotnet.dao.DAO;
+import com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl;
+import com.kerdotnet.dao.SQLImplementation.UserDAOImpl;
+import com.kerdotnet.exceptions.DAOSystemException;
 import org.apache.log4j.Logger;
 
 import javax.naming.Context;
@@ -25,6 +26,7 @@ public class DAOManager {
     private Connection connection;
     static final Logger LOGGER = Logger.getLogger(Controller.class);
 
+
     private DAOManager() throws Exception {
         try
         {
@@ -40,11 +42,12 @@ public class DAOManager {
         }
     }
 
+
     public static DAOManager getInstance() {
         return DAOManagerSingleton.INSTANCE.get();
     }
 
-    public void open() throws SQLException {
+    public void open() throws DAOSystemException {
         try
         {
             if(this.connection == null
@@ -53,11 +56,11 @@ public class DAOManager {
         }
         catch(SQLException e) {
             LOGGER.error("Unexpected error", e);
-            throw e;
+            throw new DAOSystemException("DAO Manager exception", e);
         }
     }
 
-    public void close() throws SQLException {
+    public void close() throws DAOSystemException {
         try
         {
             if(this.connection != null
@@ -66,7 +69,7 @@ public class DAOManager {
         }
         catch(SQLException e) {
             LOGGER.error("Unexpected error", e);
-            throw e;
+            throw new DAOSystemException("DAO Manager exception", e);
         }
     }
 
@@ -98,7 +101,7 @@ public class DAOManager {
         }
     }
 
-    public AbstractDAO getDAO(DAOEnum daoType) throws SQLException
+    public DAO getDAO(DAOEnum daoType) throws DAOSystemException
     {
 
         try
@@ -109,18 +112,18 @@ public class DAOManager {
         }
         catch(SQLException e){
             LOGGER.error("Unexpected error", e);
-            throw e;
+            throw new DAOSystemException("DAO Manager exception", e);
         }
 
         switch(daoType)
         {
             case USER:
-                return new UserDAO(this.connection);
+                return new UserDAOImpl(this.connection);
             case USER_AUTHORITY:
-                return new UserAuthorityDAO(this.connection);
+                return new UserAuthorityDAOImpl(this.connection);
             default:{
                 LOGGER.error("Trying to link to a not existing DAO.");
-                throw new SQLException("Trying to link to an not existing DAO.");
+                throw new DAOSystemException("Trying to link to an not existing DAO.");
             }
         }
 

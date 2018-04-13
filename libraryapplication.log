@@ -782,7 +782,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.UserDAO.create(UserDAO.java:97)
+	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -827,7 +827,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.UserDAO.create(UserDAO.java:97)
+	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -872,7 +872,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.UserDAO.create(UserDAO.java:97)
+	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -897,7 +897,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-ERROR   2018-04-11 13:39:45,032 [http-bio-8080-exec-4] com.kerdotnet.dao.AbstractDAO  - Unexpected error
+ERROR   2018-04-11 13:39:45,032 [http-bio-8080-exec-4] com.kerdotnet.dao.SQLImplementation.AbstractDAO  - Unexpected error
 com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 'uname' for key 'FK_USER_USERNAME_idx'
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -917,7 +917,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.UserDAO.create(UserDAO.java:97)
+	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -967,7 +967,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.UserDAO.create(UserDAO.java:97)
+	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -1012,7 +1012,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.UserDAO.create(UserDAO.java:97)
+	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -1057,7 +1057,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.UserDAO.create(UserDAO.java:97)
+	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -1082,7 +1082,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-ERROR   2018-04-11 13:40:02,432 [http-bio-8080-exec-7] com.kerdotnet.dao.AbstractDAO  - Unexpected error
+ERROR   2018-04-11 13:40:02,432 [http-bio-8080-exec-7] com.kerdotnet.dao.SQLImplementation.AbstractDAO  - Unexpected error
 com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 'uname' for key 'FK_USER_USERNAME_idx'
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -1102,7 +1102,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.UserDAO.create(UserDAO.java:97)
+	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -1128,3 +1128,227 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
 	at java.base/java.lang.Thread.run(Thread.java:844)
 INFO    2018-04-11 13:40:02,433 [http-bio-8080-exec-7] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+INFO    2018-04-11 14:43:53,442 [http-bio-8080-exec-1] com.kerdotnet.command.factory.ActionFactory  - Action: null
+INFO    2018-04-11 14:43:59,772 [http-bio-8080-exec-5] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-11 14:43:59,778 [http-bio-8080-exec-5] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@624914cb
+INFO    2018-04-11 14:43:59,847 [http-bio-8080-exec-5] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-11 14:43:59,885 [http-bio-8080-exec-5] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-11 14:43:59,902 [http-bio-8080-exec-5] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1e35rwi1b4w9bc|ae5084d] registered.
+INFO    2018-04-11 14:43:59,912 [http-bio-8080-exec-5] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+DEBUG   2018-04-11 14:43:59,952 [http-bio-8080-exec-5] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 1
+DEBUG   2018-04-11 14:43:59,952 [http-bio-8080-exec-5] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 2
+DEBUG   2018-04-11 14:43:59,952 [http-bio-8080-exec-5] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 3
+DEBUG   2018-04-11 14:43:59,953 [http-bio-8080-exec-5] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 4
+DEBUG   2018-04-11 14:43:59,953 [http-bio-8080-exec-5] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 5
+DEBUG   2018-04-11 14:43:59,953 [http-bio-8080-exec-5] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 6
+DEBUG   2018-04-11 14:43:59,953 [http-bio-8080-exec-5] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 7
+DEBUG   2018-04-11 14:43:59,953 [http-bio-8080-exec-5] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 8
+DEBUG   2018-04-11 14:43:59,953 [http-bio-8080-exec-5] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 9
+DEBUG   2018-04-11 14:43:59,953 [http-bio-8080-exec-5] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 10
+DEBUG   2018-04-11 14:43:59,953 [http-bio-8080-exec-5] com.mchange.v2.resourcepool.BasicResourcePool  - com.mchange.v2.resourcepool.BasicResourcePool@14503321 config: [start -> 3; min -> 10; max -> 50; inc -> 10; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 0; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 0; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false]
+INFO    2018-04-11 14:43:59,956 [http-bio-8080-exec-5] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource  - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 10, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 2t7stv9u1e35rwi1b4w9bc|ae5084d, debugUnreturnedConnectionStackTraces -> false, description -> DB Container, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 2t7stv9u1e35rwi1b4w9bc|ae5084d, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/web_library?autoReconnect=true, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 50, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {password=******, user=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+DEBUG   2018-04-11 14:43:59,957 [http-bio-8080-exec-5] com.mchange.v2.resourcepool.BasicResourcePool  - acquire test -- pool size: 0; target_pool_size: 10; desired target? 1
+DEBUG   2018-04-11 14:43:59,957 [http-bio-8080-exec-5] com.mchange.v2.resourcepool.BasicResourcePool  - awaitAvailable(): [unknown]
+DEBUG   2018-04-11 14:43:59,957 [http-bio-8080-exec-5] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@14503321 [managed: 0, unused: 0, excluded: 0]
+DEBUG   2018-04-11 14:44:00,299 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@4e4d24c9.acquireResource() returning. 
+DEBUG   2018-04-11 14:44:00,299 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@4e4d24c9.acquireResource() returning. 
+DEBUG   2018-04-11 14:44:00,299 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@4e4d24c9.acquireResource() returning. 
+DEBUG   2018-04-11 14:44:00,301 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@14503321 [managed: 1, unused: 1, excluded: 0]
+DEBUG   2018-04-11 14:44:00,301 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 9
+DEBUG   2018-04-11 14:44:00,301 [http-bio-8080-exec-5] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@14503321 [managed: 1, unused: 0, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@a32ce5f)
+DEBUG   2018-04-11 14:44:00,302 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@14503321 [managed: 2, unused: 1, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@a32ce5f)
+DEBUG   2018-04-11 14:44:00,302 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@14503321 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@a32ce5f)
+DEBUG   2018-04-11 14:44:00,302 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 8
+DEBUG   2018-04-11 14:44:00,302 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 7
+DEBUG   2018-04-11 14:44:00,309 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@4e4d24c9.acquireResource() returning. 
+DEBUG   2018-04-11 14:44:00,309 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@4e4d24c9.acquireResource() returning. 
+DEBUG   2018-04-11 14:44:00,309 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@4e4d24c9.acquireResource() returning. 
+DEBUG   2018-04-11 14:44:00,309 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@14503321 [managed: 4, unused: 3, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@a32ce5f)
+DEBUG   2018-04-11 14:44:00,310 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@14503321 [managed: 5, unused: 4, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@a32ce5f)
+DEBUG   2018-04-11 14:44:00,310 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 6
+DEBUG   2018-04-11 14:44:00,310 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 5
+DEBUG   2018-04-11 14:44:00,310 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@14503321 [managed: 6, unused: 5, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@a32ce5f)
+DEBUG   2018-04-11 14:44:00,310 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 4
+DEBUG   2018-04-11 14:44:00,316 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@4e4d24c9.acquireResource() returning. 
+DEBUG   2018-04-11 14:44:00,316 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@4e4d24c9.acquireResource() returning. 
+DEBUG   2018-04-11 14:44:00,316 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@4e4d24c9.acquireResource() returning. 
+DEBUG   2018-04-11 14:44:00,316 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@14503321 [managed: 7, unused: 6, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@a32ce5f)
+DEBUG   2018-04-11 14:44:00,316 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@14503321 [managed: 8, unused: 7, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@a32ce5f)
+DEBUG   2018-04-11 14:44:00,316 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 3
+DEBUG   2018-04-11 14:44:00,316 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 2
+DEBUG   2018-04-11 14:44:00,316 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@14503321 [managed: 9, unused: 8, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@a32ce5f)
+DEBUG   2018-04-11 14:44:00,316 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 1
+DEBUG   2018-04-11 14:44:00,321 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@4e4d24c9.acquireResource() returning. 
+DEBUG   2018-04-11 14:44:00,321 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@14503321 [managed: 10, unused: 9, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@a32ce5f)
+DEBUG   2018-04-11 14:44:00,322 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 0
+INFO    2018-04-11 14:44:00,348 [http-bio-8080-exec-5] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+INFO    2018-04-12 16:27:21,725 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-12 16:27:21,730 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@212f65d6
+INFO    2018-04-12 16:27:21,787 [http-bio-8080-exec-2] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-12 16:27:21,822 [http-bio-8080-exec-2] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-12 16:27:21,840 [http-bio-8080-exec-2] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1fmak0kgw0ov6|71912736] registered.
+INFO    2018-04-12 16:27:21,849 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+DEBUG   2018-04-12 16:27:21,885 [http-bio-8080-exec-2] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 1
+DEBUG   2018-04-12 16:27:21,885 [http-bio-8080-exec-2] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 2
+DEBUG   2018-04-12 16:27:21,885 [http-bio-8080-exec-2] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 3
+DEBUG   2018-04-12 16:27:21,885 [http-bio-8080-exec-2] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 4
+DEBUG   2018-04-12 16:27:21,885 [http-bio-8080-exec-2] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 5
+DEBUG   2018-04-12 16:27:21,885 [http-bio-8080-exec-2] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 6
+DEBUG   2018-04-12 16:27:21,885 [http-bio-8080-exec-2] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 7
+DEBUG   2018-04-12 16:27:21,885 [http-bio-8080-exec-2] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 8
+DEBUG   2018-04-12 16:27:21,885 [http-bio-8080-exec-2] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 9
+DEBUG   2018-04-12 16:27:21,886 [http-bio-8080-exec-2] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 10
+DEBUG   2018-04-12 16:27:21,886 [http-bio-8080-exec-2] com.mchange.v2.resourcepool.BasicResourcePool  - com.mchange.v2.resourcepool.BasicResourcePool@2e732f24 config: [start -> 3; min -> 10; max -> 50; inc -> 10; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 0; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 0; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false]
+INFO    2018-04-12 16:27:21,888 [http-bio-8080-exec-2] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource  - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 10, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 2t7stv9u1fmak0kgw0ov6|71912736, debugUnreturnedConnectionStackTraces -> false, description -> DB Container, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 2t7stv9u1fmak0kgw0ov6|71912736, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/web_library?autoReconnect=true, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 50, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {password=******, user=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+DEBUG   2018-04-12 16:27:21,889 [http-bio-8080-exec-2] com.mchange.v2.resourcepool.BasicResourcePool  - acquire test -- pool size: 0; target_pool_size: 10; desired target? 1
+DEBUG   2018-04-12 16:27:21,889 [http-bio-8080-exec-2] com.mchange.v2.resourcepool.BasicResourcePool  - awaitAvailable(): [unknown]
+DEBUG   2018-04-12 16:27:21,889 [http-bio-8080-exec-2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@2e732f24 [managed: 0, unused: 0, excluded: 0]
+DEBUG   2018-04-12 16:27:22,145 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@39d32d21.acquireResource() returning. 
+DEBUG   2018-04-12 16:27:22,145 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@39d32d21.acquireResource() returning. 
+DEBUG   2018-04-12 16:27:22,145 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@39d32d21.acquireResource() returning. 
+DEBUG   2018-04-12 16:27:22,147 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@2e732f24 [managed: 1, unused: 1, excluded: 0]
+DEBUG   2018-04-12 16:27:22,147 [http-bio-8080-exec-2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@2e732f24 [managed: 1, unused: 0, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@21c828c2)
+DEBUG   2018-04-12 16:27:22,148 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@2e732f24 [managed: 2, unused: 1, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@21c828c2)
+DEBUG   2018-04-12 16:27:22,148 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 9
+DEBUG   2018-04-12 16:27:22,148 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@2e732f24 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@21c828c2)
+DEBUG   2018-04-12 16:27:22,148 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 8
+DEBUG   2018-04-12 16:27:22,148 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 7
+DEBUG   2018-04-12 16:27:22,154 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@39d32d21.acquireResource() returning. 
+DEBUG   2018-04-12 16:27:22,154 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@2e732f24 [managed: 4, unused: 3, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@21c828c2)
+DEBUG   2018-04-12 16:27:22,155 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 6
+DEBUG   2018-04-12 16:27:22,155 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@39d32d21.acquireResource() returning. 
+DEBUG   2018-04-12 16:27:22,155 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@2e732f24 [managed: 5, unused: 4, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@21c828c2)
+DEBUG   2018-04-12 16:27:22,155 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 5
+DEBUG   2018-04-12 16:27:22,156 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@39d32d21.acquireResource() returning. 
+DEBUG   2018-04-12 16:27:22,156 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@2e732f24 [managed: 6, unused: 5, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@21c828c2)
+DEBUG   2018-04-12 16:27:22,156 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 4
+DEBUG   2018-04-12 16:27:22,161 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@39d32d21.acquireResource() returning. 
+DEBUG   2018-04-12 16:27:22,162 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@2e732f24 [managed: 7, unused: 6, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@21c828c2)
+DEBUG   2018-04-12 16:27:22,162 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 3
+DEBUG   2018-04-12 16:27:22,162 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@39d32d21.acquireResource() returning. 
+DEBUG   2018-04-12 16:27:22,162 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@2e732f24 [managed: 8, unused: 7, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@21c828c2)
+DEBUG   2018-04-12 16:27:22,163 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 2
+DEBUG   2018-04-12 16:27:22,164 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@39d32d21.acquireResource() returning. 
+DEBUG   2018-04-12 16:27:22,164 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@2e732f24 [managed: 9, unused: 8, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@21c828c2)
+DEBUG   2018-04-12 16:27:22,164 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 1
+DEBUG   2018-04-12 16:27:22,168 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@39d32d21.acquireResource() returning. 
+DEBUG   2018-04-12 16:27:22,168 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@2e732f24 [managed: 10, unused: 9, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@21c828c2)
+DEBUG   2018-04-12 16:27:22,168 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 0
+INFO    2018-04-12 16:27:22,208 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+INFO    2018-04-12 16:27:43,389 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-12 16:27:43,389 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@212f65d6
+INFO    2018-04-12 16:27:43,390 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+DEBUG   2018-04-12 16:27:43,390 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@2e732f24 [managed: 10, unused: 8, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@21c828c2)
+INFO    2018-04-12 16:27:43,393 [http-bio-8080-exec-3] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+INFO    2018-04-12 16:27:44,797 [http-bio-8080-exec-4] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-12 16:27:44,798 [http-bio-8080-exec-4] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@212f65d6
+INFO    2018-04-12 16:27:44,798 [http-bio-8080-exec-4] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+DEBUG   2018-04-12 16:27:44,798 [http-bio-8080-exec-4] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@2e732f24 [managed: 10, unused: 7, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@21c828c2)
+INFO    2018-04-12 16:27:44,802 [http-bio-8080-exec-4] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+INFO    2018-04-12 16:36:30,048 [http-bio-8080-exec-1] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-12 16:36:30,056 [http-bio-8080-exec-1] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@7e017b1e
+INFO    2018-04-12 16:36:30,133 [http-bio-8080-exec-1] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-12 16:36:30,176 [http-bio-8080-exec-1] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-12 16:36:30,197 [http-bio-8080-exec-1] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1fmmb4k133zmlm|77cb49b1] registered.
+INFO    2018-04-12 16:36:30,209 [http-bio-8080-exec-1] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+DEBUG   2018-04-12 16:36:30,265 [http-bio-8080-exec-1] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 1
+DEBUG   2018-04-12 16:36:30,265 [http-bio-8080-exec-1] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 2
+DEBUG   2018-04-12 16:36:30,265 [http-bio-8080-exec-1] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 3
+DEBUG   2018-04-12 16:36:30,265 [http-bio-8080-exec-1] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 4
+DEBUG   2018-04-12 16:36:30,265 [http-bio-8080-exec-1] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 5
+DEBUG   2018-04-12 16:36:30,265 [http-bio-8080-exec-1] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 6
+DEBUG   2018-04-12 16:36:30,266 [http-bio-8080-exec-1] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 7
+DEBUG   2018-04-12 16:36:30,266 [http-bio-8080-exec-1] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 8
+DEBUG   2018-04-12 16:36:30,266 [http-bio-8080-exec-1] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 9
+DEBUG   2018-04-12 16:36:30,266 [http-bio-8080-exec-1] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 10
+DEBUG   2018-04-12 16:36:30,266 [http-bio-8080-exec-1] com.mchange.v2.resourcepool.BasicResourcePool  - com.mchange.v2.resourcepool.BasicResourcePool@255f5b4 config: [start -> 3; min -> 10; max -> 50; inc -> 10; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 0; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 0; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false]
+INFO    2018-04-12 16:36:30,268 [http-bio-8080-exec-1] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource  - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 10, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 2t7stv9u1fmmb4k133zmlm|77cb49b1, debugUnreturnedConnectionStackTraces -> false, description -> DB Container, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 2t7stv9u1fmmb4k133zmlm|77cb49b1, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/web_library?autoReconnect=true, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 50, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {password=******, user=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+DEBUG   2018-04-12 16:36:30,269 [http-bio-8080-exec-1] com.mchange.v2.resourcepool.BasicResourcePool  - acquire test -- pool size: 0; target_pool_size: 10; desired target? 1
+DEBUG   2018-04-12 16:36:30,269 [http-bio-8080-exec-1] com.mchange.v2.resourcepool.BasicResourcePool  - awaitAvailable(): [unknown]
+DEBUG   2018-04-12 16:36:30,269 [http-bio-8080-exec-1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@255f5b4 [managed: 0, unused: 0, excluded: 0]
+DEBUG   2018-04-12 16:36:30,575 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@6adf90eb.acquireResource() returning. 
+DEBUG   2018-04-12 16:36:30,575 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@6adf90eb.acquireResource() returning. 
+DEBUG   2018-04-12 16:36:30,575 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@6adf90eb.acquireResource() returning. 
+DEBUG   2018-04-12 16:36:30,576 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@255f5b4 [managed: 1, unused: 1, excluded: 0]
+DEBUG   2018-04-12 16:36:30,576 [http-bio-8080-exec-1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@255f5b4 [managed: 1, unused: 0, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@18eeeea6)
+DEBUG   2018-04-12 16:36:30,576 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@255f5b4 [managed: 2, unused: 1, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@18eeeea6)
+DEBUG   2018-04-12 16:36:30,576 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 9
+DEBUG   2018-04-12 16:36:30,576 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@255f5b4 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@18eeeea6)
+DEBUG   2018-04-12 16:36:30,577 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 8
+DEBUG   2018-04-12 16:36:30,577 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 7
+DEBUG   2018-04-12 16:36:30,583 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@6adf90eb.acquireResource() returning. 
+DEBUG   2018-04-12 16:36:30,584 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@255f5b4 [managed: 4, unused: 3, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@18eeeea6)
+DEBUG   2018-04-12 16:36:30,584 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 6
+DEBUG   2018-04-12 16:36:30,584 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@6adf90eb.acquireResource() returning. 
+DEBUG   2018-04-12 16:36:30,584 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@6adf90eb.acquireResource() returning. 
+DEBUG   2018-04-12 16:36:30,584 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@255f5b4 [managed: 5, unused: 4, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@18eeeea6)
+DEBUG   2018-04-12 16:36:30,584 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 5
+DEBUG   2018-04-12 16:36:30,585 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@255f5b4 [managed: 6, unused: 5, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@18eeeea6)
+DEBUG   2018-04-12 16:36:30,585 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 4
+DEBUG   2018-04-12 16:36:30,596 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@6adf90eb.acquireResource() returning. 
+DEBUG   2018-04-12 16:36:30,596 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@6adf90eb.acquireResource() returning. 
+DEBUG   2018-04-12 16:36:30,596 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@6adf90eb.acquireResource() returning. 
+DEBUG   2018-04-12 16:36:30,597 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@255f5b4 [managed: 7, unused: 6, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@18eeeea6)
+DEBUG   2018-04-12 16:36:30,597 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@255f5b4 [managed: 8, unused: 7, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@18eeeea6)
+DEBUG   2018-04-12 16:36:30,597 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 3
+DEBUG   2018-04-12 16:36:30,597 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@255f5b4 [managed: 9, unused: 8, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@18eeeea6)
+DEBUG   2018-04-12 16:36:30,597 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 2
+DEBUG   2018-04-12 16:36:30,597 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 1
+DEBUG   2018-04-12 16:36:30,605 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@6adf90eb.acquireResource() returning. 
+DEBUG   2018-04-12 16:36:30,605 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@255f5b4 [managed: 10, unused: 9, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@18eeeea6)
+DEBUG   2018-04-12 16:36:30,605 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 0
+INFO    2018-04-12 16:36:30,662 [http-bio-8080-exec-1] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+INFO    2018-04-13 09:43:04,609 [http-bio-8080-exec-1] com.kerdotnet.command.factory.ActionFactory  - Action: null
+INFO    2018-04-13 09:43:09,167 [http-bio-8080-exec-9] com.kerdotnet.command.factory.ActionFactory  - Action: login
+INFO    2018-04-13 09:43:09,186 [http-bio-8080-exec-9] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@56b04613
+INFO    2018-04-13 09:43:09,298 [http-bio-8080-exec-9] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-13 09:43:09,337 [http-bio-8080-exec-9] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-13 09:43:09,363 [http-bio-8080-exec-9] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7stv9u1gnalce1f6ip4s|87d8d23] registered.
+INFO    2018-04-13 09:43:09,374 [http-bio-8080-exec-9] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+DEBUG   2018-04-13 09:43:09,416 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 1
+DEBUG   2018-04-13 09:43:09,417 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 2
+DEBUG   2018-04-13 09:43:09,417 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 3
+DEBUG   2018-04-13 09:43:09,417 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 4
+DEBUG   2018-04-13 09:43:09,417 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 5
+DEBUG   2018-04-13 09:43:09,417 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 6
+DEBUG   2018-04-13 09:43:09,417 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 7
+DEBUG   2018-04-13 09:43:09,417 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 8
+DEBUG   2018-04-13 09:43:09,417 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 9
+DEBUG   2018-04-13 09:43:09,417 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 10
+DEBUG   2018-04-13 09:43:09,417 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - com.mchange.v2.resourcepool.BasicResourcePool@4310c4af config: [start -> 3; min -> 10; max -> 50; inc -> 10; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 0; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 0; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false]
+INFO    2018-04-13 09:43:09,420 [http-bio-8080-exec-9] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource  - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 10, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 2t7stv9u1gnalce1f6ip4s|87d8d23, debugUnreturnedConnectionStackTraces -> false, description -> DB Container, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 2t7stv9u1gnalce1f6ip4s|87d8d23, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/web_library?autoReconnect=true, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 50, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {password=******, user=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+DEBUG   2018-04-13 09:43:09,420 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - acquire test -- pool size: 0; target_pool_size: 10; desired target? 1
+DEBUG   2018-04-13 09:43:09,420 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - awaitAvailable(): [unknown]
+DEBUG   2018-04-13 09:43:09,420 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@4310c4af [managed: 0, unused: 0, excluded: 0]
+DEBUG   2018-04-13 09:43:09,694 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@2925027d.acquireResource() returning. 
+DEBUG   2018-04-13 09:43:09,694 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@2925027d.acquireResource() returning. 
+DEBUG   2018-04-13 09:43:09,694 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@2925027d.acquireResource() returning. 
+DEBUG   2018-04-13 09:43:09,694 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@4310c4af [managed: 1, unused: 1, excluded: 0]
+DEBUG   2018-04-13 09:43:09,695 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 9
+DEBUG   2018-04-13 09:43:09,695 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@4310c4af [managed: 2, unused: 1, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@4e268ba)
+DEBUG   2018-04-13 09:43:09,695 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 8
+DEBUG   2018-04-13 09:43:09,695 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@4310c4af [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@4e268ba)
+DEBUG   2018-04-13 09:43:09,695 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 7
+DEBUG   2018-04-13 09:43:09,695 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@4310c4af [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@4e268ba)
+DEBUG   2018-04-13 09:43:09,702 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@2925027d.acquireResource() returning. 
+DEBUG   2018-04-13 09:43:09,702 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@2925027d.acquireResource() returning. 
+DEBUG   2018-04-13 09:43:09,703 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@4310c4af [managed: 4, unused: 3, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@4e268ba)
+DEBUG   2018-04-13 09:43:09,703 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@4310c4af [managed: 5, unused: 4, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@4e268ba)
+DEBUG   2018-04-13 09:43:09,703 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 6
+DEBUG   2018-04-13 09:43:09,703 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 5
+DEBUG   2018-04-13 09:43:09,704 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@2925027d.acquireResource() returning. 
+DEBUG   2018-04-13 09:43:09,704 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@4310c4af [managed: 6, unused: 5, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@4e268ba)
+DEBUG   2018-04-13 09:43:09,704 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 4
+DEBUG   2018-04-13 09:43:09,711 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@2925027d.acquireResource() returning. 
+DEBUG   2018-04-13 09:43:09,711 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@4310c4af [managed: 7, unused: 6, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@4e268ba)
+DEBUG   2018-04-13 09:43:09,711 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@2925027d.acquireResource() returning. 
+DEBUG   2018-04-13 09:43:09,711 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@2925027d.acquireResource() returning. 
+DEBUG   2018-04-13 09:43:09,711 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 3
+DEBUG   2018-04-13 09:43:09,712 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@4310c4af [managed: 8, unused: 7, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@4e268ba)
+DEBUG   2018-04-13 09:43:09,712 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 2
+DEBUG   2018-04-13 09:43:09,712 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@4310c4af [managed: 9, unused: 8, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@4e268ba)
+DEBUG   2018-04-13 09:43:09,712 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 1
+DEBUG   2018-04-13 09:43:09,716 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@2925027d.acquireResource() returning. 
+DEBUG   2018-04-13 09:43:09,716 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@4310c4af [managed: 10, unused: 9, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@4e268ba)
+DEBUG   2018-04-13 09:43:09,716 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 0
+INFO    2018-04-13 09:43:09,766 [http-bio-8080-exec-9] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp

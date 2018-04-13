@@ -20,12 +20,13 @@ public class User extends Entity{
     public User() {
     }
 
-    public User(String username, String password, String emailId,
+    public User(int id, String username, String password, String email,
                 String firstName, String lastName,
-                String mobile, boolean enabled, List<UserAuthority> authorities) {
+                String mobile, boolean enabled) {
+        this.setId(id);
         this.username = username;
         this.password = password;
-        this.email = emailId;
+        this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.mobile  = mobile;

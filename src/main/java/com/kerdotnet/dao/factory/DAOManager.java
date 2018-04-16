@@ -20,7 +20,7 @@ import java.sql.SQLException;
  * Yevhen Ivanov 2018-04-11
  */
 
-public class DAOManager {
+public class DAOManager implements AutoCloseable{
 
     private DataSource dataSource;
     private Connection connection;
@@ -34,7 +34,7 @@ public class DAOManager {
             Context envContext = (Context)initContext.lookup("java:/comp/env");
             dataSource = (DataSource) envContext.lookup("jdbc/libraryDB");
 
-            LOGGER.info("DataSource was successfully initialized");
+            LOGGER.debug("DataSource was successfully initialized");
         }
         catch(Exception e) {
             LOGGER.error("Unexpected error", e);

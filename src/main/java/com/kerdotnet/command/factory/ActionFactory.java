@@ -20,7 +20,7 @@ public class ActionFactory {
         ActionCommand current = new EmptyCommand();
 
         String action = request.getParameter("command");
-        LOGGER.info("Action: " + action);
+        LOGGER.debug("Action: " + action);
 
         if (action == null || action.isEmpty()){
             return current;
@@ -30,7 +30,7 @@ public class ActionFactory {
             CommandEnum currentEnum =
                     CommandEnum.valueOf(action.toUpperCase());
             current = currentEnum.getCurrentCommand();
-            LOGGER.info("current command: " + current);
+            LOGGER.debug("current command: " + current);
         } catch (IllegalArgumentException e){
             LOGGER.error("Unexpected error", e);
             request.setAttribute("wrongAction", action +

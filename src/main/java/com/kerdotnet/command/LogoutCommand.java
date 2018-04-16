@@ -16,13 +16,9 @@ public class LogoutCommand implements ActionCommand{
     public String execute(HttpServletRequest request) {
         String page = null;
 
-        if (LoginLogic.logout()){
-            page = ConfigurationManager.getProperty("path.page.login");
-        } else {
-            request.setAttribute("errorLoginPassMessage",
-                    MessageManager.getProperty("message.loginerror"));
-            page = ConfigurationManager.getProperty("path.page.login");
-        }
+        request.getSession().invalidate();
+        page = ConfigurationManager.getProperty("path.page.login");
+
         return page;
     }
 }

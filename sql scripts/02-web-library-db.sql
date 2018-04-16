@@ -17,7 +17,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT, 
   `username` varchar(50) NOT NULL,
-  `password` char(68) NOT NULL,
+  `password` char(60) NOT NULL,
   `email` varchar(255) NOT NULL,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
@@ -298,10 +298,10 @@ LOCK TABLES `user` WRITE;
 
 INSERT INTO `user`  (`username`, `password`, `email`, `first_name`, `last_name`, `mobile`, `flag_enabled`)
 VALUES 
-	('kerdotnet','{bcrypt}$2y$10$SqJfO2qBQ7oy3PzWNEVwUeNXc12SijvCudykYFbt7VVEGJRMA7tyK','evgenys.ivanov@gmail.com','Евгений','Иванов', '+380952711261', 1),
-	('marylogin','{bcrypt}$2y$10$rGwm3NiPYLtp7RhNx7ChIeGhimxm.Sz06GdzHYexbnK2x9T4.6Ydy','mary_ecproj@gmail.com','Mary','Grunvald', '+380951112233', 1),
-	('susanlogin','{bcrypt}$2y$10$Ja.P9VEbf9rVB7JjHDfO6.sPbMaSlCaelFhjS0gL5wuO3tVJjMCka','susan_ecproj@gmail.com','Susan','Zimmerman', '+380951114433', 1),
-    ('piterlogin','{bcrypt}$2y$10$Ja.P9VEbf9rVB7JjHDfO6.sPbMaSlCaelFhjS0gL5wuO3tVJjMCka','piter_ecproj@gmail.com','Piter','Sipula', '+380951112200', 1);
+	('kerdotnet','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','evgenys.ivanov@gmail.com','Евгений','Иванов', '+380952711261', 1),
+	('marylogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','mary_ecproj@gmail.com','Mary','Grunvald', '+380951112233', 1),
+	('susanlogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','susan_ecproj@gmail.com','Susan','Zimmerman', '+380951114433', 1),
+    ('piterlogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','piter_ecproj@gmail.com','Piter','Sipula', '+380951112200', 1);
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;

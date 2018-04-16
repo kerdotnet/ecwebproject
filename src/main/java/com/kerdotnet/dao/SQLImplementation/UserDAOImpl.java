@@ -58,7 +58,7 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
 
     @Override
     public User findUserByUserName(String userName) throws DAOSystemException {
-        return (User) findUserByStringParameter(SQL_SELECT_BY_ID, userName,  new UserExtractor(),
+        return (User) findUserByStringParameter(SQL_SELECT_BY_USERNAME, userName,  new UserExtractor(),
                 new UserEnricher(new UserAuthorityDAOImpl(connection)));
     }
 }

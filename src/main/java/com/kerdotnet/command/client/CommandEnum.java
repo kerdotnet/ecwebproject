@@ -1,8 +1,6 @@
 package com.kerdotnet.command.client;
 
-import com.kerdotnet.command.ActionCommand;
-import com.kerdotnet.command.LoginCommand;
-import com.kerdotnet.command.LogoutCommand;
+import com.kerdotnet.command.*;
 
 /**
  * Command Enum which contains all commands in the application
@@ -13,6 +11,16 @@ public enum CommandEnum {
     LOGIN{
         {
             this.command = new LoginCommand();
+        }
+    },
+    REGISTRATION{
+        {
+            this.command = new RegistrationCommand();
+        }
+    },
+    ADDUSER{
+        {
+            this.command = new AddUserCommand();
         }
     },
     LOGOUT{

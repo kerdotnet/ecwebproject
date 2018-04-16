@@ -1,4 +1,3 @@
-
 <%@ page isErrorPage="true"%>
 <%@include file="common/header.jspf"%>
 <%@include file="common/navigation.jspf"%>

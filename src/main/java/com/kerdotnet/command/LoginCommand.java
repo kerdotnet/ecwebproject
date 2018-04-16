@@ -31,49 +31,22 @@ public class LoginCommand implements ActionCommand {
     @Override
     public String execute(HttpServletRequest request) {
 
-        //testing DAO
-        //DELETE THIS CODE
-        DAOManager daoManager = DAOManager.getInstance();
-        UserDAO userDAO = null;
-        UserAuthorityDAO uaDAO = null;
-        try {
-            userDAO = (UserDAO) daoManager.getDAO(DAOEnum.USER);
-            uaDAO = (UserAuthorityDAO) daoManager.getDAO(DAOEnum.USER_AUTHORITY);
-            List<User> users = userDAO.findAll();
-            for (User user :
-                    users) {
-                System.out.println(user);
-                //if (user.getId() == 1){
-                UserAuthority ua = new UserAuthority();
-                ua.setUserId(user.getId());
-                ua.setAuthority(Authority.ADMINISTRATOR);
-                uaDAO.create(ua);
-                //}
-            }
-
-            System.out.println(userDAO.findEntity(1));
-            System.out.println(userDAO.findEntity(1));
-            System.out.println(userDAO.findEntity(2));
-            System.out.println(userDAO.findEntity(2));
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
         String page = null;
         String login = request.getParameter(PARAM_NAME_LOGIN);
         String password = request.getParameter(PARAM_NAME_PASSWORD);
+        LOGGER.debug(login);
+        LOGGER.debug(password);
 
         if (LoginLogic.checkLogin(login, password)) {
             request.setAttribute("user", login);
             page = ConfigurationManager.getProperty("path.page.main");
-            LOGGER.info("Login accomplished successfully, return page: " +
+            LOGGER.debug("Login accomplished successfully, return page: " +
                     page);
         } else {
             request.setAttribute("errorLoginPassMessage",
                     MessageManager.getProperty("message.loginerror"));
             page = ConfigurationManager.getProperty("path.page.login");
-            LOGGER.info("Error login, return page: " +
+            LOGGER.debug("Error login, return page: " +
                     page);
         }
         return page;

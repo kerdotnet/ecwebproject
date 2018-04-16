@@ -34,6 +34,19 @@ public class User extends Entity{
         this.authorities = authorities;
     }
 
+    public User(String username, String password, String email,
+                String firstName, String lastName,
+                String mobile, boolean enabled) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mobile  = mobile;
+        this.enabled = enabled;
+        this.authorities = authorities;
+    }
+
     public String getUsername() {
         return username;
     }

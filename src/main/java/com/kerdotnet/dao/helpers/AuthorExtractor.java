@@ -17,8 +17,8 @@ public class AuthorExtractor extends Extractor<Author> {
     public Author extractOne(ResultSet rs) throws SQLException {
         int id = rs.getInt("id");
         String name = rs.getString("name");
-        String description = rs.getString("name");
-        boolean isEnabled = rs.getBoolean("flag_user");
+        String description = rs.getString("description");
+        boolean isEnabled = rs.getBoolean("flag_enabled");
 
         return new Author(id, name, description, isEnabled);
     }

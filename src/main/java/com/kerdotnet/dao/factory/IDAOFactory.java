@@ -1,8 +1,6 @@
 package com.kerdotnet.dao.factory;
 
-import com.kerdotnet.dao.IDAO;
-import com.kerdotnet.dao.IUserAuthorityDAO;
-import com.kerdotnet.dao.IUserDAO;
+import com.kerdotnet.dao.*;
 import com.kerdotnet.exceptions.DAOSystemException;
 
 /**
@@ -14,7 +12,14 @@ public interface IDAOFactory extends AutoCloseable{
     IDAO getDAO(DAOEnum daoType) throws DAOSystemException;
 
     IUserDAO getUserDAO() throws DAOSystemException;
+    IAuthorityDAO getAuthorityDAO() throws DAOSystemException;
     IUserAuthorityDAO getUserAuthorityDAO() throws DAOSystemException;
+    IBookCatalogDAO getBookCatalogDAO() throws DAOSystemException;
+    IBookCatalogAuthorDAO getBookCatalogAuthorDAO() throws DAOSystemException;
+    IAuthorDAO getAuthorDAO() throws DAOSystemException;
+    IBookItemDAO getBookItemDAO() throws DAOSystemException;
+    IBookItemUserDAO getBookItemUserDAO() throws DAOSystemException;
+    ITransactionDAO getTransactionDAO() throws DAOSystemException;
 
     void close() throws DAOSystemException;
 }

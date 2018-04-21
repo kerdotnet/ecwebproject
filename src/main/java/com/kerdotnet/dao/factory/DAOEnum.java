@@ -9,5 +9,12 @@ package com.kerdotnet.dao.factory;
 
 public enum DAOEnum {
     USER,
-    USER_AUTHORITY
+    USER_AUTHORITY,
+    AUTHORITY,
+    AUTHOR,
+    BOOK_CATALOG,
+    BOOK_CATALOG_AUTHOR,
+    BOOK_ITEM,
+    BOOK_ITEM_USER,
+    TRANSACTION
 }

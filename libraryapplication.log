@@ -5073,3 +5073,298 @@ DEBUG   2018-04-21 14:12:09,690 [http-bio-8080-exec-2] com.kerdotnet.command.fac
 DEBUG   2018-04-21 14:12:09,724 [http-bio-8080-exec-2] com.kerdotnet.dao.factory.MySQLDAOFactory  - DataSource was successfully initialized
 DEBUG   2018-04-21 14:12:10,055 [http-bio-8080-exec-2] com.kerdotnet.logic.LoginLogic  - Retrieved user: null for login String: dfgb
 DEBUG   2018-04-21 14:12:10,063 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+DEBUG   2018-04-21 15:03:03,458 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-21 15:03:03,465 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@242445dd
+DEBUG   2018-04-21 15:03:03,497 [http-bio-8080-exec-2] com.kerdotnet.dao.factory.MySQLDAOFactory  - DataSource was successfully initialized
+DEBUG   2018-04-21 15:03:03,888 [http-bio-8080-exec-2] com.kerdotnet.logic.LoginLogic  - Retrieved user: User{id='1'username='kerdotnet', password='$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG', email='evgenys.ivanov@gmail.com', firstName='Евгений', lastName='Иванов', mobile='+380952711261', enabled=true, authorities=[UserAuthority{Id=2, userId=1, authorityId='1'}, UserAuthority{Id=1, userId=1, authorityId='2'}]} for login String: kerdotnet
+DEBUG   2018-04-21 15:03:04,303 [http-bio-8080-exec-2] com.kerdotnet.logic.LoginLogic  - Validation was done successfully
+DEBUG   2018-04-21 15:03:04,308 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /WEB-INF/views/main.jsp
+DEBUG   2018-04-21 15:03:08,619 [http-bio-8080-exec-4] com.kerdotnet.command.factory.ActionFactory  - Action: logout
+DEBUG   2018-04-21 15:03:08,620 [http-bio-8080-exec-4] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LogoutCommand@75a120aa
+DEBUG   2018-04-21 15:18:45,210 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-21 15:18:45,216 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@24bdb3fc
+DEBUG   2018-04-21 15:18:45,248 [http-bio-8080-exec-2] com.kerdotnet.dao.factory.MySQLDAOFactory  - DataSource was successfully initialized
+ERROR   2018-04-21 15:18:45,556 [http-bio-8080-exec-2] com.kerdotnet.dao.MySQLImplementation.AbstractDAO  - Unexpected error
+java.sql.SQLException: Column 'flag_user' not found.
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:898)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:887)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:861)
+	at com.mysql.jdbc.ResultSetImpl.findColumn(ResultSetImpl.java:1080)
+	at com.mysql.jdbc.ResultSetImpl.getBoolean(ResultSetImpl.java:1634)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingResultSet.getBoolean(DelegatingResultSet.java:266)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingResultSet.getBoolean(DelegatingResultSet.java:266)
+	at com.kerdotnet.dao.helpers.AuthorExtractor.extractOne(AuthorExtractor.java:21)
+	at com.kerdotnet.dao.helpers.AuthorExtractor.extractOne(AuthorExtractor.java:14)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.findAll(AbstractDAO.java:81)
+	at com.kerdotnet.dao.MySQLImplementation.AuthorDAOImpl.findAll(AuthorDAOImpl.java:38)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:47)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:32)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:46)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:34)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+ERROR   2018-04-21 15:18:45,558 [http-bio-8080-exec-2] com.kerdotnet.logic.LoginLogic  - Error in the login validation
+com.kerdotnet.exceptions.DAOSystemException: Can't execute findAll method in UserDAOimpl SELECT * FROM author
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.findAll(AbstractDAO.java:88)
+	at com.kerdotnet.dao.MySQLImplementation.AuthorDAOImpl.findAll(AuthorDAOImpl.java:38)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:47)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:32)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:46)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:34)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: java.sql.SQLException: Column 'flag_user' not found.
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:898)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:887)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:861)
+	at com.mysql.jdbc.ResultSetImpl.findColumn(ResultSetImpl.java:1080)
+	at com.mysql.jdbc.ResultSetImpl.getBoolean(ResultSetImpl.java:1634)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingResultSet.getBoolean(DelegatingResultSet.java:266)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingResultSet.getBoolean(DelegatingResultSet.java:266)
+	at com.kerdotnet.dao.helpers.AuthorExtractor.extractOne(AuthorExtractor.java:21)
+	at com.kerdotnet.dao.helpers.AuthorExtractor.extractOne(AuthorExtractor.java:14)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.findAll(AbstractDAO.java:81)
+	... 26 more
+DEBUG   2018-04-21 15:18:45,581 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - Error in business logic, return page: /WEB-INF/views/error.jsp
+DEBUG   2018-04-21 15:18:45,581 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+DEBUG   2018-04-21 15:21:54,297 [http-bio-8080-exec-1] com.kerdotnet.command.factory.ActionFactory  - Action: null
+DEBUG   2018-04-21 15:21:59,924 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-21 15:21:59,931 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@3505d9b
+DEBUG   2018-04-21 15:21:59,972 [http-bio-8080-exec-2] com.kerdotnet.dao.factory.MySQLDAOFactory  - DataSource was successfully initialized
+ERROR   2018-04-21 15:22:00,440 [http-bio-8080-exec-2] com.kerdotnet.dao.MySQLImplementation.AbstractDAO  - Unexpected error
+java.sql.SQLException: Column 'bookshelf_address' not found.
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:898)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:887)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:861)
+	at com.mysql.jdbc.ResultSetImpl.findColumn(ResultSetImpl.java:1080)
+	at com.mysql.jdbc.ResultSetImpl.getString(ResultSetImpl.java:5177)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingResultSet.getString(DelegatingResultSet.java:263)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingResultSet.getString(DelegatingResultSet.java:263)
+	at com.kerdotnet.dao.helpers.BookItemExtractor.extractOne(BookItemExtractor.java:22)
+	at com.kerdotnet.dao.helpers.BookItemExtractor.extractOne(BookItemExtractor.java:14)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.findAll(AbstractDAO.java:81)
+	at com.kerdotnet.dao.MySQLImplementation.BookItemDAOImpl.findAll(BookItemDAOImpl.java:38)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:50)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:32)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:46)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:34)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+ERROR   2018-04-21 15:22:00,443 [http-bio-8080-exec-2] com.kerdotnet.logic.LoginLogic  - Error in the login validation
+com.kerdotnet.exceptions.DAOSystemException: Can't execute findAll method in UserDAOimpl SELECT * FROM bookitem
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.findAll(AbstractDAO.java:88)
+	at com.kerdotnet.dao.MySQLImplementation.BookItemDAOImpl.findAll(BookItemDAOImpl.java:38)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:50)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:32)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:46)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:34)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: java.sql.SQLException: Column 'bookshelf_address' not found.
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:898)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:887)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:861)
+	at com.mysql.jdbc.ResultSetImpl.findColumn(ResultSetImpl.java:1080)
+	at com.mysql.jdbc.ResultSetImpl.getString(ResultSetImpl.java:5177)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingResultSet.getString(DelegatingResultSet.java:263)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingResultSet.getString(DelegatingResultSet.java:263)
+	at com.kerdotnet.dao.helpers.BookItemExtractor.extractOne(BookItemExtractor.java:22)
+	at com.kerdotnet.dao.helpers.BookItemExtractor.extractOne(BookItemExtractor.java:14)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.findAll(AbstractDAO.java:81)
+	... 26 more
+DEBUG   2018-04-21 15:22:00,453 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - Error in business logic, return page: /WEB-INF/views/error.jsp
+DEBUG   2018-04-21 15:22:00,454 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+DEBUG   2018-04-21 15:24:50,055 [http-bio-8080-exec-1] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-21 15:24:50,062 [http-bio-8080-exec-1] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@6426da19
+DEBUG   2018-04-21 15:24:50,096 [http-bio-8080-exec-1] com.kerdotnet.dao.factory.MySQLDAOFactory  - DataSource was successfully initialized
+ERROR   2018-04-21 15:24:50,467 [http-bio-8080-exec-1] com.kerdotnet.dao.MySQLImplementation.AbstractDAO  - Unexpected error
+java.sql.SQLException: Column 'bookshelf_address' not found.
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:898)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:887)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:861)
+	at com.mysql.jdbc.ResultSetImpl.findColumn(ResultSetImpl.java:1080)
+	at com.mysql.jdbc.ResultSetImpl.getString(ResultSetImpl.java:5177)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingResultSet.getString(DelegatingResultSet.java:263)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingResultSet.getString(DelegatingResultSet.java:263)
+	at com.kerdotnet.dao.helpers.BookItemExtractor.extractOne(BookItemExtractor.java:22)
+	at com.kerdotnet.dao.helpers.BookItemExtractor.extractOne(BookItemExtractor.java:14)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.findAll(AbstractDAO.java:81)
+	at com.kerdotnet.dao.MySQLImplementation.BookItemDAOImpl.findAll(BookItemDAOImpl.java:38)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:50)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:32)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:46)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:34)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+ERROR   2018-04-21 15:24:50,470 [http-bio-8080-exec-1] com.kerdotnet.logic.LoginLogic  - Error in the login validation
+com.kerdotnet.exceptions.DAOSystemException: Can't execute findAll method in UserDAOimpl SELECT * FROM bookitem
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.findAll(AbstractDAO.java:88)
+	at com.kerdotnet.dao.MySQLImplementation.BookItemDAOImpl.findAll(BookItemDAOImpl.java:38)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:50)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:32)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:46)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:34)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: java.sql.SQLException: Column 'bookshelf_address' not found.
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:898)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:887)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:861)
+	at com.mysql.jdbc.ResultSetImpl.findColumn(ResultSetImpl.java:1080)
+	at com.mysql.jdbc.ResultSetImpl.getString(ResultSetImpl.java:5177)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingResultSet.getString(DelegatingResultSet.java:263)
+	at org.apache.tomcat.dbcp.dbcp.DelegatingResultSet.getString(DelegatingResultSet.java:263)
+	at com.kerdotnet.dao.helpers.BookItemExtractor.extractOne(BookItemExtractor.java:22)
+	at com.kerdotnet.dao.helpers.BookItemExtractor.extractOne(BookItemExtractor.java:14)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.findAll(AbstractDAO.java:81)
+	... 26 more
+DEBUG   2018-04-21 15:24:50,479 [http-bio-8080-exec-1] com.kerdotnet.command.LoginCommand  - Error in business logic, return page: /WEB-INF/views/error.jsp
+DEBUG   2018-04-21 15:24:50,479 [http-bio-8080-exec-1] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+DEBUG   2018-04-21 15:25:53,004 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-21 15:25:53,004 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@6426da19
+DEBUG   2018-04-21 15:25:53,005 [http-bio-8080-exec-3] com.kerdotnet.dao.factory.MySQLDAOFactory  - DataSource was successfully initialized
+DEBUG   2018-04-21 15:25:53,088 [http-bio-8080-exec-3] com.kerdotnet.logic.LoginLogic  - Retrieved user: User{id='1'username='kerdotnet', password='$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG', email='evgenys.ivanov@gmail.com', firstName='Евгений', lastName='Иванов', mobile='+380952711261', enabled=true, authorities=[UserAuthority{Id=2, userId=1, authorityId='1'}, UserAuthority{Id=1, userId=1, authorityId='2'}]} for login String: kerdotnet
+DEBUG   2018-04-21 15:25:53,439 [http-bio-8080-exec-3] com.kerdotnet.logic.LoginLogic  - Validation was done successfully
+DEBUG   2018-04-21 15:25:53,439 [http-bio-8080-exec-3] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /WEB-INF/views/main.jsp
+DEBUG   2018-04-21 15:45:34,614 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-21 15:45:34,620 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@569b8360
+DEBUG   2018-04-21 15:45:34,667 [http-bio-8080-exec-3] com.kerdotnet.dao.factory.MySQLDAOFactory  - DataSource was successfully initialized
+DEBUG   2018-04-21 15:45:35,002 [http-bio-8080-exec-3] com.kerdotnet.logic.LoginLogic  - true
+DEBUG   2018-04-21 15:45:35,002 [http-bio-8080-exec-3] com.kerdotnet.logic.LoginLogic  - false
+DEBUG   2018-04-21 15:45:35,003 [http-bio-8080-exec-3] com.kerdotnet.logic.LoginLogic  - false
+DEBUG   2018-04-21 15:45:35,003 [http-bio-8080-exec-3] com.kerdotnet.logic.LoginLogic  - true
+DEBUG   2018-04-21 15:45:35,038 [http-bio-8080-exec-3] com.kerdotnet.logic.LoginLogic  - Retrieved user: User{id='1'username='kerdotnet', password='$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG', email='evgenys.ivanov@gmail.com', firstName='Евгений', lastName='Иванов', mobile='+380952711261', enabled=true, authorities=[UserAuthority{Id=2, userId=1, authorityId='1'}, UserAuthority{Id=1, userId=1, authorityId='2'}]} for login String: kerdotnet
+DEBUG   2018-04-21 15:45:35,431 [http-bio-8080-exec-3] com.kerdotnet.logic.LoginLogic  - Validation was done successfully
+DEBUG   2018-04-21 15:45:35,431 [http-bio-8080-exec-3] com.kerdotnet.command.LoginCommand  - true
+DEBUG   2018-04-21 15:45:35,435 [http-bio-8080-exec-3] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /WEB-INF/views/main.jsp
+DEBUG   2018-04-21 15:46:36,272 [http-bio-8080-exec-7] com.kerdotnet.command.factory.ActionFactory  - Action: logout
+DEBUG   2018-04-21 15:46:36,273 [http-bio-8080-exec-7] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LogoutCommand@69ed334d
+DEBUG   2018-04-21 15:46:40,612 [http-bio-8080-exec-9] com.kerdotnet.command.factory.ActionFactory  - Action: registration
+DEBUG   2018-04-21 15:46:40,612 [http-bio-8080-exec-9] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.RegistrationCommand@334e89c5
+DEBUG   2018-04-21 15:47:07,823 [http-bio-8080-exec-10] com.kerdotnet.command.factory.ActionFactory  - Action: adduser
+DEBUG   2018-04-21 15:47:07,824 [http-bio-8080-exec-10] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.AddUserCommand@9e61fcd
+DEBUG   2018-04-21 15:47:07,827 [http-bio-8080-exec-10] com.kerdotnet.dao.factory.MySQLDAOFactory  - DataSource was successfully initialized
+DEBUG   2018-04-21 15:47:07,836 [http-bio-8080-exec-10] com.kerdotnet.logic.LoginLogic  - true
+DEBUG   2018-04-21 15:47:07,837 [http-bio-8080-exec-10] com.kerdotnet.logic.LoginLogic  - false
+DEBUG   2018-04-21 15:47:07,838 [http-bio-8080-exec-10] com.kerdotnet.logic.LoginLogic  - Retrieved user: User{id='5'username='userX', password='$2a$04$t2yl9CQp/phhsrvEujgc3O9OZDjJg1UWYE/C6uIWRm7a1oWIw7kCy', email='xx@gmail.com', firstName='XX', lastName='XXLN', mobile='050-111-33-22', enabled=true, authorities=null} for login String: userX
+DEBUG   2018-04-21 15:47:07,838 [http-bio-8080-exec-10] com.kerdotnet.command.AddUserCommand  - Adding new user accomplished successfully, return page: /WEB-INF/views/main.jsp

@@ -1,10 +1,7 @@
 package com.kerdotnet.dao.factory;
 
-import com.kerdotnet.dao.IDAO;
-import com.kerdotnet.dao.IUserAuthorityDAO;
-import com.kerdotnet.dao.IUserDAO;
-import com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl;
-import com.kerdotnet.dao.MySQLImplementation.UserDAOImpl;
+import com.kerdotnet.dao.*;
+import com.kerdotnet.dao.MySQLImplementation.*;
 import com.kerdotnet.exceptions.DAOConfigurationException;
 import com.kerdotnet.exceptions.DAOSystemException;
 import org.apache.log4j.Logger;
@@ -49,6 +46,20 @@ public class MySQLDAOFactory extends AbstractDAOFactory implements IDAOFactory {
                 return new UserDAOImpl(this.connection);
             case USER_AUTHORITY:
                 return new UserAuthorityDAOImpl(this.connection);
+            case AUTHORITY:
+                return new AuthorityDAOImpl(this.connection);
+            case AUTHOR:
+                return new AuthorDAOImpl(this.connection);
+            case BOOK_CATALOG:
+                return new BookCatalogDAOImpl(this.connection);
+            case BOOK_CATALOG_AUTHOR:
+                return new BookCatalogAuthorDAOImpl(this.connection);
+            case BOOK_ITEM:
+                return new BookItemDAOImpl(this.connection);
+            case BOOK_ITEM_USER:
+                return new BookItemUserDAOImpl(this.connection);
+            case TRANSACTION:
+                return new TransactionDAOImpl(this.connection);
             default: {
                 LOGGER.error("Trying to link to a not existing IDAO.");
                 throw new DAOSystemException("Trying to link to an not existing IDAO.");
@@ -67,6 +78,48 @@ public class MySQLDAOFactory extends AbstractDAOFactory implements IDAOFactory {
     public IUserAuthorityDAO getUserAuthorityDAO() throws DAOSystemException {
         open();
         return new UserAuthorityDAOImpl(this.connection);
+    }
+
+    @Override
+    public IAuthorityDAO getAuthorityDAO() throws DAOSystemException {
+        open();
+        return new AuthorityDAOImpl(this.connection);
+    }
+
+    @Override
+    public IBookCatalogDAO getBookCatalogDAO() throws DAOSystemException {
+        open();
+        return new BookCatalogDAOImpl(this.connection);
+    }
+
+    @Override
+    public IBookCatalogAuthorDAO getBookCatalogAuthorDAO() throws DAOSystemException {
+        open();
+        return new BookCatalogAuthorDAOImpl(this.connection);
+    }
+
+    @Override
+    public IAuthorDAO getAuthorDAO() throws DAOSystemException {
+        open();
+        return new AuthorDAOImpl(this.connection);
+    }
+
+    @Override
+    public IBookItemDAO getBookItemDAO() throws DAOSystemException {
+        open();
+        return new BookItemDAOImpl(this.connection);
+    }
+
+    @Override
+    public IBookItemUserDAO getBookItemUserDAO() throws DAOSystemException {
+        open();
+        return new BookItemUserDAOImpl(this.connection);
+    }
+
+    @Override
+    public ITransactionDAO getTransactionDAO() throws DAOSystemException {
+        open();
+        return new TransactionDAOImpl(this.connection);
     }
 
     private static class DAOManagerSingleton {

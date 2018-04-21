@@ -1,11 +1,12 @@
 package com.kerdotnet.command;
 
+import com.kerdotnet.controllers.SessionRequestContent;
+import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.logic.LoginLogic;
 import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.resource.MessageManager;
 import org.apache.log4j.Logger;
 
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * Implementation of Login command
@@ -19,21 +20,31 @@ public class LoginCommand implements IActionCommand {
     static final Logger LOGGER = Logger.getLogger(LoginCommand.class);
 
     @Override
-    public String execute(HttpServletRequest request) {
+    public String execute(SessionRequestContent sessionRequestContent) {
 
         String page = null;
-        String login = request.getParameter(PARAM_NAME_LOGIN);
-        String password = request.getParameter(PARAM_NAME_PASSWORD);
-        LOGGER.debug(login);
-        LOGGER.debug(password);
+        String login = sessionRequestContent.getRequestParameter(PARAM_NAME_LOGIN);
+        String password = sessionRequestContent.getRequestParameter(PARAM_NAME_PASSWORD);
 
-        if (LoginLogic.checkLogin(login, password)) {
-            request.setAttribute("user", login);
+        boolean loginResult = false;
+
+        try {
+            loginResult = LoginLogic.checkLogin(sessionRequestContent, login, password);
+        } catch (DAOSystemException e) {
+            sessionRequestContent.setSessionAttribute("errorLoginPassMessage",
+                    MessageManager.getProperty("message.businesslogic"));
+            page = ConfigurationManager.getProperty("path.page.error");
+            LOGGER.debug("Error in business logic, return page: " +
+                    page);
+        }
+
+        if (loginResult) {
+            sessionRequestContent.setSessionAttribute("user", login, true);
             page = ConfigurationManager.getProperty("path.page.main");
             LOGGER.debug("Login accomplished successfully, return page: " +
                     page);
         } else {
-            request.setAttribute("errorLoginPassMessage",
+            sessionRequestContent.setSessionAttribute("errorLoginPassMessage",
                     MessageManager.getProperty("message.loginerror"));
             page = ConfigurationManager.getProperty("path.page.login");
             LOGGER.debug("Error login, return page: " +

@@ -2,7 +2,7 @@ package com.kerdotnet.beans;
 
 /**
  * Class define user right model
- * Yevhen Ivanov
+ * Yevhen Ivanov, 2018-04-10
  */
 
 public class Authority extends Entity{

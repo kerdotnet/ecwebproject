@@ -1,11 +1,13 @@
 package com.kerdotnet.command;
 
+import com.kerdotnet.controllers.SessionRequestContent;
+import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.logic.LoginLogic;
 import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.resource.MessageManager;
 import org.apache.log4j.Logger;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * Implementation of Add user command
@@ -21,28 +23,41 @@ public class AddUserCommand implements IActionCommand {
     private static final String PARAM_NAME_LAST_NAME = "lastName";
     private static final String PARAM_NAME_MOBILE = "mobile";
     private static final String PARAM_NAME_CONFIRMATION_PASSWORD = "passwordConfirmation";
+
     static final Logger LOGGER = Logger.getLogger(AddUserCommand.class);
 
     @Override
-    public String execute(HttpServletRequest request) {
-
+    public String execute(SessionRequestContent sessionRequestContent) {
         String page = null;
-        String login = request.getParameter(PARAM_NAME_LOGIN);
-        String password = request.getParameter(PARAM_NAME_PASSWORD);
-        String email = request.getParameter(PARAM_NAME_EMAIL);
-        String firstName = request.getParameter(PARAM_NAME_FIRST_NAME);
-        String lastName = request.getParameter(PARAM_NAME_LAST_NAME);
-        String mobile = request.getParameter(PARAM_NAME_MOBILE);
-        String confirmPassword = request.getParameter(PARAM_NAME_CONFIRMATION_PASSWORD);
 
-        if (LoginLogic.addUser(login, email, firstName,
-                lastName, mobile, password, confirmPassword)) {
-            request.setAttribute("user", login);
+        String login = sessionRequestContent.getRequestParameter(PARAM_NAME_LOGIN);
+        String password = sessionRequestContent.getRequestParameter(PARAM_NAME_PASSWORD);
+        String email = sessionRequestContent.getRequestParameter(PARAM_NAME_EMAIL);
+        String firstName = sessionRequestContent.getRequestParameter(PARAM_NAME_FIRST_NAME);
+        String lastName = sessionRequestContent.getRequestParameter(PARAM_NAME_LAST_NAME);
+        String mobile = sessionRequestContent.getRequestParameter(PARAM_NAME_MOBILE);
+        String confirmPassword = sessionRequestContent.getRequestParameter(PARAM_NAME_CONFIRMATION_PASSWORD);
+
+        boolean addUserResult = false;
+
+        try {
+            addUserResult = LoginLogic.addUser(sessionRequestContent, login, email, firstName,
+                    lastName, mobile, password, confirmPassword);
+        } catch (DAOSystemException e) {
+            sessionRequestContent.setSessionAttribute("errorLoginPassMessage",
+                    MessageManager.getProperty("message.businesslogic"));
+            page = ConfigurationManager.getProperty("path.page.error");
+            LOGGER.debug("Error in business logic, return page: " +
+                    page);
+        }
+
+        if (addUserResult) {
+            sessionRequestContent.setSessionAttribute("user", login, true);
             page = ConfigurationManager.getProperty("path.page.main");
             LOGGER.debug("Adding new user accomplished successfully, return page: " +
                     page);
         } else {
-            request.setAttribute("errorAddUserMessage",
+            sessionRequestContent.setRequestAttribute("errorAddUserMessage",
                     MessageManager.getProperty("message.addusererror"));
             page = ConfigurationManager.getProperty("path.page.adduser");
             LOGGER.debug("Error login, return page: " +

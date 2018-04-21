@@ -2,6 +2,11 @@ package com.kerdotnet.beans;
 
 import java.util.Date;
 
+/**
+ * java DTO class for links between Book Items and Users entities
+ *  Yevhen Ivanov, 2018-04-21
+ */
+
 public class BookItemUser extends Entity {
     private static final long serialVersionUID = 1L;
 

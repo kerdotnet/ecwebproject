@@ -1,7 +1,7 @@
 package com.kerdotnet.beans;
 
 /**
- * User Authority java DTO class for links beetwen Book Catalog and Authors
+ * Ujava DTO class for links beetwen Book Catalog and Authors
  *  Yevhen Ivanov, 2018-04-21
  */
 public class BookCatalogAuthor extends Entity{
@@ -43,7 +43,7 @@ public class BookCatalogAuthor extends Entity{
 
     @Override
     public String toString() {
-        return "BookCatalogAuthor{" +
+        return "IBookCatalogAuthorDAO{" +
                 "Id=" + getId() +
                 "bookCatalogId=" + bookCatalogId +
                 ", authorId=" + authorId +

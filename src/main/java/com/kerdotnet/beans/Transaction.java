@@ -2,6 +2,10 @@ package com.kerdotnet.beans;
 
 import java.util.Date;
 
+/**
+ * java DTO class for Transaction entity
+ *  Yevhen Ivanov, 2018-04-21
+ */
 public class Transaction extends Entity{
     private static final long serialVersionUID = 1L;
 
@@ -60,11 +64,11 @@ public class Transaction extends Entity{
         this.userId = userId;
     }
 
-    public String getBookShelfAdress() {
+    public String getBookShelfAddress() {
         return bookShelfAdress;
     }
 
-    public void setBookShelfAdress(String bookShelfAdress) {
+    public void setBookShelfAddress(String bookShelfAdress) {
         this.bookShelfAdress = bookShelfAdress;
     }
 

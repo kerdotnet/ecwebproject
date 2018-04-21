@@ -1,7 +1,7 @@
 package com.kerdotnet.beans;
 
 /**
- * User Authority java DTO class for Book Catalog
+ * BookCatalog java DTO class
  *  Yevhen Ivanov, 2018-04-21
  */
 

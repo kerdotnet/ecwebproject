@@ -1,8 +1,7 @@
 package com.kerdotnet.command;
 
+import com.kerdotnet.controllers.SessionRequestContent;
 import com.kerdotnet.resource.ConfigurationManager;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * Implementation of Empty command in case of application logic Error
@@ -11,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class EmptyCommand implements IActionCommand {
     @Override
-    public String execute(HttpServletRequest request) {
+    public String execute(SessionRequestContent sessionRequestContent) {
         String page = ConfigurationManager.getProperty("path.page.login");
         return page;
     }

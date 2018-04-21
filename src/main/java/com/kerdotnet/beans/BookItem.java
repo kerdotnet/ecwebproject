@@ -1,30 +1,34 @@
 package com.kerdotnet.beans;
 
+/**
+ * java DTO class for Book items entities
+ *  Yevhen Ivanov, 2018-04-21
+ */
 public class BookItem extends Entity {
     private static final long serialVersionUID = 1L;
 
     private int bookCatalogId;
     private String description;
-    private String bookShelfAdress;
+    private String bookShelfAddress;
     private boolean enabled;
 
     public BookItem() {
     }
 
     public BookItem(int bookCatalogId, String description,
-                    String bookShelfAdress, boolean enabled) {
+                    String bookShelfAddress, boolean enabled) {
         this.bookCatalogId = bookCatalogId;
         this.description = description;
-        this.bookShelfAdress = bookShelfAdress;
+        this.bookShelfAddress = bookShelfAddress;
         this.enabled = enabled;
     }
 
     public BookItem(int id, int bookCatalogId, String description,
-                    String bookShelfAdress, boolean enabled) {
+                    String bookShelfAddress, boolean enabled) {
         this.setId(id);
         this.bookCatalogId = bookCatalogId;
         this.description = description;
-        this.bookShelfAdress = bookShelfAdress;
+        this.bookShelfAddress = bookShelfAddress;
         this.enabled = enabled;
     }
 
@@ -44,12 +48,12 @@ public class BookItem extends Entity {
         this.description = description;
     }
 
-    public String getBookShelfAdress() {
-        return bookShelfAdress;
+    public String getBookShelfAddress() {
+        return bookShelfAddress;
     }
 
-    public void setBookShelfAdress(String bookShelfAdress) {
-        this.bookShelfAdress = bookShelfAdress;
+    public void setBookShelfAddress(String bookShelfAddress) {
+        this.bookShelfAddress = bookShelfAddress;
     }
 
     public boolean isEnabled() {
@@ -66,7 +70,7 @@ public class BookItem extends Entity {
                 "Id=" + getId() +
                 "bookCatalogId=" + bookCatalogId +
                 ", description='" + description + '\'' +
-                ", bookShelfAdress='" + bookShelfAdress + '\'' +
+                ", bookShelfAddress='" + bookShelfAddress + '\'' +
                 ", enabled=" + enabled +
                 '}';
     }

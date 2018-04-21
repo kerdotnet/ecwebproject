@@ -150,7 +150,7 @@ CREATE TABLE `bookitem` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `bookcatalog_id` int(11) NOT NULL,
   `description` varchar(500),
-  `bookshelf_adress` varchar(30),
+  `bookshelf_address` varchar(30),
   `flag_enabled` boolean NOT NULL DEFAULT TRUE,
   
   PRIMARY KEY (`id`),
@@ -204,7 +204,7 @@ CREATE TABLE `transaction` (
   `date` DATETIME NOT NULL,
   `bookitem_id` int(11) NOT NULL,
   `user_id` int(11),
-  `bookshelf_adress` varchar(30),
+  `bookshelf_address` varchar(30),
   `action` varchar(30),
   `flag_enabled` boolean NOT NULL default TRUE,
   
@@ -331,7 +331,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `bookitem` WRITE;
 
-INSERT INTO `bookitem` (`bookcatalog_id`, `description`, `bookshelf_adress`) 
+INSERT INTO `bookitem` (`bookcatalog_id`, `description`, `bookshelf_address`) 
 VALUES 
 (1, 'The first edition', 'C1'),
 (1, 'Потрепанный переплет', 'C1'),

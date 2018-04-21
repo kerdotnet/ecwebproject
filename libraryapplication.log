@@ -5050,3 +5050,26 @@ DEBUG   2018-04-20 14:02:13,666 [http-bio-8080-exec-7] com.kerdotnet.command.fac
 DEBUG   2018-04-20 14:02:13,666 [http-bio-8080-exec-7] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.RegistrationCommand@43bc6178
 DEBUG   2018-04-20 14:02:15,668 [http-bio-8080-exec-9] com.kerdotnet.command.factory.ActionFactory  - Action: logout
 DEBUG   2018-04-20 14:02:15,668 [http-bio-8080-exec-9] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LogoutCommand@505878fa
+DEBUG   2018-04-21 13:36:20,692 [http-bio-8080-exec-1] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-21 13:36:20,698 [http-bio-8080-exec-1] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@6365c5c4
+DEBUG   2018-04-21 13:36:20,724 [http-bio-8080-exec-1] com.kerdotnet.dao.factory.MySQLDAOFactory  - DataSource was successfully initialized
+DEBUG   2018-04-21 13:36:21,063 [http-bio-8080-exec-1] com.kerdotnet.logic.LoginLogic  - Retrieved user: User{id='1'username='kerdotnet', password='$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG', email='evgenys.ivanov@gmail.com', firstName='Евгений', lastName='Иванов', mobile='+380952711261', enabled=true, authorities=[UserAuthority{Id=2, userId=1, authorityId='1'}, UserAuthority{Id=1, userId=1, authorityId='2'}]} for login String: kerdotnet
+DEBUG   2018-04-21 13:36:21,439 [http-bio-8080-exec-1] com.kerdotnet.logic.LoginLogic  - Validation was done successfully
+DEBUG   2018-04-21 13:36:21,448 [http-bio-8080-exec-1] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /WEB-INF/views/main.jsp
+DEBUG   2018-04-21 13:36:25,605 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - Action: logout
+DEBUG   2018-04-21 13:36:25,606 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LogoutCommand@29fc2b82
+DEBUG   2018-04-21 13:36:33,240 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - Action: registration
+DEBUG   2018-04-21 13:36:33,241 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.RegistrationCommand@75438628
+DEBUG   2018-04-21 13:37:01,304 [http-bio-8080-exec-4] com.kerdotnet.command.factory.ActionFactory  - Action: adduser
+DEBUG   2018-04-21 13:37:01,304 [http-bio-8080-exec-4] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.AddUserCommand@336ce298
+DEBUG   2018-04-21 13:37:01,307 [http-bio-8080-exec-4] com.kerdotnet.logic.LoginLogic  - user entity created: User{id='0'username='user_testx', password='$2a$04$3NnXCl.4t7YquqGTGWM7tOg6M.hCmdQ4es9B576dIyg6S7GUQO6mC', email='zmail@gmail.com', firstName='IE', lastName='IV', mobile='+380504956022', enabled=true, authorities=null}
+DEBUG   2018-04-21 13:37:01,308 [http-bio-8080-exec-4] com.kerdotnet.dao.factory.MySQLDAOFactory  - DataSource was successfully initialized
+DEBUG   2018-04-21 13:37:01,309 [http-bio-8080-exec-4] com.kerdotnet.logic.LoginLogic  - dao user is obtained
+DEBUG   2018-04-21 13:37:01,314 [http-bio-8080-exec-4] com.kerdotnet.logic.LoginLogic  - success flag is: true
+DEBUG   2018-04-21 13:37:01,315 [http-bio-8080-exec-4] com.kerdotnet.logic.LoginLogic  - Retrieved user: User{id='5'username='user_testx', password='$2a$04$3NnXCl.4t7YquqGTGWM7tOg6M.hCmdQ4es9B576dIyg6S7GUQO6mC', email='zmail@gmail.com', firstName='IE', lastName='IV', mobile='+380504956022', enabled=true, authorities=null} for login String: user_testx
+DEBUG   2018-04-21 13:37:01,315 [http-bio-8080-exec-4] com.kerdotnet.command.AddUserCommand  - Adding new user accomplished successfully, return page: /WEB-INF/views/main.jsp
+DEBUG   2018-04-21 14:12:09,682 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-21 14:12:09,690 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@35273aa1
+DEBUG   2018-04-21 14:12:09,724 [http-bio-8080-exec-2] com.kerdotnet.dao.factory.MySQLDAOFactory  - DataSource was successfully initialized
+DEBUG   2018-04-21 14:12:10,055 [http-bio-8080-exec-2] com.kerdotnet.logic.LoginLogic  - Retrieved user: null for login String: dfgb
+DEBUG   2018-04-21 14:12:10,063 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp

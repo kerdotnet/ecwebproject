@@ -1,8 +1,7 @@
 package com.kerdotnet.command;
 
+import com.kerdotnet.controllers.SessionRequestContent;
 import com.kerdotnet.resource.ConfigurationManager;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * Implementation of Logout command
@@ -11,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 
 public class LogoutCommand implements IActionCommand {
     @Override
-    public String execute(HttpServletRequest request) {
+    public String execute(SessionRequestContent sessionRequestContent) {
         String page = null;
 
-        request.getSession().invalidate();
+        sessionRequestContent.invalidateSession();
         page = ConfigurationManager.getProperty("path.page.login");
 
         return page;

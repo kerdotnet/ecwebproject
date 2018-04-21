@@ -1,6 +1,6 @@
 package com.kerdotnet.command;
 
-import javax.servlet.http.HttpServletRequest;
+import com.kerdotnet.controllers.SessionRequestContent;
 
 /**
  * ActionCommand define basic contract for commands implementation
@@ -8,5 +8,5 @@ import javax.servlet.http.HttpServletRequest;
  */
 
 public interface IActionCommand {
-    String execute(HttpServletRequest request);
+    String execute(SessionRequestContent sessionRequestContent);
 }

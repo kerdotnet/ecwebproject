@@ -40,9 +40,10 @@ public class Controller extends HttpServlet{
         String page = null;
 
         ActionFactory client = new ActionFactory();
-        IActionCommand command = client.defineCommand(request);
+        SessionRequestContent sessionRequestContent = new SessionRequestContent(request, response);
+        IActionCommand command = client.defineCommand(sessionRequestContent);
 
-        page = command.execute(request);
+        page = command.execute(sessionRequestContent);
 
         if (page != null){
             RequestDispatcher dispatcher =

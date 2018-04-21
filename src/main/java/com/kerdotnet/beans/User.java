@@ -3,11 +3,13 @@ package com.kerdotnet.beans;
 import java.util.List;
 
 /**
- *  User java bean class
+ *  User java DTO class
  *  Yevhen Ivanov, 2018-04-01
  */
 
 public class User extends Entity{
+    private static final long serialVersionUID = 1L;
+
     private String username;
     private String password;
     private String email;
@@ -20,10 +22,9 @@ public class User extends Entity{
     public User() {
     }
 
-    public User(int id, String username, String password, String email,
+    public User(String username, String password, String email,
                 String firstName, String lastName,
                 String mobile, boolean enabled) {
-        this.setId(id);
         this.username = username;
         this.password = password;
         this.email = email;
@@ -34,9 +35,10 @@ public class User extends Entity{
         this.authorities = authorities;
     }
 
-    public User(String username, String password, String email,
+    public User(int id, String username, String password, String email,
                 String firstName, String lastName,
                 String mobile, boolean enabled) {
+        this.setId(id);
         this.username = username;
         this.password = password;
         this.email = email;

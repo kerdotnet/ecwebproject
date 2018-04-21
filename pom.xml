@@ -49,12 +49,7 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.46</version>
     </dependency>
-    <!-- Connection pool implementation-->
-    <dependency>
-      <groupId>c3p0</groupId>
-      <artifactId>c3p0</artifactId>
-      <version>0.9.1.2</version>
-    </dependency>
+    <!-- Logger -->
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
@@ -91,7 +86,7 @@
             <path>/</path>
             <contextReloadable>true</contextReloadable>
             <contextFile>
-                ${basedir}/src/test/resources/maven-tomcat-plugin/context.xml
+                ${basedir}/src/main/webapp/META-INF/context.xml
             </contextFile>
           </configuration>
         </plugin>

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
  * Yevhen Ivanov; 2018-04-14
  */
 
-public class AddUserCommand implements ActionCommand {
+public class AddUserCommand implements IActionCommand {
 
     private static final String PARAM_NAME_LOGIN = "login";
     private static final String PARAM_NAME_PASSWORD = "password";

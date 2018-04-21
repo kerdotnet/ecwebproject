@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
  * Yevhen Ivanov; 2018-04-09
  */
 
-public class EmptyCommand implements ActionCommand{
+public class EmptyCommand implements IActionCommand {
     @Override
     public String execute(HttpServletRequest request) {
         String page = ConfigurationManager.getProperty("path.page.login");

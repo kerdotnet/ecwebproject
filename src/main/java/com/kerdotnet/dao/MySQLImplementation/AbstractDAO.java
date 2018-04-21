@@ -1,7 +1,7 @@
-package com.kerdotnet.dao.SQLImplementation;
+package com.kerdotnet.dao.MySQLImplementation;
 
 import com.kerdotnet.beans.Entity;
-import com.kerdotnet.dao.helpers.Enricher;
+import com.kerdotnet.dao.helpers.IEnricher;
 import com.kerdotnet.dao.helpers.Extractor;
 import com.kerdotnet.exceptions.DAOSystemException;
 import org.apache.log4j.Logger;
@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The base class for every DAO implementation
- * with common methods for every DAO
+ * The base class for every IDAO implementation
+ * with common methods for every IDAO
  * Yevhen Ivanov, 2018-04-07
  */
 
@@ -31,7 +31,7 @@ public abstract class AbstractDAO<T extends Entity> {
             }
         } catch (SQLException e){
             LOGGER.error("Unexpected error in closing of Statement", e);
-            throw new DAOSystemException("Error in close method() of DAO system", e);
+            throw new DAOSystemException("Error in close method() of IDAO system", e);
         }
     }
 
@@ -42,12 +42,12 @@ public abstract class AbstractDAO<T extends Entity> {
             }
         } catch (SQLException e){
             LOGGER.error("Unexpected error in closing of Result Set", e);
-            throw new DAOSystemException("Error in close method() of DAO system", e);
+            throw new DAOSystemException("Error in close method() of IDAO system", e);
         }
     }
 
     public T findEntity(String sql, int key, Extractor<T> extractor,
-                        Enricher<T> enricher) throws DAOSystemException {
+                        IEnricher<T> IEnricher) throws DAOSystemException {
         T record = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -57,7 +57,7 @@ public abstract class AbstractDAO<T extends Entity> {
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()){
                 record = extractor.extractOne(resultSet);
-                enricher.enrich(record);
+                IEnricher.enrich(record);
             }
         } catch (SQLException e){
             LOGGER.error("Unexpected error", e);
@@ -70,7 +70,7 @@ public abstract class AbstractDAO<T extends Entity> {
     }
 
     public List<T> findAll(String sql, Extractor<T> extractor,
-                           Enricher<T> enricher) throws DAOSystemException {
+                           IEnricher<T> IEnricher) throws DAOSystemException {
         Statement statement = null;
         ResultSet resultSet = null;
         try {
@@ -79,7 +79,7 @@ public abstract class AbstractDAO<T extends Entity> {
             List<T> result = new ArrayList<>();
             while (resultSet.next()){
                 T record = extractor.extractOne(resultSet);
-                enricher.enrich(record);
+                IEnricher.enrich(record);
                 result.add(record);
             }
             return result;
@@ -157,7 +157,7 @@ public abstract class AbstractDAO<T extends Entity> {
     }
 
     public T findUserByStringParameter(String sql, String param, Extractor<T> extractor,
-                                       Enricher<T> enricher) throws DAOSystemException {
+                                       IEnricher<T> IEnricher) throws DAOSystemException {
         T user = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -167,7 +167,7 @@ public abstract class AbstractDAO<T extends Entity> {
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()){
                 user = extractor.extractOne(resultSet);
-                enricher.enrich(user);
+                IEnricher.enrich(user);
             }
         } catch (SQLException e){
             LOGGER.error("Unexpected error", e);
@@ -180,7 +180,7 @@ public abstract class AbstractDAO<T extends Entity> {
     }
 
     public List<T> findAllByInt(String sql, int param, Extractor<T> extractor,
-                           Enricher<T> enricher) throws DAOSystemException {
+                           IEnricher<T> IEnricher) throws DAOSystemException {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
@@ -190,7 +190,7 @@ public abstract class AbstractDAO<T extends Entity> {
             List<T> result = new ArrayList<>();
             while (resultSet.next()){
                 T record = extractor.extractOne(resultSet);
-                enricher.enrich(record);
+                IEnricher.enrich(record);
                 result.add(record);
             }
             return result;

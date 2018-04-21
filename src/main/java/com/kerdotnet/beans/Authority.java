@@ -1,33 +1,65 @@
 package com.kerdotnet.beans;
-import javax.ejb.NoSuchEntityException;
 
 /**
  * Class define user right model
  * Yevhen Ivanov
  */
 
-public enum Authority {
-    USER(1),
-    ADMINISTRATOR(2);
+public class Authority extends Entity{
 
-    private int authorityId;
+    private static final long serialVersionUID = 1L;
 
-    Authority(int authorityId) {
-        this.authorityId = authorityId;
+    private String name;
+    private boolean isUser;
+    private boolean isAdministrator;
+
+    public Authority() {
     }
 
-    public static Authority getById(int id){
-        switch (id){
-            case 1:
-                return USER;
-            case 2:
-                return ADMINISTRATOR;
-            default:
-                return null;
-        }
+    public Authority(String name, boolean isUser, boolean isAdministrator) {
+        this.name = name;
+        this.isUser = isUser;
+        this.isAdministrator = isAdministrator;
     }
 
-    public int getAuthorityId(){
-        return authorityId;
+    public Authority(int id, String name, boolean isUser, boolean isAdministrator) {
+        this.setId(id);
+        this.name = name;
+        this.isUser = isUser;
+        this.isAdministrator = isAdministrator;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean isUser() {
+        return isUser;
+    }
+
+    public void setUser(boolean user) {
+        isUser = user;
+    }
+
+    public boolean isAdministrator() {
+        return isAdministrator;
+    }
+
+    public void setAdministrator(boolean administrator) {
+        isAdministrator = administrator;
+    }
+
+    @Override
+    public String toString() {
+        return "Authority{" +
+                "Id=" + getId() +
+                "name='" + name + '\'' +
+                ", isUser=" + isUser +
+                ", isAdministrator=" + isAdministrator +
+                '}';
     }
 }

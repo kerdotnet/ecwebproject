@@ -6,10 +6,10 @@ import com.kerdotnet.exceptions.DAOSystemException;
 import java.util.List;
 
 /**
- * User Authority DAO interface
+ * User Authority IDAO interface
  * Yevhen Ivanov, 2018-04-11
  */
 
-public interface UserAuthorityDAO extends DAO<Integer, UserAuthority> {
+public interface IUserAuthorityDAO extends IDAO<Integer, UserAuthority> {
     List<UserAuthority> findAllByUserId(int userId) throws DAOSystemException;
 }

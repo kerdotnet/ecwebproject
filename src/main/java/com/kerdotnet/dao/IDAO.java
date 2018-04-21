@@ -6,11 +6,11 @@ import com.kerdotnet.exceptions.DAOSystemException;
 import java.util.List;
 
 /**
- * Top common DAO interface
+ * Top common IDAO interface
  * Yevhen Ivanov, 2018-04-11
  */
 
-public interface DAO <K, T extends Entity>{
+public interface IDAO<K, T extends Entity>{
     T findEntity(K id) throws DAOSystemException ;
     List<T> findAll() throws DAOSystemException;
     boolean create(T entity) throws DAOSystemException ;

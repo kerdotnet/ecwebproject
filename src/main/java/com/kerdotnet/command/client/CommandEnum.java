@@ -29,8 +29,8 @@ public enum CommandEnum {
         }
     };
 
-    ActionCommand command;
-    public ActionCommand getCurrentCommand(){
+    IActionCommand command;
+    public IActionCommand getCurrentCommand(){
         return command;
     }
 }

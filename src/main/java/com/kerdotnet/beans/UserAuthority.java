@@ -1,15 +1,22 @@
 package com.kerdotnet.beans;
 
 /**
- * User Authority java bean class for User
+ * User Authority java DTO class for User Authority
  *  Yevhen Ivanov, 2018-04-10
  */
 
 public class UserAuthority extends Entity {
+    private static final long serialVersionUID = 1L;
+
     private int userId;
     private int authorityId;
 
     public UserAuthority() {
+    }
+
+    public UserAuthority(int userId, int authorityId) {
+        this.userId = userId;
+        this.authorityId = authorityId;
     }
 
     public UserAuthority(int id, int userId, int authorityId) {
@@ -32,14 +39,6 @@ public class UserAuthority extends Entity {
 
     public void setAuthorityId(int authorityId) {
         this.authorityId = authorityId;
-    }
-
-    public Authority getAuthority(){
-        return Authority.getById(authorityId);
-    }
-
-    public void setAuthority(Authority authority){
-        this.authorityId = authority.getAuthorityId();
     }
 
     @Override

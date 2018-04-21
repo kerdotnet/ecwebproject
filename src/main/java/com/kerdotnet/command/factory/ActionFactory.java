@@ -1,6 +1,6 @@
 package com.kerdotnet.command.factory;
 
-import com.kerdotnet.command.ActionCommand;
+import com.kerdotnet.command.IActionCommand;
 import com.kerdotnet.command.EmptyCommand;
 import com.kerdotnet.command.client.CommandEnum;
 import com.kerdotnet.resource.MessageManager;
@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 public class ActionFactory {
     static final Logger LOGGER = Logger.getLogger(ActionFactory.class);
 
-    public ActionCommand defineCommand(HttpServletRequest request){
+    public IActionCommand defineCommand(HttpServletRequest request){
 
-        ActionCommand current = new EmptyCommand();
+        IActionCommand current = new EmptyCommand();
 
         String action = request.getParameter("command");
         LOGGER.debug("Action: " + action);

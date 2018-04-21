@@ -1,28 +1,18 @@
 package com.kerdotnet.command;
 
-import com.kerdotnet.beans.Authority;
-import com.kerdotnet.beans.User;
-import com.kerdotnet.beans.UserAuthority;
-import com.kerdotnet.dao.SQLImplementation.UserDAOImpl;
-import com.kerdotnet.dao.UserAuthorityDAO;
-import com.kerdotnet.dao.UserDAO;
-import com.kerdotnet.dao.factory.DAOEnum;
-import com.kerdotnet.dao.factory.DAOManager;
 import com.kerdotnet.logic.LoginLogic;
 import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.resource.MessageManager;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
-import java.sql.SQLException;
-import java.util.List;
 
 /**
  * Implementation of Login command
  * Yevhen Ivanov; 2018-04-09
  */
 
-public class LoginCommand implements ActionCommand {
+public class LoginCommand implements IActionCommand {
 
     private static final String PARAM_NAME_LOGIN = "login";
     private static final String PARAM_NAME_PASSWORD = "password";

@@ -1,17 +1,13 @@
 package com.kerdotnet.controllers;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 import java.io.IOException;
 
-import com.kerdotnet.command.ActionCommand;
+import com.kerdotnet.command.IActionCommand;
 import com.kerdotnet.command.factory.ActionFactory;
 import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.resource.MessageManager;
@@ -44,7 +40,7 @@ public class Controller extends HttpServlet{
         String page = null;
 
         ActionFactory client = new ActionFactory();
-        ActionCommand command = client.defineCommand(request);
+        IActionCommand command = client.defineCommand(request);
 
         page = command.execute(request);
 

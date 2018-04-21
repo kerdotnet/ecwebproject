@@ -30,12 +30,10 @@
     -->
 
     <description>MySQL</description>
-    <Resource name="jdbc/libraryDB" auth="Container" description="DB Container"
-              driverClass="com.mysql.jdbc.Driver" maxPoolSize="50" minPoolSize="10"
-              acquireIncrement="10" user="ecproject" password="ecproject"
-              factory="org.apache.naming.factory.BeanFactory"
-              type="com.mchange.v2.c3p0.ComboPooledDataSource"
-              jdbcUrl="jdbc:mysql://localhost:3306/web_library?autoReconnect=true"/>
-              <!-- removeAbandonedTimeout="60", removeAbandonedTimeout="60" -->
+    <Resource name="jdbc/libraryDB" auth="Container" type="javax.sql.DataSource"
+              maxActive ="100" maxIdle="30" maxWait="10000" username="root"
+              password="root" driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/web_library?autoReconnect=true"/>
+
 
 </Context>

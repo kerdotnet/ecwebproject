@@ -1,4 +1,3 @@
-DROP DATABASE IF EXISTS `web_library`;
 CREATE DATABASE  IF NOT EXISTS `web_library` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `web_library`;
 -- MySQL dump 10.13  Distrib 5.6.13, for osx10.6 (i386)
@@ -42,8 +41,6 @@ DROP TABLE IF EXISTS `authority`;
 CREATE TABLE `authority` (
   `id` int(11) NOT NULL AUTO_INCREMENT, 
   `name` varchar(50) NOT NULL,
-  `flag_user` tinyint(1) NOT NULL DEFAULT FALSE,
-  `flag_administrator` tinyint(1) NOT NULL DEFAULT FALSE,
   
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -85,11 +82,11 @@ DROP TABLE IF EXISTS `bookcatalog`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bookcatalog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `full_name` varchar(250),
-  `description` varchar(1000),
-  `key_words` varchar(500),
-  `flag_enabled` boolean NOT NULL DEFAULT TRUE,
+  `name` varchar(255) NOT NULL,
+  `full_name` varchar(300) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `key_words` varchar(500) NOT NULL,
+  `flag_enabled` boolean NOT NULL default TRUE,
   
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -105,7 +102,7 @@ DROP TABLE IF EXISTS `author`;
 CREATE TABLE `author` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `description` varchar(1000),
+  `description` varchar(1000) NOT NULL,
   `flag_enabled` boolean NOT NULL default TRUE,
   
   PRIMARY KEY (`id`)
@@ -120,11 +117,10 @@ DROP TABLE IF EXISTS `bookcatalog_author`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bookcatalog_author` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
   `author_id` int(11) NOT NULL,
   `bookcatalog_id` int(11) NOT NULL,
   
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`author_id`, `bookcatalog_id`),
   
   KEY `FK_AUTHOR_idx` (`author_id`),
   KEY `FK_BOOKCATALOG_idx` (`bookcatalog_id`),
@@ -140,6 +136,41 @@ CREATE TABLE `bookcatalog_author` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `keywords`
+--
+
+DROP TABLE IF EXISTS `keywords`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `keywords` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `bookcatalog_id` int(11) NOT NULL,
+  
+  PRIMARY KEY (`id`),
+  
+  KEY `FK_BOOKCATALOG_KEYWORDS_idx` (`bookcatalog_id`),
+  CONSTRAINT `FK_BOOKCATALOG_KEYWORDS` FOREIGN KEY (`bookcatalog_id`) 
+  REFERENCES `bookcatalog` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `bookshelf`
+--
+
+DROP TABLE IF EXISTS `bookshelf`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bookshelf` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `bookitem`
 --
 
@@ -149,9 +180,8 @@ DROP TABLE IF EXISTS `bookitem`;
 CREATE TABLE `bookitem` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `bookcatalog_id` int(11) NOT NULL,
-  `description` varchar(500),
-  `bookshelf_adress` varchar(30),
-  `flag_enabled` boolean NOT NULL DEFAULT TRUE,
+  `description` varchar(1000) NOT NULL,
+  `flag_enabled` boolean NOT NULL default TRUE,
   
   PRIMARY KEY (`id`),
   
@@ -175,7 +205,7 @@ CREATE TABLE `bookitem_user` (
   `bookitem_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `date` DATE NOT NULL,
-  `flag_enabled` BOOLEAN NOT NULL DEFAULT TRUE,
+  `flag_enabled` boolean NOT NULL default TRUE,
   
   PRIMARY KEY (`id`),
   
@@ -186,9 +216,39 @@ CREATE TABLE `bookitem_user` (
   FOREIGN KEY (`user_id`) 
   REFERENCES `user` (`id`),
   
-  CONSTRAINT `FK_BOOKTIME_USER_BOOKITEM` 
+  CONSTRAINT `FK_BOOKTIME_USER_BOOKITEM_` 
   FOREIGN KEY (`bookitem_id`) 
   REFERENCES `bookitem` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `bookitem_bookshelf`
+--
+
+DROP TABLE IF EXISTS `bookitem_bookshelf`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bookitem_bookshelf` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bookitem_id` int(11) NOT NULL,
+  `bookshelf_id` int(11) NOT NULL,
+  `bookshelf_adress` varchar(20) NOT NULL,
+  `flag_enabled` boolean NOT NULL default TRUE,
+  
+  
+  PRIMARY KEY (`id`),
+  
+  KEY `FK_BOOKITEM_BOOKSHEHLF_BOOKITEM_idx` (`bookitem_id`),
+  KEY `FK_BOOKITEM_BOOKSHEHLF_BOOKSHELF_idx` (`bookshelf_id`),
+    
+  CONSTRAINT `FK_BOOKITEM_BOOKSHEHLF_BOOKITEM` 
+  FOREIGN KEY (`bookitem_id`) 
+  REFERENCES `bookitem` (`id`),
+  
+  CONSTRAINT `FK_BOOKITEM_BOOKSHEHLF_BOOKSHELF` 
+  FOREIGN KEY (`bookshelf_id`) 
+  REFERENCES `bookshelf` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -203,19 +263,24 @@ CREATE TABLE `transaction` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` DATETIME NOT NULL,
   `bookitem_id` int(11) NOT NULL,
-  `user_id` int(11),
-  `bookshelf_adress` varchar(30),
-  `action` varchar(30),
+  `user_id` int(11) NOT NULL,
+  `bookshelf_id` int(11) NOT NULL,
+  `bookshelf_adress` varchar(20) NOT NULL,
   `flag_enabled` boolean NOT NULL default TRUE,
   
   PRIMARY KEY (`id`),
   
   KEY `FK_TRANSACTION_idx` (`bookitem_id`),
+  KEY `FK_TRANSACTION_BOOKSHEHLF_BOOKSHELF_idx` (`bookshelf_id`),
   KEY `FK_TRANSACTION_USER_idx` (`user_id`),
     
   CONSTRAINT `FK_TRANSACTION` 
   FOREIGN KEY (`bookitem_id`) 
   REFERENCES `bookitem` (`id`),
+  
+  CONSTRAINT `FK_TRANSACTION_BOOKSHEHLF_BOOKSHELF` 
+  FOREIGN KEY (`bookshelf_id`) 
+  REFERENCES `bookshelf` (`id`),
   
   CONSTRAINT `FK_TRANSACTION_USER` 
   FOREIGN KEY (`user_id`) 
@@ -249,10 +314,10 @@ UNLOCK TABLES;
 LOCK TABLES `authority` WRITE;
 /*!40000 ALTER TABLE `authority` DISABLE KEYS */;
 
-INSERT INTO `authority`  (`name`,`flag_user`, `flag_administrator`)
+INSERT INTO `authority`  (`name`)
 VALUES 
-	('USER', true, false),
-	('ADMINISTRATOR', false, true);
+	('USER'),
+	('ADMINISTRATOR');
 
 /*!40000 ALTER TABLE `authority` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -314,7 +379,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `bookcatalog_author` WRITE;
 
-INSERT INTO `bookcatalog_author`  (`author_id`, `bookcatalog_id`)
+INSERT INTO `bookcatalog_author` 
 VALUES 
 (1,2),
 (2,2),
@@ -326,19 +391,56 @@ VALUES
 UNLOCK TABLES;
 
 --
+-- Dumping data for table `keywords`
+--
+
+LOCK TABLES `keywords` WRITE;
+
+INSERT INTO `keywords` (`name`, `bookcatalog_id`) 
+VALUES 
+('productivity',1),
+('work',1),
+('choice',2),
+('bestseller',2),
+('Пеллевин',3),
+('Fiction',3),
+('Стрела',4),
+('Fiction',4)
+;
+
+/*!40000 ALTER TABLE `keywords` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `bookshelf`
+--
+
+LOCK TABLES `bookshelf` WRITE;
+
+INSERT INTO `bookshelf` (`name`) 
+VALUES 
+('M_BS_1'),
+('M_BS_2'),
+('M_BS_3')
+;
+
+/*!40000 ALTER TABLE `bookshelf` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping data for table `bookitem`
 --
 
 LOCK TABLES `bookitem` WRITE;
 
-INSERT INTO `bookitem` (`bookcatalog_id`, `description`, `bookshelf_adress`) 
+INSERT INTO `bookitem` (`bookcatalog_id`, `description`) 
 VALUES 
-(1, 'The first edition', 'C1'),
-(1, 'Потрепанный переплет', 'C1'),
-(2, 'SN 000123', 'C1-1'),
-(3, 'Издание 2017', 'C1-2'),
-(4, 'Издание 2018', 'BC1-1'),
-(4, 'Издание 2015', 'BC1-2');
+(1, 'The first edition'),
+(1, 'Потрепанный переплет'),
+(2, 'SN 000123'),
+(3, 'Издание 2017'),
+(4, 'Издание 2018'),
+(4, 'Издание 2015');
 
 /*!40000 ALTER TABLE `bookitem` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -357,6 +459,23 @@ VALUES
 /*!40000 ALTER TABLE `bookitem_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
+--
+-- Dumping data for table `bookitem_bookshelf`
+--
+
+LOCK TABLES `bookitem_bookshelf` WRITE;
+
+INSERT INTO `bookitem_bookshelf` (`bookitem_id`, `bookshelf_id`, `bookshelf_adress`) 
+VALUES 
+(1, 1, "A1"),
+(2, 2, "A1"),
+(3, 3, "A1"),
+(4, 1, "A2"),
+(5, 2, "A2"),
+(6, 3, "A2");
+
+/*!40000 ALTER TABLE `bookitem_bookshelf` ENABLE KEYS */;
+UNLOCK TABLES;
 
 SET FOREIGN_KEY_CHECKS = 1;
 -- Dump completed on 2016-09-24 21:50:59

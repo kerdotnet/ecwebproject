@@ -1,15 +1,15 @@
-package com.kerdotnet.dao.SQLImplementation;
+package com.kerdotnet.dao.MySQLImplementation;
 
 import com.kerdotnet.beans.UserAuthority;
-import com.kerdotnet.dao.UserAuthorityDAO;
-import com.kerdotnet.dao.helpers.Enricher;
+import com.kerdotnet.dao.IUserAuthorityDAO;
+import com.kerdotnet.dao.helpers.IEnricher;
 import com.kerdotnet.dao.helpers.UserAuthorityExtractor;
 import com.kerdotnet.exceptions.DAOSystemException;
 
 import java.sql.Connection;
 import java.util.List;
 
-public class UserAuthorityDAOImpl extends AbstractDAO implements UserAuthorityDAO {
+public class UserAuthorityDAOImpl extends AbstractDAO implements IUserAuthorityDAO {
 
     public static final String SQL_SELECT_ALL =
             "SELECT * FROM user_authority";
@@ -32,13 +32,13 @@ public class UserAuthorityDAOImpl extends AbstractDAO implements UserAuthorityDA
     @Override
     public UserAuthority findEntity(Integer id) throws DAOSystemException {
         return (UserAuthority) findEntity(SQL_SELECT_BY_ID, id,  new UserAuthorityExtractor(),
-                Enricher.NULL);
+                IEnricher.NULL);
     }
 
     @Override
     public List<UserAuthority> findAll() throws DAOSystemException {
         return findAll(SQL_SELECT_ALL, new UserAuthorityExtractor(),
-                Enricher.NULL);
+                IEnricher.NULL);
     }
     @Override
     public boolean create(UserAuthority entity) throws DAOSystemException {
@@ -57,6 +57,6 @@ public class UserAuthorityDAOImpl extends AbstractDAO implements UserAuthorityDA
 
     public List<UserAuthority> findAllByUserId(int userId) throws DAOSystemException {
         return findAllByInt(SQL_SELECT_BY_USER_ID, userId,  new UserAuthorityExtractor(),
-                Enricher.NULL);
+                IEnricher.NULL);
     }
 }

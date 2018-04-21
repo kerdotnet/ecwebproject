@@ -6,13 +6,13 @@ import com.kerdotnet.exceptions.DAOSystemException;
 import javax.ejb.NoSuchEntityException;
 
 /**
- * Helper class abstract Enricher
- * enrich DAO with sub DAO
+ * Helper class abstract IEnricher
+ * enrich IDAO with sub IDAO
  * Yevhen Ivanov, 2018-04-12
  */
 
-public interface Enricher<T extends Entity> {
-    Enricher NULL = (record)->{};
+public interface IEnricher<T extends Entity> {
+    IEnricher NULL = (record)->{};
             
     void enrich(T record) throws DAOSystemException, NoSuchEntityException;
 }

@@ -2,7 +2,8 @@ package com.kerdotnet.exceptions;
 
 import java.sql.SQLException;
 
-/**Exceptions for DAO system
+/**Exceptions for IDAO system
+ * Represents a generic DAO exception.
  * Yevhen Ivanov, 2018-04-12
  */
 
@@ -15,7 +16,11 @@ public class DAOSystemException extends SQLException{
         super(message);
     }
 
-    public DAOSystemException(String message, SQLException e) {
-        super(message, e);
+    public DAOSystemException(Throwable cause) {
+        super(cause);
+    }
+
+    public DAOSystemException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

@@ -1,7 +1,7 @@
-package com.kerdotnet.dao.SQLImplementation;
+package com.kerdotnet.dao.MySQLImplementation;
 
 import com.kerdotnet.beans.User;
-import com.kerdotnet.dao.UserDAO;
+import com.kerdotnet.dao.IUserDAO;
 import com.kerdotnet.dao.helpers.UserEnricher;
 import com.kerdotnet.dao.helpers.UserExtractor;
 import com.kerdotnet.exceptions.DAOSystemException;
@@ -9,7 +9,7 @@ import com.kerdotnet.exceptions.DAOSystemException;
 import java.sql.*;
 import java.util.List;
 
-public class UserDAOImpl extends AbstractDAO implements UserDAO {
+public class UserDAOImpl extends AbstractDAO implements IUserDAO {
 
     public static final String SQL_SELECT_ALL =
             "SELECT * FROM user";

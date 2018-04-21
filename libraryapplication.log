@@ -782,7 +782,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
+	at com.kerdotnet.dao.MySQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -827,7 +827,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
+	at com.kerdotnet.dao.MySQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -872,7 +872,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
+	at com.kerdotnet.dao.MySQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -897,7 +897,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-ERROR   2018-04-11 13:39:45,032 [http-bio-8080-exec-4] com.kerdotnet.dao.SQLImplementation.AbstractDAO  - Unexpected error
+ERROR   2018-04-11 13:39:45,032 [http-bio-8080-exec-4] com.kerdotnet.dao.MySQLImplementation.AbstractDAO  - Unexpected error
 com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 'uname' for key 'FK_USER_USERNAME_idx'
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -917,7 +917,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
+	at com.kerdotnet.dao.MySQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -967,7 +967,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
+	at com.kerdotnet.dao.MySQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -1012,7 +1012,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
+	at com.kerdotnet.dao.MySQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -1057,7 +1057,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
+	at com.kerdotnet.dao.MySQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -1082,7 +1082,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-ERROR   2018-04-11 13:40:02,432 [http-bio-8080-exec-7] com.kerdotnet.dao.SQLImplementation.AbstractDAO  - Unexpected error
+ERROR   2018-04-11 13:40:02,432 [http-bio-8080-exec-7] com.kerdotnet.dao.MySQLImplementation.AbstractDAO  - Unexpected error
 com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 'uname' for key 'FK_USER_USERNAME_idx'
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -1102,7 +1102,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.UserDAOImpl.create(UserDAO.java:97)
+	at com.kerdotnet.dao.MySQLImplementation.UserDAOImpl.create(UserDAO.java:97)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:43)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -1802,9 +1802,9 @@ java.sql.SQLException: Parameter index out of range (3 > number of parameters, w
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.setInt(NewProxyPreparedStatement.java:677)
 	at setOneUpdate(UserAuthorityExtractor.java:30)
 	at setOneUpdate(UserAuthorityExtractor.java:14)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:103)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:103)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -1842,9 +1842,9 @@ java.sql.SQLException: Parameter index out of range (3 > number of parameters, w
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.setInt(NewProxyPreparedStatement.java:677)
 	at setOneUpdate(UserAuthorityExtractor.java:30)
 	at setOneUpdate(UserAuthorityExtractor.java:14)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:103)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:103)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -1882,9 +1882,9 @@ java.sql.SQLException: Parameter index out of range (3 > number of parameters, w
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.setInt(NewProxyPreparedStatement.java:677)
 	at setOneUpdate(UserAuthorityExtractor.java:30)
 	at setOneUpdate(UserAuthorityExtractor.java:14)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:103)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:103)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -1909,7 +1909,7 @@ java.sql.SQLException: Parameter index out of range (3 > number of parameters, w
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-ERROR   2018-04-13 15:01:28,785 [http-bio-8080-exec-3] com.kerdotnet.dao.SQLImplementation.AbstractDAO  - Unexpected error
+ERROR   2018-04-13 15:01:28,785 [http-bio-8080-exec-3] com.kerdotnet.dao.MySQLImplementation.AbstractDAO  - Unexpected error
 java.sql.SQLException: Parameter index out of range (3 > number of parameters, which is 2).
 	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965)
 	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:898)
@@ -1922,9 +1922,9 @@ java.sql.SQLException: Parameter index out of range (3 > number of parameters, w
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.setInt(NewProxyPreparedStatement.java:677)
 	at setOneUpdate(UserAuthorityExtractor.java:30)
 	at setOneUpdate(UserAuthorityExtractor.java:14)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:103)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:103)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2022,9 +2022,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2069,9 +2069,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2116,9 +2116,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2143,7 +2143,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-ERROR   2018-04-13 17:19:03,159 [http-bio-8080-exec-2] com.kerdotnet.dao.SQLImplementation.AbstractDAO  - Unexpected error
+ERROR   2018-04-13 17:19:03,159 [http-bio-8080-exec-2] com.kerdotnet.dao.MySQLImplementation.AbstractDAO  - Unexpected error
 com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '1-2' for key 'FK_USERAUTHORITY_idx'
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -2163,9 +2163,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2317,9 +2317,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2364,9 +2364,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2411,9 +2411,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2438,7 +2438,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-ERROR   2018-04-14 13:50:09,319 [http-bio-8080-exec-7] com.kerdotnet.dao.SQLImplementation.AbstractDAO  - Unexpected error
+ERROR   2018-04-14 13:50:09,319 [http-bio-8080-exec-7] com.kerdotnet.dao.MySQLImplementation.AbstractDAO  - Unexpected error
 com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '1-2' for key 'FK_USERAUTHORITY_idx'
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -2458,9 +2458,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2510,9 +2510,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2557,9 +2557,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2604,9 +2604,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2631,7 +2631,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-ERROR   2018-04-14 13:50:16,040 [http-bio-8080-exec-8] com.kerdotnet.dao.SQLImplementation.AbstractDAO  - Unexpected error
+ERROR   2018-04-14 13:50:16,040 [http-bio-8080-exec-8] com.kerdotnet.dao.MySQLImplementation.AbstractDAO  - Unexpected error
 com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '1-2' for key 'FK_USERAUTHORITY_idx'
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -2651,9 +2651,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2754,9 +2754,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2801,9 +2801,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2848,9 +2848,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -2875,7 +2875,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-ERROR   2018-04-14 14:08:45,872 [http-bio-8080-exec-9] com.kerdotnet.dao.SQLImplementation.AbstractDAO  - Unexpected error
+ERROR   2018-04-14 14:08:45,872 [http-bio-8080-exec-9] com.kerdotnet.dao.MySQLImplementation.AbstractDAO  - Unexpected error
 com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '1-2' for key 'FK_USERAUTHORITY_idx'
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -2895,9 +2895,9 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5104)
 	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1998)
 	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
-	at com.kerdotnet.dao.SQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
-	at com.kerdotnet.dao.SQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
+	at com.kerdotnet.dao.MySQLImplementation.AbstractDAO.create(AbstractDAO.java:104)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:45)
+	at com.kerdotnet.dao.MySQLImplementation.UserAuthorityDAOImpl.create(UserAuthorityDAOImpl.java:12)
 	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:50)
 	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
 	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
@@ -4394,3 +4394,659 @@ DEBUG   2018-04-16 18:08:07,196 [http-bio-8080-exec-3] com.kerdotnet.logic.Login
 DEBUG   2018-04-16 18:08:07,204 [http-bio-8080-exec-3] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /WEB-INF/views/main.jsp
 DEBUG   2018-04-16 18:08:51,649 [http-bio-8080-exec-7] com.kerdotnet.command.factory.ActionFactory  - Action: registration
 DEBUG   2018-04-16 18:08:51,649 [http-bio-8080-exec-7] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.RegistrationCommand@722eba32
+DEBUG   2018-04-17 16:28:52,817 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-17 16:28:52,825 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@5eb2d5c0
+DEBUG   2018-04-17 16:28:52,825 [http-bio-8080-exec-3] com.kerdotnet.command.LoginCommand  - kerdotnet
+DEBUG   2018-04-17 16:28:52,825 [http-bio-8080-exec-3] com.kerdotnet.command.LoginCommand  - disappear
+INFO    2018-04-17 16:28:52,897 [http-bio-8080-exec-3] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-17 16:28:52,936 [http-bio-8080-exec-3] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-17 16:28:52,954 [http-bio-8080-exec-3] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7sqo9u1mrjrng157qe1w|4d5bee49] registered.
+DEBUG   2018-04-17 16:28:52,967 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+DEBUG   2018-04-17 16:28:53,017 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 1
+DEBUG   2018-04-17 16:28:53,017 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 2
+DEBUG   2018-04-17 16:28:53,017 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 3
+DEBUG   2018-04-17 16:28:53,018 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 4
+DEBUG   2018-04-17 16:28:53,018 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 5
+DEBUG   2018-04-17 16:28:53,018 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 6
+DEBUG   2018-04-17 16:28:53,018 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 7
+DEBUG   2018-04-17 16:28:53,018 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 8
+DEBUG   2018-04-17 16:28:53,018 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 9
+DEBUG   2018-04-17 16:28:53,018 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 10
+DEBUG   2018-04-17 16:28:53,018 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - com.mchange.v2.resourcepool.BasicResourcePool@203b234f config: [start -> 3; min -> 10; max -> 50; inc -> 10; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 0; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 0; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false]
+INFO    2018-04-17 16:28:53,021 [http-bio-8080-exec-3] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource  - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 10, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 2t7sqo9u1mrjrng157qe1w|4d5bee49, debugUnreturnedConnectionStackTraces -> false, description -> DB Container, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 2t7sqo9u1mrjrng157qe1w|4d5bee49, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/web_library?autoReconnect=true, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 50, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {password=******, user=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+DEBUG   2018-04-17 16:28:53,021 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - acquire test -- pool size: 0; target_pool_size: 10; desired target? 1
+DEBUG   2018-04-17 16:28:53,021 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - awaitAvailable(): [unknown]
+DEBUG   2018-04-17 16:28:53,021 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@203b234f [managed: 0, unused: 0, excluded: 0]
+DEBUG   2018-04-17 16:28:53,286 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@7fa45cca.acquireResource() returning. 
+DEBUG   2018-04-17 16:28:53,286 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@7fa45cca.acquireResource() returning. 
+DEBUG   2018-04-17 16:28:53,286 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@7fa45cca.acquireResource() returning. 
+DEBUG   2018-04-17 16:28:53,287 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@203b234f [managed: 1, unused: 1, excluded: 0]
+DEBUG   2018-04-17 16:28:53,288 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@203b234f [managed: 1, unused: 0, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@620ce56e)
+DEBUG   2018-04-17 16:28:53,288 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@203b234f [managed: 2, unused: 1, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@620ce56e)
+DEBUG   2018-04-17 16:28:53,288 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 9
+DEBUG   2018-04-17 16:28:53,288 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@203b234f [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@620ce56e)
+DEBUG   2018-04-17 16:28:53,288 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 8
+DEBUG   2018-04-17 16:28:53,288 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 7
+DEBUG   2018-04-17 16:28:53,294 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@7fa45cca.acquireResource() returning. 
+DEBUG   2018-04-17 16:28:53,294 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@7fa45cca.acquireResource() returning. 
+DEBUG   2018-04-17 16:28:53,294 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@7fa45cca.acquireResource() returning. 
+DEBUG   2018-04-17 16:28:53,294 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@203b234f [managed: 4, unused: 3, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@620ce56e)
+DEBUG   2018-04-17 16:28:53,294 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 6
+DEBUG   2018-04-17 16:28:53,294 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@203b234f [managed: 5, unused: 4, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@620ce56e)
+DEBUG   2018-04-17 16:28:53,294 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 5
+DEBUG   2018-04-17 16:28:53,294 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@203b234f [managed: 6, unused: 5, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@620ce56e)
+DEBUG   2018-04-17 16:28:53,295 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 4
+DEBUG   2018-04-17 16:28:53,300 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@7fa45cca.acquireResource() returning. 
+DEBUG   2018-04-17 16:28:53,300 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@7fa45cca.acquireResource() returning. 
+DEBUG   2018-04-17 16:28:53,300 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@7fa45cca.acquireResource() returning. 
+DEBUG   2018-04-17 16:28:53,300 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@203b234f [managed: 7, unused: 6, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@620ce56e)
+DEBUG   2018-04-17 16:28:53,301 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@203b234f [managed: 8, unused: 7, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@620ce56e)
+DEBUG   2018-04-17 16:28:53,301 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 3
+DEBUG   2018-04-17 16:28:53,301 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 2
+DEBUG   2018-04-17 16:28:53,301 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@203b234f [managed: 9, unused: 8, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@620ce56e)
+DEBUG   2018-04-17 16:28:53,301 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 1
+DEBUG   2018-04-17 16:28:53,305 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@7fa45cca.acquireResource() returning. 
+DEBUG   2018-04-17 16:28:53,305 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@203b234f [managed: 10, unused: 9, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@620ce56e)
+DEBUG   2018-04-17 16:28:53,305 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 0
+DEBUG   2018-04-17 16:28:53,329 [http-bio-8080-exec-3] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@203b234f [managed: 10, unused: 9, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@620ce56e)
+DEBUG   2018-04-17 16:28:53,358 [http-bio-8080-exec-3] com.kerdotnet.logic.LoginLogic  - Retrieved user: User{id='1'username='kerdotnet', password='$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG', email='evgenys.ivanov@gmail.com', firstName='Евгений', lastName='Иванов', mobile='+380952711261', enabled=true, authorities=[UserAuthority{Id=2, userId=1, authorityId='1'}, UserAuthority{Id=1, userId=1, authorityId='2'}]} for login String: kerdotnet
+DEBUG   2018-04-17 16:28:53,720 [http-bio-8080-exec-3] com.kerdotnet.logic.LoginLogic  - Validation was done successfully
+DEBUG   2018-04-17 16:28:53,725 [http-bio-8080-exec-3] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /WEB-INF/views/main.jsp
+DEBUG   2018-04-17 16:28:57,002 [http-bio-8080-exec-5] com.kerdotnet.command.factory.ActionFactory  - Action: logout
+DEBUG   2018-04-17 16:28:57,002 [http-bio-8080-exec-5] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LogoutCommand@74671c49
+DEBUG   2018-04-19 18:30:03,216 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-19 18:30:03,222 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@7760ca42
+DEBUG   2018-04-19 18:30:03,222 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - kerdotnet
+DEBUG   2018-04-19 18:30:03,222 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - disappear
+DEBUG   2018-04-19 18:30:03,254 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+ERROR   2018-04-19 18:30:03,257 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - Unexpected error
+org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create JDBC driver of class '' for connect URL 'null'
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1452)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1371)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:55)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:111)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:26)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:40)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1437)
+	... 29 more
+ERROR   2018-04-19 18:30:03,259 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - Unexpected error
+com.kerdotnet.exceptions.DAOSystemException: DAO Manager exception
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:59)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:111)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:26)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:40)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create JDBC driver of class '' for connect URL 'null'
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1452)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1371)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:55)
+	... 26 more
+Caused by: java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1437)
+	... 29 more
+ERROR   2018-04-19 18:30:03,263 [http-bio-8080-exec-2] com.kerdotnet.logic.LoginLogic  - Error in the login validation
+com.kerdotnet.exceptions.DAOSystemException: DAO Manager exception
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:115)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:26)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:40)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: com.kerdotnet.exceptions.DAOSystemException: DAO Manager exception
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:59)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:111)
+	... 25 more
+Caused by: org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create JDBC driver of class '' for connect URL 'null'
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1452)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1371)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:55)
+	... 26 more
+Caused by: java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1437)
+	... 29 more
+DEBUG   2018-04-19 18:30:03,269 [http-bio-8080-exec-2] com.kerdotnet.logic.LoginLogic  - Retrieved user: null for login String: kerdotnet
+DEBUG   2018-04-19 18:30:03,287 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+DEBUG   2018-04-19 18:37:33,809 [http-bio-8080-exec-1] com.kerdotnet.command.factory.ActionFactory  - Action: null
+DEBUG   2018-04-19 18:37:42,289 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-19 18:37:42,294 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@6995d2b5
+DEBUG   2018-04-19 18:37:42,294 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - kerdotnet
+DEBUG   2018-04-19 18:37:42,294 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - disappear
+DEBUG   2018-04-19 18:37:42,325 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+DEBUG   2018-04-19 18:45:10,538 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-19 18:45:10,544 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@733b06ba
+DEBUG   2018-04-19 18:45:10,544 [http-bio-8080-exec-3] com.kerdotnet.command.LoginCommand  - kerdotnet
+DEBUG   2018-04-19 18:45:10,544 [http-bio-8080-exec-3] com.kerdotnet.command.LoginCommand  - disappear
+DEBUG   2018-04-19 18:45:10,576 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+ERROR   2018-04-19 18:45:10,580 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - Unexpected error
+org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create JDBC driver of class '' for connect URL 'null'
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1452)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1371)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:59)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:115)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:26)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:40)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1437)
+	... 29 more
+ERROR   2018-04-19 18:45:10,582 [http-bio-8080-exec-3] com.kerdotnet.controllers.Controller  - Unexpected error
+com.kerdotnet.exceptions.DAOSystemException: DAO Manager exception
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:63)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:115)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:26)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:40)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create JDBC driver of class '' for connect URL 'null'
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1452)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1371)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:59)
+	... 26 more
+Caused by: java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1437)
+	... 29 more
+ERROR   2018-04-19 18:45:10,587 [http-bio-8080-exec-3] com.kerdotnet.logic.LoginLogic  - Error in the login validation
+com.kerdotnet.exceptions.DAOSystemException: DAO Manager exception
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:119)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:26)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:40)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: com.kerdotnet.exceptions.DAOSystemException: DAO Manager exception
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:63)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:115)
+	... 25 more
+Caused by: org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create JDBC driver of class '' for connect URL 'null'
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1452)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1371)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:59)
+	... 26 more
+Caused by: java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1437)
+	... 29 more
+DEBUG   2018-04-19 18:45:10,595 [http-bio-8080-exec-3] com.kerdotnet.logic.LoginLogic  - Retrieved user: null for login String: kerdotnet
+DEBUG   2018-04-19 18:45:10,601 [http-bio-8080-exec-3] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+DEBUG   2018-04-19 18:48:44,996 [http-bio-8080-exec-1] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-19 18:48:45,002 [http-bio-8080-exec-1] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@53687762
+DEBUG   2018-04-19 18:48:45,002 [http-bio-8080-exec-1] com.kerdotnet.command.LoginCommand  - kerdotnet
+DEBUG   2018-04-19 18:48:45,002 [http-bio-8080-exec-1] com.kerdotnet.command.LoginCommand  - disappear
+DEBUG   2018-04-19 18:48:45,033 [http-bio-8080-exec-1] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+ERROR   2018-04-19 18:48:45,037 [http-bio-8080-exec-1] com.kerdotnet.controllers.Controller  - Unexpected error
+org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create JDBC driver of class '' for connect URL 'null'
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1452)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1371)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:59)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:115)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:26)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:40)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1437)
+	... 29 more
+ERROR   2018-04-19 18:48:45,039 [http-bio-8080-exec-1] com.kerdotnet.controllers.Controller  - Unexpected error
+com.kerdotnet.exceptions.DAOSystemException: DAO Manager exception
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:63)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:115)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:26)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:40)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create JDBC driver of class '' for connect URL 'null'
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1452)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1371)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:59)
+	... 26 more
+Caused by: java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1437)
+	... 29 more
+ERROR   2018-04-19 18:48:45,043 [http-bio-8080-exec-1] com.kerdotnet.logic.LoginLogic  - Error in the login validation
+com.kerdotnet.exceptions.DAOSystemException: DAO Manager exception
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:119)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:26)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:40)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: com.kerdotnet.exceptions.DAOSystemException: DAO Manager exception
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:63)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:115)
+	... 25 more
+Caused by: org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create JDBC driver of class '' for connect URL 'null'
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1452)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1371)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:59)
+	... 26 more
+Caused by: java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1437)
+	... 29 more
+DEBUG   2018-04-19 18:48:45,051 [http-bio-8080-exec-1] com.kerdotnet.logic.LoginLogic  - Retrieved user: null for login String: kerdotnet
+DEBUG   2018-04-19 18:48:45,057 [http-bio-8080-exec-1] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+DEBUG   2018-04-19 18:48:50,489 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-19 18:48:50,490 [http-bio-8080-exec-2] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@53687762
+DEBUG   2018-04-19 18:48:50,490 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - kerdotnet
+DEBUG   2018-04-19 18:48:50,490 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - disappear
+DEBUG   2018-04-19 18:48:50,490 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+ERROR   2018-04-19 18:48:50,492 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - Unexpected error
+org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create JDBC driver of class '' for connect URL 'null'
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1452)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1371)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:59)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:115)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:26)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:40)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1437)
+	... 29 more
+ERROR   2018-04-19 18:48:50,492 [http-bio-8080-exec-2] com.kerdotnet.controllers.Controller  - Unexpected error
+com.kerdotnet.exceptions.DAOSystemException: DAO Manager exception
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:63)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:115)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:26)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:40)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create JDBC driver of class '' for connect URL 'null'
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1452)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1371)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:59)
+	... 26 more
+Caused by: java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1437)
+	... 29 more
+ERROR   2018-04-19 18:48:50,493 [http-bio-8080-exec-2] com.kerdotnet.logic.LoginLogic  - Error in the login validation
+com.kerdotnet.exceptions.DAOSystemException: DAO Manager exception
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:119)
+	at com.kerdotnet.logic.LoginLogic.checkLogin(LoginLogic.java:26)
+	at com.kerdotnet.command.LoginCommand.execute(LoginCommand.java:40)
+	at com.kerdotnet.controllers.Controller.processRequest(Controller.java:49)
+	at com.kerdotnet.controllers.Controller.doPost(Controller.java:38)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: com.kerdotnet.exceptions.DAOSystemException: DAO Manager exception
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:63)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.getDAO(DAOManager.java:115)
+	... 25 more
+Caused by: org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create JDBC driver of class '' for connect URL 'null'
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1452)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1371)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at com.kerdotnet.dao.factory.MySQLDAOFactory.open(DAOManager.java:59)
+	... 26 more
+Caused by: java.sql.SQLException: No suitable driver
+	at java.sql/java.sql.DriverManager.getDriver(DriverManager.java:299)
+	at org.apache.tomcat.dbcp.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1437)
+	... 29 more
+DEBUG   2018-04-19 18:48:50,494 [http-bio-8080-exec-2] com.kerdotnet.logic.LoginLogic  - Retrieved user: null for login String: kerdotnet
+DEBUG   2018-04-19 18:48:50,494 [http-bio-8080-exec-2] com.kerdotnet.command.LoginCommand  - Error login, return page: /WEB-INF/views/login.jsp
+DEBUG   2018-04-20 11:52:06,991 [http-bio-8080-exec-1] com.kerdotnet.command.factory.ActionFactory  - Action: null
+DEBUG   2018-04-20 11:52:14,279 [http-bio-8080-exec-9] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-20 11:52:14,287 [http-bio-8080-exec-9] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@8b2270d
+DEBUG   2018-04-20 11:52:14,287 [http-bio-8080-exec-9] com.kerdotnet.command.LoginCommand  - kerdotnet
+DEBUG   2018-04-20 11:52:14,287 [http-bio-8080-exec-9] com.kerdotnet.command.LoginCommand  - disappear
+INFO    2018-04-20 11:52:14,359 [http-bio-8080-exec-9] com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+INFO    2018-04-20 11:52:14,392 [http-bio-8080-exec-9] com.mchange.v2.c3p0.C3P0Registry  - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+DEBUG   2018-04-20 11:52:14,407 [http-bio-8080-exec-9] com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean  - MBean: com.mchange.v2.c3p0:type=PooledDataSource[2t7sqo9u1qrzk4vf62hzh|e34f170] registered.
+DEBUG   2018-04-20 11:52:14,415 [http-bio-8080-exec-9] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+DEBUG   2018-04-20 11:52:14,455 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 1
+DEBUG   2018-04-20 11:52:14,455 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 2
+DEBUG   2018-04-20 11:52:14,455 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 3
+DEBUG   2018-04-20 11:52:14,455 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 4
+DEBUG   2018-04-20 11:52:14,455 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 5
+DEBUG   2018-04-20 11:52:14,455 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 6
+DEBUG   2018-04-20 11:52:14,455 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 7
+DEBUG   2018-04-20 11:52:14,455 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 8
+DEBUG   2018-04-20 11:52:14,455 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 9
+DEBUG   2018-04-20 11:52:14,455 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - incremented pending_acquires: 10
+DEBUG   2018-04-20 11:52:14,456 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - com.mchange.v2.resourcepool.BasicResourcePool@10439610 config: [start -> 3; min -> 10; max -> 50; inc -> 10; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; mox_resource_age -> 0; max_idle_time -> 0; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 0; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false]
+INFO    2018-04-20 11:52:14,458 [http-bio-8080-exec-9] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource  - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 10, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 2t7sqo9u1qrzk4vf62hzh|e34f170, debugUnreturnedConnectionStackTraces -> false, description -> DB Container, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 2t7sqo9u1qrzk4vf62hzh|e34f170, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/web_library?autoReconnect=true, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 50, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {password=******, user=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+DEBUG   2018-04-20 11:52:14,458 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - acquire test -- pool size: 0; target_pool_size: 10; desired target? 1
+DEBUG   2018-04-20 11:52:14,458 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - awaitAvailable(): [unknown]
+DEBUG   2018-04-20 11:52:14,458 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@10439610 [managed: 0, unused: 0, excluded: 0]
+DEBUG   2018-04-20 11:52:14,731 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@74247b58.acquireResource() returning. 
+DEBUG   2018-04-20 11:52:14,731 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@74247b58.acquireResource() returning. 
+DEBUG   2018-04-20 11:52:14,731 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@74247b58.acquireResource() returning. 
+DEBUG   2018-04-20 11:52:14,732 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@10439610 [managed: 1, unused: 1, excluded: 0]
+DEBUG   2018-04-20 11:52:14,732 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 9
+DEBUG   2018-04-20 11:52:14,732 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@10439610 [managed: 1, unused: 0, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@290be708)
+DEBUG   2018-04-20 11:52:14,733 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@10439610 [managed: 2, unused: 1, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@290be708)
+DEBUG   2018-04-20 11:52:14,733 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 8
+DEBUG   2018-04-20 11:52:14,733 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@10439610 [managed: 3, unused: 2, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@290be708)
+DEBUG   2018-04-20 11:52:14,733 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 7
+DEBUG   2018-04-20 11:52:14,738 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@74247b58.acquireResource() returning. 
+DEBUG   2018-04-20 11:52:14,738 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@10439610 [managed: 4, unused: 3, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@290be708)
+DEBUG   2018-04-20 11:52:14,738 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 6
+DEBUG   2018-04-20 11:52:14,739 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@74247b58.acquireResource() returning. 
+DEBUG   2018-04-20 11:52:14,740 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@10439610 [managed: 5, unused: 4, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@290be708)
+DEBUG   2018-04-20 11:52:14,740 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 5
+DEBUG   2018-04-20 11:52:14,740 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@74247b58.acquireResource() returning. 
+DEBUG   2018-04-20 11:52:14,740 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@10439610 [managed: 6, unused: 5, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@290be708)
+DEBUG   2018-04-20 11:52:14,740 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 4
+DEBUG   2018-04-20 11:52:14,745 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@74247b58.acquireResource() returning. 
+DEBUG   2018-04-20 11:52:14,745 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@10439610 [managed: 7, unused: 6, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@290be708)
+DEBUG   2018-04-20 11:52:14,745 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 3
+DEBUG   2018-04-20 11:52:14,746 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@74247b58.acquireResource() returning. 
+DEBUG   2018-04-20 11:52:14,746 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@10439610 [managed: 8, unused: 7, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@290be708)
+DEBUG   2018-04-20 11:52:14,746 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 2
+DEBUG   2018-04-20 11:52:14,747 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@74247b58.acquireResource() returning. 
+DEBUG   2018-04-20 11:52:14,747 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@10439610 [managed: 9, unused: 8, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@290be708)
+DEBUG   2018-04-20 11:52:14,747 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 1
+DEBUG   2018-04-20 11:52:14,750 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool  - com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager@74247b58.acquireResource() returning. 
+DEBUG   2018-04-20 11:52:14,750 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@10439610 [managed: 10, unused: 9, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@290be708)
+DEBUG   2018-04-20 11:52:14,750 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] com.mchange.v2.resourcepool.BasicResourcePool  - decremented pending_acquires: 0
+DEBUG   2018-04-20 11:52:14,775 [http-bio-8080-exec-9] com.mchange.v2.resourcepool.BasicResourcePool  - trace com.mchange.v2.resourcepool.BasicResourcePool@10439610 [managed: 10, unused: 9, excluded: 0] (e.g. com.mchange.v2.c3p0.impl.NewPooledConnection@290be708)
+DEBUG   2018-04-20 11:52:14,803 [http-bio-8080-exec-9] com.kerdotnet.logic.LoginLogic  - Retrieved user: User{id='1'username='kerdotnet', password='$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG', email='evgenys.ivanov@gmail.com', firstName='Евгений', lastName='Иванов', mobile='+380952711261', enabled=true, authorities=[UserAuthority{Id=2, userId=1, authorityId='1'}, UserAuthority{Id=1, userId=1, authorityId='2'}]} for login String: kerdotnet
+DEBUG   2018-04-20 11:52:15,185 [http-bio-8080-exec-9] com.kerdotnet.logic.LoginLogic  - Validation was done successfully
+DEBUG   2018-04-20 11:52:15,186 [http-bio-8080-exec-9] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /WEB-INF/views/main.jsp
+DEBUG   2018-04-20 11:52:19,350 [http-bio-8080-exec-10] com.kerdotnet.command.factory.ActionFactory  - Action: logout
+DEBUG   2018-04-20 11:52:19,350 [http-bio-8080-exec-10] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LogoutCommand@1abdaff2
+DEBUG   2018-04-20 12:03:50,616 [http-bio-8080-exec-5] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-20 12:03:50,626 [http-bio-8080-exec-5] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@7c791af8
+DEBUG   2018-04-20 12:03:50,626 [http-bio-8080-exec-5] com.kerdotnet.command.LoginCommand  - kerdotnet
+DEBUG   2018-04-20 12:03:50,626 [http-bio-8080-exec-5] com.kerdotnet.command.LoginCommand  - disappear
+DEBUG   2018-04-20 12:03:50,661 [http-bio-8080-exec-5] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+DEBUG   2018-04-20 12:03:50,969 [http-bio-8080-exec-5] com.kerdotnet.logic.LoginLogic  - Retrieved user: User{id='1'username='kerdotnet', password='$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG', email='evgenys.ivanov@gmail.com', firstName='Евгений', lastName='Иванов', mobile='+380952711261', enabled=true, authorities=[UserAuthority{Id=2, userId=1, authorityId='1'}, UserAuthority{Id=1, userId=1, authorityId='2'}]} for login String: kerdotnet
+DEBUG   2018-04-20 12:03:51,335 [http-bio-8080-exec-5] com.kerdotnet.logic.LoginLogic  - Validation was done successfully
+DEBUG   2018-04-20 12:03:51,339 [http-bio-8080-exec-5] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /WEB-INF/views/main.jsp
+DEBUG   2018-04-20 12:11:52,161 [http-bio-8080-exec-1] com.kerdotnet.command.factory.ActionFactory  - Action: null
+DEBUG   2018-04-20 12:12:00,820 [http-bio-8080-exec-9] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-20 12:12:00,867 [http-bio-8080-exec-9] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@6c1d6f82
+DEBUG   2018-04-20 12:12:00,867 [http-bio-8080-exec-9] com.kerdotnet.command.LoginCommand  - kerdotnet
+DEBUG   2018-04-20 12:12:00,867 [http-bio-8080-exec-9] com.kerdotnet.command.LoginCommand  - disappear
+DEBUG   2018-04-20 12:12:00,928 [http-bio-8080-exec-9] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+DEBUG   2018-04-20 12:12:01,349 [http-bio-8080-exec-9] com.kerdotnet.logic.LoginLogic  - Retrieved user: User{id='1'username='kerdotnet', password='$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG', email='evgenys.ivanov@gmail.com', firstName='Евгений', lastName='Иванов', mobile='+380952711261', enabled=true, authorities=[UserAuthority{Id=2, userId=1, authorityId='1'}, UserAuthority{Id=1, userId=1, authorityId='2'}]} for login String: kerdotnet
+DEBUG   2018-04-20 12:12:01,708 [http-bio-8080-exec-9] com.kerdotnet.logic.LoginLogic  - Validation was done successfully
+DEBUG   2018-04-20 12:12:01,709 [http-bio-8080-exec-9] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /WEB-INF/views/main.jsp
+DEBUG   2018-04-20 12:12:04,884 [http-bio-8080-exec-10] com.kerdotnet.command.factory.ActionFactory  - Action: registration
+DEBUG   2018-04-20 12:12:04,884 [http-bio-8080-exec-10] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.RegistrationCommand@70026420
+DEBUG   2018-04-20 12:12:09,874 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - Action: logout
+DEBUG   2018-04-20 12:12:09,874 [http-bio-8080-exec-3] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LogoutCommand@6e2faffb
+DEBUG   2018-04-20 14:02:10,792 [http-bio-8080-exec-5] com.kerdotnet.command.factory.ActionFactory  - Action: login
+DEBUG   2018-04-20 14:02:10,799 [http-bio-8080-exec-5] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LoginCommand@339cf0eb
+DEBUG   2018-04-20 14:02:10,799 [http-bio-8080-exec-5] com.kerdotnet.command.LoginCommand  - kerdotnet
+DEBUG   2018-04-20 14:02:10,799 [http-bio-8080-exec-5] com.kerdotnet.command.LoginCommand  - disappear
+DEBUG   2018-04-20 14:02:10,831 [http-bio-8080-exec-5] com.kerdotnet.controllers.Controller  - DataSource was successfully initialized
+DEBUG   2018-04-20 14:02:11,204 [http-bio-8080-exec-5] com.kerdotnet.logic.LoginLogic  - Retrieved user: User{id='1'username='kerdotnet', password='$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG', email='evgenys.ivanov@gmail.com', firstName='Евгений', lastName='Иванов', mobile='+380952711261', enabled=true, authorities=[UserAuthority{Id=2, userId=1, authorityId='1'}, UserAuthority{Id=1, userId=1, authorityId='2'}]} for login String: kerdotnet
+DEBUG   2018-04-20 14:02:11,575 [http-bio-8080-exec-5] com.kerdotnet.logic.LoginLogic  - Validation was done successfully
+DEBUG   2018-04-20 14:02:11,579 [http-bio-8080-exec-5] com.kerdotnet.command.LoginCommand  - Login accomplished successfully, return page: /WEB-INF/views/main.jsp
+DEBUG   2018-04-20 14:02:13,666 [http-bio-8080-exec-7] com.kerdotnet.command.factory.ActionFactory  - Action: registration
+DEBUG   2018-04-20 14:02:13,666 [http-bio-8080-exec-7] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.RegistrationCommand@43bc6178
+DEBUG   2018-04-20 14:02:15,668 [http-bio-8080-exec-9] com.kerdotnet.command.factory.ActionFactory  - Action: logout
+DEBUG   2018-04-20 14:02:15,668 [http-bio-8080-exec-9] com.kerdotnet.command.factory.ActionFactory  - current command: com.kerdotnet.command.LogoutCommand@505878fa

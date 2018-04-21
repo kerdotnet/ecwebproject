@@ -1,9 +1,12 @@
 package com.kerdotnet.logic;
 
 import com.kerdotnet.beans.User;
-import com.kerdotnet.dao.UserDAO;
+import com.kerdotnet.dao.IUserDAO;
+import com.kerdotnet.dao.factory.AbstractDAOFactory;
 import com.kerdotnet.dao.factory.DAOEnum;
-import com.kerdotnet.dao.factory.DAOManager;
+import com.kerdotnet.dao.factory.IDAOFactory;
+import com.kerdotnet.dao.factory.MySQLDAOFactory;
+import com.kerdotnet.exceptions.DAOConfigurationException;
 import com.kerdotnet.exceptions.DAOSystemException;
 import org.apache.log4j.Logger;
 
@@ -22,8 +25,8 @@ public class LoginLogic {
     public static boolean checkLogin(String login, String passwrod) {
         User user = null;
 
-        try (DAOManager daoManager = DAOManager.getInstance()) {
-            UserDAO userDAO = (UserDAO) daoManager.getDAO(DAOEnum.USER);
+        try (IDAOFactory daoManager = AbstractDAOFactory.getDAOFactory(1)) {
+            IUserDAO userDAO = (IUserDAO) daoManager.getDAO(DAOEnum.USER);
             user = userDAO.findUserByUserName(login);
         } catch (DAOSystemException e) {
             LOGGER.error("Error in the login validation", e);
@@ -48,8 +51,8 @@ public class LoginLogic {
                 firstName, lastName, mobile, true);
         LOGGER.debug("user entityt created: " + user);
 
-        try (DAOManager daoManager = DAOManager.getInstance()) {
-            UserDAO userDAO = (UserDAO) daoManager.getDAO(DAOEnum.USER);
+        try (IDAOFactory daoManager = AbstractDAOFactory.getDAOFactory(1)) {
+            IUserDAO userDAO = (IUserDAO) daoManager.getDAO(DAOEnum.USER);
             LOGGER.debug("dao user is obtained");
             successFlag = userDAO.create(user);
             LOGGER.debug("success flag is: " + successFlag);

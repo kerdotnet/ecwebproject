@@ -7,6 +7,6 @@ import javax.servlet.http.HttpServletRequest;
  * Yevhen Ivanov; 2018-04-09
  */
 
-public interface ActionCommand {
+public interface IActionCommand {
     String execute(HttpServletRequest request);
 }

@@ -1,7 +1,7 @@
-package com.kerdotnet.dao.factory;
+package com.kerdotnet.dao.daofactory;
 
 /**
- * Enum for IDAO factory
+ * Enum for IDAO daofactory
  * USER - UserDAOImpl
  * USER_AUTHORITY - UserAuthorityDAOImpl
  * Yevhen Ivanov 2018-04-11

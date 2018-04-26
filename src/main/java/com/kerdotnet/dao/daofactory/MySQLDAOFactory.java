@@ -1,6 +1,8 @@
-package com.kerdotnet.dao.factory;
+package com.kerdotnet.dao.daofactory;
 
 import com.kerdotnet.dao.*;
+import com.kerdotnet.dao.connectionfactory.ConnectionFactory;
+import com.kerdotnet.dao.connectionfactory.ConnectionFactoryFactory;
 import com.kerdotnet.dao.mysqlimplementation.*;
 import com.kerdotnet.exceptions.DAOConfigurationException;
 import com.kerdotnet.exceptions.DAOSystemException;
@@ -22,17 +24,8 @@ public class MySQLDAOFactory extends AbstractDAOFactory implements IDAOFactory {
 
     static final Logger LOGGER = LoggerFactory.getLogger(MySQLDAOFactory.class);
 
-    private MySQLDAOFactory() throws DAOConfigurationException {
-        try {
-            Context initCtx = new InitialContext();
-            Context envCtx = (Context) initCtx.lookup("java:comp/env");
-
-            dataSource = (DataSource)
-                    envCtx.lookup("jdbc/libraryDB");
-            LOGGER.debug("DataSource was successfully initialized");
-        } catch (Exception e) {
-            throw new DAOConfigurationException("Error in DAO Factory configurations.", e);
-        }
+    private MySQLDAOFactory() throws DAOSystemException {
+        connectionFactory = ConnectionFactoryFactory.newConnectioFactory();
     }
 
     public static IDAOFactory getInstance() {

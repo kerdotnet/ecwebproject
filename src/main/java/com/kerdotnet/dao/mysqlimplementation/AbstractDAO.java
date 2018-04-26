@@ -18,7 +18,6 @@ import java.util.List;
  */
 
 public abstract class AbstractDAO<T extends Entity> {
-    static final Logger LOGGER = LoggerFactory.getLogger(AbstractDAO.class);
     protected Connection connection;
 
     public AbstractDAO(Connection connection){

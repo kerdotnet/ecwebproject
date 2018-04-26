@@ -1,4 +1,4 @@
-package com.kerdotnet.dao.factory;
+package com.kerdotnet.dao.daofactory;
 
 import com.kerdotnet.dao.*;
 import com.kerdotnet.exceptions.DAOSystemException;

@@ -6,8 +6,8 @@ import com.kerdotnet.beans.BookCatalogAuthor;
 import com.kerdotnet.dao.IAuthorDAO;
 import com.kerdotnet.dao.IBookCatalogAuthorDAO;
 import com.kerdotnet.dao.IBookCatalogDAO;
-import com.kerdotnet.dao.factory.AbstractDAOFactory;
-import com.kerdotnet.dao.factory.IDAOFactory;
+import com.kerdotnet.dao.daofactory.AbstractDAOFactory;
+import com.kerdotnet.dao.daofactory.IDAOFactory;
 import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.resource.MessageManager;
@@ -26,9 +26,9 @@ public class BookCatalogService {
     static final Logger LOGGER = LoggerFactory.getLogger(BookCatalogService.class);
 
     public static BookCatalog getBookCatalogById(int id) throws ServiceException {
-        BookCatalog bookCatalogEntity = null;
+        BookCatalog bookCatalogEntity;
 
-        try (IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory(1)) {
+        try (IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory()) {
             IBookCatalogDAO bcDAO = daoFactory.getBookCatalogDAO();
             bookCatalogEntity = bcDAO.findEntity(id);
 
@@ -52,9 +52,9 @@ public class BookCatalogService {
      * obtain all BookCatalog itens without any filters
      */
     public static List<BookCatalog> getAllBookCatalog() throws ServiceException {
-        List<BookCatalog> bookCatalogList = new LinkedList<>();
+        List<BookCatalog> bookCatalogList;
 
-        try (IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory(1)) {
+        try (IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory()) {
             IBookCatalogDAO bcDAO = daoFactory.getBookCatalogDAO();
             bookCatalogList = bcDAO.findAll();
             IBookCatalogAuthorDAO bcaDAO = daoFactory.getBookCatalogAuthorDAO();
@@ -82,8 +82,8 @@ public class BookCatalogService {
      */
     public static boolean delteBookCatalogById(int bookCatalogId)  throws ServiceException {
         //:TODO add here a transaction
-        boolean result = false;
-        try (IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory(1)) {
+        boolean result;
+        try (IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory()) {
             IBookCatalogDAO bookCatalogDAO = daoFactory.getBookCatalogDAO();
             result = bookCatalogDAO.delete(bookCatalogDAO.findEntity(bookCatalogId));
         } catch (DAOSystemException e) {

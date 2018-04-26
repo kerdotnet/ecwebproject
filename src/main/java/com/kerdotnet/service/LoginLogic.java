@@ -6,8 +6,8 @@ import com.kerdotnet.beans.UserAuthority;
 import com.kerdotnet.dao.IAuthorityDAO;
 import com.kerdotnet.dao.IUserAuthorityDAO;
 import com.kerdotnet.dao.IUserDAO;
-import com.kerdotnet.dao.factory.AbstractDAOFactory;
-import com.kerdotnet.dao.factory.IDAOFactory;
+import com.kerdotnet.dao.daofactory.AbstractDAOFactory;
+import com.kerdotnet.dao.daofactory.IDAOFactory;
 import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.exceptions.ServiceException;
 import org.slf4j.Logger;
@@ -35,9 +35,9 @@ public class LoginLogic {
      * @throws DAOSystemException
      */
     public static boolean checkLogin(String login, String passwrod) throws ServiceException {
-        User user = null;
+        User user;
 
-        try (IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory(1)) {
+        try (IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory()) {
             IUserDAO userDAO = daoFactory.getUserDAO();
             user = userDAO.findUserByUserName(login);
         } catch (DAOSystemException e) {
@@ -61,10 +61,10 @@ public class LoginLogic {
      * @throws DAOSystemException
      */
     public static boolean checkAdministratorRole(String login) throws ServiceException {
-        User user = null;
+        User user;
         boolean administratorRole = false;
 
-        try (IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory(1)) {
+        try (IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory()) {
             IUserDAO userDAO = daoFactory.getUserDAO();
             user = userDAO.findUserByUserName(login);
             IUserAuthorityDAO userAuthorityDAO = daoFactory.getUserAuthorityDAO();
@@ -97,12 +97,12 @@ public class LoginLogic {
     public static boolean addUser(String login, String email,
                                   String firstName, String lastName, String mobile,
                                   String password, String confirmPassword) throws ServiceException{
-        boolean successFlag = false;
+        boolean successFlag;
 
         User user = new User(login, hashPassword(password), email,
                 firstName, lastName, mobile, true);
 
-        try (IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory(1)) {
+        try (IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory()) {
             IUserDAO userDAO = daoFactory.getUserDAO();
             successFlag = userDAO.create(user);
             if (successFlag) {

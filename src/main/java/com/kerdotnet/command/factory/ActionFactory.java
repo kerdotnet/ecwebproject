@@ -5,7 +5,8 @@ import com.kerdotnet.command.EmptyCommand;
 import com.kerdotnet.command.client.CommandEnum;
 import com.kerdotnet.controllers.SessionRequestContent;
 import com.kerdotnet.resource.MessageManager;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Action Factory class
@@ -13,7 +14,7 @@ import org.apache.log4j.Logger;
  * Yevhen Ivanov; 2018-04-09
  */
 public class ActionFactory {
-    static final Logger LOGGER = Logger.getLogger(ActionFactory.class);
+    static final Logger LOGGER = LoggerFactory.getLogger(ActionFactory.class);
 
     public IActionCommand defineCommand(SessionRequestContent sessionRequestContent){
 

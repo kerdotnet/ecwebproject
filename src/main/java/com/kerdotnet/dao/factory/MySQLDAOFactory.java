@@ -1,10 +1,11 @@
 package com.kerdotnet.dao.factory;
 
 import com.kerdotnet.dao.*;
-import com.kerdotnet.dao.MySQLImplementation.*;
+import com.kerdotnet.dao.mysqlimplementation.*;
 import com.kerdotnet.exceptions.DAOConfigurationException;
 import com.kerdotnet.exceptions.DAOSystemException;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -19,7 +20,7 @@ import javax.sql.DataSource;
 
 public class MySQLDAOFactory extends AbstractDAOFactory implements IDAOFactory {
 
-    static final Logger LOGGER = Logger.getLogger(MySQLDAOFactory.class);
+    static final Logger LOGGER = LoggerFactory.getLogger(MySQLDAOFactory.class);
 
     private MySQLDAOFactory() throws DAOConfigurationException {
         try {
@@ -30,8 +31,7 @@ public class MySQLDAOFactory extends AbstractDAOFactory implements IDAOFactory {
                     envCtx.lookup("jdbc/libraryDB");
             LOGGER.debug("DataSource was successfully initialized");
         } catch (Exception e) {
-            LOGGER.error("Unexpected error", e);
-            throw new DAOConfigurationException("Eror in DAO Factory configuration", e);
+            throw new DAOConfigurationException("Error in DAO Factory configurations.", e);
         }
     }
 
@@ -61,7 +61,6 @@ public class MySQLDAOFactory extends AbstractDAOFactory implements IDAOFactory {
             case TRANSACTION:
                 return new TransactionDAOImpl(this.connection);
             default: {
-                LOGGER.error("Trying to link to a not existing IDAO.");
                 throw new DAOSystemException("Trying to link to an not existing IDAO.");
             }
         }

@@ -1,4 +1,4 @@
-package com.kerdotnet.dao.MySQLImplementation;
+package com.kerdotnet.dao.mysqlimplementation;
 
 import com.kerdotnet.beans.Authority;
 import com.kerdotnet.dao.IAuthorityDAO;

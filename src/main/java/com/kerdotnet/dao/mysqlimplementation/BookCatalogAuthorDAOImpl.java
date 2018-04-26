@@ -1,4 +1,4 @@
-package com.kerdotnet.dao.MySQLImplementation;
+package com.kerdotnet.dao.mysqlimplementation;
 
 import com.kerdotnet.beans.BookCatalogAuthor;
 import com.kerdotnet.dao.IBookCatalogAuthorDAO;
@@ -12,7 +12,7 @@ import java.util.List;
 public class BookCatalogAuthorDAOImpl extends AbstractDAO implements IBookCatalogAuthorDAO {
 
     public static final String SQL_SELECT_ALL =
-            "SELECT * FROM bookcatalog_author";
+            "SELECT * FROM bookcatalog_author ORDER BY name";
     public static final String SQL_SELECT_BY_ID =
             "SELECT * FROM bookcatalog_author WHERE id=?";
     public static final String SQL_INSERT_ONE = "INSERT INTO bookcatalog_author  " +
@@ -28,6 +28,9 @@ public class BookCatalogAuthorDAOImpl extends AbstractDAO implements IBookCatalo
 
     public static final String SQL_SELECT_BY_AUTHOR_ID =
             "SELECT * FROM bookcatalog_author WHERE author_id=?";
+
+    public static final String SQL_DELETE_BY_BOOK_CATALOG_ID =
+            "DELETE FROM bookcatalog_author WHERE bookcatalog_id = ?";
 
     public BookCatalogAuthorDAOImpl(Connection connection) {
         super(connection);
@@ -57,6 +60,11 @@ public class BookCatalogAuthorDAOImpl extends AbstractDAO implements IBookCatalo
     @Override
     public boolean delete(BookCatalogAuthor entity) throws DAOSystemException {
         return delete(SQL_DELETE_ONE, entity);
+    }
+
+    @Override
+    public boolean deleteByBookCatalogId(int bookCatalogId) throws DAOSystemException {
+        return delete(SQL_DELETE_ONE, bookCatalogId);
     }
 
     @Override

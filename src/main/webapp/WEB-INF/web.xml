@@ -19,15 +19,14 @@
     <location>/WEB-INF/views/error.jsp</location>
   </error-page>
   <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/views/error.jsp</location>
+  </error-page>
+  <error-page>
     <exception-type>java.lang.RuntimeException</exception-type>
     <location>/WEB-INF/views/error.jsp</location>
   </error-page>
 
-  <!-- log4j configuration -->
-  <context-param>
-    <param-name>log4j-config-location</param-name>
-    <param-value>WEB-INF/log4j.properties</param-value>
-  </context-param>
 
   <!-- c3p0 configuration -->
   <resource-ref>

@@ -1,5 +1,7 @@
 package com.kerdotnet.beans;
 
+import java.util.List;
+
 /**
  * BookCatalog java DTO class
  *  Yevhen Ivanov, 2018-04-21
@@ -13,6 +15,8 @@ public class BookCatalog extends Entity {
     private String description;
     private String keywords;
     private boolean enabled;
+
+    List<Author> authors;
 
     public BookCatalog() {
     }
@@ -74,6 +78,18 @@ public class BookCatalog extends Entity {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public List<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(List<Author> authors) {
+        this.authors = authors;
     }
 
     @Override

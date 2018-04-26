@@ -9,9 +9,11 @@ import java.io.IOException;
 
 import com.kerdotnet.command.IActionCommand;
 import com.kerdotnet.command.factory.ActionFactory;
+import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.resource.MessageManager;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Controller processes http requests
@@ -22,7 +24,7 @@ import org.apache.log4j.Logger;
         loadOnStartup = 0)
 public class Controller extends HttpServlet{
 
-    static final Logger LOGGER = Logger.getLogger(Controller.class);
+    static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
 
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
@@ -56,5 +58,7 @@ public class Controller extends HttpServlet{
             response.sendRedirect(request.getContextPath() + page);
         }
     }
+
+
 
 }

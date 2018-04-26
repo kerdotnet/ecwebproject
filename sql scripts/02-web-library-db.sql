@@ -68,7 +68,8 @@ CREATE TABLE `user_authority` (
   
   CONSTRAINT `FK_USER_AUTHORITY` 
   FOREIGN KEY (`user_id`)
-  REFERENCES `user` (`id`),
+  REFERENCES `user` (`id`)
+  ON DELETE CASCADE ON UPDATE NO ACTION,
   
   CONSTRAINT `FK_AUTHORITY` 
   FOREIGN KEY (`authority_id`)
@@ -131,11 +132,11 @@ CREATE TABLE `bookcatalog_author` (
   
   CONSTRAINT `FK_AUTHOR` FOREIGN KEY (`author_id`) 
   REFERENCES `author` (`id`) 
-  ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ON DELETE CASCADE ON UPDATE NO ACTION,
   
   CONSTRAINT `FK_BOOKCATALOG` FOREIGN KEY (`bookcatalog_id`) 
   REFERENCES `bookcatalog` (`id`) 
-  ON DELETE NO ACTION ON UPDATE NO ACTION
+  ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -160,6 +161,7 @@ CREATE TABLE `bookitem` (
   CONSTRAINT `FK_BOOKCATALOG_BOOKITEM` 
   FOREIGN KEY (`bookcatalog_id`) 
   REFERENCES `bookcatalog` (`id`)
+  ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -184,11 +186,13 @@ CREATE TABLE `bookitem_user` (
   
   CONSTRAINT `FK_USER_USER_BOOKITEM` 
   FOREIGN KEY (`user_id`) 
-  REFERENCES `user` (`id`),
+  REFERENCES `user` (`id`)
+  ON DELETE CASCADE ON UPDATE NO ACTION,
   
   CONSTRAINT `FK_BOOKTIME_USER_BOOKITEM` 
   FOREIGN KEY (`bookitem_id`) 
   REFERENCES `bookitem` (`id`)
+  ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -237,7 +241,8 @@ VALUES
 	('kerdotnet','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','evgenys.ivanov@gmail.com','Евгений','Иванов', '+380952711261', 1),
 	('marylogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','mary_ecproj@gmail.com','Mary','Grunvald', '+380951112233', 1),
 	('susanlogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','susan_ecproj@gmail.com','Susan','Zimmerman', '+380951114433', 1),
-    ('piterlogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','piter_ecproj@gmail.com','Piter','Sipula', '+380951112200', 1);
+    ('piterlogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','piter_ecproj@gmail.com','Piter','Sipula', '+380951112200', 1),
+    ('root','$2a$04$5XxD10VHo6pjdZA7V4p5xOeo808w1AVzeHs2/lbCW4BMLH3oM0nVC','root@gmail.com','Root','Root', '+380500000000', 1);
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -269,7 +274,9 @@ VALUES
 (1,1),
 (2,1),
 (3,1),
-(4,1);
+(4,1),
+(5,1),
+(5,2);
 
 /*!40000 ALTER TABLE `user_authority` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -314,13 +321,13 @@ UNLOCK TABLES;
 
 LOCK TABLES `bookcatalog_author` WRITE;
 
-INSERT INTO `bookcatalog_author`  (`author_id`, `bookcatalog_id`)
+INSERT INTO `bookcatalog_author`  (`bookcatalog_id`, `author_id`)
 VALUES 
 (1,2),
 (2,2),
 (2,3),
 (3,1),
-(4,2);
+(4,1);
 
 /*!40000 ALTER TABLE `bookcatalog_author` ENABLE KEYS */;
 UNLOCK TABLES;

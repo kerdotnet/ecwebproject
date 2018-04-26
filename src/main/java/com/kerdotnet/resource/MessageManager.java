@@ -4,7 +4,7 @@ import java.util.ResourceBundle;
 
 /**
  * Implementation of Message Messenger
- * TODO: add localization
+ * TODO: add localization in the whole application
  * Yevhen Ivanov; 2018-04-09
  */
 

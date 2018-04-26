@@ -12,4 +12,5 @@ import java.util.List;
 public interface IBookCatalogAuthorDAO extends IDAO<Integer, BookCatalogAuthor> {
     List<BookCatalogAuthor> findAllByBookCatalogId(int bookCatalogId) throws DAOSystemException;
     List<BookCatalogAuthor> findAllByAuthorId(int authorId) throws DAOSystemException;
+    boolean deleteByBookCatalogId(int bookCatalogId) throws DAOSystemException ;
 }

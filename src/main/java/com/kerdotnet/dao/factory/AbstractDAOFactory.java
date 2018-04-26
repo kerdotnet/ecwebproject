@@ -1,7 +1,8 @@
 package com.kerdotnet.dao.factory;
 
 import com.kerdotnet.exceptions.DAOSystemException;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -12,13 +13,13 @@ import java.sql.SQLException;
  * Yevhen Ivanov, 2018-04-20
  */
 
-public class AbstractDAOFactory {
+public abstract class AbstractDAOFactory {
     // List of DAO types supported by the factory
     public static final int MYSQL = 1;
     protected DataSource dataSource;
     protected Connection connection;
 
-    static final Logger LOGGER = Logger.getLogger(AbstractDAOFactory.class);
+    static final Logger LOGGER = LoggerFactory.getLogger(AbstractDAOFactory.class);
 
     public static IDAOFactory getDAOFactory(
             int whichFactory) {
@@ -33,11 +34,11 @@ public class AbstractDAOFactory {
     public void open() throws DAOSystemException {
         try {
             if (this.connection == null
-                    || this.connection.isClosed())
+                    || this.connection.isClosed()) {
                 this.connection = dataSource.getConnection();
+            }
         } catch (SQLException e) {
-            LOGGER.error("Unexpected error", e);
-            throw new DAOSystemException("IDAO Manager exception", e);
+            throw new DAOSystemException("Abstract DAOManager exception. Error in connection opening", e);
         }
     }
 
@@ -47,8 +48,7 @@ public class AbstractDAOFactory {
                     && !this.connection.isClosed())
                 this.connection.close();
         } catch (SQLException e) {
-            LOGGER.error("Unexpected error", e);
-            throw new DAOSystemException("IDAO Manager exception", e);
+            throw new DAOSystemException("Abstract DAOManager exception. Couldn't close connection", e);
         }
     }
 }

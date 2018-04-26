@@ -27,6 +27,26 @@ public enum CommandEnum {
         {
             this.command = new LogoutCommand();
         }
+    },BOOKCATALOG{
+        {
+            this.command = new ListBookCatalogCommand();
+        }
+    },VIEWBOOKCATALOGENTITY{
+        {
+            this.command = new ViewBookCatalogEntityCommand();
+        }
+    }, ADDBOOKCATALOG{
+        {
+            this.command = new AddBookCatalogEntityCommand();
+        }
+    }, EDITBOOKCATALOG{
+        {
+            this.command = new EditBookCatalogEntityCommand();
+        }
+    }, DELETEBOOKCATALOG{
+        {
+            this.command = new DeleteBookCatalogEntityCommand();
+        }
     };
 
     IActionCommand command;

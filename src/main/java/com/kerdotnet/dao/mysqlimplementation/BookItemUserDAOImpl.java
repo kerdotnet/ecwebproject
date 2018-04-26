@@ -1,4 +1,4 @@
-package com.kerdotnet.dao.MySQLImplementation;
+package com.kerdotnet.dao.mysqlimplementation;
 
 import com.kerdotnet.beans.BookItemUser;
 import com.kerdotnet.dao.IBookItemUserDAO;

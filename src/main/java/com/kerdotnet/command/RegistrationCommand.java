@@ -3,6 +3,8 @@ package com.kerdotnet.command;
 import com.kerdotnet.controllers.SessionRequestContent;
 import com.kerdotnet.resource.ConfigurationManager;
 
+import javax.servlet.ServletException;
+
 /**
  * Implementation of Registration command
  * Yevhen Ivanov; 2018-04-14
@@ -10,7 +12,7 @@ import com.kerdotnet.resource.ConfigurationManager;
 
 public class RegistrationCommand implements IActionCommand {
     @Override
-    public String execute(SessionRequestContent sessionRequestContent) {
+    public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         String page = null;
 
         page = ConfigurationManager.getProperty("path.page.adduser");

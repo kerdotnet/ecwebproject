@@ -1,10 +1,11 @@
-package com.kerdotnet.dao.MySQLImplementation;
+package com.kerdotnet.dao.mysqlimplementation;
 
 import com.kerdotnet.beans.Entity;
 import com.kerdotnet.dao.helpers.IEnricher;
 import com.kerdotnet.dao.helpers.Extractor;
 import com.kerdotnet.exceptions.DAOSystemException;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.List;
  */
 
 public abstract class AbstractDAO<T extends Entity> {
-    static final Logger LOGGER = Logger.getLogger(AbstractDAO.class);
+    static final Logger LOGGER = LoggerFactory.getLogger(AbstractDAO.class);
     protected Connection connection;
 
     public AbstractDAO(Connection connection){
@@ -30,8 +31,7 @@ public abstract class AbstractDAO<T extends Entity> {
                 statement.close();
             }
         } catch (SQLException e){
-            LOGGER.error("Unexpected error in closing of Statement", e);
-            throw new DAOSystemException("Error in close method() of IDAO system", e);
+            throw new DAOSystemException("Error in close method() for statement of Abstract DAO system (MySQL impl)", e);
         }
     }
 
@@ -41,8 +41,7 @@ public abstract class AbstractDAO<T extends Entity> {
                 resultSet.close();
             }
         } catch (SQLException e){
-            LOGGER.error("Unexpected error in closing of Result Set", e);
-            throw new DAOSystemException("Error in close method() of IDAO system", e);
+            throw new DAOSystemException("Error in close method() for result set of Abstract DAO system (MySQL impl)", e);
         }
     }
 
@@ -60,8 +59,7 @@ public abstract class AbstractDAO<T extends Entity> {
                 IEnricher.enrich(record);
             }
         } catch (SQLException e){
-            LOGGER.error("Unexpected error", e);
-            throw new DAOSystemException("Can't execute findEntity method in UserDAOimpl", e);
+            throw new DAOSystemException("Can't execute findEntity method in MySQL DAOimpl", e);
         } finally {
             close(resultSet);
             close(preparedStatement);
@@ -84,8 +82,7 @@ public abstract class AbstractDAO<T extends Entity> {
             }
             return result;
         } catch (SQLException e){
-            LOGGER.error("Unexpected error", e);
-            throw new DAOSystemException("Can't execute findAll method in UserDAOimpl " + sql, e);
+            throw new DAOSystemException("Can't execute findAll method in MySQL DAOimpl " + sql, e);
         } finally {
             close(resultSet);
             close(statement);
@@ -108,12 +105,10 @@ public abstract class AbstractDAO<T extends Entity> {
                 flag = true;
             }
             else {
-                LOGGER.error("Creating user failed, no ID obtained.");
-                throw new DAOSystemException("Creating user failed, no ID obtained.");
+                throw new DAOSystemException("Creating of Entity was failed, no ID obtained.");
             }
         } catch (SQLException e){
-            LOGGER.error("Unexpected error", e);
-            throw new DAOSystemException("Can't execute create method in UserDAOimpl", e);
+            throw new DAOSystemException("Can't execute create method in MySQL DAOimpl", e);
         } finally {
             close(generatedKeys);
             close(preparedStatement);
@@ -131,8 +126,23 @@ public abstract class AbstractDAO<T extends Entity> {
             preparedStatement.executeUpdate();
             flag = true;
         } catch (SQLException e){
-            LOGGER.error("Unexpected error", e);
-            throw new DAOSystemException("Can't execute update method in UserDAOimpl", e);
+            throw new DAOSystemException("Can't execute update method in MySQL DAOimpl", e);
+        } finally {
+            close(preparedStatement);
+        }
+        return flag;
+    }
+
+    public boolean delete(String sql, int key) throws DAOSystemException {
+        boolean flag = false;
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, key);
+            preparedStatement.executeUpdate();
+            flag = true;
+        } catch (SQLException e){
+            throw new DAOSystemException("Can't execute delete method in MySQL DAOimpl", e);
         } finally {
             close(preparedStatement);
         }
@@ -140,20 +150,7 @@ public abstract class AbstractDAO<T extends Entity> {
     }
 
     public boolean delete(String sql, T entity) throws DAOSystemException {
-        boolean flag = false;
-        PreparedStatement preparedStatement = null;
-        try {
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, entity.getId());
-            preparedStatement.executeUpdate();
-            flag = true;
-        } catch (SQLException e){
-            LOGGER.error("Unexpected error", e);
-            throw new DAOSystemException("Can't execute delete method in UserDAOimpl", e);
-        } finally {
-            close(preparedStatement);
-        }
-        return flag;
+        return delete(sql, entity.getId());
     }
 
     public T findUserByStringParameter(String sql, String param, Extractor<T> extractor,
@@ -170,8 +167,7 @@ public abstract class AbstractDAO<T extends Entity> {
                 IEnricher.enrich(user);
             }
         } catch (SQLException e){
-            LOGGER.error("Unexpected error", e);
-            throw new DAOSystemException("Can't execute findUserByUserName method in UserDAOimpl", e);
+            throw new DAOSystemException("Can't execute findUserByStringParamenter method in MySQL DAOimpl", e);
         } finally {
             close(resultSet);
             close(preparedStatement);
@@ -195,8 +191,7 @@ public abstract class AbstractDAO<T extends Entity> {
             }
             return result;
         } catch (SQLException e){
-            LOGGER.error("Unexpected error", e);
-            throw new DAOSystemException("Can't execute findAll method in UserDAOimpl " + sql, e);
+            throw new DAOSystemException("Can't execute findAllByInt method in MySQL DAOimpl " + sql, e);
         } finally {
             close(resultSet);
             close(preparedStatement);

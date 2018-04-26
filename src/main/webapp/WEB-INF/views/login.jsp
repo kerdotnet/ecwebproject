@@ -9,7 +9,7 @@
 
         <div class="form-group w-25">
             <label for="loginInput">Login</label>
-            <input type="text" name = "login" class="form-control" id="loginInput" aria-describedby="loginHelp" placeholder="Login">
+            <input type="text" name = "login" value="${login}"  class="form-control" id="loginInput" aria-describedby="loginHelp" placeholder="Login">
             <small id="loginHelp" class="form-text text-muted">Your unique login into Library Management System</small>
         </div>
 

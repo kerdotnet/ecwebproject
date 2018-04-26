@@ -12,7 +12,7 @@ public class PasswordValidator {
     private final static int workload = 4;
 
     /**
-     * This method can be used to generate a string representing an account password
+     * This method is used to generate a string representing an account password
      * suitable for storing in a database. It will be an OpenBSD-style crypt(3) formatted
      * hash string of length=60
      * @param password_plaintext
@@ -40,16 +40,5 @@ public class PasswordValidator {
         password_verified = BCrypt.checkpw(password_plaintext, stored_hash);
 
         return(password_verified);
-    }
-
-    public static boolean checkPasswordsOnEquality(String password, String confirmPassword) {
-        if ((password == null)|| "".equals(password))
-            return false;
-        if ((confirmPassword == null)|| "".equals(confirmPassword))
-            return false;
-        if (password.equals(confirmPassword))
-            return true;
-        else
-            return false;
     }
 }

@@ -35,6 +35,10 @@ public abstract class AbstractDAOFactory {
         return result;
     }
 
+    private static synchronized void setType(DAOFactoryFactoryType daoFactoryFactoryType){
+        currentType = daoFactoryFactoryType;
+    }
+
     public void open() throws DAOSystemException {
         try {
             if (this.connection == null
@@ -54,5 +58,10 @@ public abstract class AbstractDAOFactory {
         } catch (SQLException e) {
             throw new DAOSystemException("Abstract DAOManager exception. Couldn't close connection", e);
         }
+    }
+
+    public Connection getConnection() throws DAOSystemException {
+        open();
+        return connection;
     }
 }

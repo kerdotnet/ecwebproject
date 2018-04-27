@@ -1,6 +1,5 @@
 package com.kerdotnet.exceptions;
 
-
 /**
  * Exception for service layer
  * Yevhen Ivanov, 2018-04-27

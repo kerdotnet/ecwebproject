@@ -15,7 +15,7 @@ public class ConnectionFactoryFactory {
         currentType = factoryType;
     }
 
-    public static synchronized ConnectionFactory newConnectioFactory() throws DAOSystemException {
+    public static synchronized ConnectionFactory newConnectionFactory() throws DAOSystemException {
         ConnectionFactory result;
 
         try {

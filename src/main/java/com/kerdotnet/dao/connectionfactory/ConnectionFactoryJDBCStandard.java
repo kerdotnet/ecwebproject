@@ -8,7 +8,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.SQLException;
 
 /**
  * Standard Connection Pool
@@ -38,8 +37,12 @@ public class ConnectionFactoryJDBCStandard implements ConnectionFactory{
     }
 
     @Override
-    public Connection getConnection() throws SQLException {
-        return dataSource.getConnection();
+    public Connection getConnection() throws DAOConfigurationException {
+        try {
+            return dataSource.getConnection();
+        } catch (Exception e) {
+            throw new DAOConfigurationException("Connection Factory can not create a connection", e);
+        }
     }
 
     private static class ConnectionFactoryJDBCStandardSingleton {

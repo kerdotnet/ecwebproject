@@ -6,6 +6,7 @@ import com.kerdotnet.beans.UserAuthority;
 import com.kerdotnet.dao.IAuthorityDAO;
 import com.kerdotnet.dao.IUserAuthorityDAO;
 import com.kerdotnet.dao.IUserDAO;
+import com.kerdotnet.dao.connectionfactory.ConnectionFactoryFactory;
 import com.kerdotnet.dao.daofactory.AbstractDAOFactory;
 import com.kerdotnet.dao.daofactory.IDAOFactory;
 import com.kerdotnet.exceptions.DAOSystemException;
@@ -13,6 +14,7 @@ import com.kerdotnet.exceptions.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.sql.Connection;
 import java.util.List;
 
 import static com.kerdotnet.utility.PasswordValidator.checkPassword;

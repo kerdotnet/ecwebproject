@@ -1,17 +1,11 @@
 package com.kerdotnet.dao.daofactory;
 
 import com.kerdotnet.dao.*;
-import com.kerdotnet.dao.connectionfactory.ConnectionFactory;
 import com.kerdotnet.dao.connectionfactory.ConnectionFactoryFactory;
 import com.kerdotnet.dao.mysqlimplementation.*;
-import com.kerdotnet.exceptions.DAOConfigurationException;
 import com.kerdotnet.exceptions.DAOSystemException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
 
 /**
  * IDAO manager
@@ -25,7 +19,7 @@ public class MySQLDAOFactory extends AbstractDAOFactory implements IDAOFactory {
     static final Logger LOGGER = LoggerFactory.getLogger(MySQLDAOFactory.class);
 
     private MySQLDAOFactory() throws DAOSystemException {
-        connectionFactory = ConnectionFactoryFactory.newConnectioFactory();
+        connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
     }
 
     public static IDAOFactory getInstance() {

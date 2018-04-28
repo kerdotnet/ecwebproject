@@ -6,6 +6,8 @@ import com.kerdotnet.beans.BookCatalogAuthor;
 import com.kerdotnet.dao.IAuthorDAO;
 import com.kerdotnet.dao.IBookCatalogAuthorDAO;
 import com.kerdotnet.dao.IBookCatalogDAO;
+import com.kerdotnet.dao.connectionfactory.ConnectionFactory;
+import com.kerdotnet.dao.connectionfactory.ConnectionFactoryFactory;
 import com.kerdotnet.dao.daofactory.AbstractDAOFactory;
 import com.kerdotnet.dao.daofactory.IDAOFactory;
 import com.kerdotnet.exceptions.DAOSystemException;
@@ -27,8 +29,10 @@ public class BookCatalogService {
 
     public static BookCatalog getBookCatalogById(int id) throws ServiceException {
         BookCatalog bookCatalogEntity;
+        ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
 
-        try (IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory()) {
+        try {
+            IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
             IBookCatalogDAO bcDAO = daoFactory.getBookCatalogDAO();
             bookCatalogEntity = bcDAO.findEntity(id);
 
@@ -42,6 +46,13 @@ public class BookCatalogService {
         } catch (DAOSystemException e) {
             throw new ServiceException(
                     MessageManager.getProperty("message.businesslogicbookcatalog"), e);
+        } finally {
+            try {
+                connectionFactory.closeConnection();
+            } catch (DAOSystemException e) {
+                throw new ServiceException(
+                        MessageManager.getProperty("message.businesslogicbookcatalog"), e);
+            }
         }
         LOGGER.debug("Retrieved BookCatalog Item: " + bookCatalogEntity);
 
@@ -54,7 +65,10 @@ public class BookCatalogService {
     public static List<BookCatalog> getAllBookCatalog() throws ServiceException {
         List<BookCatalog> bookCatalogList;
 
-        try (IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory()) {
+        ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
+
+        try {
+            IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
             IBookCatalogDAO bcDAO = daoFactory.getBookCatalogDAO();
             bookCatalogList = bcDAO.findAll();
             IBookCatalogAuthorDAO bcaDAO = daoFactory.getBookCatalogAuthorDAO();
@@ -68,6 +82,13 @@ public class BookCatalogService {
         } catch (DAOSystemException e) {
             throw new ServiceException(
                     MessageManager.getProperty("message.businesslogicbookcatalog"), e);
+        } finally {
+            try {
+                connectionFactory.closeConnection();
+            } catch (DAOSystemException e) {
+                throw new ServiceException(
+                        MessageManager.getProperty("message.businesslogicbookcatalog"), e);
+            }
         }
         LOGGER.debug("Retrieved BookCatalog Items: " + bookCatalogList);
 
@@ -80,15 +101,25 @@ public class BookCatalogService {
      * @return
      * @throws ServiceException
      */
-    public static boolean delteBookCatalogById(int bookCatalogId)  throws ServiceException {
+    public static boolean deleteBookCatalogById(int bookCatalogId)  throws ServiceException {
         //:TODO add here a transaction
         boolean result;
-        try (IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory()) {
+        ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
+
+        try {
+            IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
             IBookCatalogDAO bookCatalogDAO = daoFactory.getBookCatalogDAO();
             result = bookCatalogDAO.delete(bookCatalogDAO.findEntity(bookCatalogId));
         } catch (DAOSystemException e) {
             throw new ServiceException(
                     MessageManager.getProperty("message.businesslogicbookcatalog"), e);
+        } finally {
+            try {
+                connectionFactory.closeConnection();
+            } catch (DAOSystemException e) {
+                throw new ServiceException(
+                        MessageManager.getProperty("message.businesslogicbookcatalog"), e);
+            }
         }
         LOGGER.debug("book was deleted with Id: " + bookCatalogId);
         return result;

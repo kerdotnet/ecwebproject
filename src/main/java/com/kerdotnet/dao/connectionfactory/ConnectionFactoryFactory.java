@@ -1,7 +1,5 @@
 package com.kerdotnet.dao.connectionfactory;
 
-import com.kerdotnet.exceptions.DAOSystemException;
-
 /**
  * this class implements connection daofactory daofactory
  * which create proper connection daofactory
@@ -9,25 +7,22 @@ import com.kerdotnet.exceptions.DAOSystemException;
  */
 public class ConnectionFactoryFactory {
     public enum ConnectionFactoryType {STANDARD}
+
     private static ConnectionFactoryType currentType = ConnectionFactoryType.STANDARD;
 
-    private static synchronized void setType(ConnectionFactoryType factoryType){
+    private static synchronized void setType(ConnectionFactoryType factoryType) {
         currentType = factoryType;
     }
 
-    public static synchronized ConnectionFactory newConnectionFactory() throws DAOSystemException {
+    public static synchronized ConnectionFactory newConnectionFactory() {
         ConnectionFactory result;
 
-        try {
-            switch (currentType){
-                case STANDARD:
-                    result = ConnectionFactoryJDBCStandard.getInstance();
-                    break;
-                default:
-                    throw new RuntimeException("Connection Factory doesn't exist.");
-            }
-        } catch (Exception e){
-            throw new DAOSystemException("ConnectionFactoryFactory exception. Error in opening of ConnectionFactory", e);
+        switch (currentType) {
+            case STANDARD:
+                result = ConnectionFactoryJDBCStandard.getInstance();
+                break;
+            default:
+                throw new RuntimeException("Connection Factory doesn't exist.");
         }
 
         return result;

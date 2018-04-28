@@ -3,9 +3,6 @@ package com.kerdotnet.dao.daofactory;
 import com.kerdotnet.dao.connectionfactory.ConnectionFactory;
 import com.kerdotnet.exceptions.DAOSystemException;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
 /**
  * Common functionality for DAO Factory classes
  * Yevhen Ivanov, 2018-04-20
@@ -17,7 +14,6 @@ public abstract class AbstractDAOFactory {
     private static DAOFactoryFactoryType currentType = DAOFactoryFactoryType.MY_SQL;
 
     protected ConnectionFactory connectionFactory;
-    protected Connection connection;
 
     public static IDAOFactory getDAOFactory() throws DAOSystemException {
         IDAOFactory result;
@@ -39,29 +35,4 @@ public abstract class AbstractDAOFactory {
         currentType = daoFactoryFactoryType;
     }
 
-    public void open() throws DAOSystemException {
-        try {
-            if (this.connection == null
-                    || this.connection.isClosed()) {
-                this.connection = connectionFactory.getConnection();
-            }
-        } catch (SQLException e) {
-            throw new DAOSystemException("Abstract DAOManager exception. Error in connection opening", e);
-        }
-    }
-
-    public void close() throws DAOSystemException {
-        try {
-            if (this.connection != null
-                    && !this.connection.isClosed())
-                this.connection.close();
-        } catch (SQLException e) {
-            throw new DAOSystemException("Abstract DAOManager exception. Couldn't close connection", e);
-        }
-    }
-
-    public Connection getConnection() throws DAOSystemException {
-        open();
-        return connection;
-    }
 }

@@ -1,6 +1,7 @@
 package com.kerdotnet.dao.connectionfactory;
 
 import com.kerdotnet.exceptions.DAOConfigurationException;
+import com.kerdotnet.exceptions.DAOSystemException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -8,6 +9,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  * Standard Connection Pool
@@ -16,7 +18,7 @@ import java.sql.Connection;
 public class ConnectionFactoryJDBCStandard implements ConnectionFactory{
 
     protected DataSource dataSource;
-
+    protected Connection connection;
     static final Logger LOGGER = LoggerFactory.getLogger(ConnectionFactoryJDBCStandard.class);
 
     private ConnectionFactoryJDBCStandard() throws DAOConfigurationException {
@@ -37,11 +39,26 @@ public class ConnectionFactoryJDBCStandard implements ConnectionFactory{
     }
 
     @Override
-    public Connection getConnection() throws DAOConfigurationException {
+    public Connection getConnection() throws DAOSystemException {
         try {
-            return dataSource.getConnection();
-        } catch (Exception e) {
-            throw new DAOConfigurationException("Connection Factory can not create a connection", e);
+            if (this.connection == null
+                    || this.connection.isClosed()) {
+                this.connection = dataSource.getConnection();
+            }
+        } catch (SQLException e) {
+            throw new DAOSystemException("Abstract DAOManager exception. Error in connection opening", e);
+        }
+        return connection;
+    }
+
+    @Override
+    public void closeConnection() throws DAOSystemException {
+        try {
+            if (this.connection != null
+                    && !this.connection.isClosed())
+                this.connection.close();
+        } catch (SQLException e) {
+            throw new DAOSystemException("Abstract DAOManager exception. Couldn't close connection", e);
         }
     }
 

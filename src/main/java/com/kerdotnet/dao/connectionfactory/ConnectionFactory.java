@@ -10,4 +10,5 @@ import java.sql.Connection;
  */
 public interface ConnectionFactory {
     Connection getConnection() throws DAOSystemException;
+    void closeConnection() throws DAOSystemException;
 }

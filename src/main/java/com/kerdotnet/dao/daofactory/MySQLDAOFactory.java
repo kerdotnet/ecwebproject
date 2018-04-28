@@ -18,7 +18,7 @@ public class MySQLDAOFactory extends AbstractDAOFactory implements IDAOFactory {
 
     static final Logger LOGGER = LoggerFactory.getLogger(MySQLDAOFactory.class);
 
-    private MySQLDAOFactory() throws DAOSystemException {
+    private MySQLDAOFactory() {
         connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
     }
 
@@ -27,26 +27,25 @@ public class MySQLDAOFactory extends AbstractDAOFactory implements IDAOFactory {
     }
 
     public IDAO getDAO(DAOEnum daoType) throws DAOSystemException {
-        open();
         switch (daoType) {
             case USER:
-                return new UserDAOImpl(this.connection);
+                return new UserDAOImpl(connectionFactory.getConnection());
             case USER_AUTHORITY:
-                return new UserAuthorityDAOImpl(this.connection);
+                return new UserAuthorityDAOImpl(connectionFactory.getConnection());
             case AUTHORITY:
-                return new AuthorityDAOImpl(this.connection);
+                return new AuthorityDAOImpl(connectionFactory.getConnection());
             case AUTHOR:
-                return new AuthorDAOImpl(this.connection);
+                return new AuthorDAOImpl(connectionFactory.getConnection());
             case BOOK_CATALOG:
-                return new BookCatalogDAOImpl(this.connection);
+                return new BookCatalogDAOImpl(connectionFactory.getConnection());
             case BOOK_CATALOG_AUTHOR:
-                return new BookCatalogAuthorDAOImpl(this.connection);
+                return new BookCatalogAuthorDAOImpl(connectionFactory.getConnection());
             case BOOK_ITEM:
-                return new BookItemDAOImpl(this.connection);
+                return new BookItemDAOImpl(connectionFactory.getConnection());
             case BOOK_ITEM_USER:
-                return new BookItemUserDAOImpl(this.connection);
+                return new BookItemUserDAOImpl(connectionFactory.getConnection());
             case TRANSACTION:
-                return new TransactionDAOImpl(this.connection);
+                return new TransactionDAOImpl(connectionFactory.getConnection());
             default: {
                 throw new DAOSystemException("Trying to link to an not existing IDAO.");
             }
@@ -56,56 +55,47 @@ public class MySQLDAOFactory extends AbstractDAOFactory implements IDAOFactory {
 
     @Override
     public IUserDAO getUserDAO() throws DAOSystemException {
-        open();
-        return new UserDAOImpl(this.connection);
+        return new UserDAOImpl(connectionFactory.getConnection());
     }
 
     @Override
     public IUserAuthorityDAO getUserAuthorityDAO() throws DAOSystemException {
-        open();
-        return new UserAuthorityDAOImpl(this.connection);
+        return new UserAuthorityDAOImpl(connectionFactory.getConnection());
     }
 
     @Override
     public IAuthorityDAO getAuthorityDAO() throws DAOSystemException {
-        open();
-        return new AuthorityDAOImpl(this.connection);
+        return new AuthorityDAOImpl(connectionFactory.getConnection());
     }
 
     @Override
     public IBookCatalogDAO getBookCatalogDAO() throws DAOSystemException {
-        open();
-        return new BookCatalogDAOImpl(this.connection);
+        return new BookCatalogDAOImpl(connectionFactory.getConnection());
     }
 
     @Override
     public IBookCatalogAuthorDAO getBookCatalogAuthorDAO() throws DAOSystemException {
-        open();
-        return new BookCatalogAuthorDAOImpl(this.connection);
+        return new BookCatalogAuthorDAOImpl(connectionFactory.getConnection());
     }
 
     @Override
     public IAuthorDAO getAuthorDAO() throws DAOSystemException {
-        open();
-        return new AuthorDAOImpl(this.connection);
+        return new AuthorDAOImpl(connectionFactory.getConnection());
     }
 
     @Override
     public IBookItemDAO getBookItemDAO() throws DAOSystemException {
-        open();
-        return new BookItemDAOImpl(this.connection);
+        return new BookItemDAOImpl(connectionFactory.getConnection());
     }
 
     @Override
     public IBookItemUserDAO getBookItemUserDAO() throws DAOSystemException {
-        open();
-        return new BookItemUserDAOImpl(this.connection);
+        return new BookItemUserDAOImpl(connectionFactory.getConnection());
     }
 
     @Override
     public ITransactionDAO getTransactionDAO() throws DAOSystemException {
-        open();
-        return new TransactionDAOImpl(this.connection);
+        return new TransactionDAOImpl(connectionFactory.getConnection());
     }
 
     private static class DAOManagerSingleton {

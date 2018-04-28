@@ -30,7 +30,7 @@ public class DeleteBookCatalogEntityCommand implements IActionCommand {
 
         page = ConfigurationManager.getProperty("path.page.main");
         try {
-            result = BookCatalogService.delteBookCatalogById(bookCatalogId);
+            result = BookCatalogService.deleteBookCatalogById(bookCatalogId);
             if (!result){
                 throw new ServletException(MessageManager.getProperty("message.deleteerror"));
             }

@@ -16,6 +16,7 @@ public class TransactionManagerImpl implements ITransactionManager{
         Connection connection = factory.getConnection();
         connectionHolder.set(connection);
         try {
+            connection.setAutoCommit(false);
             T result = unitOfWork.call();
             connection.commit();
             return result;
@@ -23,6 +24,7 @@ public class TransactionManagerImpl implements ITransactionManager{
             connection.rollback();
             throw e;
         } finally {
+            connection.setAutoCommit(true);
             connectionHolder.remove();
             factory.closeConnection();
         }

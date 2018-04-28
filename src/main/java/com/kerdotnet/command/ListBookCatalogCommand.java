@@ -20,9 +20,9 @@ public class ListBookCatalogCommand implements IActionCommand {
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
-        String page = null;
+        String page;
 
-        List<BookCatalog> bookCatalogs = null;
+        List<BookCatalog> bookCatalogs;
 
         page = ConfigurationManager.getProperty("path.page.bookcatalog");
 

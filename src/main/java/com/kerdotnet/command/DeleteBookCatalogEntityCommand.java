@@ -19,8 +19,8 @@ public class DeleteBookCatalogEntityCommand implements IActionCommand {
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
-        String page = null;
-        boolean result = false;
+        String page;
+        boolean result;
         int bookCatalogId = 0;
 
         String bookCatalogIdParam = sessionRequestContent.getRequestParameter("bookcatalogid");

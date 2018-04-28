@@ -13,10 +13,9 @@ import javax.servlet.ServletException;
 public class LogoutCommand implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
-        String page = null;
 
         sessionRequestContent.invalidateSession();
-        page = ConfigurationManager.getProperty("path.page.login");
+        String page = ConfigurationManager.getProperty("path.page.login");
 
         return page;
     }

@@ -19,9 +19,9 @@ public class ViewBookCatalogEntityCommand implements IActionCommand {
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
-        String page = null;
+        String page;
 
-        BookCatalog bookCatalogEntity = null;
+        BookCatalog bookCatalogEntity;
         int bookCatalogId = 0;
 
         String bookCatalogIdParam = sessionRequestContent.getRequestParameter("bookcatalogid");

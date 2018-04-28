@@ -10,4 +10,5 @@ import com.kerdotnet.exceptions.DAOSystemException;
 
 public interface IUserDAO extends IDAO<Integer, User> {
     User findUserByUserName(String userName) throws DAOSystemException;
+    User findUserByEmail(String email) throws DAOSystemException;
 }

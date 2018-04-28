@@ -26,14 +26,14 @@ public class LoginCommand implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
 
-        String page = null;
+        String page;
         String login = sessionRequestContent.getRequestParameter(PARAM_NAME_LOGIN);
         String password = sessionRequestContent.getRequestParameter(PARAM_NAME_PASSWORD);
 
         sessionRequestContent.setRequestAttribute("login", login);
 
-        boolean loginResult = false;
-        boolean isAdmin = false;
+        boolean loginResult;
+        boolean isAdmin;
 
         try {
             loginResult = LoginLogic.checkLogin(login, password);

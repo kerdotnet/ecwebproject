@@ -6,19 +6,21 @@ import com.kerdotnet.beans.UserAuthority;
 import com.kerdotnet.dao.IAuthorityDAO;
 import com.kerdotnet.dao.IUserAuthorityDAO;
 import com.kerdotnet.dao.IUserDAO;
-import com.kerdotnet.dao.connectionfactory.ConnectionFactory;
-import com.kerdotnet.dao.connectionfactory.ConnectionFactoryFactory;
 import com.kerdotnet.dao.daofactory.AbstractDAOFactory;
 import com.kerdotnet.dao.daofactory.IDAOFactory;
+import com.kerdotnet.dao.transaction.ITransactionManager;
+import com.kerdotnet.dao.transaction.TransactionManagerImpl;
 import com.kerdotnet.exceptions.DAOSystemException;
+import com.kerdotnet.exceptions.NotUniqueUserEmailException;
+import com.kerdotnet.exceptions.NotUniqueUserLoginException;
 import com.kerdotnet.exceptions.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import static com.kerdotnet.utility.PasswordValidator.checkPassword;
-import static com.kerdotnet.utility.PasswordValidator.hashPassword;
 
 /**
  * Business Logic connected with authorization and registration
@@ -39,32 +41,25 @@ public class LoginLogic {
      */
     public static boolean checkLogin(String login, String passwrod) throws ServiceException {
 
-        User user;
-        ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
+        ITransactionManager txManager = new TransactionManagerImpl();
 
         try {
-            IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
-            IUserDAO userDAO = daoFactory.getUserDAO();
-            user = userDAO.findUserByUserName(login);
-        } catch (DAOSystemException e) {
+            return txManager.doInTransaction((Callable<Boolean>) () -> {
+
+                IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
+                IUserDAO userDAO = daoFactory.getUserDAO();
+                User user = userDAO.findUserByUserName(login);
+                if ((user != null) &&
+                        (checkPassword(passwrod, user.getPassword()))) {
+                    LOGGER.debug("Validation was done successfully");
+                    return true;
+                }
+
+                return false;
+            });
+        } catch (Exception e) {
             throw new ServiceException("Error in user authorization process. User was not retrieved successfully", e);
-        } finally {
-            try {
-                connectionFactory.closeConnection();
-            } catch (DAOSystemException e) {
-                throw new ServiceException("Error in user authorization process. User was not retrieved successfully", e);
-            }
         }
-
-        LOGGER.debug("Retrieved user: " + user + " for login String: " + login);
-
-        if ((user != null) &&
-                (checkPassword(passwrod, user.getPassword()))) {
-            LOGGER.debug("Validation was done successfully");
-            return true;
-        }
-
-        return false;
     }
 
     /**
@@ -76,80 +71,70 @@ public class LoginLogic {
      * @throws DAOSystemException
      */
     public static boolean checkAdministratorRole(String login) throws ServiceException {
-        User user;
-        boolean administratorRole = false;
 
-        ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
+        ITransactionManager txManager = new TransactionManagerImpl();
 
         try {
-            IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
-            IUserDAO userDAO = daoFactory.getUserDAO();
-            user = userDAO.findUserByUserName(login);
-            IUserAuthorityDAO userAuthorityDAO = daoFactory.getUserAuthorityDAO();
-            IAuthorityDAO authorityDAO = daoFactory.getAuthorityDAO();
-            List<UserAuthority> userAuthorities = userAuthorityDAO.findAllByUserId(user.getId());
-            for (UserAuthority userAuthority :
-                    userAuthorities) {
-                Authority authority = authorityDAO.findEntity(userAuthority.getAuthorityId());
-                if (authority.isAdministrator())
-                    administratorRole = true;
-            }
-        } catch (DAOSystemException e) {
-            throw new ServiceException("Error in the user roles validation", e);
-        }  finally {
-            try {
-                connectionFactory.closeConnection();
-            } catch (DAOSystemException e) {
-                throw new ServiceException("Error in user authorization process. User was not retrieved successfully", e);
-            }
-        }
+            return txManager.doInTransaction((Callable<Boolean>) () -> {
+                boolean administratorRole = false;
 
-        return administratorRole;
+                IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
+
+                IUserDAO userDAO = daoFactory.getUserDAO();
+                User user = userDAO.findUserByUserName(login);
+
+                IUserAuthorityDAO userAuthorityDAO = daoFactory.getUserAuthorityDAO();
+                IAuthorityDAO authorityDAO = daoFactory.getAuthorityDAO();
+                //TODO: rewrite with lambda
+                List<UserAuthority> userAuthorities = userAuthorityDAO.findAllByUserId(user.getId());
+                for (UserAuthority userAuthority :
+                        userAuthorities) {
+                    Authority authority = authorityDAO.findEntity(userAuthority.getAuthorityId());
+                    if (authority.isAdministrator())
+                        administratorRole = true;
+                }
+                LOGGER.debug("User is " + user);
+                LOGGER.debug("administratorRole is " + administratorRole);
+                return administratorRole;
+            });
+        } catch (Exception e) {
+            throw new ServiceException("Error in the user roles validation", e);
+        }
     }
 
     /**
      * create a new user in database or return an error
      *
-     * @param login
-     * @param email
-     * @param firstName
-     * @param lastName
-     * @param mobile
-     * @param password
-     * @param confirmPassword
+     * @param user
      * @return
      * @throws DAOSystemException
      */
-    public static boolean addUser(String login, String email,
-                                  String firstName, String lastName, String mobile,
-                                  String password, String confirmPassword) throws ServiceException {
-        boolean successFlag;
+    public static boolean addUser(User user) throws ServiceException, NotUniqueUserLoginException, NotUniqueUserEmailException {
 
-        User user = new User(login, hashPassword(password), email,
-                firstName, lastName, mobile, true);
-
-        ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
-
+        ITransactionManager txManager = new TransactionManagerImpl();
+        LOGGER.debug("User is " + user);
         try {
-            IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
-            IUserDAO userDAO = daoFactory.getUserDAO();
-            successFlag = userDAO.create(user);
-            if (successFlag) {
-                IUserAuthorityDAO userAuthorityDAO = daoFactory.getUserAuthorityDAO();
-                UserAuthority userAuthority = new UserAuthority(user.getId(), 1);
-                userAuthorityDAO.create(userAuthority);
-            }
-        } catch (DAOSystemException e) {
-            throw new ServiceException("Error in the adding of a new user in LoginLogic service", e);
-        } finally {
-            try {
-                connectionFactory.closeConnection();
-            } catch (DAOSystemException e) {
-                throw new ServiceException("Error in user authorization process. User was not retrieved successfully", e);
-            }
+            return txManager.doInTransaction((Callable<Boolean>) () -> {
+                IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
+                IUserDAO userDAO = daoFactory.getUserDAO();
+                boolean successFlag = userDAO.create(user);
+                LOGGER.debug("Was user created: " + successFlag);
+                if (successFlag) {
+                    IUserAuthorityDAO userAuthorityDAO = daoFactory.getUserAuthorityDAO();
+                    UserAuthority userAuthority = new UserAuthority(user.getId(), 1);
+                    userAuthorityDAO.create(userAuthority);
+                }
+
+                return successFlag;
+            });
+        } catch (NotUniqueUserEmailException e){
+            throw e;
+        } catch (NotUniqueUserLoginException e){
+            throw e;
         }
-        LOGGER.debug("Retrieved user: " + user + " for login String: " + login);
-        return successFlag;
+        catch (Exception e) {
+            throw new ServiceException("Error in the adding of a new user in LoginLogic service", e);
+        }
     }
 
 }

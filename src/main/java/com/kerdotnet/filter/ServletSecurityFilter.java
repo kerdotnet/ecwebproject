@@ -28,7 +28,9 @@ public class ServletSecurityFilter implements Filter {
             type = ClientType.GUEST;
             session.setAttribute("userType", type);
             String action = servletRequest.getParameter("command");
-            if (action != null && ("registration".equals(action)||"login".equals(action))) {
+            if (action != null && ("registration".equals(action)
+                    ||"login".equals(action)
+                    ||"adduser".equals(action))) {
                 chain.doFilter(request, response);
             } else {
                 RequestDispatcher dispatcher = request.getServletContext()

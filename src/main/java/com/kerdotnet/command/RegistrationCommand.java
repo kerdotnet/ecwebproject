@@ -13,9 +13,8 @@ import javax.servlet.ServletException;
 public class RegistrationCommand implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
-        String page = null;
 
-        page = ConfigurationManager.getProperty("path.page.adduser");
+        String page = ConfigurationManager.getProperty("path.page.adduser");
 
         return page;
     }

@@ -45,7 +45,7 @@ public class BookCatalogDAOImpl extends AbstractDAO implements IBookCatalogDAO {
 
     @Override
     public boolean update(BookCatalog entity) throws DAOSystemException {
-        return update(SQL_DELETE_ONE, entity, new BookCatalogExtractor());
+        return update(SQL_UPDATE_ONE, entity, new BookCatalogExtractor());
     }
 
     @Override

@@ -19,23 +19,15 @@ public class AddBookCatalogEntityCommand implements IActionCommand {
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
-        String page = null;
-        //TODO: EDIT THIS COMMAND
-        /*BookCatalog bookCatalogEntity = null;
-        int bookCatalogId = 0;
+        String page;
 
-        String bookCatalogIdParam = sessionRequestContent.getRequestParameter("bookcatalogid");
-        if (bookCatalogIdParam != null)
-            bookCatalogId = Integer.parseInt(bookCatalogIdParam);
-        LOGGER.debug("Id of the book catalog is: " + bookCatalogId);
+        BookCatalog bookCatalogEntity = new BookCatalog();
 
         page = ConfigurationManager.getProperty("path.page.bookcatalogentity");
-        try {
-            bookCatalogEntity = BookCatalogService.getBookCatalogById(bookCatalogId);
-            sessionRequestContent.setSessionAttribute("bookcatalogentity", bookCatalogEntity, true);
-        } catch (ServiceException e) {
-            throw new ServletException(e);
-        }*/
+
+        sessionRequestContent.setSessionAttribute("bookcatalogentity", bookCatalogEntity);
+        sessionRequestContent.setRequestAttribute("editmode", true);
+
         return page;
     }
 }

@@ -287,12 +287,16 @@ UNLOCK TABLES;
 
 LOCK TABLES `bookcatalog` WRITE;
 
-INSERT INTO `bookcatalog` (`name`, `full_name`, `description`) 
+INSERT INTO `bookcatalog` (`name`, `full_name`, `description`, `key_words`) 
 VALUES 
-('Great at Work','Great at Work: How Top Performers Do Less, Work Better, and Achieve More', 'Wall Street Journal Business Bestseller. A Financial Times Business Book of the Month. Named by The Washington Post as One of the 11 Leadership Books to Read in 2018'),
-('Great by Choice', 'Great by Choice: Uncertainty, Chaos, and Luck--Why Some Thrive Despite Them All', 'Ten years after the worldwide bestseller Good to Great, Jim Collins returns withanother groundbreaking work, this time to ask: why do some companies thrive inuncertainty, even chaos, and others do not? Based on nine years of research,buttressed by rigorous analysis and infused with engaging stories, Collins andhis colleague Morten Hansen enumerate the principles for building a truly greatenterprise in unpredictable, tumultuous and fast-moving times. This book isclassic Collins: contrarian, data-driven and uplifting.'),
-('Чапаев и Пустота', 'Чапаев и Пустота (Russian Edition)', 'Роман «Чапаев и Пустота» сам автор характеризует так «Это первое произведение в мировой литературе, действие которого происходит в абсолютной пустоте». На самом деле оно происходит в 1919 году в дивизии Чапаева, в которой главный герой, поэт-декадент Петр Пустота, служит комиссаром, а также в наши дни, а также, как и всегда у Пелевина, в виртуальном пространстве, где с главным героем встречаются Кавабата, Шварценеггер, «просто Мария» По мнению критиков, «Чапаев и Пустота» является «первым серьезным дзэн-буддистским романом в русской литературе». Файл электронной книги подготовлен в Агентстве ФТМ, Лтд., 2013.'),
-('Желтая стрела', 'Желтая стрела (Russian Edition)', 'Поезд, идущий в никуда и в никогда, — место действия повести «Желтая стрела». Этот поезд — единственное живое пространство, в котором существуют ее (повести) персонажи. Фантастика? Антиутопия? Игровой прием? И то, и другое, и третье, впрочем, как всегда у Пелевина. Файл электронной книги подготовлен в Агентстве ФТМ, Лтд., 2013.')
+('Great at Work','Great at Work: How Top Performers Do Less, Work Better, and Achieve More', 'Wall Street Journal Business Bestseller. A Financial Times Business Book of the Month. Named by The Washington Post as One of the 11 Leadership Books to Read in 2018'
+,'productivity, work'),
+('Great by Choice', 'Great by Choice: Uncertainty, Chaos, and Luck--Why Some Thrive Despite Them All', 'Ten years after the worldwide bestseller Good to Great, Jim Collins returns withanother groundbreaking work, this time to ask: why do some companies thrive inuncertainty, even chaos, and others do not? Based on nine years of research,buttressed by rigorous analysis and infused with engaging stories, Collins andhis colleague Morten Hansen enumerate the principles for building a truly greatenterprise in unpredictable, tumultuous and fast-moving times. This book isclassic Collins: contrarian, data-driven and uplifting.'
+,'business'),
+('Чапаев и Пустота', 'Чапаев и Пустота (Russian Edition)', 'Роман «Чапаев и Пустота» сам автор характеризует так «Это первое произведение в мировой литературе, действие которого происходит в абсолютной пустоте». На самом деле оно происходит в 1919 году в дивизии Чапаева, в которой главный герой, поэт-декадент Петр Пустота, служит комиссаром, а также в наши дни, а также, как и всегда у Пелевина, в виртуальном пространстве, где с главным героем встречаются Кавабата, Шварценеггер, «просто Мария» По мнению критиков, «Чапаев и Пустота» является «первым серьезным дзэн-буддистским романом в русской литературе». Файл электронной книги подготовлен в Агентстве ФТМ, Лтд., 2013.'
+,'fiction, фантастика, пелевин'),
+('Желтая стрела', 'Желтая стрела (Russian Edition)', 'Поезд, идущий в никуда и в никогда, — место действия повести «Желтая стрела». Этот поезд — единственное живое пространство, в котором существуют ее (повести) персонажи. Фантастика? Антиутопия? Игровой прием? И то, и другое, и третье, впрочем, как всегда у Пелевина. Файл электронной книги подготовлен в Агентстве ФТМ, Лтд., 2013.'
+,'Fiction, fantasy, pelevin, фантастика')
 ;
 
 /*!40000 ALTER TABLE `bookcatalog` ENABLE KEYS */;

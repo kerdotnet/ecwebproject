@@ -92,6 +92,19 @@ public class BookCatalog extends Entity {
         this.authors = authors;
     }
 
+    public void addOneAuthor(Author author){
+        if (!authors.contains(author)){
+            authors.add(author);
+        }
+    }
+
+
+    public void deleteOneAuthor(Author author){
+        if (authors.contains(author)){
+            authors.remove(author);
+        }
+    }
+
     @Override
     public String toString() {
         return "BookCatalog{" +

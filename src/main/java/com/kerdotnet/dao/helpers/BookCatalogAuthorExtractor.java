@@ -20,7 +20,7 @@ public class BookCatalogAuthorExtractor extends Extractor<BookCatalogAuthor> {
         int authorId = rs.getInt("author_id");
         int bookCatalogId = rs.getInt("bookcatalog_id");
 
-        return new BookCatalogAuthor(id, authorId, bookCatalogId);
+        return new BookCatalogAuthor(id, bookCatalogId, authorId);
     }
 
     @Override

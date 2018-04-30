@@ -45,7 +45,7 @@ public class TransactionDAOImpl extends AbstractDAO implements ITransactionDAO {
 
     @Override
     public boolean update(Transaction entity) throws DAOSystemException {
-        return update(SQL_DELETE_ONE, entity, new TransactionExtractor());
+        return update(SQL_UPDATE_ONE, entity, new TransactionExtractor());
     }
 
     @Override

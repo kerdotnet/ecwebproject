@@ -44,7 +44,7 @@ public class LoginLogic {
         ITransactionManager txManager = new TransactionManagerImpl();
 
         try {
-            return txManager.doInTransaction((Callable<Boolean>) () -> {
+            return txManager.doInTransaction(() -> {
 
                 IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
                 IUserDAO userDAO = daoFactory.getUserDAO();
@@ -75,7 +75,7 @@ public class LoginLogic {
         ITransactionManager txManager = new TransactionManagerImpl();
 
         try {
-            return txManager.doInTransaction((Callable<Boolean>) () -> {
+            return txManager.doInTransaction(() -> {
                 boolean administratorRole = false;
 
                 IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
@@ -114,7 +114,7 @@ public class LoginLogic {
         ITransactionManager txManager = new TransactionManagerImpl();
         LOGGER.debug("User is " + user);
         try {
-            return txManager.doInTransaction((Callable<Boolean>) () -> {
+            return txManager.doInTransaction(() -> {
                 IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
                 IUserDAO userDAO = daoFactory.getUserDAO();
                 boolean successFlag = userDAO.create(user);
@@ -131,8 +131,7 @@ public class LoginLogic {
             throw e;
         } catch (NotUniqueUserLoginException e){
             throw e;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new ServiceException("Error in the adding of a new user in LoginLogic service", e);
         }
     }

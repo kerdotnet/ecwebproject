@@ -47,7 +47,7 @@ public class UserAuthorityDAOImpl extends AbstractDAO implements IUserAuthorityD
 
     @Override
     public boolean update(UserAuthority entity) throws DAOSystemException {
-        return update(SQL_DELETE_ONE, entity, new UserAuthorityExtractor());
+        return update(SQL_UPDATE_ONE, entity, new UserAuthorityExtractor());
     }
 
     @Override

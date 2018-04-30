@@ -10,6 +10,7 @@
             <th scope="col">Authors</th>
             <th scope="col">Full name</th>
             <th scope="col">Description</th>
+            <th scope="col">On shelves</th>
             <c:if test="${userType == 'ADMINISTRATOR'}">
                 <th scope="col">Action</th>
             </c:if>
@@ -23,12 +24,19 @@
                        href = "controller?command=viewbookcatalogentity&bookcatalogid=${bookcataloglist.getId()}">
                         ${bookcataloglist.getName()}</a></td>
                 <td>
-                    <c:forEach items="${bookcataloglist.getAuthors()}" var="authors">
+                    <c:forEach items="${bookcataloglist.getAuthors()}"
+                               var="authors" varStatus="loop">
                         ${authors.getName()}
+                        <c:if test="${!loop.last}">,</c:if>
                     </c:forEach>
                 </td>
                 <td>${bookcataloglist.getFullName()}</td>
                 <td>${bookcataloglist.getDescription()}</td>
+                <td>
+                    <a class="btn btn-primary"
+                       href="controller?command=listbookitems&bookcatalogid=${bookcataloglist.getId()}"
+                       role="button">View</a>
+                </td>
                 <c:if test="${userType == 'ADMINISTRATOR'}">
                     <td>
                         <a class="btn btn-primary"

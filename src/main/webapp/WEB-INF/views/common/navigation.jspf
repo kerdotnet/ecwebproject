@@ -17,11 +17,11 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">My books</a>
-                    <a class="dropdown-item" href="#">All books</a>
-                    <a class="dropdown-item" href="#">On shelves</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">For approval</a>
-                    <a class="dropdown-item" href="#">For return (overdue)</a>
+                    <c:if test="${userType == 'ADMINISTRATOR'}">
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">For approval</a>
+                        <a class="dropdown-item" href="#">For return (with overdue)</a>
+                    </c:if>
                 </div>
             </li>
 

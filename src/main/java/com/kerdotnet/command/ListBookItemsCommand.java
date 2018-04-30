@@ -1,6 +1,6 @@
 package com.kerdotnet.command;
 
-import com.kerdotnet.beans.BookCatalog;
+import com.kerdotnet.beans.BookItem;
 import com.kerdotnet.controllers.SessionRequestContent;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.resource.ConfigurationManager;
@@ -9,31 +9,35 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
+import java.util.List;
 
 /**
- * List of BookCatalog - general data of books (by catalog) by authors
+ * List of BookItems by bookcatalogId
  * Yevhen Ivanov; 2018-04-23
  */
-public class ViewBookCatalogEntityCommand implements IActionCommand {
-    static final Logger LOGGER = LoggerFactory.getLogger(ViewBookCatalogEntityCommand.class);
+public class ListBookItemsCommand implements IActionCommand {
+    static final Logger LOGGER = LoggerFactory.getLogger(ListBookItemsCommand.class);
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         String page;
 
-        BookCatalog bookCatalogEntity;
-        int bookCatalogId = 0;
+        List<BookItem> bookItems;
 
         String bookCatalogIdParam = sessionRequestContent.getRequestParameter("bookcatalogid");
+        int bookCatalogId = 0;
         if (bookCatalogIdParam != null)
             bookCatalogId = Integer.parseInt(bookCatalogIdParam);
-        LOGGER.debug("Id of the book catalog is: " + bookCatalogId);
+        else {
+            bookCatalogId = (int) sessionRequestContent.getSessionAttribute("bookcatalogid");
+        }
 
-        page = ConfigurationManager.getProperty("path.page.bookcatalogentity");
+        page = ConfigurationManager.getProperty("path.page.bookitems");
+
         try {
-            sessionRequestContent.setRequestAttribute("editmode", false);
-            bookCatalogEntity = BookCatalogService.getBookCatalogById(bookCatalogId);
-            sessionRequestContent.setSessionAttribute("bookcatalogentity", bookCatalogEntity);
+            bookItems = BookCatalogService.getBookItemsByBookCatalogId(bookCatalogId);
+            sessionRequestContent.setSessionAttribute("bookitemlist", bookItems, true);
+            sessionRequestContent.setSessionAttribute("bookcatalogid", bookCatalogId);
         } catch (ServiceException e) {
             throw new ServletException(e);
         }

@@ -45,7 +45,7 @@ public class AuthorityDAOImpl extends AbstractDAO implements IAuthorityDAO {
 
     @Override
     public boolean update(Authority entity) throws DAOSystemException {
-        return update(SQL_DELETE_ONE, entity, new AuthorityExtractor());
+        return update(SQL_UPDATE_ONE, entity, new AuthorityExtractor());
     }
 
     @Override

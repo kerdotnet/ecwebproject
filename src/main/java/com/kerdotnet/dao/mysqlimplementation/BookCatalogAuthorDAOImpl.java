@@ -54,7 +54,7 @@ public class BookCatalogAuthorDAOImpl extends AbstractDAO implements IBookCatalo
 
     @Override
     public boolean update(BookCatalogAuthor entity) throws DAOSystemException {
-        return update(SQL_DELETE_ONE, entity, new BookCatalogAuthorExtractor());
+        return update(SQL_UPDATE_ONE, entity, new BookCatalogAuthorExtractor());
     }
 
     @Override
@@ -64,7 +64,7 @@ public class BookCatalogAuthorDAOImpl extends AbstractDAO implements IBookCatalo
 
     @Override
     public boolean deleteByBookCatalogId(int bookCatalogId) throws DAOSystemException {
-        return delete(SQL_DELETE_ONE, bookCatalogId);
+        return delete(SQL_DELETE_BY_BOOK_CATALOG_ID, bookCatalogId);
     }
 
     @Override

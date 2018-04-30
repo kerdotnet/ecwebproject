@@ -8,19 +8,17 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.ServletException;
 
 /**
- * Edit of an existing BookCatalog Entity
- * Yevhen Ivanov; 2018-04-25
+ * Adding of a new BookItem Entity
+ * Yevhen Ivanov; 2018-04-30
  */
-public class EditBookCatalogEntityCommand implements IActionCommand {
-    static final Logger LOGGER = LoggerFactory.getLogger(EditBookCatalogEntityCommand.class);
+public class AddBookItemEntityCommand implements IActionCommand {
+    static final Logger LOGGER = LoggerFactory.getLogger(AddBookItemEntityCommand.class);
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         String page;
 
-        page = ConfigurationManager.getProperty("path.page.bookcatalogentity");
-
-        sessionRequestContent.setRequestAttribute("editmode", true);
+        page = ConfigurationManager.getProperty("path.page.bookitementity");
 
         return page;
     }

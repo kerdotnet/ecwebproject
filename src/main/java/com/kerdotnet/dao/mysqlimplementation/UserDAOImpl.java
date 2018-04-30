@@ -61,7 +61,7 @@ public class UserDAOImpl extends AbstractDAO implements IUserDAO {
 
     @Override
     public boolean update(User entity) throws DAOSystemException {
-        return update(SQL_DELETE_ONE, entity, new UserExtractor());
+        return update(SQL_UPDATE_ONE, entity, new UserExtractor());
     }
 
     @Override

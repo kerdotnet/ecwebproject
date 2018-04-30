@@ -45,7 +45,7 @@ public class AuthorDAOImpl extends AbstractDAO implements IAuthorDAO {
 
     @Override
     public boolean update(Author entity) throws DAOSystemException {
-        return update(SQL_DELETE_ONE, entity, new AuthorExtractor());
+        return update(SQL_UPDATE_ONE, entity, new AuthorExtractor());
     }
 
     @Override

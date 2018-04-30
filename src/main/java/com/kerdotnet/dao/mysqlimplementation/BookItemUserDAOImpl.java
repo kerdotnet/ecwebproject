@@ -48,7 +48,7 @@ public class BookItemUserDAOImpl extends AbstractDAO implements IBookItemUserDAO
 
     @Override
     public boolean update(BookItemUser entity) throws DAOSystemException {
-        return update(SQL_DELETE_ONE, entity, new BookItemUserExtractor());
+        return update(SQL_UPDATE_ONE, entity, new BookItemUserExtractor());
     }
 
     @Override

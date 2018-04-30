@@ -58,7 +58,4 @@ public class Controller extends HttpServlet{
             response.sendRedirect(request.getContextPath() + page);
         }
     }
-
-
-
 }

@@ -1,6 +1,6 @@
 package com.kerdotnet.beans;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * java DTO class for links between Book Items and Users entities
@@ -12,14 +12,15 @@ public class BookItemUser extends Entity {
 
     private int bookItemId;
     private int userId;
-    private Date date;
+    private LocalDateTime date;
     private boolean enabled;
+    private User user;
 
     public BookItemUser() {
     }
 
     public BookItemUser(int bookItemId, int userId,
-                        Date date, boolean enabled) {
+                        LocalDateTime date, boolean enabled) {
         this.bookItemId = bookItemId;
         this.userId = userId;
         this.date = date;
@@ -27,7 +28,7 @@ public class BookItemUser extends Entity {
     }
 
     public BookItemUser(int id, int bookItemId, int userId,
-                        Date date, boolean enabled) {
+                        LocalDateTime date, boolean enabled) {
         this.setId(id);
         this.bookItemId = bookItemId;
         this.userId = userId;
@@ -55,11 +56,11 @@ public class BookItemUser extends Entity {
         this.userId = userId;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
@@ -71,6 +72,14 @@ public class BookItemUser extends Entity {
         this.enabled = enabled;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return "BookItemUser{" +
@@ -79,6 +88,7 @@ public class BookItemUser extends Entity {
                 ", userId=" + userId +
                 ", date=" + date +
                 ", enabled=" + enabled +
+                ", user=" + user +
                 '}';
     }
 }

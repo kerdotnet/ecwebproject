@@ -11,4 +11,5 @@ import java.util.List;
  */
 public interface IBookItemDAO extends IDAO<Integer, BookItem> {
     List<BookItem> findByBookCatalogId(int bookCatalogId) throws DAOSystemException;
+    List<BookItem> findByBookCatalogIdOnShelves(int bookCatalogId) throws DAOSystemException;
 }

@@ -6,6 +6,10 @@
         <thead>
         <tr>
             <th scope="col" hidden>id</th>
+            <c:if test="${userType == 'ADMINISTRATOR' && takenBooks}">
+                <th scope="col">User</th>
+                <th scope="col">Date from</th>
+            </c:if>
             <th scope="col">Description</th>
             <th scope="col">Bookshelf</th>
             <th scope="col">Take for reading</th>
@@ -18,6 +22,16 @@
         <c:forEach items="${bookitemlist}" var="bookitemlist">
             <tr>
                 <th scope="row" hidden>${bookitemlist.getId()}</th>
+                <c:if test="${userType == 'ADMINISTRATOR' && takenbooks}">
+
+                        <td>
+                            <c:if test="${bookitemlist.isTakenByUser()}">${bookitemlist.getBookItemUser().getUser()}</c:if>
+                        </td>
+                        <td>
+                            <c:if test="${bookitemlist.isTakenByUser()}">${bookitemlist.getBookItemUser().getDate()}</c:if>
+                        </td>
+
+                </c:if>
                 <td>${bookitemlist.getDescription()}</td>
                 <td>${bookitemlist.getBookShelfAddress()}</td>
                 <td>

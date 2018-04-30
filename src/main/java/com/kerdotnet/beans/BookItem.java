@@ -11,6 +11,7 @@ public class BookItem extends Entity {
     private String description;
     private String bookShelfAddress;
     private boolean enabled;
+    private BookItemUser bookItemUser;
 
     public BookItem() {
     }
@@ -64,6 +65,18 @@ public class BookItem extends Entity {
         this.enabled = enabled;
     }
 
+    public BookItemUser getBookItemUser() {
+        return bookItemUser;
+    }
+
+    public void setBookItemUser(BookItemUser bookItemUser) {
+        this.bookItemUser = bookItemUser;
+    }
+
+    public boolean isTakenByUser(){
+        return (bookItemUser != null);
+    }
+
     @Override
     public String toString() {
         return "BookItem{" +
@@ -72,6 +85,7 @@ public class BookItem extends Entity {
                 ", description='" + description + '\'' +
                 ", bookShelfAddress='" + bookShelfAddress + '\'' +
                 ", enabled=" + enabled +
+                ", bookItemUser=" + bookItemUser +
                 '}';
     }
 }

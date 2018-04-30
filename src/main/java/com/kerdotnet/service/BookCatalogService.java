@@ -208,14 +208,14 @@ public class BookCatalogService {
                 .collect(Collectors.toCollection(LinkedList::new));
     }
 
-    public static List<BookItem> getBookItemsByBookCatalogId(int bookCatalogId) throws ServiceException{
+    public static List<BookItem> getBookItemsByBookCatalogIdOnShelves(int bookCatalogId) throws ServiceException{
         ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
 
         try {
             IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
             IBookItemDAO bookItemDAO = daoFactory.getBookItemDAO();
 
-            return bookItemDAO.findByBookCatalogId(bookCatalogId);
+            return bookItemDAO.findByBookCatalogIdOnShelves(bookCatalogId);
         } catch (DAOSystemException e) {
             throw new ServiceException(
                     MessageManager.getProperty("message.businesslogicbookcatalog"), e);

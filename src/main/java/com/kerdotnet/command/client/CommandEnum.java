@@ -79,6 +79,14 @@ public enum CommandEnum {
         {
             this.command = new SaveBookItemEntityCommand();
         }
+    }, TAKEBOOKITEM {
+        {
+            this.command = new TakeBookItemEntityCommand();
+        }
+    }, LISTTAKENBOOKITEMS {
+        {
+            this.command = new ListTakenBookItemsCommand();
+        }
     }
     ;
 

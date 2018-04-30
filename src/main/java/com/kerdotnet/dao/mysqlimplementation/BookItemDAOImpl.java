@@ -17,6 +17,10 @@ public class BookItemDAOImpl extends AbstractDAO implements IBookItemDAO {
             "SELECT * FROM bookitem WHERE id=?";
     public static final String SQL_SELECT_BY_BOOKCATALOG_ID =
             "SELECT * FROM bookitem WHERE bookcatalog_id=?";
+    public static final String SQL_SELECT_BY_BOOKCATALOG_ID_ON_SHELVES =
+            "SELECT * FROM bookitem WHERE bookcatalog_id=? " +
+                    "and id NOT IN " +
+                    "(SELECT bookitem_id FROM bookitem_user WHERE flag_enabled)";
     public static final String SQL_INSERT_ONE = "INSERT INTO bookitem  " +
             " (bookcatalog_id, description, bookshelf_address, flag_enabled) VALUES " +
             " (?,?,?,?)";
@@ -58,6 +62,12 @@ public class BookItemDAOImpl extends AbstractDAO implements IBookItemDAO {
     @Override
     public List<BookItem> findByBookCatalogId(int bookCatalogId) throws DAOSystemException {
         return findAllByInt(SQL_SELECT_BY_BOOKCATALOG_ID, bookCatalogId,  new BookItemExtractor(),
+                IEnricher.NULL);
+    }
+
+    @Override
+    public List<BookItem> findByBookCatalogIdOnShelves(int bookCatalogId) throws DAOSystemException {
+        return findAllByInt(SQL_SELECT_BY_BOOKCATALOG_ID_ON_SHELVES, bookCatalogId,  new BookItemExtractor(),
                 IEnricher.NULL);
     }
 }

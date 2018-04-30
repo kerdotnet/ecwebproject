@@ -17,7 +17,7 @@ public class UserEnricher implements IEnricher<User> {
 
     @Override
     public void enrich(User record) throws DAOSystemException, NoSuchEntityException {
-        List<UserAuthority> UserAuthority =  userAuthorityDAO.findAllByUserId(record.getId());
-        record.setAuthorities(UserAuthority);
+        List<UserAuthority> userAuthority =  userAuthorityDAO.findAllByUserId(record.getId());
+        record.setAuthorities(userAuthority);
     }
 }

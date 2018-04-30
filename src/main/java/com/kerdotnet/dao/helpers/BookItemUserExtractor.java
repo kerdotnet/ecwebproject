@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * BookItemUser extractor return BookItemUser entity from ResultSet
@@ -23,9 +23,9 @@ public class BookItemUserExtractor extends Extractor<BookItemUser> {
         int userId = rs.getInt("user_id");
 
         Timestamp timestamp = rs.getTimestamp("date");
-        Date date = null;
+        LocalDateTime date = null;
         if (timestamp != null)
-            date = new java.util.Date(timestamp.getTime());
+            date = timestamp.toLocalDateTime();
 
         boolean enabled = rs.getBoolean("flag_enabled");
 
@@ -36,7 +36,7 @@ public class BookItemUserExtractor extends Extractor<BookItemUser> {
     public void setOneCreate(PreparedStatement preparedStatement, BookItemUser entity) throws SQLException {
         preparedStatement.setInt(1, entity.getBookItemId());
         preparedStatement.setInt(2, entity.getUserId());
-        preparedStatement.setDate(3, (java.sql.Date) entity.getDate());
+        preparedStatement.setObject(3, entity.getDate());
         preparedStatement.setBoolean(4, entity.isEnabled());
     }
 

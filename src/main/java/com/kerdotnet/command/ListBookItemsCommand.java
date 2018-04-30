@@ -35,9 +35,11 @@ public class ListBookItemsCommand implements IActionCommand {
         page = ConfigurationManager.getProperty("path.page.bookitems");
 
         try {
-            bookItems = BookCatalogService.getBookItemsByBookCatalogId(bookCatalogId);
+            bookItems = BookCatalogService.getBookItemsByBookCatalogIdOnShelves(bookCatalogId);
+            LOGGER.debug("Find book items: " + bookItems);
             sessionRequestContent.setSessionAttribute("bookitemlist", bookItems, true);
             sessionRequestContent.setSessionAttribute("bookcatalogid", bookCatalogId);
+            sessionRequestContent.setSessionAttribute("takenBooks", false);
         } catch (ServiceException e) {
             throw new ServletException(e);
         }

@@ -20,7 +20,7 @@
                     <c:if test="${userType == 'ADMINISTRATOR'}">
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">For approval</a>
-                        <a class="dropdown-item" href="#">For return (with overdue)</a>
+                        <a class="dropdown-item" href="controller?command=listtakenbookitems">Taken books (with overdue)</a>
                     </c:if>
                 </div>
             </li>

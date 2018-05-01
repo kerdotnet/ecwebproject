@@ -4,8 +4,6 @@ import com.kerdotnet.command.IActionCommand;
 import com.kerdotnet.command.EmptyCommand;
 import com.kerdotnet.command.client.CommandEnum;
 import com.kerdotnet.controllers.SessionRequestContent;
-import com.kerdotnet.dao.transaction.ITransactionManager;
-import com.kerdotnet.dao.transaction.TransactionManagerImpl;
 import com.kerdotnet.resource.MessageManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

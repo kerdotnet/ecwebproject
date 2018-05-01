@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS `web_library`;
 CREATE DATABASE  IF NOT EXISTS `web_library` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `web_library`;
 -- MySQL dump 10.13  Distrib 5.6.13, for osx10.6 (i386)
@@ -41,6 +42,8 @@ DROP TABLE IF EXISTS `authority`;
 CREATE TABLE `authority` (
   `id` int(11) NOT NULL AUTO_INCREMENT, 
   `name` varchar(50) NOT NULL,
+  `flag_user` tinyint(1) NOT NULL DEFAULT FALSE,
+  `flag_administrator` tinyint(1) NOT NULL DEFAULT FALSE,
   
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -65,7 +68,8 @@ CREATE TABLE `user_authority` (
   
   CONSTRAINT `FK_USER_AUTHORITY` 
   FOREIGN KEY (`user_id`)
-  REFERENCES `user` (`id`),
+  REFERENCES `user` (`id`)
+  ON DELETE CASCADE ON UPDATE NO ACTION,
   
   CONSTRAINT `FK_AUTHORITY` 
   FOREIGN KEY (`authority_id`)
@@ -82,11 +86,11 @@ DROP TABLE IF EXISTS `bookcatalog`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bookcatalog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `full_name` varchar(300) NOT NULL,
-  `description` varchar(1000) NOT NULL,
-  `key_words` varchar(500) NOT NULL,
-  `flag_enabled` boolean NOT NULL default TRUE,
+  `name` varchar(100) NOT NULL,
+  `full_name` varchar(250),
+  `description` varchar(1000),
+  `key_words` varchar(500),
+  `flag_enabled` boolean NOT NULL DEFAULT TRUE,
   
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -102,7 +106,7 @@ DROP TABLE IF EXISTS `author`;
 CREATE TABLE `author` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `description` varchar(1000) NOT NULL,
+  `description` varchar(1000),
   `flag_enabled` boolean NOT NULL default TRUE,
   
   PRIMARY KEY (`id`)
@@ -117,56 +121,22 @@ DROP TABLE IF EXISTS `bookcatalog_author`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bookcatalog_author` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `author_id` int(11) NOT NULL,
   `bookcatalog_id` int(11) NOT NULL,
   
-  PRIMARY KEY (`author_id`, `bookcatalog_id`),
+  PRIMARY KEY (`id`),
   
   KEY `FK_AUTHOR_idx` (`author_id`),
   KEY `FK_BOOKCATALOG_idx` (`bookcatalog_id`),
   
   CONSTRAINT `FK_AUTHOR` FOREIGN KEY (`author_id`) 
   REFERENCES `author` (`id`) 
-  ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ON DELETE CASCADE ON UPDATE NO ACTION,
   
   CONSTRAINT `FK_BOOKCATALOG` FOREIGN KEY (`bookcatalog_id`) 
   REFERENCES `bookcatalog` (`id`) 
-  ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `keywords`
---
-
-DROP TABLE IF EXISTS `keywords`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `keywords` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `bookcatalog_id` int(11) NOT NULL,
-  
-  PRIMARY KEY (`id`),
-  
-  KEY `FK_BOOKCATALOG_KEYWORDS_idx` (`bookcatalog_id`),
-  CONSTRAINT `FK_BOOKCATALOG_KEYWORDS` FOREIGN KEY (`bookcatalog_id`) 
-  REFERENCES `bookcatalog` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `bookshelf`
---
-
-DROP TABLE IF EXISTS `bookshelf`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `bookshelf` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  
-  PRIMARY KEY (`id`)
+  ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -180,8 +150,9 @@ DROP TABLE IF EXISTS `bookitem`;
 CREATE TABLE `bookitem` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `bookcatalog_id` int(11) NOT NULL,
-  `description` varchar(1000) NOT NULL,
-  `flag_enabled` boolean NOT NULL default TRUE,
+  `description` varchar(500),
+  `bookshelf_address` varchar(30),
+  `flag_enabled` boolean NOT NULL DEFAULT TRUE,
   
   PRIMARY KEY (`id`),
   
@@ -190,6 +161,7 @@ CREATE TABLE `bookitem` (
   CONSTRAINT `FK_BOOKCATALOG_BOOKITEM` 
   FOREIGN KEY (`bookcatalog_id`) 
   REFERENCES `bookcatalog` (`id`)
+  ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -205,7 +177,7 @@ CREATE TABLE `bookitem_user` (
   `bookitem_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `date` DATE NOT NULL,
-  `flag_enabled` boolean NOT NULL default TRUE,
+  `flag_enabled` BOOLEAN NOT NULL DEFAULT TRUE,
   
   PRIMARY KEY (`id`),
   
@@ -214,41 +186,13 @@ CREATE TABLE `bookitem_user` (
   
   CONSTRAINT `FK_USER_USER_BOOKITEM` 
   FOREIGN KEY (`user_id`) 
-  REFERENCES `user` (`id`),
+  REFERENCES `user` (`id`)
+  ON DELETE CASCADE ON UPDATE NO ACTION,
   
-  CONSTRAINT `FK_BOOKTIME_USER_BOOKITEM_` 
+  CONSTRAINT `FK_BOOKTIME_USER_BOOKITEM` 
   FOREIGN KEY (`bookitem_id`) 
   REFERENCES `bookitem` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `bookitem_bookshelf`
---
-
-DROP TABLE IF EXISTS `bookitem_bookshelf`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `bookitem_bookshelf` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `bookitem_id` int(11) NOT NULL,
-  `bookshelf_id` int(11) NOT NULL,
-  `bookshelf_adress` varchar(20) NOT NULL,
-  `flag_enabled` boolean NOT NULL default TRUE,
-  
-  
-  PRIMARY KEY (`id`),
-  
-  KEY `FK_BOOKITEM_BOOKSHEHLF_BOOKITEM_idx` (`bookitem_id`),
-  KEY `FK_BOOKITEM_BOOKSHEHLF_BOOKSHELF_idx` (`bookshelf_id`),
-    
-  CONSTRAINT `FK_BOOKITEM_BOOKSHEHLF_BOOKITEM` 
-  FOREIGN KEY (`bookitem_id`) 
-  REFERENCES `bookitem` (`id`),
-  
-  CONSTRAINT `FK_BOOKITEM_BOOKSHEHLF_BOOKSHELF` 
-  FOREIGN KEY (`bookshelf_id`) 
-  REFERENCES `bookshelf` (`id`)
+  ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -263,24 +207,19 @@ CREATE TABLE `transaction` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` DATETIME NOT NULL,
   `bookitem_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `bookshelf_id` int(11) NOT NULL,
-  `bookshelf_adress` varchar(20) NOT NULL,
+  `user_id` int(11),
+  `bookshelf_address` varchar(30),
+  `action` varchar(30),
   `flag_enabled` boolean NOT NULL default TRUE,
   
   PRIMARY KEY (`id`),
   
   KEY `FK_TRANSACTION_idx` (`bookitem_id`),
-  KEY `FK_TRANSACTION_BOOKSHEHLF_BOOKSHELF_idx` (`bookshelf_id`),
   KEY `FK_TRANSACTION_USER_idx` (`user_id`),
     
   CONSTRAINT `FK_TRANSACTION` 
   FOREIGN KEY (`bookitem_id`) 
   REFERENCES `bookitem` (`id`),
-  
-  CONSTRAINT `FK_TRANSACTION_BOOKSHEHLF_BOOKSHELF` 
-  FOREIGN KEY (`bookshelf_id`) 
-  REFERENCES `bookshelf` (`id`),
   
   CONSTRAINT `FK_TRANSACTION_USER` 
   FOREIGN KEY (`user_id`) 
@@ -302,7 +241,8 @@ VALUES
 	('kerdotnet','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','evgenys.ivanov@gmail.com','Евгений','Иванов', '+380952711261', 1),
 	('marylogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','mary_ecproj@gmail.com','Mary','Grunvald', '+380951112233', 1),
 	('susanlogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','susan_ecproj@gmail.com','Susan','Zimmerman', '+380951114433', 1),
-    ('piterlogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','piter_ecproj@gmail.com','Piter','Sipula', '+380951112200', 1);
+    ('piterlogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','piter_ecproj@gmail.com','Piter','Sipula', '+380951112200', 1),
+    ('root','$2a$04$5XxD10VHo6pjdZA7V4p5xOeo808w1AVzeHs2/lbCW4BMLH3oM0nVC','root@gmail.com','Root','Root', '+380500000000', 1);
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -314,10 +254,10 @@ UNLOCK TABLES;
 LOCK TABLES `authority` WRITE;
 /*!40000 ALTER TABLE `authority` DISABLE KEYS */;
 
-INSERT INTO `authority`  (`name`)
+INSERT INTO `authority`  (`name`,`flag_user`, `flag_administrator`)
 VALUES 
-	('USER'),
-	('ADMINISTRATOR');
+	('USER', true, false),
+	('ADMINISTRATOR', false, true);
 
 /*!40000 ALTER TABLE `authority` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -334,7 +274,9 @@ VALUES
 (1,1),
 (2,1),
 (3,1),
-(4,1);
+(4,1),
+(5,1),
+(5,2);
 
 /*!40000 ALTER TABLE `user_authority` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -345,12 +287,16 @@ UNLOCK TABLES;
 
 LOCK TABLES `bookcatalog` WRITE;
 
-INSERT INTO `bookcatalog` (`name`, `full_name`, `description`) 
+INSERT INTO `bookcatalog` (`name`, `full_name`, `description`, `key_words`) 
 VALUES 
-('Great at Work','Great at Work: How Top Performers Do Less, Work Better, and Achieve More', 'Wall Street Journal Business Bestseller. A Financial Times Business Book of the Month. Named by The Washington Post as One of the 11 Leadership Books to Read in 2018'),
-('Great by Choice', 'Great by Choice: Uncertainty, Chaos, and Luck--Why Some Thrive Despite Them All', 'Ten years after the worldwide bestseller Good to Great, Jim Collins returns withanother groundbreaking work, this time to ask: why do some companies thrive inuncertainty, even chaos, and others do not? Based on nine years of research,buttressed by rigorous analysis and infused with engaging stories, Collins andhis colleague Morten Hansen enumerate the principles for building a truly greatenterprise in unpredictable, tumultuous and fast-moving times. This book isclassic Collins: contrarian, data-driven and uplifting.'),
-('Чапаев и Пустота', 'Чапаев и Пустота (Russian Edition)', 'Роман «Чапаев и Пустота» сам автор характеризует так «Это первое произведение в мировой литературе, действие которого происходит в абсолютной пустоте». На самом деле оно происходит в 1919 году в дивизии Чапаева, в которой главный герой, поэт-декадент Петр Пустота, служит комиссаром, а также в наши дни, а также, как и всегда у Пелевина, в виртуальном пространстве, где с главным героем встречаются Кавабата, Шварценеггер, «просто Мария» По мнению критиков, «Чапаев и Пустота» является «первым серьезным дзэн-буддистским романом в русской литературе». Файл электронной книги подготовлен в Агентстве ФТМ, Лтд., 2013.'),
-('Желтая стрела', 'Желтая стрела (Russian Edition)', 'Поезд, идущий в никуда и в никогда, — место действия повести «Желтая стрела». Этот поезд — единственное живое пространство, в котором существуют ее (повести) персонажи. Фантастика? Антиутопия? Игровой прием? И то, и другое, и третье, впрочем, как всегда у Пелевина. Файл электронной книги подготовлен в Агентстве ФТМ, Лтд., 2013.')
+('Great at Work','Great at Work: How Top Performers Do Less, Work Better, and Achieve More', 'Wall Street Journal Business Bestseller. A Financial Times Business Book of the Month. Named by The Washington Post as One of the 11 Leadership Books to Read in 2018'
+,'productivity, work'),
+('Great by Choice', 'Great by Choice: Uncertainty, Chaos, and Luck--Why Some Thrive Despite Them All', 'Ten years after the worldwide bestseller Good to Great, Jim Collins returns withanother groundbreaking work, this time to ask: why do some companies thrive inuncertainty, even chaos, and others do not? Based on nine years of research,buttressed by rigorous analysis and infused with engaging stories, Collins andhis colleague Morten Hansen enumerate the principles for building a truly greatenterprise in unpredictable, tumultuous and fast-moving times. This book isclassic Collins: contrarian, data-driven and uplifting.'
+,'business'),
+('Чапаев и Пустота', 'Чапаев и Пустота (Russian Edition)', 'Роман «Чапаев и Пустота» сам автор характеризует так «Это первое произведение в мировой литературе, действие которого происходит в абсолютной пустоте». На самом деле оно происходит в 1919 году в дивизии Чапаева, в которой главный герой, поэт-декадент Петр Пустота, служит комиссаром, а также в наши дни, а также, как и всегда у Пелевина, в виртуальном пространстве, где с главным героем встречаются Кавабата, Шварценеггер, «просто Мария» По мнению критиков, «Чапаев и Пустота» является «первым серьезным дзэн-буддистским романом в русской литературе». Файл электронной книги подготовлен в Агентстве ФТМ, Лтд., 2013.'
+,'fiction, фантастика, пелевин'),
+('Желтая стрела', 'Желтая стрела (Russian Edition)', 'Поезд, идущий в никуда и в никогда, — место действия повести «Желтая стрела». Этот поезд — единственное живое пространство, в котором существуют ее (повести) персонажи. Фантастика? Антиутопия? Игровой прием? И то, и другое, и третье, впрочем, как всегда у Пелевина. Файл электронной книги подготовлен в Агентстве ФТМ, Лтд., 2013.'
+,'Fiction, fantasy, pelevin, фантастика')
 ;
 
 /*!40000 ALTER TABLE `bookcatalog` ENABLE KEYS */;
@@ -379,52 +325,15 @@ UNLOCK TABLES;
 
 LOCK TABLES `bookcatalog_author` WRITE;
 
-INSERT INTO `bookcatalog_author` 
+INSERT INTO `bookcatalog_author`  (`bookcatalog_id`, `author_id`)
 VALUES 
 (1,2),
 (2,2),
 (2,3),
 (3,1),
-(4,2);
+(4,1);
 
 /*!40000 ALTER TABLE `bookcatalog_author` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `keywords`
---
-
-LOCK TABLES `keywords` WRITE;
-
-INSERT INTO `keywords` (`name`, `bookcatalog_id`) 
-VALUES 
-('productivity',1),
-('work',1),
-('choice',2),
-('bestseller',2),
-('Пеллевин',3),
-('Fiction',3),
-('Стрела',4),
-('Fiction',4)
-;
-
-/*!40000 ALTER TABLE `keywords` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `bookshelf`
---
-
-LOCK TABLES `bookshelf` WRITE;
-
-INSERT INTO `bookshelf` (`name`) 
-VALUES 
-('M_BS_1'),
-('M_BS_2'),
-('M_BS_3')
-;
-
-/*!40000 ALTER TABLE `bookshelf` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -433,14 +342,14 @@ UNLOCK TABLES;
 
 LOCK TABLES `bookitem` WRITE;
 
-INSERT INTO `bookitem` (`bookcatalog_id`, `description`) 
+INSERT INTO `bookitem` (`bookcatalog_id`, `description`, `bookshelf_address`) 
 VALUES 
-(1, 'The first edition'),
-(1, 'Потрепанный переплет'),
-(2, 'SN 000123'),
-(3, 'Издание 2017'),
-(4, 'Издание 2018'),
-(4, 'Издание 2015');
+(1, 'The first edition', 'C1'),
+(1, 'Потрепанный переплет', 'C1'),
+(2, 'SN 000123', 'C1-1'),
+(3, 'Издание 2017', 'C1-2'),
+(4, 'Издание 2018', 'BC1-1'),
+(4, 'Издание 2015', 'BC1-2');
 
 /*!40000 ALTER TABLE `bookitem` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -459,23 +368,6 @@ VALUES
 /*!40000 ALTER TABLE `bookitem_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Dumping data for table `bookitem_bookshelf`
---
-
-LOCK TABLES `bookitem_bookshelf` WRITE;
-
-INSERT INTO `bookitem_bookshelf` (`bookitem_id`, `bookshelf_id`, `bookshelf_adress`) 
-VALUES 
-(1, 1, "A1"),
-(2, 2, "A1"),
-(3, 3, "A1"),
-(4, 1, "A2"),
-(5, 2, "A2"),
-(6, 3, "A2");
-
-/*!40000 ALTER TABLE `bookitem_bookshelf` ENABLE KEYS */;
-UNLOCK TABLES;
 
 SET FOREIGN_KEY_CHECKS = 1;
 -- Dump completed on 2016-09-24 21:50:59

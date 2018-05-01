@@ -48,4 +48,28 @@ public class BookOperationService {
             throw new ServiceException("Error in the BookCatalog service (getBookCatalogById)", e);
         }
     }
+
+    public static boolean returnBookItemById(int bookItemId) throws ServiceException{
+        ITransactionManager txManager = new TransactionManagerImpl();
+
+        try {
+            return txManager.doInTransaction(() -> {
+                boolean result = false;
+                IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
+
+                IBookItemUserDAO bookItemUserDAO = daoFactory.getBookItemUserDAO();
+                BookItemUser bookItemUser = bookItemUserDAO.findActiveEntityByBookItemId(bookItemId);
+                if (bookItemUser != null){
+                    bookItemUser.setEnabled(false);
+                    result = bookItemUserDAO.update(bookItemUser);
+                }
+                return result;
+            });
+        } catch (DAOSystemException e) {
+            throw new ServiceException(
+                    MessageManager.getProperty("message.businesslogicbookcatalog"), e);
+        } catch (Exception e) {
+            throw new ServiceException("Error in the BookCatalog service (getBookCatalogById)", e);
+        }
+    }
 }

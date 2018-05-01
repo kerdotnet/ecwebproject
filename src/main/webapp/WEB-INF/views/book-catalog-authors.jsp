@@ -9,7 +9,7 @@
                 <li class="list-group-item" value="${authors.getId()}">
                     ${authors.getName()}<a class="btn btn-primary float-right"
                                            href="controller?command=deletebookcatalogauthor&deleteauthorid=${authors.getId()}"
-                                           role="button">Delete</a>
+                                           role="button"><fmt:message key="message.deletebutton" /></a>
                 </li>
             </c:forEach>
         </ul>
@@ -23,10 +23,10 @@
         </div>
 
         <c:if test="${userType == 'ADMINISTRATOR'}">
-            <button type="submit"  value = "ok" class="btn btn-primary">Add</button>
+            <button type="submit"  value = "ok" class="btn btn-primary"><fmt:message key="message.addbutton" /></button>
             <a class="btn btn-primary"
                href="controller?command=editbookcatalog"
-               role="button">Ok</a>
+               role="button"><fmt:message key="message.okbutton" /></a>
         </c:if>
     </form>
 <%@include file="common/footer.jspf"%>

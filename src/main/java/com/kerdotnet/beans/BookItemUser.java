@@ -1,6 +1,7 @@
 package com.kerdotnet.beans;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * java DTO class for links between Book Items and Users entities
@@ -58,6 +59,11 @@ public class BookItemUser extends Entity {
 
     public LocalDateTime getDate() {
         return date;
+    }
+
+    public String getFarmatedDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return date.format(formatter);
     }
 
     public void setDate(LocalDateTime date) {

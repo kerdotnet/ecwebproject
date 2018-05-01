@@ -69,7 +69,7 @@ CREATE TABLE `user_authority` (
   CONSTRAINT `FK_USER_AUTHORITY` 
   FOREIGN KEY (`user_id`)
   REFERENCES `user` (`id`)
-  ON DELETE CASCADE ON UPDATE NO ACTION,
+  ON DELETE NO ACTION ON UPDATE NO ACTION,
   
   CONSTRAINT `FK_AUTHORITY` 
   FOREIGN KEY (`authority_id`)
@@ -132,11 +132,11 @@ CREATE TABLE `bookcatalog_author` (
   
   CONSTRAINT `FK_AUTHOR` FOREIGN KEY (`author_id`) 
   REFERENCES `author` (`id`) 
-  ON DELETE CASCADE ON UPDATE NO ACTION,
+  ON DELETE  NO ACTION ON UPDATE NO ACTION,
   
   CONSTRAINT `FK_BOOKCATALOG` FOREIGN KEY (`bookcatalog_id`) 
   REFERENCES `bookcatalog` (`id`) 
-  ON DELETE CASCADE ON UPDATE NO ACTION
+  ON DELETE  NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -161,7 +161,7 @@ CREATE TABLE `bookitem` (
   CONSTRAINT `FK_BOOKCATALOG_BOOKITEM` 
   FOREIGN KEY (`bookcatalog_id`) 
   REFERENCES `bookcatalog` (`id`)
-  ON DELETE CASCADE ON UPDATE NO ACTION
+  ON DELETE  NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -187,7 +187,7 @@ CREATE TABLE `bookitem_user` (
   CONSTRAINT `FK_USER_USER_BOOKITEM` 
   FOREIGN KEY (`user_id`) 
   REFERENCES `user` (`id`)
-  ON DELETE CASCADE ON UPDATE NO ACTION,
+  ON DELETE  NO ACTION ON UPDATE NO ACTION,
   
   CONSTRAINT `FK_BOOKTIME_USER_BOOKITEM` 
   FOREIGN KEY (`bookitem_id`) 
@@ -196,36 +196,6 @@ CREATE TABLE `bookitem_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Table structure for table `transaction`
---
-
-DROP TABLE IF EXISTS `transaction`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `transaction` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `date` DATETIME NOT NULL,
-  `bookitem_id` int(11) NOT NULL,
-  `user_id` int(11),
-  `bookshelf_address` varchar(30),
-  `action` varchar(30),
-  `flag_enabled` boolean NOT NULL default TRUE,
-  
-  PRIMARY KEY (`id`),
-  
-  KEY `FK_TRANSACTION_idx` (`bookitem_id`),
-  KEY `FK_TRANSACTION_USER_idx` (`user_id`),
-    
-  CONSTRAINT `FK_TRANSACTION` 
-  FOREIGN KEY (`bookitem_id`) 
-  REFERENCES `bookitem` (`id`),
-  
-  CONSTRAINT `FK_TRANSACTION_USER` 
-  FOREIGN KEY (`user_id`) 
-  REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 -- Working with Data ****************************************************************
 

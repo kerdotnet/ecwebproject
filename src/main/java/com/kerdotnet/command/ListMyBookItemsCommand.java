@@ -12,34 +12,25 @@ import javax.servlet.ServletException;
 import java.util.List;
 
 /**
- * List of BookItems by bookcatalogId
- * Yevhen Ivanov; 2018-04-23
+ * List of taken by current user BookItems
+ * Yevhen Ivanov; 2018-04-30
  */
-public class ListBookItemsCommand implements IActionCommand {
-    static final Logger LOGGER = LoggerFactory.getLogger(ListBookItemsCommand.class);
+public class ListMyBookItemsCommand implements IActionCommand {
+    static final Logger LOGGER = LoggerFactory.getLogger(ListMyBookItemsCommand.class);
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         String page;
-
         List<BookItem> bookItems;
-
-        String bookCatalogIdParam = sessionRequestContent.getRequestParameter("bookcatalogid");
-        int bookCatalogId = 0;
-        if (bookCatalogIdParam != null)
-            bookCatalogId = Integer.parseInt(bookCatalogIdParam);
-        else {
-            bookCatalogId = (int) sessionRequestContent.getSessionAttribute("bookcatalogid");
-        }
 
         page = ConfigurationManager.getProperty("path.page.bookitems");
 
         try {
-            bookItems = BookItemService.getBookItemsByBookCatalogIdOnShelves(bookCatalogId);
+            String login = (String) sessionRequestContent.getSessionAttribute("user");
+            bookItems = BookItemService.getAllBookItemsTakenByConcreteUser(login);
             LOGGER.debug("Find book items: " + bookItems);
             sessionRequestContent.setSessionAttribute("bookitemlist", bookItems, true);
-            sessionRequestContent.setSessionAttribute("bookcatalogid", bookCatalogId);
-            sessionRequestContent.setRequestAttribute("takenbooks", false);
+            sessionRequestContent.setRequestAttribute("mybooks", true);
         } catch (ServiceException e) {
             throw new ServletException(e);
         }

@@ -16,7 +16,7 @@ public class BookItemEnricher implements IEnricher<BookItem> {
 
     @Override
     public void enrich(BookItem record) throws DAOSystemException, NoSuchEntityException {
-        BookItemUser bookItemUser = bookItemUserDAO.findEntity(record.getId());
+        BookItemUser bookItemUser = bookItemUserDAO.findActiveEntityByBookItemId(record.getId());
         record.setBookItemUser(bookItemUser);
     }
 }

@@ -2,6 +2,7 @@ package com.kerdotnet.dao.mysqlimplementation;
 
 import com.kerdotnet.beans.BookItem;
 import com.kerdotnet.dao.IBookItemDAO;
+import com.kerdotnet.dao.helpers.BookItemEnricher;
 import com.kerdotnet.dao.helpers.BookItemExtractor;
 import com.kerdotnet.dao.helpers.IEnricher;
 import com.kerdotnet.exceptions.DAOSystemException;
@@ -21,6 +22,10 @@ public class BookItemDAOImpl extends AbstractDAO implements IBookItemDAO {
             "SELECT * FROM bookitem WHERE bookcatalog_id=? " +
                     "and id NOT IN " +
                     "(SELECT bookitem_id FROM bookitem_user WHERE flag_enabled)";
+    public static final String SQL_SELECT_All_TAKEN_BY_USERS =
+            "SELECT * FROM bookitem  " +
+                    "WHERE id IN " +
+                    "(SELECT bookitem_id FROM bookitem_user WHERE flag_enabled)";
     public static final String SQL_INSERT_ONE = "INSERT INTO bookitem  " +
             " (bookcatalog_id, description, bookshelf_address, flag_enabled) VALUES " +
             " (?,?,?,?)";
@@ -36,7 +41,7 @@ public class BookItemDAOImpl extends AbstractDAO implements IBookItemDAO {
     @Override
     public BookItem findEntity(Integer id) throws DAOSystemException {
         return (BookItem) findEntity(SQL_SELECT_BY_ID, id,  new BookItemExtractor(),
-                IEnricher.NULL);
+                new BookItemEnricher(new BookItemUserDAOImpl(connection)));
     }
 
     @Override
@@ -62,12 +67,18 @@ public class BookItemDAOImpl extends AbstractDAO implements IBookItemDAO {
     @Override
     public List<BookItem> findByBookCatalogId(int bookCatalogId) throws DAOSystemException {
         return findAllByInt(SQL_SELECT_BY_BOOKCATALOG_ID, bookCatalogId,  new BookItemExtractor(),
-                IEnricher.NULL);
+                new BookItemEnricher(new BookItemUserDAOImpl(connection)));
     }
 
     @Override
     public List<BookItem> findByBookCatalogIdOnShelves(int bookCatalogId) throws DAOSystemException {
         return findAllByInt(SQL_SELECT_BY_BOOKCATALOG_ID_ON_SHELVES, bookCatalogId,  new BookItemExtractor(),
-                IEnricher.NULL);
+                new BookItemEnricher(new BookItemUserDAOImpl(connection)));
+    }
+
+    @Override
+    public List<BookItem> findAllBookItemsTakenByUsers() throws DAOSystemException {
+        return findAll(SQL_SELECT_All_TAKEN_BY_USERS, new BookItemExtractor(),
+                new BookItemEnricher(new BookItemUserDAOImpl(connection)));
     }
 }

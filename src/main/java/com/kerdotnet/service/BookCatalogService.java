@@ -1,13 +1,7 @@
 package com.kerdotnet.service;
 
-import com.kerdotnet.beans.Author;
-import com.kerdotnet.beans.BookCatalog;
-import com.kerdotnet.beans.BookCatalogAuthor;
-import com.kerdotnet.beans.BookItem;
-import com.kerdotnet.dao.IAuthorDAO;
-import com.kerdotnet.dao.IBookCatalogAuthorDAO;
-import com.kerdotnet.dao.IBookCatalogDAO;
-import com.kerdotnet.dao.IBookItemDAO;
+import com.kerdotnet.beans.*;
+import com.kerdotnet.dao.*;
 import com.kerdotnet.dao.connectionfactory.ConnectionFactory;
 import com.kerdotnet.dao.connectionfactory.ConnectionFactoryFactory;
 import com.kerdotnet.dao.daofactory.AbstractDAOFactory;
@@ -20,12 +14,11 @@ import com.kerdotnet.resource.MessageManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Logic related to BookCatalogs
+ * Services related to BookCatalogs and authors
  * Yevhen Ivanov, 2018-04-23
  */
 public class BookCatalogService {
@@ -42,13 +35,7 @@ public class BookCatalogService {
                 IBookCatalogDAO bcDAO = daoFactory.getBookCatalogDAO();
                 bookCatalogEntity = bcDAO.findEntity(id);
 
-                IBookCatalogAuthorDAO bcaDAO = daoFactory.getBookCatalogAuthorDAO();
-                IAuthorDAO authorDAO = daoFactory.getAuthorDAO();
-
-                List<BookCatalogAuthor> bookCatalogAuthor = bcaDAO.findAllByBookCatalogId(bookCatalogEntity.getId());
-                List<Author> authors = getAuthorsByBookCatalogAuthors(authorDAO, bookCatalogAuthor);
-                LOGGER.debug("Retrived authors: " + authors.toString());
-                bookCatalogEntity.setAuthors(authors);
+                EnrichOneBookCatalogWithAuthor(bookCatalogEntity, daoFactory);
 
                 LOGGER.debug("Retrieved BookCatalog Item: " + bookCatalogEntity);
                 return bookCatalogEntity;
@@ -61,6 +48,16 @@ public class BookCatalogService {
         }
     }
 
+    private static void EnrichOneBookCatalogWithAuthor(BookCatalog bookCatalogEntity, IDAOFactory daoFactory) throws DAOSystemException {
+        IBookCatalogAuthorDAO bcaDAO = daoFactory.getBookCatalogAuthorDAO();
+        IAuthorDAO authorDAO = daoFactory.getAuthorDAO();
+
+        List<BookCatalogAuthor> bookCatalogAuthor = bcaDAO.findAllByBookCatalogId(bookCatalogEntity.getId());
+        List<Author> authors = getAuthorsByBookCatalogAuthors(authorDAO, bookCatalogAuthor);
+        LOGGER.debug("Retrived authors: " + authors.toString());
+        bookCatalogEntity.setAuthors(authors);
+    }
+
     public static List<BookCatalog> getAllBookCatalog() throws ServiceException {
         List<BookCatalog> bookCatalogList;
 
@@ -71,19 +68,50 @@ public class BookCatalogService {
             IBookCatalogDAO bcDAO = daoFactory.getBookCatalogDAO();
             bookCatalogList = bcDAO.findAll();
 
-            IBookCatalogAuthorDAO bookCatalogAuthorDAO = daoFactory.getBookCatalogAuthorDAO();
-            IAuthorDAO authorDAO = daoFactory.getAuthorDAO();
-
-            for (BookCatalog bookCatalog : bookCatalogList) {
-                List<BookCatalogAuthor> bookCatalogAuthor =
-                        bookCatalogAuthorDAO.findAllByBookCatalogId(bookCatalog.getId());
-                LOGGER.debug("bookCatalogAuthor = " + bookCatalog.getId() +
-                        ": "+ bookCatalogAuthor);
-                List<Author> authors = getAuthorsByBookCatalogAuthors(authorDAO, bookCatalogAuthor);
-                LOGGER.debug("getAllBookCatalog (book id - authors): " + bookCatalog.getId() +
-                        ": "+ authors.toString());
-                bookCatalog.setAuthors(authors);
+            EnrichBookCatalogListWithAuthors(bookCatalogList, daoFactory);
+        } catch (DAOSystemException e) {
+            throw new ServiceException(
+                    MessageManager.getProperty("message.businesslogicbookcatalog"), e);
+        } finally {
+            try {
+                connectionFactory.closeConnection();
+            } catch (DAOSystemException e) {
+                throw new ServiceException(
+                        MessageManager.getProperty("message.businesslogicbookcatalog"), e);
             }
+        }
+        LOGGER.debug("Retrieved BookCatalog Items: " + bookCatalogList);
+
+        return bookCatalogList;
+    }
+
+    private static void EnrichBookCatalogListWithAuthors(List<BookCatalog> bookCatalogList, IDAOFactory daoFactory) throws DAOSystemException {
+        IBookCatalogAuthorDAO bookCatalogAuthorDAO = daoFactory.getBookCatalogAuthorDAO();
+        IAuthorDAO authorDAO = daoFactory.getAuthorDAO();
+
+        for (BookCatalog bookCatalog : bookCatalogList) {
+            List<BookCatalogAuthor> bookCatalogAuthor =
+                    bookCatalogAuthorDAO.findAllByBookCatalogId(bookCatalog.getId());
+            LOGGER.debug("bookCatalogAuthor = " + bookCatalog.getId() +
+                    ": "+ bookCatalogAuthor);
+            List<Author> authors = getAuthorsByBookCatalogAuthors(authorDAO, bookCatalogAuthor);
+            LOGGER.debug("getAllBookCatalog (book id - authors): " + bookCatalog.getId() +
+                    ": "+ authors.toString());
+            bookCatalog.setAuthors(authors);
+        }
+    }
+
+    public static List<BookCatalog> searchFullTextRequest(String searchRequest) throws ServiceException {
+        List<BookCatalog> bookCatalogList;
+
+        ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
+
+        try {
+            IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
+            IBookCatalogDAO bcDAO = daoFactory.getBookCatalogDAO();
+            bookCatalogList = bcDAO.findByKeywordsOrNameOrAuthor(searchRequest);
+
+            EnrichBookCatalogListWithAuthors(bookCatalogList, daoFactory);
         } catch (DAOSystemException e) {
             throw new ServiceException(
                     MessageManager.getProperty("message.businesslogicbookcatalog"), e);
@@ -101,17 +129,21 @@ public class BookCatalogService {
     }
 
     public static boolean deleteBookCatalogById(int bookCatalogId) throws ServiceException {
-        //:TODO change cascading deleting to use flags
         ITransactionManager txManager = new TransactionManagerImpl();
 
         try {
             return txManager.doInTransaction(() -> {
-
+                boolean result = false;
                 IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
                 IBookCatalogDAO bookCatalogDAO = daoFactory.getBookCatalogDAO();
 
+                deleteBookCatalogAuthorsByBookCatalogId(bookCatalogId, daoFactory);
+
+                BookItemService.deleteBookItemsByBookCatalogId(bookCatalogId, daoFactory);
+
+                result = bookCatalogDAO.delete(bookCatalogDAO.findEntity(bookCatalogId));
                 LOGGER.debug("book was deleted with Id: " + bookCatalogId);
-                return bookCatalogDAO.delete(bookCatalogDAO.findEntity(bookCatalogId));
+                return result;
             });
         } catch (DAOSystemException e) {
             throw new ServiceException(
@@ -121,7 +153,15 @@ public class BookCatalogService {
         }
     }
 
-     public static boolean saveBookCatalogEntity(BookCatalog bookCatalog) throws ServiceException  {
+    private static void deleteBookCatalogAuthorsByBookCatalogId(int bookCatalogId, IDAOFactory daoFactory) throws DAOSystemException {
+        IBookCatalogAuthorDAO bookCatalogAuthorDAO = daoFactory.getBookCatalogAuthorDAO();
+        List<BookCatalogAuthor> bookCatalogAuthorList = bookCatalogAuthorDAO.findAllByBookCatalogId(bookCatalogId);
+        for (BookCatalogAuthor bookCatalogAuthor : bookCatalogAuthorList) {
+            bookCatalogAuthorDAO.delete(bookCatalogAuthor);
+        }
+    }
+
+    public static boolean saveBookCatalogEntity(BookCatalog bookCatalog) throws ServiceException  {
         ITransactionManager txManager = new TransactionManagerImpl();
 
         try {
@@ -196,7 +236,7 @@ public class BookCatalogService {
         }
     }
 
-    private static LinkedList<Author> getAuthorsByBookCatalogAuthors(IAuthorDAO authorDAO, List<BookCatalogAuthor> bookCatalogAuthor) {
+    private static List<Author> getAuthorsByBookCatalogAuthors(IAuthorDAO authorDAO, List<BookCatalogAuthor> bookCatalogAuthor) {
         return bookCatalogAuthor.stream()
                 .map(item -> {
                     try {
@@ -205,74 +245,6 @@ public class BookCatalogService {
                         return null;
                     }
                 })
-                .collect(Collectors.toCollection(LinkedList::new));
-    }
-
-    public static List<BookItem> getBookItemsByBookCatalogIdOnShelves(int bookCatalogId) throws ServiceException{
-        ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
-
-        try {
-            IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
-            IBookItemDAO bookItemDAO = daoFactory.getBookItemDAO();
-
-            return bookItemDAO.findByBookCatalogIdOnShelves(bookCatalogId);
-        } catch (DAOSystemException e) {
-            throw new ServiceException(
-                    MessageManager.getProperty("message.businesslogicbookcatalog"), e);
-        } finally {
-            try {
-                connectionFactory.closeConnection();
-            } catch (DAOSystemException e) {
-                throw new ServiceException(
-                        MessageManager.getProperty("message.businesslogicbookcatalog"), e);
-            }
-        }
-    }
-
-    public static boolean deleteBookItemById(int bookItemId) throws ServiceException {
-        ITransactionManager txManager = new TransactionManagerImpl();
-
-        try {
-            return txManager.doInTransaction(() -> {
-
-                IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
-                IBookItemDAO bookItemDAO = daoFactory.getBookItemDAO();
-
-                LOGGER.debug("book was deleted with Id: " + bookItemId);
-                return bookItemDAO.delete(bookItemDAO.findEntity(bookItemId));
-            });
-        } catch (DAOSystemException e) {
-            throw new ServiceException(
-                    MessageManager.getProperty("message.businesslogicbookcatalog"), e);
-        } catch (Exception e) {
-            throw new ServiceException("Error in the BookCatalog service (getBookCatalogById)", e);
-        }
-    }
-
-    public static boolean saveBookItemEntity(BookItem bookItem) throws ServiceException {
-        ITransactionManager txManager = new TransactionManagerImpl();
-
-        try {
-            return txManager.doInTransaction(() -> {
-
-                IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
-                IBookItemDAO bookItemDAO = daoFactory.getBookItemDAO();
-
-                boolean result;
-
-                if (bookItemDAO.findEntity(bookItem.getId()) != null) {
-                    result = bookItemDAO.update(bookItem);
-                }
-                else
-                    result = bookItemDAO.create(bookItem);
-
-                return result;
-            });
-        } catch (DAOSystemException e) {
-            throw new ServiceException(
-                    MessageManager.getProperty("message.businesslogicbookcatalog"), e);
-        } catch (Exception e) {
-            throw new ServiceException("Error in the BookCatalog service (getBookCatalogById)", e);
-        }
+                .collect(Collectors.toList());
     }
 }

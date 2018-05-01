@@ -2,9 +2,7 @@ package com.kerdotnet.command;
 
 import com.kerdotnet.beans.BookCatalog;
 import com.kerdotnet.controllers.SessionRequestContent;
-import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.resource.ConfigurationManager;
-import com.kerdotnet.service.BookCatalogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

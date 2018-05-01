@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="controller?command=bookcatalog">Library MS</a>
+    <a class="navbar-brand" href="controller?command=bookcatalog"> <fmt:message key="message.logo" /> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -9,18 +9,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="controller?command=bookcatalog">Book catalog</a>
+                <a class="nav-link" href="controller?command=bookcatalog"><fmt:message key="message.bookcatalog" /></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Books
+                    <fmt:message key="message.books" />
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">My books</a>
+                    <a class="dropdown-item" href="controller?command=listmybookitems"><fmt:message key="message.mybooks" /></a>
                     <c:if test="${userType == 'ADMINISTRATOR'}">
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">For approval</a>
-                        <a class="dropdown-item" href="controller?command=listtakenbookitems">Taken books (with overdue)</a>
+                        <a class="dropdown-item" href="controller?command=listoverduebookitems"><fmt:message key="message.overduebooks" /></a>
+                        <a class="dropdown-item" href="controller?command=listtakenbookitems"><fmt:message key="message.takenbooks" /></a>
                     </c:if>
                 </div>
             </li>
@@ -29,27 +29,33 @@
         <span class="nav-item">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="controller?command=registration">Registration</a>
+                    <a class="nav-link" href="controller?command=registration"><fmt:message key="message.registration" /></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="controller?command=logout">Logout</a>
+                    <a class="nav-link" href="controller?command=logout"><fmt:message key="message.logout" /></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLang" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Lang
+                        <fmt:message key="message.lang" />
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownLang">
-                        <a class="dropdown-item" hreflang="en" href="controller?command=English">EN</a>
-                        <a class="dropdown-item" hreflang="ru" href="controller?command=Russian">RU</a>
+                        <form action = "controller" method="post" >
+                            <input type="hidden" name="command" value="changelocale">
+                            <select id="language" name="language" onchange="submit()">
+                                <option value="en_US" ${language == 'en_US' ? 'selected' : ''}>En</option>
+                                <option value="ru_RU" ${language == 'ru_RU' ? 'selected' : ''}>Ru</option>
+                            </select>
+                        </form>
                     </div>
                 </li>
             </ul>
         </span>
         <form class="form-inline my-2 my-lg-0" action = "controller" method="post">
             <input type="hidden" name="command" value="search">
-            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <fmt:message key="message.search" var="searchlabel" />
+            <input class="form-control mr-sm-2" type="search" name="searchrequest" placeholder="${searchlabel}" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><fmt:message key="message.search" /></button>
         </form>
     </div>
 </nav>

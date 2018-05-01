@@ -12,34 +12,25 @@ import javax.servlet.ServletException;
 import java.util.List;
 
 /**
- * List of BookItems by bookcatalogId
- * Yevhen Ivanov; 2018-04-23
+ * List of overdue BookItems witch were taken more than 1 month ago; for administrator
+ * Yevhen Ivanov; 2018-05-01
  */
-public class ListBookItemsCommand implements IActionCommand {
-    static final Logger LOGGER = LoggerFactory.getLogger(ListBookItemsCommand.class);
+public class ListOverdueBookItemsCommand implements IActionCommand {
+    static final Logger LOGGER = LoggerFactory.getLogger(ListOverdueBookItemsCommand.class);
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         String page;
-
         List<BookItem> bookItems;
-
-        String bookCatalogIdParam = sessionRequestContent.getRequestParameter("bookcatalogid");
-        int bookCatalogId = 0;
-        if (bookCatalogIdParam != null)
-            bookCatalogId = Integer.parseInt(bookCatalogIdParam);
-        else {
-            bookCatalogId = (int) sessionRequestContent.getSessionAttribute("bookcatalogid");
-        }
 
         page = ConfigurationManager.getProperty("path.page.bookitems");
 
         try {
-            bookItems = BookItemService.getBookItemsByBookCatalogIdOnShelves(bookCatalogId);
+            bookItems = BookItemService.getOverdueBookItemsTakenByUsers();
             LOGGER.debug("Find book items: " + bookItems);
             sessionRequestContent.setSessionAttribute("bookitemlist", bookItems, true);
-            sessionRequestContent.setSessionAttribute("bookcatalogid", bookCatalogId);
-            sessionRequestContent.setRequestAttribute("takenbooks", false);
+            sessionRequestContent.setRequestAttribute("takenbooks", true);
+            sessionRequestContent.setRequestAttribute("overdue", true);
         } catch (ServiceException e) {
             throw new ServletException(e);
         }

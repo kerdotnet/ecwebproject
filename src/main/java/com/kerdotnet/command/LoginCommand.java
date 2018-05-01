@@ -33,11 +33,12 @@ public class LoginCommand implements IActionCommand {
         sessionRequestContent.setRequestAttribute("login", login);
 
         boolean loginResult;
-        boolean isAdmin;
+        boolean isAdmin =false;
 
         try {
             loginResult = LoginLogic.checkLogin(login, password);
-            isAdmin = LoginLogic.checkAdministratorRole(login);
+            if (loginResult)
+                isAdmin = LoginLogic.checkAdministratorRole(login);
         } catch (ServiceException e) {
             throw new ServletException(e);
         }

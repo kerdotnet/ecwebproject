@@ -7,7 +7,7 @@
             <table class="table">
                 <tbody>
                     <tr>
-                        <th scope="row">Name</th>
+                        <th scope="row"><fmt:message key="message.namelabel" /></th>
                         <c:choose>
                             <c:when  test="${editmode}">
                                 <td>
@@ -23,7 +23,7 @@
                         </c:choose>
                     </tr>
                     <tr>
-                        <th scope="row">Full name</th>
+                        <th scope="row"><fmt:message key="message.fullnamelabel" /></th>
                         <c:choose>
                             <c:when  test="${editmode}">
                                 <td>
@@ -37,7 +37,7 @@
                         </c:choose>
                     </tr>
                     <tr>
-                        <th scope="row">Description</th>
+                        <th scope="row"><fmt:message key="message.descriptionlabel" /></th>
                         <c:choose>
                             <c:when  test="${editmode}">
                                 <td>
@@ -51,7 +51,7 @@
                         </c:choose>
                     </tr>
                     <tr>
-                        <th scope="row">Key words</th>
+                        <th scope="row"><fmt:message key="message.keywordslabel" /></th>
                         <c:choose>
                             <c:when  test="${editmode}">
                                 <td>
@@ -65,7 +65,7 @@
                         </c:choose>
                     </tr>
                     <tr>
-                        <th scope="row">Authors</th>
+                        <th scope="row"><fmt:message key="message.authorslabel" /></th>
                         <td>
                             <c:forEach items="${bookcatalogentity.getAuthors()}" var="authors" varStatus="loop">
                                 ${authors.getName()}
@@ -84,10 +84,10 @@
                 <c:if  test="${not editmode}">
                     <a class="btn btn-primary"
                        href="controller?command=editbookcatalog&bookcatalogid=${bookcatalogentity.getId()}"
-                       role="button">Edit book</a>
+                       role="button"><fmt:message key="message.editbooklabel" /></a>
                 </c:if>
                 <c:if  test="${editmode}">
-                    <button type="submit"  value = "ok" class="btn btn-primary">Save</button>
+                    <button type="submit"  value = "ok" class="btn btn-primary"><fmt:message key="message.savelabel" /></button>
                 </c:if>
             </c:if>
     </form>

@@ -11,4 +11,7 @@ import java.util.List;
  */
 public interface IBookItemUserDAO   extends IDAO<Integer, BookItemUser>{
     List<BookItemUser> findAllByUserId(int userId) throws DAOSystemException;
+    BookItemUser findActiveEntityByBookItemId(int bookItemId) throws DAOSystemException;
+
+    List<BookItemUser>  findAllByBookItemId(int bookItemId) throws DAOSystemException;
 }

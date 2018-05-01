@@ -1,17 +1,14 @@
 package com.kerdotnet.command;
 
 import com.kerdotnet.beans.Author;
-import com.kerdotnet.beans.BookCatalog;
 import com.kerdotnet.controllers.SessionRequestContent;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.resource.ConfigurationManager;
-import com.kerdotnet.resource.MessageManager;
 import com.kerdotnet.service.BookCatalogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
-import java.util.LinkedList;
 import java.util.List;
 
 /**

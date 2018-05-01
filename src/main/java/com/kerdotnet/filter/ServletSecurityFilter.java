@@ -30,7 +30,8 @@ public class ServletSecurityFilter implements Filter {
             String action = servletRequest.getParameter("command");
             if (action != null && ("registration".equals(action)
                     ||"login".equals(action)
-                    ||"adduser".equals(action))) {
+                    ||"adduser".equals(action)
+                    ||"changelocale".equals(action))) {
                 chain.doFilter(request, response);
             } else {
                 RequestDispatcher dispatcher = request.getServletContext()

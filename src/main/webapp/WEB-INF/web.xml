@@ -26,9 +26,7 @@
     <exception-type>java.lang.RuntimeException</exception-type>
     <location>/WEB-INF/views/error.jsp</location>
   </error-page>
-
-
-  <!-- c3p0 configuration -->
+  <!-- data source configuration -->
   <resource-ref>
     <description>DB Connection</description>
     <res-ref-name>jdbc/libraryDB</res-ref-name>

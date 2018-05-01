@@ -1,12 +1,11 @@
 package com.kerdotnet.command;
 
-import com.kerdotnet.beans.BookCatalog;
 import com.kerdotnet.beans.BookItem;
 import com.kerdotnet.controllers.SessionRequestContent;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.resource.MessageManager;
-import com.kerdotnet.service.BookCatalogService;
+import com.kerdotnet.service.BookItemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,7 +42,7 @@ public class SaveBookItemEntityCommand implements IActionCommand {
 
         page = ConfigurationManager.getProperty("path.page.refreshbookitem");
         try {
-            result = BookCatalogService.saveBookItemEntity(bookItem);
+            result = BookItemService.saveBookItemEntity(bookItem);
             if (!result){
                 throw new ServletException(MessageManager.getProperty("message.editerror"));
             }

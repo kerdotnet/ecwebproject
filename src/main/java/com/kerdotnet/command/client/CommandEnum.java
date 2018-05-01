@@ -87,6 +87,26 @@ public enum CommandEnum {
         {
             this.command = new ListTakenBookItemsCommand();
         }
+    }, RETURNBOOKITEM {
+        {
+            this.command = new ReturnBookItemEntityCommand();
+        }
+    }, LISTMYBOOKITEMS {
+        {
+            this.command = new ListMyBookItemsCommand();
+        }
+    },LISTOVERDUEBOOKITEMS {
+        {
+            this.command = new ListOverdueBookItemsCommand();
+        }
+    }, SEARCH {
+        {
+            this.command = new SearchBookCatalogCommand();
+        }
+    }, CHANGELOCALE {
+        {
+            this.command = new ChangeLocaleCommand();
+        }
     }
     ;
 

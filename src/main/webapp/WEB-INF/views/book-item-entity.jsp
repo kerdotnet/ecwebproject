@@ -7,7 +7,7 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <th scope="row">Description (S/N)</th>
+                    <th scope="row"><fmt:message key="message.descriptionlabel" /></th>
                     <td>
                         <input type="text" class="form-control"
                                id="description" name="description"
@@ -15,7 +15,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">Book shelf</th>
+                    <th scope="row"><fmt:message key="message.bookshelf" /></th>
                     <td>
                         <input type="text" class="form-control"
                                id="bookshelf" name="bookshelf"
@@ -25,7 +25,8 @@
             </tbody>
         </table>
         <c:if test="${userType == 'ADMINISTRATOR'}">
-            <button type="submit"  value = "ok" class="btn btn-primary">Save</button>
+            <button type="submit"  value = "ok" class="btn btn-primary">
+                <fmt:message key="message.savelabel" /></button>
         </c:if>
     </form>
 </div>

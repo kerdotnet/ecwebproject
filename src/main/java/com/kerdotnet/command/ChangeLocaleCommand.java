@@ -21,7 +21,6 @@ public class ChangeLocaleCommand implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         String page;
-
         page = ConfigurationManager.getProperty("path.page.login");
         String currentLocale = sessionRequestContent.getRequestParameter(PARAM_LOCALE);
 

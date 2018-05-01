@@ -26,9 +26,7 @@ public class ChangeLocaleCommand implements IActionCommand {
         String currentLocale = sessionRequestContent.getRequestParameter(PARAM_LOCALE);
 
         Locale.setDefault(new Locale(currentLocale));
-
         MessageManager.ChangeLocale();
-
         LOGGER.debug(currentLocale);
 
         return page;

@@ -1,13 +1,13 @@
 package com.kerdotnet.command;
 
 import com.kerdotnet.controllers.SessionRequestContent;
-import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.resource.ConfigurationManager;
-import com.kerdotnet.service.BookCatalogService;
+import com.kerdotnet.resource.MessageManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
+import java.util.Locale;
 
 /**
  * Change locale
@@ -24,6 +24,11 @@ public class ChangeLocaleCommand implements IActionCommand {
 
         page = ConfigurationManager.getProperty("path.page.login");
         String currentLocale = sessionRequestContent.getRequestParameter(PARAM_LOCALE);
+
+        Locale.setDefault(new Locale(currentLocale));
+
+        MessageManager.ChangeLocale();
+
         LOGGER.debug(currentLocale);
 
         return page;

@@ -21,7 +21,7 @@ public class LoginCommand implements IActionCommand {
 
     private static final String PARAM_NAME_LOGIN = "login";
     private static final String PARAM_NAME_PASSWORD = "password";
-    static final Logger LOGGER = LoggerFactory.getLogger(LoginCommand.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginCommand.class);
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {

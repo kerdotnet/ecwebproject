@@ -15,6 +15,8 @@ import com.kerdotnet.dao.transaction.TransactionManagerImpl;
 import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.resource.MessageManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
 import java.util.LinkedList;
@@ -26,6 +28,8 @@ import java.util.stream.Collectors;
  * Yevhen Ivanov, 2018-04-23
  */
 public class BookItemService {
+    static final Logger LOGGER = LoggerFactory.getLogger(BookItemService.class);
+
     static void deleteBookItemsByBookCatalogId(int bookCatalogId, IDAOFactory daoFactory) throws DAOSystemException {
         IBookItemDAO bookItemDAO = daoFactory.getBookItemDAO();
         IBookItemUserDAO bookItemUserDAO = daoFactory.getBookItemUserDAO();
@@ -162,7 +166,7 @@ public class BookItemService {
                 IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
                 IBookItemDAO bookItemDAO = daoFactory.getBookItemDAO();
 
-                BookCatalogService.LOGGER.debug("book was deleted with Id: " + bookItemId);
+                LOGGER.debug("book was deleted with Id: " + bookItemId);
                 return bookItemDAO.delete(bookItemDAO.findEntity(bookItemId));
             });
         } catch (DAOSystemException e) {

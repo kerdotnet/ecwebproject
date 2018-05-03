@@ -27,7 +27,7 @@ import static com.kerdotnet.utility.PasswordValidator.checkPassword;
  */
 
 public class LoginLogic {
-    static final Logger LOGGER = LoggerFactory.getLogger(LoginLogic.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginLogic.class);
 
     /**
      * Check if such credentials can be entered in the system

@@ -10,8 +10,10 @@ import java.util.List;
  * Yevhen Ivanov, 2018-04-21
  */
 public interface IBookCatalogDAO extends IDAO<Integer, BookCatalog> {
-    List<BookCatalog> findByKeywords(String keywords) throws DAOSystemException;
-    List<BookCatalog> findByNameFragment(String nameFragment) throws DAOSystemException;
-    List<BookCatalog> findByAuthor(String author) throws DAOSystemException;
+    int findQuantity() throws DAOSystemException;
+    int findQuantityByKeywordsOrNameOrAuthor(String searchRequest) throws DAOSystemException;
     List<BookCatalog> findByKeywordsOrNameOrAuthor(String searchRequest) throws DAOSystemException;
+    List<BookCatalog> findAllByPage(int page, int quantityAtPage) throws DAOSystemException;
+    List<BookCatalog> findByKeywordsOrNameOrAuthorByPage(
+            String searchRequest, int page, int quantityAtPage) throws DAOSystemException;
 }

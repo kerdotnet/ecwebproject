@@ -12,27 +12,27 @@ import java.util.List;
 
 public class BookItemDAOImpl extends AbstractDAO implements IBookItemDAO {
 
-    public static final String SQL_SELECT_ALL =
+    private static final String SQL_SELECT_ALL =
             "SELECT * FROM bookitem";
-    public static final String SQL_SELECT_BY_ID =
+    private static final String SQL_SELECT_BY_ID =
             "SELECT * FROM bookitem WHERE id=?";
-    public static final String SQL_SELECT_BY_BOOKCATALOG_ID =
+    private static final String SQL_SELECT_BY_BOOKCATALOG_ID =
             "SELECT * FROM bookitem WHERE bookcatalog_id=?";
-    public static final String SQL_SELECT_BY_BOOKCATALOG_ID_ON_SHELVES =
+    private static final String SQL_SELECT_BY_BOOKCATALOG_ID_ON_SHELVES =
             "SELECT * FROM bookitem WHERE bookcatalog_id=? " +
                     "and id NOT IN " +
                     "(SELECT bookitem_id FROM bookitem_user WHERE flag_enabled)";
-    public static final String SQL_SELECT_All_TAKEN_BY_USERS =
+    private static final String SQL_SELECT_All_TAKEN_BY_USERS =
             "SELECT * FROM bookitem  " +
                     "WHERE id IN " +
                     "(SELECT bookitem_id FROM bookitem_user WHERE flag_enabled)";
-    public static final String SQL_INSERT_ONE = "INSERT INTO bookitem  " +
+    private static final String SQL_INSERT_ONE = "INSERT INTO bookitem  " +
             " (bookcatalog_id, description, bookshelf_address, flag_enabled) VALUES " +
             " (?,?,?,?)";
-    public static final String SQL_UPDATE_ONE = "UPDATE bookitem SET " +
+    private static final String SQL_UPDATE_ONE = "UPDATE bookitem SET " +
             " bookcatalog_id = ?, description = ?, bookshelf_address = ?, flag_enabled = ? " +
             "WHERE id = ?";
-    public static final String SQL_DELETE_ONE = "DELETE FROM bookitem WHERE id = ?";
+    private static final String SQL_DELETE_ONE = "DELETE FROM bookitem WHERE id = ?";
 
     public BookItemDAOImpl(Connection connection) {
         super(connection);

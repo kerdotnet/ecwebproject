@@ -14,7 +14,7 @@ import java.util.Locale;
  * Yevhen Ivanov; 2018-05-01
  */
 public class ChangeLocaleCommand implements IActionCommand {
-    static final Logger LOGGER = LoggerFactory.getLogger(ChangeLocaleCommand.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ChangeLocaleCommand.class);
 
     private final static String PARAM_LOCALE="language";
 

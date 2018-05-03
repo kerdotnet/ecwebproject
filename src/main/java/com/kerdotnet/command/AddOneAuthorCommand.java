@@ -17,7 +17,7 @@ import java.util.List;
  * Yevhen Ivanov; 2018-04-25
  */
 public class AddOneAuthorCommand implements IActionCommand {
-    static final Logger LOGGER = LoggerFactory.getLogger(AddOneAuthorCommand.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AddOneAuthorCommand.class);
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {

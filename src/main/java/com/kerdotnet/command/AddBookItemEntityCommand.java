@@ -12,7 +12,7 @@ import javax.servlet.ServletException;
  * Yevhen Ivanov; 2018-04-30
  */
 public class AddBookItemEntityCommand implements IActionCommand {
-    static final Logger LOGGER = LoggerFactory.getLogger(AddBookItemEntityCommand.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AddBookItemEntityCommand.class);
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {

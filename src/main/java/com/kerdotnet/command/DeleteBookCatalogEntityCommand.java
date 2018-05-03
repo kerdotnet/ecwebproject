@@ -15,7 +15,7 @@ import javax.servlet.ServletException;
  * Yevhen Ivanov; 2018-04-25
  */
 public class DeleteBookCatalogEntityCommand implements IActionCommand {
-    static final Logger LOGGER = LoggerFactory.getLogger(DeleteBookCatalogEntityCommand.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DeleteBookCatalogEntityCommand.class);
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {

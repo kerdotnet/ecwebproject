@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
         loadOnStartup = 0)
 public class Controller extends HttpServlet{
 
-    static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
 
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {

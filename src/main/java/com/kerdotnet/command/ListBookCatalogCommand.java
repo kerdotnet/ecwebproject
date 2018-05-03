@@ -16,8 +16,8 @@ import java.util.List;
  * Yevhen Ivanov; 2018-04-23
  */
 public class ListBookCatalogCommand implements IActionCommand {
-    static final Logger LOGGER = LoggerFactory.getLogger(ListBookCatalogCommand.class);
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(ListBookCatalogCommand.class);
+    private static final int QUANTITY_PER_PAGE = 10;
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         String page;
@@ -27,7 +27,7 @@ public class ListBookCatalogCommand implements IActionCommand {
         page = ConfigurationManager.getProperty("path.page.bookcatalog");
 
         try {
-            bookCatalogs = BookCatalogService.getAllBookCatalog();
+            bookCatalogs = BookCatalogService.getAllBookCatalogByPage(0,10);
             sessionRequestContent.setSessionAttribute("bookcataloglist", bookCatalogs, true);
         } catch (ServiceException e) {
             throw new ServletException(e);

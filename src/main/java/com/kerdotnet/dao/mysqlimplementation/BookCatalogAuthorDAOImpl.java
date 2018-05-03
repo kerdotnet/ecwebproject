@@ -11,25 +11,25 @@ import java.util.List;
 
 public class BookCatalogAuthorDAOImpl extends AbstractDAO implements IBookCatalogAuthorDAO {
 
-    public static final String SQL_SELECT_ALL =
+    private static final String SQL_SELECT_ALL =
             "SELECT * FROM bookcatalog_author ORDER BY name";
-    public static final String SQL_SELECT_BY_ID =
+    private static final String SQL_SELECT_BY_ID =
             "SELECT * FROM bookcatalog_author WHERE id=?";
-    public static final String SQL_INSERT_ONE = "INSERT INTO bookcatalog_author  " +
+    private static final String SQL_INSERT_ONE = "INSERT INTO bookcatalog_author  " +
             " (author_id, bookcatalog_id) VALUES " +
             " (?,?)";
-    public static final String SQL_UPDATE_ONE = "UPDATE bookcatalog_author SET " +
+    private static final String SQL_UPDATE_ONE = "UPDATE bookcatalog_author SET " +
             " author_id = ?, bookcatalog_id = ? " +
             "WHERE id = ?";
-    public static final String SQL_DELETE_ONE = "DELETE FROM bookcatalog_author WHERE id = ?";
+    private static final String SQL_DELETE_ONE = "DELETE FROM bookcatalog_author WHERE id = ?";
 
-    public static final String SQL_SELECT_BY_BOOKCATALOG_ID =
+    private static final String SQL_SELECT_BY_BOOKCATALOG_ID =
             "SELECT * FROM bookcatalog_author WHERE bookcatalog_id=?";
 
-    public static final String SQL_SELECT_BY_AUTHOR_ID =
+    private static final String SQL_SELECT_BY_AUTHOR_ID =
             "SELECT * FROM bookcatalog_author WHERE author_id=?";
 
-    public static final String SQL_DELETE_BY_BOOK_CATALOG_ID =
+    private static final String SQL_DELETE_BY_BOOK_CATALOG_ID =
             "DELETE FROM bookcatalog_author WHERE bookcatalog_id = ?";
 
     public BookCatalogAuthorDAOImpl(Connection connection) {

@@ -11,19 +11,19 @@ import java.util.List;
 
 public class UserAuthorityDAOImpl extends AbstractDAO implements IUserAuthorityDAO {
 
-    public static final String SQL_SELECT_ALL =
+    private static final String SQL_SELECT_ALL =
             "SELECT * FROM user_authority";
-    public static final String SQL_SELECT_BY_ID =
+    private static final String SQL_SELECT_BY_ID =
             "SELECT * FROM user_authority WHERE id=?";
-    public static final String SQL_SELECT_BY_USER_ID =
+    private static final String SQL_SELECT_BY_USER_ID =
             "SELECT * FROM user_authority WHERE user_id=?";
-    public static final String SQL_INSERT_ONE = "INSERT INTO user_authority  " +
+    private static final String SQL_INSERT_ONE = "INSERT INTO user_authority  " +
             " (user_id, authority_id) VALUES " +
             " (?,?)";
-    public static final String SQL_UPDATE_ONE = "UPDATE user_authority SET " +
+    private static final String SQL_UPDATE_ONE = "UPDATE user_authority SET " +
             " user_id = ?, authority_id = ? " +
             "WHERE id = ?";
-    public static final String SQL_DELETE_ONE = "DELETE FROM user_authority WHERE id = ?";
+    private static final String SQL_DELETE_ONE = "DELETE FROM user_authority WHERE id = ?";
 
     public UserAuthorityDAOImpl(Connection connection) {
         super(connection);

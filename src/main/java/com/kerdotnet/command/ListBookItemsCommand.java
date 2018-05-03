@@ -16,7 +16,7 @@ import java.util.List;
  * Yevhen Ivanov; 2018-04-23
  */
 public class ListBookItemsCommand implements IActionCommand {
-    static final Logger LOGGER = LoggerFactory.getLogger(ListBookItemsCommand.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ListBookItemsCommand.class);
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {

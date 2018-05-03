@@ -16,7 +16,7 @@ import javax.servlet.ServletException;
  * Yevhen Ivanov; 2018-04-30
  */
 public class SaveBookItemEntityCommand implements IActionCommand {
-    static final Logger LOGGER = LoggerFactory.getLogger(SaveBookItemEntityCommand.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SaveBookItemEntityCommand.class);
 
     private static final String PARAM_BOOK_CATALOG_DESCRIPTION = "description";
     private static final String PARAM_BOOK_CATALOG_BOOKSHELF = "bookshelf";

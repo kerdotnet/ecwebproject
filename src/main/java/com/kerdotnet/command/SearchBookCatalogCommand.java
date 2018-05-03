@@ -16,7 +16,7 @@ import java.util.List;
  * Yevhen Ivanov; 2018-05-01
  */
 public class SearchBookCatalogCommand implements IActionCommand {
-    static final Logger LOGGER = LoggerFactory.getLogger(SearchBookCatalogCommand.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SearchBookCatalogCommand.class);
     private static final String PARAM_SEARCH_REQUEST = "searchrequest";
 
     @Override
@@ -30,7 +30,7 @@ public class SearchBookCatalogCommand implements IActionCommand {
         page = ConfigurationManager.getProperty("path.page.bookcatalog");
 
         try {
-            bookCatalogs = BookCatalogService.searchFullTextRequest(searchRequest);
+            bookCatalogs = BookCatalogService.getAllBookCatalogBySearchRequestFullText(searchRequest);
             sessionRequestContent.setSessionAttribute("bookcataloglist", bookCatalogs, true);
         } catch (ServiceException e) {
             throw new ServletException(e);

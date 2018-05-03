@@ -43,95 +43,37 @@ public abstract class AbstractDAO<T extends Entity> {
     }
 
     public T findEntity(String sql, int key, Extractor<T> extractor,
-                        IEnricher<T> IEnricher) throws DAOSystemException {
-        T record = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        try {
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, key);
-            resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()){
-                record = extractor.extractOne(resultSet);
-                IEnricher.enrich(record);
-            }
-        } catch (SQLException e){
-            throw new DAOSystemException("Can't execute findEntity method in MySQL DAOimpl", e);
-        } finally {
-            close(resultSet);
-            close(preparedStatement);
-        }
-        return record;
+                        IEnricher<T> enricher) throws DAOSystemException {
+        return findEntityByObjectParameters(sql, extractor, enricher, key);
     }
 
-    public List<T> findAll(String sql, Extractor<T> extractor,
-                           IEnricher<T> IEnricher) throws DAOSystemException {
-        //TODO: refactor doubling code in findAll methods and find entity methods
-        Statement statement = null;
-        ResultSet resultSet = null;
-        try {
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery(sql);
-            List<T> result = new ArrayList<>();
-            while (resultSet.next()){
-                T record = extractor.extractOne(resultSet);
-                IEnricher.enrich(record);
-                result.add(record);
-            }
-            return result;
-        } catch (SQLException e){
-            throw new DAOSystemException("Can't execute findAll method in MySQL DAOimpl " + sql, e);
-        } finally {
-            close(resultSet);
-            close(statement);
-        }
-    }
-    public List<T> findAllByInt(String sql, int param, Extractor<T> extractor,
-                                IEnricher<T> IEnricher) throws DAOSystemException {
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        try {
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, param);
-            resultSet = preparedStatement.executeQuery();
-            List<T> result = new ArrayList<>();
-            while (resultSet.next()){
-                T record = extractor.extractOne(resultSet);
-                IEnricher.enrich(record);
-                result.add(record);
-            }
-            return result;
-        } catch (SQLException e){
-            throw new DAOSystemException("Can't execute findAllByInt method in MySQL DAOimpl " + sql, e);
-        } finally {
-            close(resultSet);
-            close(preparedStatement);
-        }
+    public T findEntityByStringParameter(String sql, String param, Extractor<T> extractor,
+                                         IEnricher<T> enricher) throws DAOSystemException {
+        return findEntityByObjectParameters(sql, extractor, enricher, param);
     }
 
-    public List<T> findAllByStrings(String sql, Extractor<T> extractor,
-                                    IEnricher<T> IEnricher, String... params) throws DAOSystemException {
+    public T findEntityByObjectParameters(String sql, Extractor<T> extractor,
+                                          IEnricher<T> enricher, Object ...params) throws DAOSystemException {
+        T user = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
             preparedStatement = connection.prepareStatement(sql);
             for(int i = 1; i <= params.length; i++){
-                preparedStatement.setString(i, params[i-1]);
+                preparedStatement.setObject(i, params[i-1]);
             }
             resultSet = preparedStatement.executeQuery();
-            List<T> result = new ArrayList<>();
-            while (resultSet.next()){
-                T record = extractor.extractOne(resultSet);
-                IEnricher.enrich(record);
-                result.add(record);
+            if (resultSet.next()){
+                user = extractor.extractOne(resultSet);
+                enricher.enrich(user);
             }
-            return result;
         } catch (SQLException e){
-            throw new DAOSystemException("Can't execute findAllByInt method in MySQL DAOimpl " + sql, e);
+            throw new DAOSystemException("Can't execute findUserByStringParamenter method in MySQL DAOimpl", e);
         } finally {
             close(resultSet);
             close(preparedStatement);
         }
+        return user;
     }
 
     public boolean create(String sql, T entity,
@@ -162,7 +104,7 @@ public abstract class AbstractDAO<T extends Entity> {
     }
 
     public boolean update(String sql, T entity,
-                    Extractor<T> extractor) throws DAOSystemException {
+                          Extractor<T> extractor) throws DAOSystemException {
         boolean flag = false;
         PreparedStatement preparedStatement = null;
         try {
@@ -198,27 +140,58 @@ public abstract class AbstractDAO<T extends Entity> {
         return delete(sql, entity.getId());
     }
 
-    public T findEntityByStringParameter(String sql, String param, Extractor<T> extractor,
-                                         IEnricher<T> IEnricher) throws DAOSystemException {
-        T user = null;
+    public List<T> findAll(String sql, Extractor<T> extractor,
+                           IEnricher<T> enricher) throws DAOSystemException {
+        return findAllByObjectParameters(sql, extractor, enricher);
+    }
+    public List<T> findAllByInt(String sql, int param, Extractor<T> extractor,
+                                IEnricher<T> enricher) throws DAOSystemException {
+        return findAllByObjectParameters(sql, extractor, enricher, param);
+    }
+
+    public int findQuantityByObjectParameters(String sql, Object ...params) throws DAOSystemException {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, param);
+            for(int i = 1; i <= params.length; i++){
+                preparedStatement.setObject(i, params[i-1]);
+            }
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()){
-                user = extractor.extractOne(resultSet);
-                IEnricher.enrich(user);
+                return resultSet.getInt("COUNT(*)");
             }
+            return 0;
         } catch (SQLException e){
-            throw new DAOSystemException("Can't execute findUserByStringParamenter method in MySQL DAOimpl", e);
+            throw new DAOSystemException("Can't execute findAll method in MySQL DAOimpl " + sql, e);
         } finally {
             close(resultSet);
             close(preparedStatement);
         }
-        return user;
     }
 
-
+    public List<T> findAllByObjectParameters(String sql, Extractor<T> extractor,
+                                             IEnricher<T> enricher, Object... params) throws DAOSystemException {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            for(int i = 1; i <= params.length; i++){
+                preparedStatement.setObject(i, params[i-1]);
+            }
+            resultSet = preparedStatement.executeQuery();
+            List<T> result = new ArrayList<>();
+            while (resultSet.next()){
+                T record = extractor.extractOne(resultSet);
+                enricher.enrich(record);
+                result.add(record);
+            }
+            return result;
+        } catch (SQLException e){
+            throw new DAOSystemException("Can't execute findAllByInt method in MySQL DAOimpl " + sql, e);
+        } finally {
+            close(resultSet);
+            close(preparedStatement);
+        }
+    }
 }

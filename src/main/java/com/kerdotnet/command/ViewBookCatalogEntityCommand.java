@@ -15,7 +15,7 @@ import javax.servlet.ServletException;
  * Yevhen Ivanov; 2018-04-23
  */
 public class ViewBookCatalogEntityCommand implements IActionCommand {
-    static final Logger LOGGER = LoggerFactory.getLogger(ViewBookCatalogEntityCommand.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ViewBookCatalogEntityCommand.class);
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {

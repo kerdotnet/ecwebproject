@@ -11,23 +11,23 @@ import java.util.List;
 
 public class BookItemUserDAOImpl extends AbstractDAO implements IBookItemUserDAO {
 
-    public static final String SQL_SELECT_ALL =
+    private static final String SQL_SELECT_ALL =
             "SELECT * FROM bookitem_user where flag_enabled";
-    public static final String SQL_SELECT_BY_ID =
+    private static final String SQL_SELECT_BY_ID =
             "SELECT * FROM bookitem_user WHERE id=?";
-    public static final String SQL_SELECT_ALL_BY_BOOKITEM_ID =
+    private static final String SQL_SELECT_ALL_BY_BOOKITEM_ID =
             "SELECT * FROM bookitem_user WHERE bookitem_id=?";
-    public static final String SQL_SELECT_ACTIVE_BY_BOOKITEM_ID =
+    private static final String SQL_SELECT_ACTIVE_BY_BOOKITEM_ID =
             "SELECT * FROM bookitem_user WHERE bookitem_id=? and flag_enabled";
-    public static final String SQL_INSERT_ONE = "INSERT INTO bookitem_user  " +
+    private static final String SQL_INSERT_ONE = "INSERT INTO bookitem_user  " +
             " (bookitem_id, user_id, date, flag_enabled) VALUES " +
             " (?,?,?,?)";
-    public static final String SQL_UPDATE_ONE = "UPDATE bookitem_user SET " +
+    private static final String SQL_UPDATE_ONE = "UPDATE bookitem_user SET " +
             " bookitem_id = ?, user_id = ?, date = ?, flag_enabled = ? " +
             "WHERE id = ?";
-    public static final String SQL_DELETE_ONE = "DELETE FROM bookitem_user WHERE id = ?";
+    private static final String SQL_DELETE_ONE = "DELETE FROM bookitem_user WHERE id = ?";
 
-    public static final String SQL_SELECT_BY_USER_ID =
+    private static final String SQL_SELECT_BY_USER_ID =
             "SELECT * FROM bookitem_user WHERE user_id=? and flag_enabled";
 
     public BookItemUserDAOImpl(Connection connection) {

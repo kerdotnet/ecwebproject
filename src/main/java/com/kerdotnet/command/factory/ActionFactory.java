@@ -16,7 +16,7 @@ import javax.transaction.TransactionManager;
  * Yevhen Ivanov; 2018-04-09
  */
 public class ActionFactory {
-    static final Logger LOGGER = LoggerFactory.getLogger(ActionFactory.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ActionFactory.class);
 
     public IActionCommand defineCommand(SessionRequestContent sessionRequestContent){
         IActionCommand current = new EmptyCommand();

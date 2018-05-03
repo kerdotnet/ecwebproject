@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 
 public class MySQLDAOFactory extends AbstractDAOFactory implements IDAOFactory {
 
-    static final Logger LOGGER = LoggerFactory.getLogger(MySQLDAOFactory.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MySQLDAOFactory.class);
 
     private MySQLDAOFactory() {
         connectionFactory = ConnectionFactoryFactory.newConnectionFactory();

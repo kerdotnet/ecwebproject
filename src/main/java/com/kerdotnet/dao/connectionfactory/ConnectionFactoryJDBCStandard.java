@@ -19,7 +19,7 @@ public class ConnectionFactoryJDBCStandard implements ConnectionFactory{
 
     protected DataSource dataSource;
     protected Connection connection;
-    static final Logger LOGGER = LoggerFactory.getLogger(ConnectionFactoryJDBCStandard.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConnectionFactoryJDBCStandard.class);
 
     private ConnectionFactoryJDBCStandard() throws DAOConfigurationException {
         try {

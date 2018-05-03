@@ -11,17 +11,17 @@ import java.util.List;
 
 public class TransactionDAOImpl extends AbstractDAO implements ITransactionDAO {
 
-    public static final String SQL_SELECT_ALL =
+    private static final String SQL_SELECT_ALL =
             "SELECT * FROM transaction";
-    public static final String SQL_SELECT_BY_ID =
+    private static final String SQL_SELECT_BY_ID =
             "SELECT * FROM transaction WHERE id=?";
-    public static final String SQL_INSERT_ONE = "INSERT INTO transaction  " +
+    private static final String SQL_INSERT_ONE = "INSERT INTO transaction  " +
             " (date, bookitem_id, user_id, bookshelf_address, action, flag_enabled) VALUES " +
             " (?,?,?,?,?,?)";
-    public static final String SQL_UPDATE_ONE = "UPDATE transaction SET " +
+    private static final String SQL_UPDATE_ONE = "UPDATE transaction SET " +
             " date = ?, bookitem_id = ?, user_id = ?, bookshelf_address = ?, action = ?, flag_enabled = ? " +
             "WHERE id = ?";
-    public static final String SQL_DELETE_ONE = "DELETE FROM transaction WHERE id = ?";
+    private static final String SQL_DELETE_ONE = "DELETE FROM transaction WHERE id = ?";
 
     public TransactionDAOImpl(Connection connection) {
         super(connection);

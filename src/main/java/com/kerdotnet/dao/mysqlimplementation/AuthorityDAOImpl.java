@@ -11,17 +11,17 @@ import java.util.List;
 
 public class AuthorityDAOImpl extends AbstractDAO implements IAuthorityDAO {
 
-    public static final String SQL_SELECT_ALL =
+    private static final String SQL_SELECT_ALL =
             "SELECT * FROM authority";
-    public static final String SQL_SELECT_BY_ID =
+    private static final String SQL_SELECT_BY_ID =
             "SELECT * FROM authority WHERE id=?";
-    public static final String SQL_INSERT_ONE = "INSERT INTO authority  " +
+    private static final String SQL_INSERT_ONE = "INSERT INTO authority  " +
             " (name, flag_user, flag_administrator) VALUES " +
             " (?,?,?)";
-    public static final String SQL_UPDATE_ONE = "UPDATE authority SET " +
+    private static final String SQL_UPDATE_ONE = "UPDATE authority SET " +
             " name = ?, flag_user = ?, flag_administrator = ? " +
             "WHERE id = ?";
-    public static final String SQL_DELETE_ONE = "DELETE FROM user_authority WHERE id = ?";
+    private static final String SQL_DELETE_ONE = "DELETE FROM user_authority WHERE id = ?";
 
     public AuthorityDAOImpl(Connection connection) {
         super(connection);

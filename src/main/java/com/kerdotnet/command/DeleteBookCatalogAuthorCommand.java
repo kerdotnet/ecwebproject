@@ -17,7 +17,7 @@ import java.util.List;
  * Yevhen Ivanov; 2018-04-30
  */
 public class DeleteBookCatalogAuthorCommand implements IActionCommand {
-    static final Logger LOGGER = LoggerFactory.getLogger(DeleteBookCatalogAuthorCommand.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DeleteBookCatalogAuthorCommand.class);
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {

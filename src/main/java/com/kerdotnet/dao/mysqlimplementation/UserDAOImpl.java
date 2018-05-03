@@ -13,21 +13,21 @@ import java.util.List;
 
 public class UserDAOImpl extends AbstractDAO implements IUserDAO {
 
-    public static final String SQL_SELECT_ALL =
+    private static final String SQL_SELECT_ALL =
             "SELECT * FROM user";
-    public static final String SQL_SELECT_BY_ID =
+    private static final String SQL_SELECT_BY_ID =
             "SELECT * FROM user WHERE id=?";
-    public static final String SQL_SELECT_BY_USERNAME =
+    private static final String SQL_SELECT_BY_USERNAME =
             "SELECT * FROM user WHERE username=?";
-    public static final String SQL_SELECT_BY_EMAIL =
+    private static final String SQL_SELECT_BY_EMAIL =
             "SELECT * FROM user WHERE email=?";
-    public static final String SQL_INSERT_ONE = "INSERT INTO user  " +
+    private static final String SQL_INSERT_ONE = "INSERT INTO user  " +
             " (username, password, email, first_name, last_name, mobile, flag_enabled) VALUES " +
             " (?,?,?,?,?,?,?)";
-    public static final String SQL_UPDATE_ONE = "UPDATE user SET " +
+    private static final String SQL_UPDATE_ONE = "UPDATE user SET " +
             " username = ?, password = ?, email = ?, first_name = ?, last_name = ?, mobile = ?, flag_enabled =? " +
             "WHERE id = ?";
-    public static final String SQL_DELETE_ONE = "DELETE FROM user WHERE id = ?";
+    private static final String SQL_DELETE_ONE = "DELETE FROM user WHERE id = ?";
 
     public UserDAOImpl(Connection connection) {
         super(connection);

@@ -11,17 +11,17 @@ import java.util.List;
 
 public class AuthorDAOImpl extends AbstractDAO implements IAuthorDAO {
 
-    public static final String SQL_SELECT_ALL =
+    private static final String SQL_SELECT_ALL =
             "SELECT * FROM author";
-    public static final String SQL_SELECT_BY_ID =
+    private static final String SQL_SELECT_BY_ID =
             "SELECT * FROM author WHERE id=?";
-    public static final String SQL_INSERT_ONE = "INSERT INTO author  " +
+    private static final String SQL_INSERT_ONE = "INSERT INTO author  " +
             " (name, description, flag_enabled) VALUES " +
             " (?,?,?)";
-    public static final String SQL_UPDATE_ONE = "UPDATE author SET " +
+    private static final String SQL_UPDATE_ONE = "UPDATE author SET " +
             " name = ?, description = ?, flag_enabled = ? " +
             "WHERE id = ?";
-    public static final String SQL_DELETE_ONE = "DELETE FROM author WHERE id = ?";
+    private static final String SQL_DELETE_ONE = "DELETE FROM author WHERE id = ?";
 
     public AuthorDAOImpl(Connection connection) {
         super(connection);

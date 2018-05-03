@@ -34,4 +34,8 @@
     <res-auth>Container</res-auth>
   </resource-ref>
 
+  <!-- here session could be config to 1 minute to test servlet-->
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
 </web-app>

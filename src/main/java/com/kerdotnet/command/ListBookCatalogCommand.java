@@ -18,6 +18,9 @@ import java.util.List;
 public class ListBookCatalogCommand implements IActionCommand {
     private static final Logger LOGGER = LoggerFactory.getLogger(ListBookCatalogCommand.class);
     private static final int QUANTITY_PER_PAGE = 10;
+    private static final String PARAM_NAME_CURRENT_PAGE = "currentpage";
+
+
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         String page;
@@ -26,9 +29,29 @@ public class ListBookCatalogCommand implements IActionCommand {
 
         page = ConfigurationManager.getProperty("path.page.bookcatalog");
 
+        int currentPage = 1;
+        String currentPageParam = sessionRequestContent.getRequestParameter(PARAM_NAME_CURRENT_PAGE);
+
+        if (currentPageParam != null){
+            currentPage = Integer.parseInt(currentPageParam);
+        }
+
         try {
-            bookCatalogs = BookCatalogService.getAllBookCatalogByPage(0,10);
-            sessionRequestContent.setSessionAttribute("bookcataloglist", bookCatalogs, true);
+
+            int quantityOfBooks = BookCatalogService.getAllBookCatalogQuantity();
+            bookCatalogs = BookCatalogService.getAllBookCatalogByPage(
+                        (currentPage - 1) * QUANTITY_PER_PAGE, QUANTITY_PER_PAGE);
+
+            int maxPages = (quantityOfBooks / QUANTITY_PER_PAGE) + 1;
+
+            sessionRequestContent.setRequestAttribute("bookcataloglist", bookCatalogs);
+
+            sessionRequestContent.setRequestAttribute("booksquantity", quantityOfBooks);
+            sessionRequestContent.setRequestAttribute("currentpage", currentPage);
+            sessionRequestContent.setRequestAttribute("maxpages", maxPages);
+            sessionRequestContent.setRequestAttribute("command", "bookcatalog");
+
+            LOGGER.debug("quntity of books: " + quantityOfBooks);
         } catch (ServiceException e) {
             throw new ServletException(e);
         }

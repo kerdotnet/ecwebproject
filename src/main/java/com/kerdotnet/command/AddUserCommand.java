@@ -117,11 +117,11 @@ public class AddUserCommand implements IActionCommand {
     }
 
     private void saveRequestAttributes(SessionRequestContent sessionRequestContent, User user){
-        sessionRequestContent.setRequestAttribute("login", user.getUsername());
-        sessionRequestContent.setRequestAttribute("email", user.getEmail());
-        sessionRequestContent.setRequestAttribute("firstName", user.getFirstName());
-        sessionRequestContent.setRequestAttribute("lastName", user.getLastName());
-        sessionRequestContent.setRequestAttribute("mobile", user.getMobile());
+        sessionRequestContent.setRequestAttribute(PARAM_NAME_LOGIN, user.getUsername());
+        sessionRequestContent.setRequestAttribute(PARAM_NAME_EMAIL, user.getEmail());
+        sessionRequestContent.setRequestAttribute(PARAM_NAME_FIRST_NAME, user.getFirstName());
+        sessionRequestContent.setRequestAttribute(PARAM_NAME_LAST_NAME, user.getLastName());
+        sessionRequestContent.setRequestAttribute(PARAM_NAME_MOBILE, user.getMobile());
     }
 
     private String getValidationResultString(User user, String password, String confirmPassword) {

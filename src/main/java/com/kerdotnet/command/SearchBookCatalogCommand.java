@@ -18,6 +18,10 @@ import java.util.List;
 public class SearchBookCatalogCommand implements IActionCommand {
     private static final Logger LOGGER = LoggerFactory.getLogger(SearchBookCatalogCommand.class);
     private static final String PARAM_SEARCH_REQUEST = "searchrequest";
+    private static final int QUANTITY_PER_PAGE = 10;
+    private static final String PARAM_NAME_CURRENT_PAGE = "currentpage";
+    private static final String PARAM_NAME_SEARCH_REQUEST_ATRIBUTE = "searchrequestattribute";
+
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
@@ -25,13 +29,42 @@ public class SearchBookCatalogCommand implements IActionCommand {
 
         List<BookCatalog> bookCatalogs;
 
-        String searchRequest = sessionRequestContent.getRequestParameter(PARAM_SEARCH_REQUEST);
-
         page = ConfigurationManager.getProperty("path.page.bookcatalog");
 
+        int currentPage = 1;
+        String currentPageParam = sessionRequestContent.getRequestParameter(PARAM_NAME_CURRENT_PAGE);
+        sessionRequestContent.setRequestAttribute(PARAM_NAME_CURRENT_PAGE, currentPageParam);
+
+        if (currentPageParam != null){
+            currentPage = Integer.parseInt(currentPageParam);
+        }
+
+        String searchRequest = sessionRequestContent.getRequestParameter(PARAM_SEARCH_REQUEST);
+        LOGGER.debug("parameter search request: " + searchRequest);
+
+        if (searchRequest == null) {
+            searchRequest = (String) sessionRequestContent.getSessionAttribute(PARAM_NAME_SEARCH_REQUEST_ATRIBUTE);
+            LOGGER.debug("attribute search request: " + searchRequest);
+        } else {
+            sessionRequestContent.setSessionAttribute(PARAM_NAME_SEARCH_REQUEST_ATRIBUTE, searchRequest);
+            LOGGER.debug("attribute was set: " + searchRequest);
+        }
+
         try {
-            bookCatalogs = BookCatalogService.getAllBookCatalogBySearchRequestFullText(searchRequest);
-            sessionRequestContent.setSessionAttribute("bookcataloglist", bookCatalogs, true);
+            int quantityOfBooks = BookCatalogService.getAllBookCatalogBySearchRequestFullTextQuantity(searchRequest);
+            bookCatalogs = BookCatalogService.getAllBookCatalogBySearchRequestFullTextByPage(
+                        searchRequest, (currentPage - 1) * QUANTITY_PER_PAGE, QUANTITY_PER_PAGE);
+
+            int maxPages = (quantityOfBooks / QUANTITY_PER_PAGE) + 1;
+
+            sessionRequestContent.setRequestAttribute("bookcataloglist", bookCatalogs);
+
+            sessionRequestContent.setRequestAttribute("booksquantity", quantityOfBooks);
+            sessionRequestContent.setRequestAttribute("currentpage", currentPage);
+            sessionRequestContent.setRequestAttribute("maxpages", maxPages);
+            sessionRequestContent.setRequestAttribute("command", "search");
+
+            LOGGER.debug("quntity of books: " + quantityOfBooks);
         } catch (ServiceException e) {
             throw new ServletException(e);
         }

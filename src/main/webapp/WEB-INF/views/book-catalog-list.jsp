@@ -54,17 +54,28 @@
 </div>
 <nav aria-label="Book catalog result">
     <ul class="pagination justify-content-center fixed-bottom">
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
+        <li class="page-item  ${currentpage == 1 ? 'disabled' : ''}">
+            <a class="page-link"
+               href="controller?command=${command}&currentpage=${currentpage-1}" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 <span class="sr-only">Previous</span>
             </a>
         </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
+        <li class="page-item active">
+            <a class="page-link"
+               href="controller?command=${command}&currentpage=${currentpage}">${currentpage}</a></li>
+        <li class="page-item ${currentpage + 1 > maxpages ? 'disabled' : ''}">
+            <a class="page-link"
+               href="controller?command=${command}&currentpage=${currentpage+1}">${currentpage+1}</a></li>
+        <li class="page-item ${currentpage + 2 > maxpages ? 'disabled' : ''}">
+            <a class="page-link"
+               href="controller?command=${command}&currentpage=${currentpage+2}">${currentpage+2}</a></li>
+        <c:if test="${currentpage < maxpage}">
+            <c:set var="x" value="1"/>
+        </c:if>
+        <li class="page-item ${currentpage == maxpages ? 'disabled' : ''}">
+            <a class="page-link"
+               href="controller?command=${command}&currentpage=${currentpage+1}" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
                 <span class="sr-only">Next</span>
             </a>

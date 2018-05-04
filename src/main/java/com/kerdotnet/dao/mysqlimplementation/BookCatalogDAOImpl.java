@@ -17,9 +17,9 @@ public class BookCatalogDAOImpl extends AbstractDAO implements IBookCatalogDAO {
     private static final String SQL_SELECT_ALL =
             "SELECT * FROM bookcatalog ORDER BY name";
     private static final String SQL_SELECT_ALL_BY_PAGE =
-            "SELECT * FROM bookcatalog ORDER BY name";
+            "SELECT * FROM bookcatalog ORDER BY name, id LIMIT ?, ?";
     private static final String SQL_SELECT_ALL_QUANTITY =
-            "SELECT COUNT(*) FROM bookcatalog ORDER BY name LIMIT ?, ?";
+            "SELECT COUNT(*) FROM bookcatalog ORDER BY name";
     private static final String SQL_SELECT_BY_ID =
             "SELECT * FROM bookcatalog WHERE id=?";
     private static final String SQL_INSERT_ONE = "INSERT INTO bookcatalog  " +
@@ -51,7 +51,7 @@ public class BookCatalogDAOImpl extends AbstractDAO implements IBookCatalogDAO {
                     "OR description LIKE  ? " +
                     "OR id IN (select bookcatalog_author.bookcatalog_id from bookcatalog_author " +
                     "inner join author on bookcatalog_author.author_id = author.id " +
-                    " where author.name LIKE  ? ) ORDER BY name";
+                    " where author.name LIKE  ? )";
 
     public BookCatalogDAOImpl(Connection connection) {
         super(connection);

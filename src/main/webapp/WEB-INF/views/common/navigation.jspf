@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="controller?command=bookcatalog"> <fmt:message key="message.logo" /> </a>
+    <a class="navbar-brand" href="controller?command=bookcatalog&currentpage=1"> <fmt:message key="message.logo" /> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="controller?command=bookcatalog"><fmt:message key="message.bookcatalog" /></a>
+                <a class="nav-link" href="controller?command=bookcatalog&currentpage=1"><fmt:message key="message.bookcatalog" /></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,7 +54,8 @@
         <form class="form-inline my-2 my-lg-0" action = "controller" method="post">
             <input type="hidden" name="command" value="search">
             <fmt:message key="message.search" var="searchlabel" />
-            <input class="form-control mr-sm-2" type="search" name="searchrequest" placeholder="${searchlabel}" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" name="searchrequest"
+                   placeholder="${searchlabel}" aria-label="Search" value="${searchrequest}">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><fmt:message key="message.search" /></button>
         </form>
     </div>

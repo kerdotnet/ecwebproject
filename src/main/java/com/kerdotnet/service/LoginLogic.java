@@ -40,22 +40,18 @@ public class LoginLogic {
      */
     public static boolean checkLogin(String login, String passwrod) throws ServiceException {
 
-        ITransactionManager txManager = new TransactionManagerImpl();
-
         try {
-            return txManager.doInTransaction(() -> {
 
-                IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
-                IUserDAO userDAO = daoFactory.getUserDAO();
-                User user = userDAO.findUserByUserName(login);
-                if ((user != null) &&
-                        (checkPassword(passwrod, user.getPassword()))) {
-                    LOGGER.debug("Validation was done successfully");
-                    return true;
-                }
+            IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
+            IUserDAO userDAO = daoFactory.getUserDAO();
+            User user = userDAO.findUserByUserName(login);
+            if ((user != null) &&
+                    (checkPassword(passwrod, user.getPassword()))) {
+                LOGGER.debug("Validation was done successfully");
+                return true;
+            }
 
-                return false;
-            });
+            return false;
         } catch (Exception e) {
             throw new ServiceException("Error in user authorization process. User was not retrieved successfully", e);
         }
@@ -74,28 +70,26 @@ public class LoginLogic {
         ITransactionManager txManager = new TransactionManagerImpl();
 
         try {
-            return txManager.doInTransaction(() -> {
-                boolean administratorRole = false;
+            boolean administratorRole = false;
 
-                IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
+            IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
 
-                IUserDAO userDAO = daoFactory.getUserDAO();
-                User user = userDAO.findUserByUserName(login);
+            IUserDAO userDAO = daoFactory.getUserDAO();
+            User user = userDAO.findUserByUserName(login);
 
-                IUserAuthorityDAO userAuthorityDAO = daoFactory.getUserAuthorityDAO();
-                IAuthorityDAO authorityDAO = daoFactory.getAuthorityDAO();
-                //TODO: rewrite with lambda
-                List<UserAuthority> userAuthorities = userAuthorityDAO.findAllByUserId(user.getId());
-                for (UserAuthority userAuthority :
-                        userAuthorities) {
-                    Authority authority = authorityDAO.findEntity(userAuthority.getAuthorityId());
-                    if (authority.isAdministrator())
-                        administratorRole = true;
-                }
-                LOGGER.debug("User is " + user);
-                LOGGER.debug("administratorRole is " + administratorRole);
-                return administratorRole;
-            });
+            IUserAuthorityDAO userAuthorityDAO = daoFactory.getUserAuthorityDAO();
+            IAuthorityDAO authorityDAO = daoFactory.getAuthorityDAO();
+            //TODO: rewrite with lambda
+            List<UserAuthority> userAuthorities = userAuthorityDAO.findAllByUserId(user.getId());
+            for (UserAuthority userAuthority :
+                    userAuthorities) {
+                Authority authority = authorityDAO.findEntity(userAuthority.getAuthorityId());
+                if (authority.isAdministrator())
+                    administratorRole = true;
+            }
+            LOGGER.debug("User is " + user);
+            LOGGER.debug("administratorRole is " + administratorRole);
+            return administratorRole;
         } catch (Exception e) {
             throw new ServiceException("Error in the user roles validation", e);
         }
@@ -123,12 +117,9 @@ public class LoginLogic {
                     UserAuthority userAuthority = new UserAuthority(user.getId(), 1);
                     userAuthorityDAO.create(userAuthority);
                 }
-
                 return successFlag;
             });
-        } catch (NotUniqueUserEmailException e){
-            throw e;
-        } catch (NotUniqueUserLoginException e){
+        } catch (NotUniqueUserEmailException|NotUniqueUserLoginException e){
             throw e;
         } catch (Exception e) {
             throw new ServiceException("Error in the adding of a new user in LoginLogic service", e);

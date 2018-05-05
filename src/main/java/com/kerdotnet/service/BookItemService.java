@@ -24,12 +24,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Services related to BookItems
+ * Services related to BookItems (lists, view, delete and create)
  * Yevhen Ivanov, 2018-04-23
  */
 public class BookItemService {
     static final Logger LOGGER = LoggerFactory.getLogger(BookItemService.class);
+    public static final int OVERDUE_DURATION_IN_MONTHS = 1;
 
+    /**
+     * Delete all Book Items from DB for exact BookCatalog
+     * @param bookCatalogId
+     * @param daoFactory
+     * @throws DAOSystemException
+     */
     static void deleteBookItemsByBookCatalogId(int bookCatalogId, IDAOFactory daoFactory) throws DAOSystemException {
         IBookItemDAO bookItemDAO = daoFactory.getBookItemDAO();
         IBookItemUserDAO bookItemUserDAO = daoFactory.getBookItemUserDAO();
@@ -43,6 +50,12 @@ public class BookItemService {
         }
     }
 
+    /**
+     * Return a list fo book items which are in shelves (but not at users)
+     * @param bookCatalogId
+     * @return
+     * @throws ServiceException
+     */
     public static List<BookItem> getBookItemsByBookCatalogIdOnShelves(int bookCatalogId) throws ServiceException {
         ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
 
@@ -64,13 +77,26 @@ public class BookItemService {
         }
     }
 
+    /**
+     * return a list of overdue bookitems
+     * overdue means that user took earlier than OVERDUE_DURATION_IN_MONTHS
+     * @return
+     * @throws ServiceException
+     */
     public static List<BookItem> getOverdueBookItemsTakenByUsers() throws ServiceException {
-        LocalDateTime compareInterval = LocalDateTime.now().minusMonths(1);
+        LocalDateTime compareInterval = LocalDateTime.now().minusMonths(OVERDUE_DURATION_IN_MONTHS);
         return getAllBookItemsTakenByUsers().stream()
                 .filter(entity->entity.getBookItemUser().getDate().isBefore(compareInterval))
                 .collect(Collectors.toList());
     }
 
+    /**
+     * return a list of book items which were taken and not returned
+     * by concrete user
+     * @param login
+     * @return
+     * @throws ServiceException
+     */
     public static List<BookItem> getAllBookItemsTakenByConcreteUser(String login) throws ServiceException{
         ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
 
@@ -82,10 +108,9 @@ public class BookItemService {
 
             if (user != null) {
                 IBookItemUserDAO bookItemUserDAO = daoFactory.getBookItemUserDAO();
-                List<BookItemUser> bookItemUserList = bookItemUserDAO.findAllByUserId(user.getId());
-
                 IBookItemDAO bookItemDAO = daoFactory.getBookItemDAO();
 
+                List<BookItemUser> bookItemUserList = bookItemUserDAO.findAllByUserId(user.getId());
                 bookItemList = bookItemUserList.stream().map(item->{
                     try {
                         return bookItemDAO.findEntity(item.getBookItemId());
@@ -109,6 +134,12 @@ public class BookItemService {
         }
     }
 
+    /**
+     * return a list of book items which were taken and not returned
+     * by any user (not on shelves)
+     * @return
+     * @throws ServiceException
+     */
     public static List<BookItem> getAllBookItemsTakenByUsers() throws ServiceException{
         ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
 
@@ -130,6 +161,12 @@ public class BookItemService {
         }
     }
 
+    /**
+     * sace changes in DB for the book item
+     * @param bookItem
+     * @return
+     * @throws ServiceException
+     */
     public static boolean saveBookItemEntity(BookItem bookItem) throws ServiceException {
         ITransactionManager txManager = new TransactionManagerImpl();
 
@@ -157,6 +194,12 @@ public class BookItemService {
         }
     }
 
+    /**
+     * delete a specific book item by Id from DB
+     * @param bookItemId
+     * @return
+     * @throws ServiceException
+     */
     public static boolean deleteBookItemById(int bookItemId) throws ServiceException {
         ITransactionManager txManager = new TransactionManagerImpl();
 

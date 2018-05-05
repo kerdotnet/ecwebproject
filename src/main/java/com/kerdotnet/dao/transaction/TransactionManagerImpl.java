@@ -17,6 +17,7 @@ public class TransactionManagerImpl implements ITransactionManager{
         connectionHolder.set(connection);
         try {
             connection.setAutoCommit(false);
+            connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
             T result = unitOfWork.call();
             connection.commit();
             return result;

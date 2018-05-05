@@ -24,6 +24,12 @@ import java.util.stream.Collectors;
 public class BookCatalogService {
     private static final Logger LOGGER = LoggerFactory.getLogger(BookCatalogService.class);
 
+    /**
+     * get one BookCatalog Entity from DB by Id
+     * @param id
+     * @return
+     * @throws ServiceException
+     */
     public static BookCatalog getBookCatalogById(int id) throws ServiceException {
         ITransactionManager txManager = new TransactionManagerImpl();
 
@@ -45,15 +51,6 @@ public class BookCatalogService {
         } catch (Exception e) {
             throw new ServiceException("Error in the BookCatalog service (getBookCatalogById)", e);
         }
-    }
-
-    private static void EnrichOneBookCatalogWithAuthor(BookCatalog bookCatalogEntity, IDAOFactory daoFactory) throws DAOSystemException {
-        IBookCatalogAuthorDAO bcaDAO = daoFactory.getBookCatalogAuthorDAO();
-        IAuthorDAO authorDAO = daoFactory.getAuthorDAO();
-
-        List<BookCatalogAuthor> bookCatalogAuthor = bcaDAO.findAllByBookCatalogId(bookCatalogEntity.getId());
-        List<Author> authors = getAuthorsByBookCatalogAuthors(authorDAO, bookCatalogAuthor);
-        bookCatalogEntity.setAuthors(authors);
     }
 
     public static List<BookCatalog> getAllBookCatalog() throws ServiceException {
@@ -82,6 +79,13 @@ public class BookCatalogService {
         return bookCatalogList;
     }
 
+    /**
+     * return all Book Catalog entities from DB by page
+     * @param page
+     * @param quantityAtPage
+     * @return
+     * @throws ServiceException
+     */
     public static List<BookCatalog> getAllBookCatalogByPage(int page, int quantityAtPage) throws ServiceException {
         List<BookCatalog> bookCatalogList;
 
@@ -133,18 +137,12 @@ public class BookCatalogService {
         return quantity;
     }
 
-    private static void EnrichBookCatalogListWithAuthors(List<BookCatalog> bookCatalogList, IDAOFactory daoFactory) throws DAOSystemException {
-        IBookCatalogAuthorDAO bookCatalogAuthorDAO = daoFactory.getBookCatalogAuthorDAO();
-        IAuthorDAO authorDAO = daoFactory.getAuthorDAO();
-
-        for (BookCatalog bookCatalog : bookCatalogList) {
-            List<BookCatalogAuthor> bookCatalogAuthor =
-                    bookCatalogAuthorDAO.findAllByBookCatalogId(bookCatalog.getId());
-            List<Author> authors = getAuthorsByBookCatalogAuthors(authorDAO, bookCatalogAuthor);
-            bookCatalog.setAuthors(authors);
-        }
-    }
-
+    /**
+     * return all Book Catalog entities from DB by text Query
+     * @param searchRequest - the query to DB
+     * @return
+     * @throws ServiceException
+     */
     public static List<BookCatalog> getAllBookCatalogBySearchRequestFullText(String searchRequest) throws ServiceException {
         List<BookCatalog> bookCatalogList;
 
@@ -171,7 +169,15 @@ public class BookCatalogService {
         return bookCatalogList;
     }
 
-
+    /**
+     * Return a list of BookCatalog by searchRequest
+     * by pages
+     * @param searchRequest - specify the query to DB
+     * @param page - the number of page
+     * @param quantityAtPage - the quantity of elements at one page
+     * @return
+     * @throws ServiceException
+     */
     public static List<BookCatalog> getAllBookCatalogBySearchRequestFullTextByPage(
             String searchRequest, int page, int quantityAtPage) throws ServiceException {
         List<BookCatalog> bookCatalogList;
@@ -199,8 +205,13 @@ public class BookCatalogService {
         return bookCatalogList;
     }
 
-
-
+    /**
+     * return a quantity of records in DB of BookCatalog
+     * by the SearchRequest
+     * @param searchRequest - specify the query to DB
+     * @return
+     * @throws ServiceException
+     */
     public static int getAllBookCatalogBySearchRequestFullTextQuantity(
             String searchRequest) throws ServiceException {
         int quantity;
@@ -251,15 +262,12 @@ public class BookCatalogService {
             throw new ServiceException("Error in the BookCatalog service (getBookCatalogById)", e);
         }
     }
-
-    private static void deleteBookCatalogAuthorsByBookCatalogId(int bookCatalogId, IDAOFactory daoFactory) throws DAOSystemException {
-        IBookCatalogAuthorDAO bookCatalogAuthorDAO = daoFactory.getBookCatalogAuthorDAO();
-        List<BookCatalogAuthor> bookCatalogAuthorList = bookCatalogAuthorDAO.findAllByBookCatalogId(bookCatalogId);
-        for (BookCatalogAuthor bookCatalogAuthor : bookCatalogAuthorList) {
-            bookCatalogAuthorDAO.delete(bookCatalogAuthor);
-        }
-    }
-
+    /**
+     * Save a new (or existing) book catalog entity to DB
+     * @param bookCatalog
+     * @return
+     * @throws ServiceException
+     */
     public static boolean saveBookCatalogEntity(BookCatalog bookCatalog) throws ServiceException  {
         ITransactionManager txManager = new TransactionManagerImpl();
 
@@ -293,6 +301,11 @@ public class BookCatalogService {
         }
     }
 
+    /**
+     * get a list of all Authors from DataBase
+     * @return
+     * @throws ServiceException
+     */
     public static List<Author> getAllAuthors() throws ServiceException {
         ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
 
@@ -314,27 +327,26 @@ public class BookCatalogService {
         }
     }
 
-    public static Author findAuthorById(int id) throws ServiceException {
-        ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
-
-        try {
-            IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
-            IAuthorDAO authorDAO = daoFactory.getAuthorDAO();
-
-            return authorDAO.findEntity(id);
-        } catch (DAOSystemException e) {
-            throw new ServiceException(
-                    MessageManager.getProperty("message.businesslogicbookcatalog"), e);
-        } finally {
-            try {
-                connectionFactory.closeConnection();
-            } catch (DAOSystemException e) {
-                throw new ServiceException(
-                        MessageManager.getProperty("message.businesslogicbookcatalog"), e);
-            }
+    /**
+     * delete all Authors for existing BookCatalog
+     * @param bookCatalogId
+     * @param daoFactory
+     * @throws DAOSystemException
+     */
+    private static void deleteBookCatalogAuthorsByBookCatalogId(int bookCatalogId, IDAOFactory daoFactory) throws DAOSystemException {
+        IBookCatalogAuthorDAO bookCatalogAuthorDAO = daoFactory.getBookCatalogAuthorDAO();
+        List<BookCatalogAuthor> bookCatalogAuthorList = bookCatalogAuthorDAO.findAllByBookCatalogId(bookCatalogId);
+        for (BookCatalogAuthor bookCatalogAuthor : bookCatalogAuthorList) {
+            bookCatalogAuthorDAO.delete(bookCatalogAuthor);
         }
     }
 
+    /**
+     * return a list of Author by links BookCatalogAuthor
+     * @param authorDAO
+     * @param bookCatalogAuthor
+     * @return
+     */
     private static List<Author> getAuthorsByBookCatalogAuthors(IAuthorDAO authorDAO, List<BookCatalogAuthor> bookCatalogAuthor) {
         return bookCatalogAuthor.stream()
                 .map(item -> {
@@ -345,5 +357,26 @@ public class BookCatalogService {
                     }
                 })
                 .collect(Collectors.toList());
+    }
+
+    private static void EnrichOneBookCatalogWithAuthor(BookCatalog bookCatalogEntity, IDAOFactory daoFactory) throws DAOSystemException {
+        IBookCatalogAuthorDAO bcaDAO = daoFactory.getBookCatalogAuthorDAO();
+        IAuthorDAO authorDAO = daoFactory.getAuthorDAO();
+
+        List<BookCatalogAuthor> bookCatalogAuthor = bcaDAO.findAllByBookCatalogId(bookCatalogEntity.getId());
+        List<Author> authors = getAuthorsByBookCatalogAuthors(authorDAO, bookCatalogAuthor);
+        bookCatalogEntity.setAuthors(authors);
+    }
+
+    private static void EnrichBookCatalogListWithAuthors(List<BookCatalog> bookCatalogList, IDAOFactory daoFactory) throws DAOSystemException {
+        IBookCatalogAuthorDAO bookCatalogAuthorDAO = daoFactory.getBookCatalogAuthorDAO();
+        IAuthorDAO authorDAO = daoFactory.getAuthorDAO();
+
+        for (BookCatalog bookCatalog : bookCatalogList) {
+            List<BookCatalogAuthor> bookCatalogAuthor =
+                    bookCatalogAuthorDAO.findAllByBookCatalogId(bookCatalog.getId());
+            List<Author> authors = getAuthorsByBookCatalogAuthors(authorDAO, bookCatalogAuthor);
+            bookCatalog.setAuthors(authors);
+        }
     }
 }

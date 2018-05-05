@@ -20,6 +20,13 @@ import java.time.LocalDateTime;
  */
 public class BookOperationService {
 
+    /**
+     * process the moving BookItem from Library to current User (by login)
+     * @param login
+     * @param bookItemId
+     * @return
+     * @throws ServiceException
+     */
     public static boolean takeBookItemByIdByUser(String login, int bookItemId) throws ServiceException{
         ITransactionManager txManager = new TransactionManagerImpl();
 
@@ -49,6 +56,12 @@ public class BookOperationService {
         }
     }
 
+    /**
+     * return the BookItem from current User (by login) to the Library
+     * @param bookItemId
+     * @return
+     * @throws ServiceException
+     */
     public static boolean returnBookItemById(int bookItemId) throws ServiceException{
         ITransactionManager txManager = new TransactionManagerImpl();
 

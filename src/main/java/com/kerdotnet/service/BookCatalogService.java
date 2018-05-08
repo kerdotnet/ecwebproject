@@ -328,6 +328,33 @@ public class BookCatalogService {
     }
 
     /**
+     * find Author by Id
+     * @param id
+     * @return
+     * @throws ServiceException
+     */
+    public static Author findAuthorById(int id) throws ServiceException {
+        ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
+
+        try {
+            IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
+            IAuthorDAO authorDAO = daoFactory.getAuthorDAO();
+
+            return authorDAO.findEntity(id);
+        } catch (DAOSystemException e) {
+            throw new ServiceException(
+                    MessageManager.getProperty("message.businesslogicbookcatalog"), e);
+        } finally {
+            try {
+                connectionFactory.closeConnection();
+            } catch (DAOSystemException e) {
+                throw new ServiceException(
+                        MessageManager.getProperty("message.businesslogicbookcatalog"), e);
+            }
+        }
+    }
+
+    /**
      * delete all Authors for existing BookCatalog
      * @param bookCatalogId
      * @param daoFactory

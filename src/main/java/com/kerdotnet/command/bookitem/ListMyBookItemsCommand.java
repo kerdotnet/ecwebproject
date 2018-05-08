@@ -1,7 +1,8 @@
-package com.kerdotnet.command;
+package com.kerdotnet.command.bookitem;
 
 import com.kerdotnet.beans.BookItem;
-import com.kerdotnet.controllers.SessionRequestContent;
+import com.kerdotnet.command.IActionCommand;
+import com.kerdotnet.controller.SessionRequestContent;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.service.BookItemService;
@@ -12,11 +13,11 @@ import javax.servlet.ServletException;
 import java.util.List;
 
 /**
- * List of overdue BookItems witch were taken more than 1 month ago; for administrator
- * Yevhen Ivanov; 2018-05-01
+ * List of taken by current user BookItems
+ * Yevhen Ivanov; 2018-04-30
  */
-public class ListOverdueBookItemsCommand implements IActionCommand {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ListOverdueBookItemsCommand.class);
+public class ListMyBookItemsCommand implements IActionCommand {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ListMyBookItemsCommand.class);
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
@@ -26,11 +27,11 @@ public class ListOverdueBookItemsCommand implements IActionCommand {
         page = ConfigurationManager.getProperty("path.page.bookitems");
 
         try {
-            bookItems = BookItemService.getOverdueBookItemsTakenByUsers();
+            String login = (String) sessionRequestContent.getSessionAttribute("user");
+            bookItems = BookItemService.getAllBookItemsTakenByConcreteUser(login);
             LOGGER.debug("Find book items: " + bookItems);
             sessionRequestContent.setSessionAttribute("bookitemlist", bookItems, true);
-            sessionRequestContent.setRequestAttribute("takenbooks", true);
-            sessionRequestContent.setRequestAttribute("overdue", true);
+            sessionRequestContent.setRequestAttribute("mybooks", true);
         } catch (ServiceException e) {
             throw new ServletException(e);
         }

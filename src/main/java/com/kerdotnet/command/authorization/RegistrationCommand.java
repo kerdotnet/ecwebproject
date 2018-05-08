@@ -1,6 +1,7 @@
-package com.kerdotnet.command;
+package com.kerdotnet.command.authorization;
 
-import com.kerdotnet.controllers.SessionRequestContent;
+import com.kerdotnet.command.IActionCommand;
+import com.kerdotnet.controller.SessionRequestContent;
 import com.kerdotnet.resource.ConfigurationManager;
 
 import javax.servlet.ServletException;

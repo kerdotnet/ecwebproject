@@ -1,5 +1,11 @@
 package com.kerdotnet.command.client;
 
+import com.kerdotnet.command.authorization.AddUserCommand;
+import com.kerdotnet.command.authorization.LoginCommand;
+import com.kerdotnet.command.authorization.LogoutCommand;
+import com.kerdotnet.command.authorization.RegistrationCommand;
+import com.kerdotnet.command.bookcatalog.*;
+import com.kerdotnet.command.bookitem.*;
 import com.kerdotnet.command.*;
 
 /**

@@ -1,6 +1,7 @@
-package com.kerdotnet.command;
+package com.kerdotnet.command.authorization;
 
-import com.kerdotnet.controllers.SessionRequestContent;
+import com.kerdotnet.command.IActionCommand;
+import com.kerdotnet.controller.SessionRequestContent;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.filter.ClientType;
 import com.kerdotnet.service.LoginLogic;

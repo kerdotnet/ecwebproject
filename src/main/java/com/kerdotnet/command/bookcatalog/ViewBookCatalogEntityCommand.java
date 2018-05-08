@@ -1,9 +1,10 @@
-package com.kerdotnet.command;
+package com.kerdotnet.command.bookcatalog;
 
-import com.kerdotnet.controllers.SessionRequestContent;
+import com.kerdotnet.beans.BookCatalog;
+import com.kerdotnet.command.IActionCommand;
+import com.kerdotnet.controller.SessionRequestContent;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.resource.ConfigurationManager;
-import com.kerdotnet.resource.MessageManager;
 import com.kerdotnet.service.BookCatalogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,16 +12,17 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.ServletException;
 
 /**
- * Delete of an existing BookCatalog Entity by Id
- * Yevhen Ivanov; 2018-04-25
+ * List of BookCatalog - general data of books (by catalog) by authors
+ * Yevhen Ivanov; 2018-04-23
  */
-public class DeleteBookCatalogEntityCommand implements IActionCommand {
-    private static final Logger LOGGER = LoggerFactory.getLogger(DeleteBookCatalogEntityCommand.class);
+public class ViewBookCatalogEntityCommand implements IActionCommand {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ViewBookCatalogEntityCommand.class);
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         String page;
-        boolean result;
+
+        BookCatalog bookCatalogEntity;
         int bookCatalogId = 0;
 
         String bookCatalogIdParam = sessionRequestContent.getRequestParameter("bookcatalogid");
@@ -28,12 +30,11 @@ public class DeleteBookCatalogEntityCommand implements IActionCommand {
             bookCatalogId = Integer.parseInt(bookCatalogIdParam);
         LOGGER.debug("Id of the book catalog is: " + bookCatalogId);
 
-        page = ConfigurationManager.getProperty("path.page.main");
+        page = ConfigurationManager.getProperty("path.page.bookcatalogentity");
         try {
-            result = BookCatalogService.deleteBookCatalogById(bookCatalogId);
-            if (!result){
-                throw new ServletException(MessageManager.getProperty("message.deleteerror"));
-            }
+            sessionRequestContent.setRequestAttribute("editmode", false);
+            bookCatalogEntity = BookCatalogService.getBookCatalogById(bookCatalogId);
+            sessionRequestContent.setSessionAttribute("bookcatalogentity", bookCatalogEntity);
         } catch (ServiceException e) {
             throw new ServletException(e);
         }

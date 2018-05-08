@@ -1,6 +1,7 @@
-package com.kerdotnet.command;
+package com.kerdotnet.command.bookitem;
 
-import com.kerdotnet.controllers.SessionRequestContent;
+import com.kerdotnet.command.IActionCommand;
+import com.kerdotnet.controller.SessionRequestContent;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.resource.MessageManager;

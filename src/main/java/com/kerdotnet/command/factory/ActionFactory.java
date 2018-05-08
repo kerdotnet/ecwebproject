@@ -3,12 +3,10 @@ package com.kerdotnet.command.factory;
 import com.kerdotnet.command.IActionCommand;
 import com.kerdotnet.command.EmptyCommand;
 import com.kerdotnet.command.client.CommandEnum;
-import com.kerdotnet.controllers.SessionRequestContent;
+import com.kerdotnet.controller.SessionRequestContent;
 import com.kerdotnet.resource.MessageManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.transaction.TransactionManager;
 
 /**
  * Action Factory class

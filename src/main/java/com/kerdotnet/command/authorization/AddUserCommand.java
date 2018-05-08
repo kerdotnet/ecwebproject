@@ -1,7 +1,8 @@
-package com.kerdotnet.command;
+package com.kerdotnet.command.authorization;
 
 import com.kerdotnet.beans.User;
-import com.kerdotnet.controllers.SessionRequestContent;
+import com.kerdotnet.command.IActionCommand;
+import com.kerdotnet.controller.SessionRequestContent;
 import com.kerdotnet.exceptions.NotUniqueUserEmailException;
 import com.kerdotnet.exceptions.NotUniqueUserLoginException;
 import com.kerdotnet.exceptions.ServiceException;

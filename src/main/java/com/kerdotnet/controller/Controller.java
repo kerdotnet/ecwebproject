@@ -1,4 +1,4 @@
-package com.kerdotnet.controllers;
+package com.kerdotnet.controller;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;

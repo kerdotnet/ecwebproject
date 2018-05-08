@@ -1,8 +1,9 @@
-package com.kerdotnet.command;
+package com.kerdotnet.command.bookcatalog;
 
 import com.kerdotnet.beans.Author;
 import com.kerdotnet.beans.BookCatalog;
-import com.kerdotnet.controllers.SessionRequestContent;
+import com.kerdotnet.command.IActionCommand;
+import com.kerdotnet.controller.SessionRequestContent;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.service.BookCatalogService;
@@ -13,11 +14,11 @@ import javax.servlet.ServletException;
 import java.util.List;
 
 /**
- * Delete one author from BookCatalog
- * Yevhen Ivanov; 2018-04-30
+ * Add one author to BookCatalog
+ * Yevhen Ivanov; 2018-04-25
  */
-public class DeleteBookCatalogAuthorCommand implements IActionCommand {
-    private static final Logger LOGGER = LoggerFactory.getLogger(DeleteBookCatalogAuthorCommand.class);
+public class AddOneAuthorCommand implements IActionCommand {
+    private static final Logger LOGGER = LoggerFactory.getLogger(AddOneAuthorCommand.class);
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
@@ -25,26 +26,30 @@ public class DeleteBookCatalogAuthorCommand implements IActionCommand {
 
         page = ConfigurationManager.getProperty("path.page.bookcatalogauthors");
 
-        String idAuthorString = sessionRequestContent.getRequestParameter("deleteauthorid");
+        String idAuthorString = sessionRequestContent.getRequestParameter("newauthor");
         int authorId = 0;
-        LOGGER.debug("Author id to be deleted: " + idAuthorString);
+        LOGGER.debug("New author id: " + idAuthorString);
         if (idAuthorString != null)
             authorId = Integer.parseInt(idAuthorString);
 
         BookCatalog bookCatalog = (BookCatalog)
                 sessionRequestContent.getSessionAttribute("bookcatalogentity");
         List<Author> authors;
-        LOGGER.debug("before deleteing: " + bookCatalog.getAuthors());
-        try {
-            bookCatalog.deleteOneAuthor(BookCatalogService.findAuthorById(authorId));
-            sessionRequestContent.setRequestAttribute("bookcatalogentity", bookCatalog);
-            LOGGER.debug("after deleteing: " + bookCatalog.getAuthors());
 
+        try {
             authors = BookCatalogService.getAllAuthors();
             sessionRequestContent.setRequestAttribute("authors", authors);
+            LOGGER.debug("authors: " + authors);
+
+            if (authorId != 0) {
+                bookCatalog.addOneAuthor(BookCatalogService.findAuthorById(authorId));
+            }
+
+            sessionRequestContent.setRequestAttribute("bookcatalogentity", bookCatalog);
         } catch (ServiceException e) {
             throw new ServletException(e);
         }
+
         return page;
     }
 }

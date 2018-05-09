@@ -197,7 +197,7 @@ CREATE TABLE `bookitem_user` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `transaction`
+-- Table structure for table `transactionmanager`
 --
 
 DROP TABLE IF EXISTS `transaction`;

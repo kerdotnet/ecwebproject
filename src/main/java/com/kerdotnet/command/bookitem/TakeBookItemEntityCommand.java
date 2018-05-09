@@ -2,10 +2,12 @@ package com.kerdotnet.command.bookitem;
 
 import com.kerdotnet.command.IActionCommand;
 import com.kerdotnet.controller.SessionRequestContent;
+import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.resource.MessageManager;
-import com.kerdotnet.service.BookOperationService;
+import com.kerdotnet.service.IBookOperationService;
+import com.kerdotnet.service.factory.ServiceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,8 +18,27 @@ import javax.servlet.ServletException;
  * Yevhen Ivanov; 2018-04-30
  */
 public class TakeBookItemEntityCommand implements IActionCommand {
+    private IBookOperationService bookOperationService;
+
     private static final Logger LOGGER = LoggerFactory.getLogger(TakeBookItemEntityCommand.class);
     public static final String BOOKITEMID = "bookitemid";
+
+    public TakeBookItemEntityCommand() {
+        ServiceFactory serviceFactory = null;
+        try {
+            serviceFactory = ServiceFactory.getInstance();
+            bookOperationService = serviceFactory.getBookOperationService();
+        } catch (ServiceException e) {
+            //TODO: throw Servlet exception and refactor CommandEnum that it can throw exception
+            LOGGER.debug("return book item command error: " + e.getMessage());
+        } catch (DAOSystemException e) {
+            LOGGER.debug("return book item command error: " + e.getMessage());
+        }
+    }
+
+    public TakeBookItemEntityCommand(IBookOperationService bookOperationService) {
+        this.bookOperationService = bookOperationService;
+    }
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
@@ -33,7 +54,7 @@ public class TakeBookItemEntityCommand implements IActionCommand {
         String login = (String) sessionRequestContent.getSessionAttribute("user");
 
         try {
-            if (!BookOperationService.takeBookItemByIdByUser(login, bookItemId)){
+            if (!bookOperationService.takeBookItemByIdByUser(login, bookItemId)){
                 throw new ServletException(MessageManager.getProperty("message.deleteerror"));
             }
         } catch (ServiceException e) {

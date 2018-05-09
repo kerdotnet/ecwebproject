@@ -3,10 +3,13 @@ package com.kerdotnet.command.bookitem;
 import com.kerdotnet.beans.BookItem;
 import com.kerdotnet.command.IActionCommand;
 import com.kerdotnet.controller.SessionRequestContent;
+import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.resource.MessageManager;
-import com.kerdotnet.service.BookItemService;
+import com.kerdotnet.service.IBookItemService;
+import com.kerdotnet.service.factory.ServiceFactory;
+import com.kerdotnet.service.serviceimplementation.BookItemServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,6 +24,25 @@ public class SaveBookItemEntityCommand implements IActionCommand {
 
     private static final String PARAM_BOOK_CATALOG_DESCRIPTION = "description";
     private static final String PARAM_BOOK_CATALOG_BOOKSHELF = "bookshelf";
+
+    private IBookItemService bookItemService;
+
+    public SaveBookItemEntityCommand() {
+        ServiceFactory serviceFactory = null;
+        try {
+            serviceFactory = ServiceFactory.getInstance();
+            bookItemService = serviceFactory.getBookItemService();
+        } catch (ServiceException e) {
+            //TODO: throw Servlet exception and refactor CommandEnum that it can throw exception
+            LOGGER.debug("Add user init error: " + e.getMessage());
+        } catch (DAOSystemException e) {
+            LOGGER.debug("Add user init error: " + e.getMessage());
+        }
+    }
+
+    public SaveBookItemEntityCommand(IBookItemService bookItemService) {
+        this.bookItemService = bookItemService;
+    }
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
@@ -43,7 +65,7 @@ public class SaveBookItemEntityCommand implements IActionCommand {
 
         page = ConfigurationManager.getProperty("path.page.refreshbookitem");
         try {
-            result = BookItemService.saveBookItemEntity(bookItem);
+            result = bookItemService.saveBookItemEntity(bookItem);
             if (!result){
                 throw new ServletException(MessageManager.getProperty("message.editerror"));
             }

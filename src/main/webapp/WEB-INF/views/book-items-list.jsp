@@ -14,8 +14,8 @@
             </c:if>
             <th scope="col"><fmt:message key="message.descriptionlabel" /></th>
             <th scope="col"><fmt:message key="message.bookshelf" /></th>
-            <th scope="col"><fmt:message key="message.actionlabel" /></th>
             <c:if test="${userType == 'ADMINISTRATOR'}">
+                <th scope="col"><fmt:message key="message.actionlabel" /></th>
                 <th scope="col"><fmt:message key="message.deletebutton" /></th>
             </c:if>
         </tr>
@@ -44,7 +44,7 @@
                     <td>${bookitemlist.getDescription()}</td>
                     <td>${bookitemlist.getBookShelfAddress()}</td>
                     <td>
-                        <c:if test="${takenbooks || mybooks}">
+                        <c:if test="${takenbooks || mybooks && userType == 'ADMINISTRATOR'}">
                             <a class="btn btn-primary"
                                href="controller?command=returnbookitem&bookitemid=${bookitemlist.getId()}"
                                role="button"><fmt:message key="message.returnlabel" /></a>

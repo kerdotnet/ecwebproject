@@ -1,4 +1,4 @@
-package com.kerdotnet.dao.transaction;
+package com.kerdotnet.dao.transactionmanager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 /**
  * Invocation Handler used for transactions
  * if a method is marked with Annotation InTransaction
- * Then this method is done with transaction
+ * Then this method is done with transactionmanager
  * Yevhen Ivanov, 2018-05-09
  */
 public class TransactionInvocationHandler implements InvocationHandler{
@@ -24,7 +24,7 @@ public class TransactionInvocationHandler implements InvocationHandler{
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         if (isTransactionAnnotationPresent(proxy, method)){
-            LOGGER.debug("Do with transaction!");
+            LOGGER.debug("Do with transactionmanager!");
             ITransactionManager txManager = new TransactionManagerImpl();
 
                 return txManager.doInTransaction(() -> {
@@ -32,7 +32,7 @@ public class TransactionInvocationHandler implements InvocationHandler{
                     return method.invoke(object, args);
                 });
         }
-        LOGGER.debug("Do without transaction");
+        LOGGER.debug("Do without transactionmanager");
         return method.invoke(object, args);
     }
 

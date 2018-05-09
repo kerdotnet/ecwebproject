@@ -1,9 +1,9 @@
-package com.kerdotnet.dao.transaction;
+package com.kerdotnet.dao.transactionmanager;
 
 import java.util.concurrent.Callable;
 
 /**
- * Interface aimed to implement transaction management
+ * Interface aimed to implement transactionmanager management
  * Yevhen Ivanov, 2018-04-27
  */
 public interface ITransactionManager {

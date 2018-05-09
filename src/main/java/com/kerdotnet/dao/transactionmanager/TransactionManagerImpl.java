@@ -1,4 +1,4 @@
-package com.kerdotnet.dao.transaction;
+package com.kerdotnet.dao.transactionmanager;
 
 import com.kerdotnet.dao.connectionfactory.ConnectionFactory;
 import com.kerdotnet.dao.connectionfactory.ConnectionFactoryFactory;

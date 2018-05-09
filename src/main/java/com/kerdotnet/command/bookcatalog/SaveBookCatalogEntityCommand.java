@@ -3,10 +3,12 @@ package com.kerdotnet.command.bookcatalog;
 import com.kerdotnet.beans.BookCatalog;
 import com.kerdotnet.command.IActionCommand;
 import com.kerdotnet.controller.SessionRequestContent;
+import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.resource.MessageManager;
-import com.kerdotnet.service.BookCatalogService;
+import com.kerdotnet.service.IBookCatalogService;
+import com.kerdotnet.service.factory.ServiceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,6 +25,25 @@ public class SaveBookCatalogEntityCommand implements IActionCommand {
     private static final String PARAM_BOOK_CATALOG_FULLNAME = "fullname";
     private static final String PARAM_BOOK_CATALOG_DESCRITPION = "description";
     private static final String PARAM_BOOK_CATALOG_KEYWORDS = "keywords";
+
+    private IBookCatalogService bookCatalogService;
+
+    public SaveBookCatalogEntityCommand() {
+        ServiceFactory serviceFactory = null;
+        try {
+            serviceFactory = ServiceFactory.getInstance();
+            bookCatalogService = serviceFactory.getBookCatalogService();
+        } catch (ServiceException e) {
+            //TODO: throw Servlet exception and refactor CommandEnum that it can throw exception
+            LOGGER.debug("Add user init error: " + e.getMessage());
+        } catch (DAOSystemException e) {
+            LOGGER.debug("Add user init error: " + e.getMessage());
+        }
+    }
+
+    public SaveBookCatalogEntityCommand(IBookCatalogService bookCatalogService) {
+        this.bookCatalogService = bookCatalogService;
+    }
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
@@ -43,7 +64,7 @@ public class SaveBookCatalogEntityCommand implements IActionCommand {
 
         page = ConfigurationManager.getProperty("path.page.main");
         try {
-            result = BookCatalogService.saveBookCatalogEntity(bookCatalog);
+            result = bookCatalogService.saveBookCatalogEntity(bookCatalog);
             if (!result){
                 throw new ServletException(MessageManager.getProperty("message.editerror"));
             }

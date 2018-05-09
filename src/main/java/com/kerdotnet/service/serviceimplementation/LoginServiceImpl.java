@@ -6,7 +6,7 @@ import com.kerdotnet.beans.UserAuthority;
 import com.kerdotnet.dao.IAuthorityDAO;
 import com.kerdotnet.dao.IUserAuthorityDAO;
 import com.kerdotnet.dao.IUserDAO;
-import com.kerdotnet.dao.transaction.InTransaction;
+import com.kerdotnet.dao.transactionmanager.InTransaction;
 import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.exceptions.NotUniqueUserEmailException;
 import com.kerdotnet.exceptions.NotUniqueUserLoginException;
@@ -48,7 +48,7 @@ public class LoginServiceImpl implements ILoginService {
             }
 
             return false;
-        } catch (Exception e) {
+        } catch (DAOSystemException e) {
             throw new ServiceException("Error in user authorization process. User was not retrieved successfully", e);
         }
     }
@@ -72,7 +72,7 @@ public class LoginServiceImpl implements ILoginService {
             LOGGER.debug("User is " + user);
             LOGGER.debug("administratorRole is " + administratorRole);
             return administratorRole;
-        } catch (Exception e) {
+        } catch (DAOSystemException e) {
             throw new ServiceException("Error in the user roles validation", e);
         }
     }

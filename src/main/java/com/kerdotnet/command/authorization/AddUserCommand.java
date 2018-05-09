@@ -20,7 +20,6 @@ import javax.servlet.ServletException;
 import static com.kerdotnet.utility.PasswordValidator.hashPassword;
 import static com.kerdotnet.utility.Validator.*;
 
-
 /**
  * Implementation of Add user command
  * Yevhen Ivanov; 2018-04-14

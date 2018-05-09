@@ -19,5 +19,4 @@ public interface IDAOFactory {
     IAuthorDAO getAuthorDAO() throws DAOSystemException;
     IBookItemDAO getBookItemDAO() throws DAOSystemException;
     IBookItemUserDAO getBookItemUserDAO() throws DAOSystemException;
-    ITransactionDAO getTransactionDAO() throws DAOSystemException;
 }

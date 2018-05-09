@@ -7,11 +7,17 @@ import java.util.regex.Pattern;
  * Yevhen Ivanov, 2018-04-22
  */
 public class Validator {
-    private static final Pattern LOGIN_PATTERN = Pattern.compile("[A-Za-z0-9_]+");
-    private static final Pattern PASS_PATTERN = Pattern.compile("\\A(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+*=!])(?=\\S+$).{8,}\\z");
-    private static final Pattern NAME_PATTERN = Pattern.compile("^[а-яА-ЯіІїЇёЁa-zA-Z0-9\\s]+$");
-    private static final Pattern EMAIL_PATTERN = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
-    private static final Pattern MOBILE_PATTERN = Pattern.compile("^((.+)?([0-9]{1})?[0-9]{1}-?)?[0-9]{3}-?[0-9]{3}-?[0-9]{4}$");
+    private static final Pattern LOGIN_PATTERN =
+            Pattern.compile("[A-Za-z0-9_]+");
+    private static final Pattern PASS_PATTERN =
+            Pattern.compile("\\A(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+*=!])(?=\\S+$).{8,}\\z");
+    private static final Pattern NAME_PATTERN =
+            Pattern.compile("^[а-яА-ЯіІїЇёЁa-zA-Z0-9\\s]+$");
+    private static final Pattern EMAIL_PATTERN =
+            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+    private static final Pattern MOBILE_PATTERN =
+            Pattern.compile("^((.+)?([0-9]{1})?[0-9]{1}-?)?[0-9]{3}-?[0-9]{3}-?[0-9]{4}$");
+
 
     /**
      * simple validation that password and confirmation password are equal

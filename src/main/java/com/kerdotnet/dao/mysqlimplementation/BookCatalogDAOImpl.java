@@ -2,13 +2,13 @@ package com.kerdotnet.dao.mysqlimplementation;
 
 import com.kerdotnet.beans.BookCatalog;
 import com.kerdotnet.dao.IBookCatalogDAO;
+import com.kerdotnet.dao.connectionfactory.ConnectionWrapper;
 import com.kerdotnet.dao.helpers.BookCatalogExtractor;
 import com.kerdotnet.dao.helpers.IEnricher;
 import com.kerdotnet.exceptions.DAOSystemException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
 import java.util.List;
 
 public class BookCatalogDAOImpl extends AbstractDAO implements IBookCatalogDAO {
@@ -53,8 +53,8 @@ public class BookCatalogDAOImpl extends AbstractDAO implements IBookCatalogDAO {
                     "inner join author on bookcatalog_author.author_id = author.id " +
                     " where author.name LIKE  ? )";
 
-    public BookCatalogDAOImpl(Connection connection) {
-        super(connection);
+    public BookCatalogDAOImpl() {
+        super();
     }
 
     @Override

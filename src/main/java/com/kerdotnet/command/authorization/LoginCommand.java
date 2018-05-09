@@ -2,9 +2,11 @@ package com.kerdotnet.command.authorization;
 
 import com.kerdotnet.command.IActionCommand;
 import com.kerdotnet.controller.SessionRequestContent;
+import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.filter.ClientType;
-import com.kerdotnet.service.LoginLogic;
+import com.kerdotnet.service.ILoginService;
+import com.kerdotnet.service.factory.ServiceFactory;
 import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.resource.MessageManager;
 import org.slf4j.Logger;
@@ -19,10 +21,28 @@ import javax.servlet.ServletException;
  */
 
 public class LoginCommand implements IActionCommand {
+    private ILoginService loginService;
 
     private static final String PARAM_NAME_LOGIN = "login";
     private static final String PARAM_NAME_PASSWORD = "password";
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginCommand.class);
+
+    public LoginCommand() {
+        ServiceFactory serviceFactory = null;
+        try {
+            serviceFactory = ServiceFactory.getInstance();
+            loginService = serviceFactory.getLoginService();
+        } catch (ServiceException e) {
+            //TODO: throw Servlet exception and refactor CommandEnum that it can throw exception
+            LOGGER.debug("Add user init error: " + e.getMessage());
+        } catch (DAOSystemException e) {
+            LOGGER.debug("Add user init error: " + e.getMessage());
+        }
+    }
+
+    public LoginCommand(ILoginService loginService) {
+        this.loginService = loginService;
+    }
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
@@ -37,9 +57,9 @@ public class LoginCommand implements IActionCommand {
         boolean isAdmin =false;
 
         try {
-            loginResult = LoginLogic.checkLogin(login, password);
+            loginResult = loginService.checkLogin(login, password);
             if (loginResult)
-                isAdmin = LoginLogic.checkAdministratorRole(login);
+                isAdmin = loginService.checkAdministratorRole(login);
         } catch (ServiceException e) {
             throw new ServletException(e);
         }

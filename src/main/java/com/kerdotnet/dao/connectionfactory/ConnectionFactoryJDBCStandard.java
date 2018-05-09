@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
@@ -18,7 +17,7 @@ import java.sql.SQLException;
 public class ConnectionFactoryJDBCStandard implements ConnectionFactory{
 
     protected DataSource dataSource;
-    protected Connection connection;
+    protected ConnectionWrapper connection;
     private static final Logger LOGGER = LoggerFactory.getLogger(ConnectionFactoryJDBCStandard.class);
 
     private ConnectionFactoryJDBCStandard() throws DAOConfigurationException {
@@ -39,11 +38,11 @@ public class ConnectionFactoryJDBCStandard implements ConnectionFactory{
     }
 
     @Override
-    public Connection getConnection() throws DAOSystemException {
+    public ConnectionWrapper getConnection() throws DAOSystemException {
         try {
             if (this.connection == null
                     || this.connection.isClosed()) {
-                this.connection = dataSource.getConnection();
+                this.connection = new ConnectionWrapper(dataSource.getConnection());
             }
         } catch (SQLException e) {
             throw new DAOSystemException("Abstract DAOManager exception. Error in connection opening", e);

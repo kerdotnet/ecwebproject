@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 /**
- * Transaction extractor return Transaction from ResultSet
+ * InTransaction extractor return InTransaction from ResultSet
  * and create preparedStatements by Entity
  * Yevhen Ivanov, 2018-04-21
  */

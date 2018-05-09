@@ -3,11 +3,13 @@ package com.kerdotnet.command.authorization;
 import com.kerdotnet.beans.User;
 import com.kerdotnet.command.IActionCommand;
 import com.kerdotnet.controller.SessionRequestContent;
+import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.exceptions.NotUniqueUserEmailException;
 import com.kerdotnet.exceptions.NotUniqueUserLoginException;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.filter.ClientType;
-import com.kerdotnet.service.LoginLogic;
+import com.kerdotnet.service.ILoginService;
+import com.kerdotnet.service.factory.ServiceFactory;
 import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.resource.MessageManager;
 import org.slf4j.Logger;
@@ -25,6 +27,7 @@ import static com.kerdotnet.utility.Validator.*;
  */
 
 public class AddUserCommand implements IActionCommand {
+    private ILoginService loginService;
 
     private static final String PARAM_NAME_LOGIN = "login";
     private static final String PARAM_NAME_PASSWORD = "password";
@@ -35,6 +38,23 @@ public class AddUserCommand implements IActionCommand {
     private static final String PARAM_NAME_CONFIRMATION_PASSWORD = "passwordConfirmation";
 
     static final Logger LOGGER = LoggerFactory.getLogger(AddUserCommand.class);
+
+    public AddUserCommand() {
+        ServiceFactory serviceFactory = null;
+        try {
+            serviceFactory = ServiceFactory.getInstance();
+            loginService = serviceFactory.getLoginService();
+        } catch (ServiceException e) {
+            //TODO: throw Servlet exception and refactor CommandEnum that it can throw exception
+            LOGGER.debug("Add user init error: " + e.getMessage());
+        } catch (DAOSystemException e) {
+            LOGGER.debug("Add user init error: " + e.getMessage());
+        }
+    }
+
+    public AddUserCommand(ILoginService loginService) {
+        this.loginService = loginService;
+    }
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
@@ -65,9 +85,9 @@ public class AddUserCommand implements IActionCommand {
         }
 
         try {
-            addUserResult = LoginLogic.addUser(user);
-            loginResult = LoginLogic.checkLogin(user.getUsername(), user.getPassword());
-            isAdmin = LoginLogic.checkAdministratorRole(user.getUsername());
+            addUserResult = loginService.addUser(user);
+            loginResult = loginService.checkLogin(user.getUsername(), password);
+            isAdmin = loginService.checkAdministratorRole(user.getUsername());
         } catch (NotUniqueUserEmailException e){
             sessionRequestContent.setRequestAttribute("errorAddUserMessage",
                     MessageManager.getProperty("message.existemail"));

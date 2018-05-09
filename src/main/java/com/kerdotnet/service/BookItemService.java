@@ -57,7 +57,6 @@ public class BookItemService {
      * @throws ServiceException
      */
     public static List<BookItem> getBookItemsByBookCatalogIdOnShelves(int bookCatalogId) throws ServiceException {
-        ConnectionFactory connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
 
         try {
             IDAOFactory daoFactory = AbstractDAOFactory.getDAOFactory();
@@ -67,13 +66,6 @@ public class BookItemService {
         } catch (DAOSystemException e) {
             throw new ServiceException(
                     MessageManager.getProperty("message.businesslogicbookcatalog"), e);
-        } finally {
-            try {
-                connectionFactory.closeConnection();
-            } catch (DAOSystemException e) {
-                throw new ServiceException(
-                        MessageManager.getProperty("message.businesslogicbookcatalog"), e);
-            }
         }
     }
 

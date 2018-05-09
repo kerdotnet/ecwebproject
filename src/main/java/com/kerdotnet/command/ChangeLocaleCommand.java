@@ -16,7 +16,7 @@ import java.util.Locale;
 public class ChangeLocaleCommand implements IActionCommand {
     private static final Logger LOGGER = LoggerFactory.getLogger(ChangeLocaleCommand.class);
 
-    private final static String PARAM_LOCALE="language";
+    private final static String PARAM_LOCALE = "language";
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {

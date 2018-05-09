@@ -13,8 +13,6 @@ public abstract class AbstractDAOFactory {
     public enum DAOFactoryFactoryType {MY_SQL}
     private static DAOFactoryFactoryType currentType = DAOFactoryFactoryType.MY_SQL;
 
-    protected ConnectionFactory connectionFactory;
-
     public static IDAOFactory getDAOFactory() throws DAOSystemException {
         IDAOFactory result;
         try {

@@ -6,7 +6,6 @@ import com.kerdotnet.dao.helpers.BookCatalogAuthorExtractor;
 import com.kerdotnet.dao.helpers.IEnricher;
 import com.kerdotnet.exceptions.DAOSystemException;
 
-import java.sql.Connection;
 import java.util.List;
 
 public class BookCatalogAuthorDAOImpl extends AbstractDAO implements IBookCatalogAuthorDAO {
@@ -32,8 +31,8 @@ public class BookCatalogAuthorDAOImpl extends AbstractDAO implements IBookCatalo
     private static final String SQL_DELETE_BY_BOOK_CATALOG_ID =
             "DELETE FROM bookcatalog_author WHERE bookcatalog_id = ?";
 
-    public BookCatalogAuthorDAOImpl(Connection connection) {
-        super(connection);
+    public BookCatalogAuthorDAOImpl() {
+        super();
     }
 
     @Override

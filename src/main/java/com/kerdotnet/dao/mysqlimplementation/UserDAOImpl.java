@@ -8,7 +8,6 @@ import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.exceptions.NotUniqueUserEmailException;
 import com.kerdotnet.exceptions.NotUniqueUserLoginException;
 
-import java.sql.*;
 import java.util.List;
 
 public class UserDAOImpl extends AbstractDAO implements IUserDAO {
@@ -29,20 +28,20 @@ public class UserDAOImpl extends AbstractDAO implements IUserDAO {
             "WHERE id = ?";
     private static final String SQL_DELETE_ONE = "DELETE FROM user WHERE id = ?";
 
-    public UserDAOImpl(Connection connection) {
-        super(connection);
+    public UserDAOImpl() {
+        super();
     }
 
     @Override
     public User findEntity(Integer id) throws DAOSystemException {
        return (User) findEntity(SQL_SELECT_BY_ID, id,  new UserExtractor(),
-               new UserEnricher(new UserAuthorityDAOImpl(connection)));
+               new UserEnricher(new UserAuthorityDAOImpl()));
     }
 
     @Override
     public List<User> findAll() throws DAOSystemException {
         return findAll(SQL_SELECT_ALL, new UserExtractor(),
-                new UserEnricher(new UserAuthorityDAOImpl(connection)));
+                new UserEnricher(new UserAuthorityDAOImpl()));
     }
 
     @Override
@@ -72,12 +71,12 @@ public class UserDAOImpl extends AbstractDAO implements IUserDAO {
     @Override
     public User findUserByUserName(String userName) throws DAOSystemException {
         return (User) findEntityByStringParameter(SQL_SELECT_BY_USERNAME, userName,  new UserExtractor(),
-                new UserEnricher(new UserAuthorityDAOImpl(connection)));
+                new UserEnricher(new UserAuthorityDAOImpl()));
     }
 
     @Override
     public User findUserByEmail(String email) throws DAOSystemException {
         return (User) findEntityByStringParameter(SQL_SELECT_BY_EMAIL, email,  new UserExtractor(),
-                new UserEnricher(new UserAuthorityDAOImpl(connection)));
+                new UserEnricher(new UserAuthorityDAOImpl()));
     }
 }

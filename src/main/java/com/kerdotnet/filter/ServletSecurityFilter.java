@@ -23,10 +23,13 @@ public class ServletSecurityFilter implements Filter {
         HttpServletResponse servletResponse = (HttpServletResponse) response;
 
         HttpSession session = servletRequest.getSession();
+
         ClientType type = (ClientType) session.getAttribute("userType");
+
         if (type == null || type == ClientType.GUEST) {
             type = ClientType.GUEST;
             session.setAttribute("userType", type);
+
             String action = servletRequest.getParameter("command");
             if (action != null && ("registration".equals(action)
                     ||"login".equals(action)

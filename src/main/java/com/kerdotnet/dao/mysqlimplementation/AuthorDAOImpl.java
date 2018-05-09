@@ -6,7 +6,6 @@ import com.kerdotnet.dao.helpers.AuthorExtractor;
 import com.kerdotnet.dao.helpers.IEnricher;
 import com.kerdotnet.exceptions.DAOSystemException;
 
-import java.sql.Connection;
 import java.util.List;
 
 public class AuthorDAOImpl extends AbstractDAO implements IAuthorDAO {
@@ -23,8 +22,8 @@ public class AuthorDAOImpl extends AbstractDAO implements IAuthorDAO {
             "WHERE id = ?";
     private static final String SQL_DELETE_ONE = "DELETE FROM author WHERE id = ?";
 
-    public AuthorDAOImpl(Connection connection) {
-        super(connection);
+    public AuthorDAOImpl() {
+        super();
     }
 
     @Override

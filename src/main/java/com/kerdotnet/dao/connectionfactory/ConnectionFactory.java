@@ -9,6 +9,6 @@ import java.sql.Connection;
  * Yevhen Ivanov, 2018-04-26
  */
 public interface ConnectionFactory {
-    Connection getConnection() throws DAOSystemException;
+    ConnectionWrapper getConnection() throws DAOSystemException;
     void closeConnection() throws DAOSystemException;
 }

@@ -7,7 +7,6 @@ import com.kerdotnet.dao.helpers.BookItemExtractor;
 import com.kerdotnet.dao.helpers.IEnricher;
 import com.kerdotnet.exceptions.DAOSystemException;
 
-import java.sql.Connection;
 import java.util.List;
 
 public class BookItemDAOImpl extends AbstractDAO implements IBookItemDAO {
@@ -34,14 +33,14 @@ public class BookItemDAOImpl extends AbstractDAO implements IBookItemDAO {
             "WHERE id = ?";
     private static final String SQL_DELETE_ONE = "DELETE FROM bookitem WHERE id = ?";
 
-    public BookItemDAOImpl(Connection connection) {
-        super(connection);
+    public BookItemDAOImpl() {
+        super();
     }
 
     @Override
     public BookItem findEntity(Integer id) throws DAOSystemException {
         return (BookItem) findEntity(SQL_SELECT_BY_ID, id,  new BookItemExtractor(),
-                new BookItemEnricher(new BookItemUserDAOImpl(connection)));
+                new BookItemEnricher(new BookItemUserDAOImpl()));
     }
 
     @Override
@@ -67,18 +66,18 @@ public class BookItemDAOImpl extends AbstractDAO implements IBookItemDAO {
     @Override
     public List<BookItem> findByBookCatalogId(int bookCatalogId) throws DAOSystemException {
         return findAllByInt(SQL_SELECT_BY_BOOKCATALOG_ID, bookCatalogId,  new BookItemExtractor(),
-                new BookItemEnricher(new BookItemUserDAOImpl(connection)));
+                new BookItemEnricher(new BookItemUserDAOImpl()));
     }
 
     @Override
     public List<BookItem> findByBookCatalogIdOnShelves(int bookCatalogId) throws DAOSystemException {
         return findAllByInt(SQL_SELECT_BY_BOOKCATALOG_ID_ON_SHELVES, bookCatalogId,  new BookItemExtractor(),
-                new BookItemEnricher(new BookItemUserDAOImpl(connection)));
+                new BookItemEnricher(new BookItemUserDAOImpl()));
     }
 
     @Override
     public List<BookItem> findAllBookItemsTakenByUsers() throws DAOSystemException {
         return findAll(SQL_SELECT_All_TAKEN_BY_USERS, new BookItemExtractor(),
-                new BookItemEnricher(new BookItemUserDAOImpl(connection)));
+                new BookItemEnricher(new BookItemUserDAOImpl()));
     }
 }

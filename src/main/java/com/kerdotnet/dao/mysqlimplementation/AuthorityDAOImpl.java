@@ -6,7 +6,6 @@ import com.kerdotnet.dao.helpers.AuthorityExtractor;
 import com.kerdotnet.dao.helpers.IEnricher;
 import com.kerdotnet.exceptions.DAOSystemException;
 
-import java.sql.Connection;
 import java.util.List;
 
 public class AuthorityDAOImpl extends AbstractDAO implements IAuthorityDAO {
@@ -23,8 +22,8 @@ public class AuthorityDAOImpl extends AbstractDAO implements IAuthorityDAO {
             "WHERE id = ?";
     private static final String SQL_DELETE_ONE = "DELETE FROM user_authority WHERE id = ?";
 
-    public AuthorityDAOImpl(Connection connection) {
-        super(connection);
+    public AuthorityDAOImpl() {
+        super();
     }
 
     @Override

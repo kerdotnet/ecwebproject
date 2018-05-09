@@ -13,12 +13,12 @@
                                 <td>
                                     <input type="text" class="form-control"
                                            id="name" name="name"
-                                           value="${bookcatalogentity.getName()}">
+                                           value="${bookcatalogentity.name}">
                                 </td>
                             </c:when>
 
                             <c:otherwise>
-                                <td>${bookcatalogentity.getName()}</td>
+                                <td>${bookcatalogentity.name}</td>
                             </c:otherwise>
                         </c:choose>
                     </tr>
@@ -28,11 +28,11 @@
                             <c:when  test="${editmode}">
                                 <td>
                                     <textarea class="form-control" id="fullname"
-                                              name="fullname" rows="5">${bookcatalogentity.getFullName()}</textarea>
+                                              name="fullname" rows="5">${bookcatalogentity.fullName}</textarea>
                                 </td>
                             </c:when>
                             <c:otherwise>
-                                <td>${bookcatalogentity.getFullName()}</td>
+                                <td>${bookcatalogentity.fullName}</td>
                             </c:otherwise>
                         </c:choose>
                     </tr>
@@ -42,11 +42,11 @@
                             <c:when  test="${editmode}">
                                 <td>
                                     <textarea class="form-control" id="description" name="description"
-                                              rows="6">${bookcatalogentity.getDescription()}</textarea>
+                                              rows="6">${bookcatalogentity.description}</textarea>
                                 </td>
                             </c:when>
                             <c:otherwise>
-                                <td>${bookcatalogentity.getDescription()}</td>
+                                <td>${bookcatalogentity.description}</td>
                             </c:otherwise>
                         </c:choose>
                     </tr>
@@ -56,19 +56,19 @@
                             <c:when  test="${editmode}">
                                 <td>
                                     <textarea class="form-control" id="keywords" name="keywords"
-                                              rows="4">${bookcatalogentity.getKeywords()}</textarea>
+                                              rows="4">${bookcatalogentity.keywords}</textarea>
                                 </td>
                             </c:when>
                             <c:otherwise>
-                                <td>${bookcatalogentity.getKeywords()}</td>
+                                <td>${bookcatalogentity.keywords}</td>
                             </c:otherwise>
                         </c:choose>
                     </tr>
                     <tr>
                         <th scope="row"><fmt:message key="message.authorslabel" /></th>
                         <td>
-                            <c:forEach items="${bookcatalogentity.getAuthors()}" var="authors" varStatus="loop">
-                                ${authors.getName()}
+                            <c:forEach items="${bookcatalogentity.authors}" var="authors" varStatus="loop">
+                                ${authors.name}
                                 <c:if test="${!loop.last}">,</c:if>
                             </c:forEach>
                             <c:if  test="${editmode}">
@@ -83,7 +83,7 @@
             <c:if test="${userType == 'ADMINISTRATOR'}">
                 <c:if  test="${not editmode}">
                     <a class="btn btn-primary"
-                       href="controller?command=editbookcatalog&bookcatalogid=${bookcatalogentity.getId()}"
+                       href="controller?command=editbookcatalog&bookcatalogid=${bookcatalogentity.id}"
                        role="button"><fmt:message key="message.editbooklabel" /></a>
                 </c:if>
                 <c:if  test="${editmode}">

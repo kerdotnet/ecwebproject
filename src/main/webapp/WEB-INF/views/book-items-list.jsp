@@ -23,42 +23,42 @@
         <tbody>
             <c:forEach items="${bookitemlist}" var="bookitemlist">
                 <tr>
-                    <th scope="row" hidden>${bookitemlist.getId()}</th>
+                    <th scope="row" hidden>${bookitemlist.id}</th>
                     <c:if test="${(userType == 'ADMINISTRATOR' && takenbooks)||mybooks}">
                         <c:if test="${(userType == 'ADMINISTRATOR' && takenbooks)}">
                                 <td>
-                                        ${bookitemlist.getBookItemUser().getUser().toString()}
+                                        ${bookitemlist.bookItemUser.user.toString()}
                                 </td>
                         </c:if>
                             <td>
                                 <c:if test="${overdue}">
                                     <div class="alert alert-warning" role="alert">
                                 </c:if>
-                                    ${bookitemlist.getBookItemUser().getFarmatedDate()}
+                                    <fmt:formatDate type ="date" value="${bookitemlist.bookItemUser.dateUtil}"/>
                                 <c:if test="${overdue}">
                                     </div>
                                 </c:if>
                             </td>
 
                     </c:if>
-                    <td>${bookitemlist.getDescription()}</td>
-                    <td>${bookitemlist.getBookShelfAddress()}</td>
+                    <td>${bookitemlist.description}</td>
+                    <td>${bookitemlist.bookShelfAddress}</td>
                     <td>
                         <c:if test="${takenbooks || mybooks && userType == 'ADMINISTRATOR'}">
                             <a class="btn btn-primary"
-                               href="controller?command=returnbookitem&bookitemid=${bookitemlist.getId()}"
+                               href="controller?command=returnbookitem&bookitemid=${bookitemlist.id}"
                                role="button"><fmt:message key="message.returnlabel" /></a>
                         </c:if>
                         <c:if test="${!(takenbooks || mybooks )}">
                             <a class="btn btn-primary"
-                               href="controller?command=takebookitem&bookitemid=${bookitemlist.getId()}"
+                               href="controller?command=takebookitem&bookitemid=${bookitemlist.id}"
                                role="button"><fmt:message key="message.takelabel" /></a>
                         </c:if>
                     </td>
                     <c:if test="${userType == 'ADMINISTRATOR'}">
                         <td>
                             <a class="btn btn-primary"
-                               href="controller?command=deletebookitem&bookitemid=${bookitemlist.getId()}"
+                               href="controller?command=deletebookitem&bookitemid=${bookitemlist.id}"
                                role="button"><fmt:message key="message.deletebutton" /></a>
                         </td>
                     </c:if>

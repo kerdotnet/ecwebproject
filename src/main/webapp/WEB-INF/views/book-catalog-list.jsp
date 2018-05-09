@@ -19,28 +19,28 @@
         <tbody>
             <c:forEach items="${bookcataloglist}" var="bookcataloglist">
                 <tr>
-                    <th scope="row" hidden>${bookcataloglist.getId()}</th>
+                    <th scope="row" hidden>${bookcataloglist.id}</th>
                     <td><a class="nav-link"
-                           href = "controller?command=viewbookcatalogentity&bookcatalogid=${bookcataloglist.getId()}">
-                            ${bookcataloglist.getName()}</a></td>
+                           href = "controller?command=viewbookcatalogentity&bookcatalogid=${bookcataloglist.id}">
+                            ${bookcataloglist.name}</a></td>
                     <td>
-                        <c:forEach items="${bookcataloglist.getAuthors()}"
+                        <c:forEach items="${bookcataloglist.authors}"
                                    var="authors" varStatus="loop">
-                            ${authors.getName()}
+                            ${authors.name}
                             <c:if test="${!loop.last}">,</c:if>
                         </c:forEach>
                     </td>
-                    <td>${bookcataloglist.getFullName()}</td>
+                    <td>${bookcataloglist.fullName}</td>
 
                     <td>
                         <a class="btn btn-primary"
-                           href="controller?command=listbookitems&bookcatalogid=${bookcataloglist.getId()}"
+                           href="controller?command=listbookitems&bookcatalogid=${bookcataloglist.id}"
                            role="button"><fmt:message key="message.viewlabel" /></a>
                     </td>
                     <c:if test="${userType == 'ADMINISTRATOR'}">
                         <td>
                             <a class="btn btn-primary"
-                               href="controller?command=deletebookcatalog&bookcatalogid=${bookcataloglist.getId()}"
+                               href="controller?command=deletebookcatalog&bookcatalogid=${bookcataloglist.id}"
                                role="button"><fmt:message key="message.deletebutton" /></a>
                         </td>
                     </c:if>

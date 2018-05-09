@@ -1,7 +1,10 @@
 package com.kerdotnet.beans;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
  * java DTO class for links between Book Items and Users entities
@@ -61,9 +64,14 @@ public class BookItemUser extends Entity {
         return date;
     }
 
-    public String getFarmatedDate() {
+    public String getFormatedDate() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return date.format(formatter);
+    }
+
+    public Date getDateUtil(){
+        Instant instant = date.toInstant(ZoneOffset.UTC);
+       return Date.from(instant);
     }
 
     public void setDate(LocalDateTime date) {

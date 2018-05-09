@@ -5,10 +5,10 @@
     <form action = "controller" method="post" >
         <input type="hidden" name="command" value="addnewauthor">
         <ul class="list-group">
-            <c:forEach items="${bookcatalogentity.getAuthors()}" var="authors" varStatus="loop">
-                <li class="list-group-item" value="${authors.getId()}">
-                    ${authors.getName()}<a class="btn btn-primary float-right"
-                                           href="controller?command=deletebookcatalogauthor&deleteauthorid=${authors.getId()}"
+            <c:forEach items="${bookcatalogentity.authors}" var="authors" varStatus="loop">
+                <li class="list-group-item" value="${authors.id}">
+                    ${authors.name}<a class="btn btn-primary float-right"
+                                           href="controller?command=deletebookcatalogauthor&deleteauthorid=${authors.id}"
                                            role="button"><fmt:message key="message.deletebutton" /></a>
                 </li>
             </c:forEach>
@@ -17,7 +17,7 @@
         <div class="form-group w-50">
             <select class="form-control" name="newauthor" id="newauthor">
                 <c:forEach items="${authors}" var="author" varStatus="loop">
-                    <option value="${author.getId()}">${author.getName()}</option>
+                    <option value="${author.id}">${author.name}</option>
                 </c:forEach>
             </select>
         </div>

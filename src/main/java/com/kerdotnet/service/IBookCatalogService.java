@@ -34,14 +34,6 @@ public interface IBookCatalogService  extends IService{
     List<BookCatalog> getAllBookCatalogBySearchRequestFullTextByPage(
             String searchRequest, int page, int quantityAtPage) throws ServiceException;
 
-    /**
-     * return all Book Catalog entities from DB by text Query
-     * @param searchRequest - the query to DB
-     * @return
-     * @throws ServiceException
-     */
-    List<BookCatalog> getAllBookCatalogBySearchRequestFullText(String searchRequest) throws ServiceException;
-
     int getAllBookCatalogQuantity() throws ServiceException;
 
     /**

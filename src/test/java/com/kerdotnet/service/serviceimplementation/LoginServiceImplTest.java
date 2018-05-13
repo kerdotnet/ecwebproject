@@ -49,7 +49,7 @@ public class LoginServiceImplTest {
     //ArgumentCaptor<String> stringArgumentCaptor;
 
     @Before
-    public void initData() throws Exception{
+    public void setUp() throws Exception{
         userAuthorityListWithAdmin = Arrays.asList(
                 new UserAuthority(1,1),
                 new UserAuthority(1,2)

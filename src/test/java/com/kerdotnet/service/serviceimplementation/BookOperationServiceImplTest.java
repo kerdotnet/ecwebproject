@@ -15,7 +15,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.hamcrest.CoreMatchers.any;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 import static org.mockito.BDDMockito.given;
@@ -33,11 +32,6 @@ public class BookOperationServiceImplTest {
 
     @InjectMocks
     private IBookOperationService operationService = new BookOperationServiceImpl();
-
-    @Before
-    public void initData() throws Exception{
-
-    }
 
     @Test
     public void testTakeBookItemByIdByUser_Success() throws Exception{

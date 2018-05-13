@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
  * Yevhen Ivanov, 2018-04-02
  */
 
-@WebServlet(urlPatterns = "/",
+@WebServlet(urlPatterns = "/controller",
         loadOnStartup = 0)
 public class Controller extends HttpServlet{
 

@@ -85,22 +85,6 @@ public class BookCatalogServiceImpl implements IBookCatalogService {
     }
 
     @Override
-    public List<BookCatalog> getAllBookCatalogBySearchRequestFullText(String searchRequest) throws ServiceException {
-        List<BookCatalog> bookCatalogList;
-
-        try {
-            bookCatalogList = bcDAO.findByKeywordsOrNameOrAuthor(searchRequest);
-
-            EnrichBookCatalogListWithAuthors(bookCatalogList);
-        } catch (DAOSystemException e) {
-            throw new ServiceException(
-                    MessageManager.getProperty("message.businesslogicbookcatalog"), e);
-        }
-
-        return bookCatalogList;
-    }
-
-    @Override
     public List<BookCatalog> getAllBookCatalogBySearchRequestFullTextByPage(
             String searchRequest, int page, int quantityAtPage) throws ServiceException {
         List<BookCatalog> bookCatalogList;
@@ -152,16 +136,6 @@ public class BookCatalogServiceImpl implements IBookCatalogService {
         }
     }
 
-    private void deleteBookItemsByBookCatalogId(int bookCatalogId) throws DAOSystemException {
-        List<BookItem> bookItemList = bookItemDAO.findByBookCatalogId(bookCatalogId);
-        for (BookItem bookItem : bookItemList) {
-            List<BookItemUser> bookItemUserList = bookItemUserDAO.findAllByBookItemId(bookItem.getId());
-            for (BookItemUser bookItemUser : bookItemUserList)
-                bookItemUserDAO.delete(bookItemUser);
-            bookItemDAO.delete(bookItem);
-        }
-    }
-
     @Override
     public boolean saveBookCatalogEntity(BookCatalog bookCatalog) throws ServiceException {
         try {
@@ -205,6 +179,16 @@ public class BookCatalogServiceImpl implements IBookCatalogService {
         } catch (DAOSystemException e) {
             throw new ServiceException(
                     MessageManager.getProperty("message.businesslogicbookcatalog"), e);
+        }
+    }
+
+    private void deleteBookItemsByBookCatalogId(int bookCatalogId) throws DAOSystemException {
+        List<BookItem> bookItemList = bookItemDAO.findByBookCatalogId(bookCatalogId);
+        for (BookItem bookItem : bookItemList) {
+            List<BookItemUser> bookItemUserList = bookItemUserDAO.findAllByBookItemId(bookItem.getId());
+            for (BookItemUser bookItemUser : bookItemUserList)
+                bookItemUserDAO.delete(bookItemUser);
+            bookItemDAO.delete(bookItem);
         }
     }
 

@@ -33,6 +33,16 @@ public class BookItem extends Entity {
         this.enabled = enabled;
     }
 
+    public BookItem(int id, int bookCatalogId, String description,
+                    String bookShelfAddress, boolean enabled, BookItemUser bookItemUser) {
+        this.setId(id);
+        this.bookCatalogId = bookCatalogId;
+        this.description = description;
+        this.bookShelfAddress = bookShelfAddress;
+        this.enabled = enabled;
+        this.bookItemUser = bookItemUser;
+    }
+
     public int getBookCatalogId() {
         return bookCatalogId;
     }

@@ -22,6 +22,9 @@ public class BookCatalogServiceImpl implements IBookCatalogService {
     private IBookItemDAO bookItemDAO;
     private IBookItemUserDAO bookItemUserDAO;
 
+    public BookCatalogServiceImpl() {
+    }
+
     public BookCatalogServiceImpl(IBookCatalogDAO bcDAO,
                                   IBookCatalogAuthorDAO bookCatalogAuthorDAO,
                                   IAuthorDAO authorDAO, IBookItemDAO bookItemDAO,

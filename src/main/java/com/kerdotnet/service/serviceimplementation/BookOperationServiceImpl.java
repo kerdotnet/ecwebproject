@@ -20,6 +20,9 @@ public class BookOperationServiceImpl implements IBookOperationService{
     private IUserDAO userDAO;
     private IBookItemUserDAO bookItemUserDAO;
 
+    public BookOperationServiceImpl() {
+    }
+
     public BookOperationServiceImpl(IUserDAO userDAO, IBookItemUserDAO bookItemUserDAO) {
         this.userDAO = userDAO;
         this.bookItemUserDAO = bookItemUserDAO;

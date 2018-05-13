@@ -27,6 +27,9 @@ public class BookItemServiceImpl implements IBookItemService{
     private IBookItemDAO bookItemDAO;
     private IUserDAO userDAO;
 
+    public BookItemServiceImpl() {
+    }
+
     public BookItemServiceImpl(IUserDAO userDAO, IBookItemDAO bookItemDAO, IBookItemUserDAO bookItemUserDAO) {
         this.bookItemUserDAO = bookItemUserDAO;
         this.bookItemDAO = bookItemDAO;

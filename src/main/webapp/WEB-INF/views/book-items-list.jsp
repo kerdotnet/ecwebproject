@@ -27,7 +27,7 @@
                     <c:if test="${(userType == 'ADMINISTRATOR' && takenbooks)||mybooks}">
                         <c:if test="${(userType == 'ADMINISTRATOR' && takenbooks)}">
                                 <td>
-                                        ${bookitemlist.bookItemUser.user.toString()}
+                                    <ctg:user-info user="${bookitemlist.bookItemUser.user}"/>
                                 </td>
                         </c:if>
                             <td>

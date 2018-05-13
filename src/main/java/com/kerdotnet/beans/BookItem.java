@@ -78,6 +78,23 @@ public class BookItem extends Entity {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BookItem bookItem = (BookItem) o;
+
+        return getId() == bookItem.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + getId();
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "BookItem{" +
                 "Id=" + getId() +

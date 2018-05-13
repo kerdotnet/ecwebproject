@@ -53,6 +53,23 @@ public class Author extends Entity{
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Author author = (Author) o;
+
+        return getId() == author.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + getId();
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Author{" +
                 "Id=" + getId() +

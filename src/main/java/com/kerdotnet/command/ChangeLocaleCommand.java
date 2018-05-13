@@ -21,12 +21,23 @@ public class ChangeLocaleCommand implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         String page;
-        page = ConfigurationManager.getProperty("path.page.login");
+
         String currentLocale = sessionRequestContent.getRequestParameter(PARAM_LOCALE);
+
+        String login = (String) sessionRequestContent.getSessionAttribute("user");
+        LOGGER.debug("current login: " + login);
+
+
+        if (login == null) {
+            page = ConfigurationManager.getProperty("path.page.login");
+        } else {
+            page = ConfigurationManager.getProperty("path.page.main");
+        }
 
         Locale.setDefault(new Locale(currentLocale));
         MessageManager.ChangeLocale();
-        LOGGER.debug(currentLocale);
+
+        LOGGER.debug("Locale was change. New locale is " + currentLocale);
 
         return page;
     }

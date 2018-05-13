@@ -66,6 +66,11 @@
             </c:forEach>
         </tbody>
     </table>
+    <div class="form-group  has-danger  w-25">
+        <label><font color = "red">${errorMessage}</font></label>
+        <label><font color = "red">${wrongCommand}</font></label>
+        <label><font color = "red">${nullPage}</font></label>
+    </div>
     <c:if test="${userType == 'ADMINISTRATOR' && !(takenbooks || mybooks )}">
         <a class="btn btn-primary" href="controller?command=addbookitem" role="button">Add on shelve</a>
     </c:if>

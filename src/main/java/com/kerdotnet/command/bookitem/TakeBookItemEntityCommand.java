@@ -55,7 +55,9 @@ public class TakeBookItemEntityCommand implements IActionCommand {
 
         try {
             if (!bookOperationService.takeBookItemByIdByUser(login, bookItemId)){
-                throw new ServletException(MessageManager.getProperty("message.deleteerror"));
+                sessionRequestContent.setSessionAttribute("errorMessage",
+                        MessageManager.getProperty("message.bookalreadytaken"));
+                page = ConfigurationManager.getProperty("path.page.refreshbookitem");
             }
         } catch (ServiceException e) {
             throw new ServletException(e);

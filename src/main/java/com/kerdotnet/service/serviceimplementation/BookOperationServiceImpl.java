@@ -34,7 +34,13 @@ public class BookOperationServiceImpl implements IBookOperationService{
                 User user = userDAO.findUserByUserName(login);
 
                 if (user != null){
-                    BookItemUser bookItemUser = new BookItemUser(bookItemId,
+                    BookItemUser bookItemUser =
+                            bookItemUserDAO.findActiveEntityByBookItemId(bookItemId);
+                    //TODO: replace with optional (N0001)
+                    if (bookItemUser != null) {
+                        return false;
+                    }
+                    bookItemUser = new BookItemUser(bookItemId,
                             user.getId(),
                             LocalDateTime.now(),
                             true);

@@ -42,6 +42,23 @@ public class UserAuthority extends Entity {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UserAuthority userAuthority = (UserAuthority) o;
+
+        return getId() == userAuthority.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + getId();
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "UserAuthority{" +
                 "Id=" + getId() +

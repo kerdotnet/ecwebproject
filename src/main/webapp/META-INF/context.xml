@@ -28,6 +28,8 @@
     <!--
     <Manager pathname="" />
     -->
+    <!-- could be deleted later-->
+    <Context antiJARLocking="true" path="/weblibrary"/>
 
     <description>MySQL</description>
     <Resource name="jdbc/libraryDB" auth="Container" type="javax.sql.DataSource"

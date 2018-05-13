@@ -30,7 +30,8 @@ public class LoginServiceImpl implements ILoginService {
     private IUserAuthorityDAO userAuthorityDAO;
     private IAuthorityDAO authorityDAO;
 
-    public LoginServiceImpl(IUserDAO userDAO, IUserAuthorityDAO userAuthorityDAO, IAuthorityDAO authorityDAO) {
+    public LoginServiceImpl(IUserDAO userDAO,
+                            IUserAuthorityDAO userAuthorityDAO, IAuthorityDAO authorityDAO) {
         this.userDAO = userDAO;
         this.userAuthorityDAO = userAuthorityDAO;
         this.authorityDAO = authorityDAO;

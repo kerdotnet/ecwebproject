@@ -24,7 +24,7 @@ public class TransactionInvocationHandler implements InvocationHandler{
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         if (isTransactionAnnotationPresent(proxy, method)){
-            LOGGER.debug("Do with transactionmanager!");
+            LOGGER.debug("Do with transaction manager!");
             ITransactionManager txManager = new TransactionManagerImpl();
 
                 return txManager.doInTransaction(() -> {
@@ -32,7 +32,7 @@ public class TransactionInvocationHandler implements InvocationHandler{
                     return method.invoke(object, args);
                 });
         }
-        LOGGER.debug("Do without transactionmanager");
+        LOGGER.debug("Do without transaction manager");
         return method.invoke(object, args);
     }
 

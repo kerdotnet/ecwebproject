@@ -28,12 +28,16 @@
         </ul>
         <span class="nav-item">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="controller?command=registration"><fmt:message key="message.registration" /></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="controller?command=logout"><fmt:message key="message.logout" /></a>
-                </li>
+                <c:if test="${empty user}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="controller?command=registration"><fmt:message key="message.registration" /></a>
+                    </li>
+                </c:if>
+                <c:if test="${not empty user}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="controller?command=logout"><fmt:message key="message.logout" /></a>
+                    </li>
+                </c:if>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLang" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

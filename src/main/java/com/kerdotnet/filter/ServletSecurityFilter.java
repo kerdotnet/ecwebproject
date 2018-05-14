@@ -13,7 +13,7 @@ import java.io.IOException;
  * Yevhen Ivanov, 2018-04-22
  */
 
-@WebFilter(urlPatterns = {"/controller"}, servletNames = {"MainServlet"})
+@WebFilter(urlPatterns = {"/*"}, servletNames = {"MainServlet"})
 public class ServletSecurityFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request,

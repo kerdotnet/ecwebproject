@@ -208,10 +208,6 @@ LOCK TABLES `user` WRITE;
 
 INSERT INTO `user`  (`username`, `password`, `email`, `first_name`, `last_name`, `mobile`, `flag_enabled`)
 VALUES 
-	('kerdotnet','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','evgenys.ivanov@gmail.com','Евгений','Иванов', '+380952711261', 1),
-	('marylogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','mary_ecproj@gmail.com','Mary','Grunvald', '+380951112233', 1),
-	('susanlogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','susan_ecproj@gmail.com','Susan','Zimmerman', '+380951114433', 1),
-    ('piterlogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','piter_ecproj@gmail.com','Piter','Sipula', '+380951112200', 1),
     ('root','$2a$04$5XxD10VHo6pjdZA7V4p5xOeo808w1AVzeHs2/lbCW4BMLH3oM0nVC','root@gmail.com','Root','Root', '+380500000000', 1);
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
@@ -241,142 +237,9 @@ LOCK TABLES `user_authority` WRITE;
 INSERT INTO `user_authority` (`user_id`, `authority_id`) 
 VALUES 
 (1,2),
-(1,1),
-(2,1),
-(3,1),
-(4,1),
-(5,1),
-(5,2);
+(1,1);
 
 /*!40000 ALTER TABLE `user_authority` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `bookcatalog`
---
-
-LOCK TABLES `bookcatalog` WRITE;
-
-INSERT INTO `bookcatalog` (`name`, `full_name`, `description`, `key_words`) 
-VALUES 
-('Great at Work','Great at Work: How Top Performers Do Less, Work Better, and Achieve More', 'Wall Street Journal Business Bestseller. A Financial Times Business Book of the Month. Named by The Washington Post as One of the 11 Leadership Books to Read in 2018'
-,'productivity, work'),
-('Great by Choice', 'Great by Choice: Uncertainty, Chaos, and Luck--Why Some Thrive Despite Them All', 'Ten years after the worldwide bestseller Good to Great, Jim Collins returns withanother groundbreaking work, this time to ask: why do some companies thrive inuncertainty, even chaos, and others do not? Based on nine years of research,buttressed by rigorous analysis and infused with engaging stories, Collins andhis colleague Morten Hansen enumerate the principles for building a truly greatenterprise in unpredictable, tumultuous and fast-moving times. This book isclassic Collins: contrarian, data-driven and uplifting.'
-,'business'),
-('Чапаев и Пустота', 'Чапаев и Пустота (Russian Edition)', 'Роман «Чапаев и Пустота» сам автор характеризует так «Это первое произведение в мировой литературе, действие которого происходит в абсолютной пустоте». На самом деле оно происходит в 1919 году в дивизии Чапаева, в которой главный герой, поэт-декадент Петр Пустота, служит комиссаром, а также в наши дни, а также, как и всегда у Пелевина, в виртуальном пространстве, где с главным героем встречаются Кавабата, Шварценеггер, «просто Мария» По мнению критиков, «Чапаев и Пустота» является «первым серьезным дзэн-буддистским романом в русской литературе». Файл электронной книги подготовлен в Агентстве ФТМ, Лтд., 2013.'
-,'fiction, фантастика, пелевин'),
-('Желтая стрела', 'Желтая стрела (Russian Edition)', 'Поезд, идущий в никуда и в никогда, — место действия повести «Желтая стрела». Этот поезд — единственное живое пространство, в котором существуют ее (повести) персонажи. Фантастика? Антиутопия? Игровой прием? И то, и другое, и третье, впрочем, как всегда у Пелевина. Файл электронной книги подготовлен в Агентстве ФТМ, Лтд., 2013.'
-,'Fiction, fantasy, pelevin, фантастика')
-,('iPhuck 10 (Russian Edition)','iPhuck 10 (Russian Edition) (Russian) Paperback – November 8, 2017','','fiction, фантастика, пелевин')
-,('Generation «П»','Generation «П» (Russian Edition)','','fiction, фантастика, пелевин')
-,('Бэтман Аполло','Бэтман Аполло (Russian Edition)','','fiction, фантастика, пелевин')
-,('Любовь к трем цукербринам','Любовь к трем цукербринам (Russian Edition)','','fiction, фантастика, пелевин')
-,('Омон Ра','Омон Ра (Russian Edition) ','','fiction, фантастика, пелевин')
-,('Смотритель.','Смотритель. Том 2. Железная бездна','','fiction, фантастика, пелевин')
-,('П5','П5 —Прощальные песни политических пигмеев Пиндостана (Russian Edition)','','fiction, фантастика, пелевин')
-,('Empire V','Empire V (Russian Edition)','','fiction, фантастика, пелевин')
-,('Числа','Числа (Russian Edition)','','fiction, фантастика, пелевин')
-,('t','t (Russian Edition)','','fiction, фантастика, пелевин')
-,('Смотритель. Том 1.','Смотритель. Том 1. Орден желтого флага (Russian Edition)','','fiction, фантастика, пелевин')
-,('Ананасная вода для прекрасной дамы','Ананасная вода для прекрасной дамы (Russian Edition)','','fiction, фантастика, пелевин')
-,('Затворник и Шестипалый','Затворник и Шестипалый (Russian Edition)','','fiction, фантастика, пелевин')
-,('Священная книга оборотня','Священная книга оборотня (Russian Edition)','','fiction, фантастика, пелевин')
-,('Македонская критика французской мысли «Сборник»','Македонская критика французской мысли «Сборник» (Russian Edition)','','fiction, фантастика, пелевин')
-,('Принц Госплана','Принц Госплана (Russian Edition)','','fiction, фантастика, пелевин')
-,('Жизнь насекомых','Жизнь насекомых (Russian Edition)','Жизнь насекомых (Russian Edition)','fiction, фантастика, пелевин')
-,('Зигмунд в кафе','Зигмунд в кафе (Russian Edition)','','fiction, фантастика, пелевин')
-,('Виктор Пелевин спрашивает PRов','Виктор Пелевин спрашивает PRов (Russian Edition)','','fiction, фантастика, пелевин')
-,('Диалектика Переходного Периода из Ниоткуда в Никуда ','Диалектика Переходного Периода из Ниоткуда в Никуда (сборник) (Russian Edition)','','fiction, фантастика, пелевин')
-;
-
-/*!40000 ALTER TABLE `bookcatalog` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `bookcatalog`
---
-
-LOCK TABLES `author` WRITE;
-
-INSERT INTO `author` (`name`, `description`) 
-VALUES 
-('Виктор Пелевин', 'Русский современный фантаст'),
-('Morten Hansen', 'Morten T. Hansen is a management professor at University of California, Berkeley. He was previously a professor at Harvard Business School and INSEAD (France). He obtained his Ph.D. from the Graduate School of Business at Stanford University. Hansen has also been a senior management consultant with the Boston Consulting Group in London, Stockholm and San Francisco. He is ranked among the top 50 most influential management thinkers in the world by Thinkers50.'),
-('Jim Collins', 'im Collins is a student and teacher of leadership and what makes great companies tickHaving invested a quarter century of research into the topic, he has authored or co-authored six books that have sold in total more than ten million copies worldwide. They include: GOOD TO GREAT, the #1 bestseller, which examines why some companies and leaders make the leap to superior results, along with its companion work GOOD TO GREAT AND THE SOCIAL SECTORS; the enduring classic BUILT TO LAST, which explores how some leaders build companies that remain visionary for generations; HOW THE MIGHTY FALL, which delves into how once-great companies can self-destruct; and most recently, GREAT BY CHOICE, which is about thriving in chaos – why some do, and others don''t – and the leadership behaviors needed in a world beset by turbulence, disruption, uncertainty, and dramatic change.'),
-('Frank Herbert','Frank Herbert (1920-86) was born in Tacoma, Washington and worked as a reporter and later editor of a number of West Coast newspapers before becoming a full-time writer. His first sf story was published in 1952 but he achieved fame more than ten years later with the publication in Analog of Dune World and The Prophet of Dune that were amalgamated in the novel Dune in 1965.')
-;
-
-/*!40000 ALTER TABLE `author` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `bookcatalog_author`
---
-
-LOCK TABLES `bookcatalog_author` WRITE;
-
-INSERT INTO `bookcatalog_author`  (`bookcatalog_id`, `author_id`)
-VALUES 
-(1,2),
-(2,2),
-(2,3),
-(3,1),
-(4,1),
-(5,1),
-(6,1),
-(7,1),
-(8,1),
-(9,1),
-(10,1),
-(11,1),
-(12,1),
-(13,1),
-(14,1),
-(15,1),
-(16,1),
-(17,1),
-(18,1),
-(19,1),
-(20,1),
-(21,1),
-(22,1),
-(23,1),
-(24,1)
-;
-
-/*!40000 ALTER TABLE `bookcatalog_author` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `bookitem`
---
-
-LOCK TABLES `bookitem` WRITE;
-
-INSERT INTO `bookitem` (`bookcatalog_id`, `description`, `bookshelf_address`) 
-VALUES 
-(1, 'The first edition', 'C1'),
-(1, 'Потрепанный переплет', 'C1'),
-(2, 'SN 000123', 'C1-1'),
-(3, 'Издание 2017', 'C1-2'),
-(4, 'Издание 2018', 'BC1-1'),
-(4, 'Издание 2015', 'BC1-2');
-
-/*!40000 ALTER TABLE `bookitem` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `bookitem_user`
---
-
-LOCK TABLES `bookitem_user` WRITE;
-
-INSERT INTO `bookitem_user` (`bookitem_id`, `user_id`, `date`)
-VALUES 
-(1, 1, "2018-02-18"),
-(2, 1, "2018-04-12");
-
-/*!40000 ALTER TABLE `bookitem_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
 

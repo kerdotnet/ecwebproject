@@ -1,4 +1,4 @@
-#The Web project created by Ivanov Yevhen, 2018-04, transferred to Konovaliuk Maksim GitHub organization
+#The Web project created by Ivanov Yevhen, 2018-05
 #for Java External Courses 2018-03 - 2018-05
 #The detailed task description will be provided later
 
@@ -18,5 +18,15 @@ System Library. Create a Catalog where you can search by:
 • One of the book's keywords (book attribute).
 The books catalog is filled in by the Administrator, adding and changing / deleting them. Each book must have an address (a place on the shelf) or a reader. The reader to take the book is registered, leaving an e-mail and phone number. The book can be borrowed from the Administrator in the library for a period of not more than a month,
 Only if the book is available in the library. The administrator should have a page where the books and readers who are taking the book are reflected.
-2. Installation manual
-3. Deployment and running manual
+2. Requirements
+The following infrastructure are required for the application installation:
+- MySQL Community Server 5.7 or newer
+- JVM 9.0.2
+- Apache Tomcat 9.0.2
+3. Installation guide
+Database deployment. Please use script 02-web-library-db.sql in the folder "sql scripts" to deploy the database.
+Default user for DataBase with login/password root/root is used. You also can change in the context.xml file which is in the delivery.
+Also you can change settings of the default connection pool in context.xml.
+The packaged WAR file has to be deployed on your Apache Tomcat server application.
+Also logging settings could be changed in the "\resources\log4j.properties" file. By default two ways of logging are supported (console and file).
+4. To start your application please access it to deployed URI. In the system default user with administrator rules is created (root/root).

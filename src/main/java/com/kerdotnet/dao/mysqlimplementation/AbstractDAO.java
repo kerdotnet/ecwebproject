@@ -7,6 +7,8 @@ import com.kerdotnet.dao.connectionfactory.ConnectionWrapper;
 import com.kerdotnet.dao.helpers.IEnricher;
 import com.kerdotnet.dao.helpers.Extractor;
 import com.kerdotnet.exceptions.DAOSystemException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -19,6 +21,8 @@ import java.util.List;
  */
 public abstract class AbstractDAO<T extends Entity> {
     protected ConnectionFactory connectionFactory;
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractDAO.class);
+
 
     public AbstractDAO() {
         connectionFactory = ConnectionFactoryFactory.newConnectionFactory();
@@ -196,6 +200,7 @@ public abstract class AbstractDAO<T extends Entity> {
                 preparedStatement.setObject(i, params[i-1]);
             }
             resultSet = preparedStatement.executeQuery();
+            LOGGER.debug("RESULT SET: " + resultSet.toString());
             List<T> result = new ArrayList<>();
             while (resultSet.next()){
                 T record = extractor.extractOne(resultSet);
@@ -204,7 +209,7 @@ public abstract class AbstractDAO<T extends Entity> {
             }
             return result;
         } catch (SQLException e){
-            throw new DAOSystemException("Can't execute findAllByInt method in MySQL DAOimpl " + sql, e);
+            throw new DAOSystemException("Can't execute findAllByObjectParameters method in MySQL DAOimpl " + sql, e);
         } finally {
             close(resultSet);
             close(preparedStatement);

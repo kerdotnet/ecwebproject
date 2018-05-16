@@ -44,7 +44,7 @@ public class BookCatalogServiceImpl implements IBookCatalogService {
 
             bookCatalogEntity = bcDAO.findEntity(id);
 
-            EnrichOneBookCatalogWithAuthor(bookCatalogEntity);
+            enrichOneBookCatalogWithAuthor(bookCatalogEntity);
 
             return bookCatalogEntity;
         } catch (DAOSystemException e) {
@@ -60,7 +60,7 @@ public class BookCatalogServiceImpl implements IBookCatalogService {
         try {
             bookCatalogList = bcDAO.findAllByPage(page, quantityAtPage);
 
-            EnrichBookCatalogListWithAuthors(bookCatalogList);
+            enrichBookCatalogListWithAuthors(bookCatalogList);
         } catch (DAOSystemException e) {
             throw new ServiceException(
                     MessageManager.getProperty("message.businesslogicbookcatalog"), e);
@@ -92,7 +92,7 @@ public class BookCatalogServiceImpl implements IBookCatalogService {
         try {
             bookCatalogList = bcDAO.findByKeywordsOrNameOrAuthorByPage(searchRequest, page, quantityAtPage);
 
-            EnrichBookCatalogListWithAuthors(bookCatalogList);
+            enrichBookCatalogListWithAuthors(bookCatalogList);
         } catch (DAOSystemException e) {
             throw new ServiceException(
                     MessageManager.getProperty("message.businesslogicbookcatalog"), e);
@@ -208,11 +208,10 @@ public class BookCatalogServiceImpl implements IBookCatalogService {
     /**
      * return a list of Author by links BookCatalogAuthor
      *
-     * @param authorDAO
      * @param bookCatalogAuthor
      * @return
      */
-    private List<Author> getAuthorsByBookCatalogAuthors(IAuthorDAO authorDAO, List<BookCatalogAuthor> bookCatalogAuthor) {
+    private List<Author> getAuthorsByBookCatalogAuthors(List<BookCatalogAuthor> bookCatalogAuthor) {
         return bookCatalogAuthor.stream()
                 .map(item -> {
                     try {
@@ -224,17 +223,17 @@ public class BookCatalogServiceImpl implements IBookCatalogService {
                 .collect(Collectors.toList());
     }
 
-    private void EnrichOneBookCatalogWithAuthor(BookCatalog bookCatalogEntity) throws DAOSystemException {
+    private void enrichOneBookCatalogWithAuthor(BookCatalog bookCatalogEntity) throws DAOSystemException {
         List<BookCatalogAuthor> bookCatalogAuthor = bookCatalogAuthorDAO.findAllByBookCatalogId(bookCatalogEntity.getId());
-        List<Author> authors = getAuthorsByBookCatalogAuthors(authorDAO, bookCatalogAuthor);
+        List<Author> authors = getAuthorsByBookCatalogAuthors(bookCatalogAuthor);
         bookCatalogEntity.setAuthors(authors);
     }
 
-    private void EnrichBookCatalogListWithAuthors(List<BookCatalog> bookCatalogList) throws DAOSystemException {
+    private void enrichBookCatalogListWithAuthors(List<BookCatalog> bookCatalogList) throws DAOSystemException {
         for (BookCatalog bookCatalog : bookCatalogList) {
             List<BookCatalogAuthor> bookCatalogAuthor =
                     bookCatalogAuthorDAO.findAllByBookCatalogId(bookCatalog.getId());
-            List<Author> authors = getAuthorsByBookCatalogAuthors(authorDAO, bookCatalogAuthor);
+            List<Author> authors = getAuthorsByBookCatalogAuthors(bookCatalogAuthor);
             bookCatalog.setAuthors(authors);
         }
     }

@@ -13,7 +13,6 @@ import javax.servlet.ServletException;
 public class EmptyCommand implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
-        String page = ConfigurationManager.getProperty("path.page.login");
-        return page;
+        return ConfigurationManager.getProperty("path.page.login");
     }
 }

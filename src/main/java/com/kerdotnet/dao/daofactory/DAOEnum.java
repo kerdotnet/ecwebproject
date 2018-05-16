@@ -15,6 +15,5 @@ public enum DAOEnum {
     BOOK_CATALOG,
     BOOK_CATALOG_AUTHOR,
     BOOK_ITEM,
-    BOOK_ITEM_USER,
-    TRANSACTION
+    BOOK_ITEM_USER
 }

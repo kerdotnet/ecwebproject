@@ -5,7 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Session Request content
+ * Session Request content is wrapper for HttpServletRequest, HttpServletResponse
+ * to provide minimum only required methods to Command layer
  * Yevhen Ivanov; 2018-04-09
  */
 

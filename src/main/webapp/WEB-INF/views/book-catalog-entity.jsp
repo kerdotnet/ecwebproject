@@ -3,7 +3,7 @@
 
 <div class="container">
     <form action = "controller" method="post" >
-        <input type="hidden" name="command" value="savebookcatalog">
+        <!--<input type="hidden" name="command" value="savebookcatalog">-->
             <table class="table">
                 <tbody>
                     <tr>
@@ -72,9 +72,13 @@
                                 <c:if test="${!loop.last}">,</c:if>
                             </c:forEach>
                             <c:if  test="${editmode}">
+                                <!--
                                 <a class="btn btn-primary float-right"
                                    href="controller?command=editauthors"
-                                   role="button">Edit</a>
+                                   role="button">Edit</a>-->
+                                <button type="submit"  name="command" value = "editauthors" class="btn btn-primary">
+                                    <fmt:message key="message.editauthors" />
+                                </button>
                             </c:if>
                         </td>
                     </tr>
@@ -87,11 +91,13 @@
                        role="button"><fmt:message key="message.editbooklabel" /></a>
                 </c:if>
                 <c:if  test="${editmode}">
-                    <button type="submit"  value = "ok" class="btn btn-primary"><fmt:message key="message.savelabel" /></button>
+                    <button type="submit"  name="command" value="savebookcatalog" class="btn btn-primary"><fmt:message key="message.savelabel" /></button>
+                    <a class="btn btn-primary"
+                       href="controller?command=bookcatalog&currentpage=1"
+                       role="button"><fmt:message key="message.cancel" /></a>
                 </c:if>
             </c:if>
     </form>
 </div>
-
 
 <%@include file="common/footer.jspf"%>

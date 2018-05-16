@@ -8,4 +8,6 @@ import java.util.concurrent.Callable;
  */
 public interface ITransactionManager {
     <T> T doInTransaction(Callable<T> unitOfWork) throws Exception;
+
+    <T> T doWithoutTransaction(Callable<T> unitOfWork) throws Exception;
 }

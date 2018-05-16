@@ -77,7 +77,10 @@ public abstract class AbstractDAO<T extends Entity> {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
-        try (ConnectionWrapper connection = connectionFactory.getConnection()) {
+        try
+        {
+            ConnectionWrapper connection = connectionFactory.getConnection();
+
             preparedStatement = connection.prepareStatement(sql);
             for(int i = 1; i <= params.length; i++){
                 preparedStatement.setObject(i, params[i-1]);
@@ -101,7 +104,10 @@ public abstract class AbstractDAO<T extends Entity> {
         boolean flag = false;
         PreparedStatement preparedStatement = null;
         ResultSet generatedKeys = null;
-        try (ConnectionWrapper connection = connectionFactory.getConnection()) {
+        try
+        {
+            ConnectionWrapper connection = connectionFactory.getConnection();
+
             preparedStatement = connection.prepareStatement(sql,
                     Statement.RETURN_GENERATED_KEYS);
             extractor.setOneCreate(preparedStatement, entity);
@@ -127,7 +133,10 @@ public abstract class AbstractDAO<T extends Entity> {
                           Extractor<T> extractor) throws DAOSystemException {
         boolean flag = false;
         PreparedStatement preparedStatement = null;
-        try (ConnectionWrapper connection = connectionFactory.getConnection())  {
+        try
+        {
+            ConnectionWrapper connection = connectionFactory.getConnection();
+
             preparedStatement = connection.prepareStatement(sql);
             extractor.setOneUpdate(preparedStatement, entity);
             preparedStatement.executeUpdate();
@@ -143,7 +152,10 @@ public abstract class AbstractDAO<T extends Entity> {
     public boolean delete(String sql, int key) throws DAOSystemException {
         boolean flag = false;
         PreparedStatement preparedStatement = null;
-        try (ConnectionWrapper connection = connectionFactory.getConnection()) {
+        try
+        {
+            ConnectionWrapper connection = connectionFactory.getConnection();
+
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, key);
             preparedStatement.executeUpdate();
@@ -172,7 +184,10 @@ public abstract class AbstractDAO<T extends Entity> {
     public int findQuantityByObjectParameters(String sql, Object ...params) throws DAOSystemException {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        try (ConnectionWrapper connection = connectionFactory.getConnection()) {
+        try
+        {
+            ConnectionWrapper connection = connectionFactory.getConnection();
+
             preparedStatement = connection.prepareStatement(sql);
             for(int i = 1; i <= params.length; i++){
                 preparedStatement.setObject(i, params[i-1]);
@@ -194,7 +209,10 @@ public abstract class AbstractDAO<T extends Entity> {
                                              IEnricher<T> enricher, Object... params) throws DAOSystemException {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        try (ConnectionWrapper connection = connectionFactory.getConnection()) {
+        try
+        {
+            ConnectionWrapper connection = connectionFactory.getConnection();
+
             preparedStatement = connection.prepareStatement(sql);
             for(int i = 1; i <= params.length; i++){
                 preparedStatement.setObject(i, params[i-1]);

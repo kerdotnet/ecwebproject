@@ -1,5 +1,6 @@
 package com.kerdotnet.beans;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -93,6 +94,9 @@ public class BookCatalog extends Entity {
     }
 
     public void addOneAuthor(Author author){
+        if (authors == null) {
+            authors = new LinkedList<>();
+        }
         if (!authors.contains(author)){
             authors.add(author);
         }

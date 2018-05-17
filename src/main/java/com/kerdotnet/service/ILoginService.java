@@ -1,6 +1,6 @@
 package com.kerdotnet.service;
 
-import com.kerdotnet.beans.User;
+import com.kerdotnet.entity.User;
 import com.kerdotnet.exceptions.NotUniqueUserEmailException;
 import com.kerdotnet.exceptions.NotUniqueUserLoginException;
 import com.kerdotnet.exceptions.ServiceException;

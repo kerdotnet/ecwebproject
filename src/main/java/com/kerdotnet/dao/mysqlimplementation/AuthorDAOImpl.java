@@ -1,6 +1,6 @@
 package com.kerdotnet.dao.mysqlimplementation;
 
-import com.kerdotnet.beans.Author;
+import com.kerdotnet.entity.Author;
 import com.kerdotnet.dao.IAuthorDAO;
 import com.kerdotnet.dao.helpers.AuthorExtractor;
 import com.kerdotnet.dao.helpers.IEnricher;

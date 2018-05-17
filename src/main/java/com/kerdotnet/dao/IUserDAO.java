@@ -5,7 +5,7 @@ package com.kerdotnet.dao;
  * Yevhen Ivanov, 2018-04-11
  */
 
-import com.kerdotnet.beans.User;
+import com.kerdotnet.entity.User;
 import com.kerdotnet.exceptions.DAOSystemException;
 
 public interface IUserDAO extends IDAO<Integer, User> {

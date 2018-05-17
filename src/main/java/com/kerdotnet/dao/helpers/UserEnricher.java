@@ -1,7 +1,7 @@
 package com.kerdotnet.dao.helpers;
 
-import com.kerdotnet.beans.User;
-import com.kerdotnet.beans.UserAuthority;
+import com.kerdotnet.entity.User;
+import com.kerdotnet.entity.UserAuthority;
 import com.kerdotnet.dao.IUserAuthorityDAO;
 import com.kerdotnet.exceptions.DAOSystemException;
 

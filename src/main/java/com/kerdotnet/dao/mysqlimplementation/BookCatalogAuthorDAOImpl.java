@@ -1,6 +1,6 @@
 package com.kerdotnet.dao.mysqlimplementation;
 
-import com.kerdotnet.beans.BookCatalogAuthor;
+import com.kerdotnet.entity.BookCatalogAuthor;
 import com.kerdotnet.dao.IBookCatalogAuthorDAO;
 import com.kerdotnet.dao.helpers.BookCatalogAuthorExtractor;
 import com.kerdotnet.dao.helpers.IEnricher;

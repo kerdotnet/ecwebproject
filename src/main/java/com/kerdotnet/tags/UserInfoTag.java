@@ -1,6 +1,6 @@
 package com.kerdotnet.tags;
 
-import com.kerdotnet.beans.User;
+import com.kerdotnet.entity.User;
 import com.kerdotnet.resource.MessageManager;
 
 import javax.servlet.jsp.JspException;

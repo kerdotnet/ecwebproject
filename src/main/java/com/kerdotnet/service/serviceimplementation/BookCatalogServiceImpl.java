@@ -1,6 +1,6 @@
 package com.kerdotnet.service.serviceimplementation;
 
-import com.kerdotnet.beans.*;
+import com.kerdotnet.entity.*;
 import com.kerdotnet.dao.*;
 import com.kerdotnet.dao.transactionmanager.InTransaction;
 import com.kerdotnet.exceptions.DAOSystemException;

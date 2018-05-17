@@ -1,4 +1,4 @@
-package com.kerdotnet.beans;
+package com.kerdotnet.entity;
 
 /**
  * Class define user right model

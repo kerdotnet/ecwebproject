@@ -1,6 +1,6 @@
 package com.kerdotnet.dao.mysqlimplementation;
 
-import com.kerdotnet.beans.UserAuthority;
+import com.kerdotnet.entity.UserAuthority;
 import com.kerdotnet.dao.IUserAuthorityDAO;
 import com.kerdotnet.dao.helpers.IEnricher;
 import com.kerdotnet.dao.helpers.UserAuthorityExtractor;

@@ -1,6 +1,6 @@
 package com.kerdotnet.command.bookitem;
 
-import com.kerdotnet.beans.BookItem;
+import com.kerdotnet.entity.BookItem;
 import com.kerdotnet.command.IActionCommand;
 import com.kerdotnet.controller.SessionRequestContent;
 import com.kerdotnet.exceptions.DAOSystemException;
@@ -9,7 +9,6 @@ import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.resource.MessageManager;
 import com.kerdotnet.service.IBookItemService;
 import com.kerdotnet.service.factory.ServiceFactory;
-import com.kerdotnet.service.serviceimplementation.BookItemServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

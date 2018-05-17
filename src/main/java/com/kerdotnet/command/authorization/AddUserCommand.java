@@ -1,6 +1,6 @@
 package com.kerdotnet.command.authorization;
 
-import com.kerdotnet.beans.User;
+import com.kerdotnet.entity.User;
 import com.kerdotnet.command.IActionCommand;
 import com.kerdotnet.controller.SessionRequestContent;
 import com.kerdotnet.exceptions.DAOSystemException;

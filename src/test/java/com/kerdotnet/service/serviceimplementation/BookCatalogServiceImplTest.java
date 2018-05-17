@@ -1,8 +1,6 @@
 package com.kerdotnet.service.serviceimplementation;
 
-import com.kerdotnet.beans.Author;
-import com.kerdotnet.beans.BookCatalog;
-import com.kerdotnet.beans.BookCatalogAuthor;
+import com.kerdotnet.entity.*;
 import com.kerdotnet.dao.*;
 import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.exceptions.ServiceException;
@@ -14,12 +12,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -43,6 +43,9 @@ public class BookCatalogServiceImplTest {
     private List<BookCatalog> bookCatalogList;
     private List<BookCatalogAuthor> bookCatalogAuthorsList;
     private List<Author> authorsList;
+    private List<BookItem> bookItemList;
+    private List<BookItemUser> bookItemUserList;
+    BookCatalog bookCatalogTest;
 
     @Before
     public void setUp() throws Exception{
@@ -62,13 +65,27 @@ public class BookCatalogServiceImplTest {
                 new Author(2, "Author 2", "",true),
                 new Author(3, "Author 3", "",true)
         );
+        bookItemList = Arrays.asList(
+                new BookItem(1, 1,"","",true,
+                        null),
+                new BookItem(2, 1, "", "", true,
+                        null),
+                new BookItem(3, 1, "", "", true,
+                        null)
+        );
+
+        bookItemUserList = Arrays.asList(
+                new BookItemUser(1,1, 1, LocalDateTime.now().minusMonths(3), true),
+                new BookItemUser(2,2, 1, LocalDateTime.now().minusMonths(2), true),
+                new BookItemUser(3,3, 1, LocalDateTime.now().minusDays(5), true)
+        );
+
+        bookCatalogTest = new BookCatalog(1, "name", "descritpion", "", "", true);
     }
 
     @Test
-    public void testGetBookCatalogById() throws Exception{
+    public void testGetBookCatalogById_Success() throws Exception{
         //Given
-        BookCatalog bookCatalogTest = new BookCatalog(1, "name", "descritpion", "", "", true);
-
         given(bookCatalogDAO.findEntity(1))
                 .willReturn(bookCatalogTest);
         given(bookCatalogAuthorDAO.findAllByBookCatalogId(1))
@@ -95,6 +112,14 @@ public class BookCatalogServiceImplTest {
         //Given
         given(bookCatalogDAO.findAllByPage(0, 10))
                 .willReturn(bookCatalogList);
+        given(bookCatalogAuthorDAO.findAllByBookCatalogId(anyInt()))
+                .willReturn(bookCatalogAuthorsList);
+        given(authorDAO.findEntity(1))
+                .willReturn(authorsList.get(0));
+        given(authorDAO.findEntity(2))
+                .willReturn(authorsList.get(1));
+        given(authorDAO.findEntity(3))
+                .willReturn(authorsList.get(2));
 
         //When
         List <BookCatalog> bookCatalogListResult = bookCatalogService.getAllBookCatalogByPage(0,10);
@@ -102,6 +127,122 @@ public class BookCatalogServiceImplTest {
         assertThat(bookCatalogListResult.size(), is(4));
 
         verify(bookCatalogDAO, times(1)).findAllByPage(0, 10);
+        verify(bookCatalogAuthorDAO, times(1)).findAllByBookCatalogId(1);
+        verify(bookCatalogAuthorDAO, times(1)).findAllByBookCatalogId(2);
+        verify(bookCatalogAuthorDAO, times(1)).findAllByBookCatalogId(3);
+        verify(bookCatalogAuthorDAO, times(1)).findAllByBookCatalogId(4);
+        verify(authorDAO, times(12)).findEntity(anyInt());
+    }
+
+    @Test
+    public void testGetAllBookCatalogQuantity() throws Exception{
+        //Given
+        given(bookCatalogDAO.findQuantity())
+                .willReturn(15);
+
+        //When
+        int quantity = bookCatalogService.getAllBookCatalogQuantity();
+        //Then
+        assertThat(quantity, is(15));
+
+        verify(bookCatalogDAO, times(1)).findQuantity();
+    }
+
+    @Test
+    public void testGetAllBookCatalogBySearchRequestFullTextByPage() throws Exception{
+        //Given
+        given(bookCatalogDAO.findByKeywordsOrNameOrAuthorByPage(
+                "test search request", 0, 10))
+                .willReturn(bookCatalogList);
+        given(bookCatalogAuthorDAO.findAllByBookCatalogId(anyInt()))
+                .willReturn(bookCatalogAuthorsList);
+        given(authorDAO.findEntity(1))
+                .willReturn(authorsList.get(0));
+        given(authorDAO.findEntity(2))
+                .willReturn(authorsList.get(1));
+        given(authorDAO.findEntity(3))
+                .willReturn(authorsList.get(2));
+
+        //When
+        List <BookCatalog> bookCatalogListResult = bookCatalogService.getAllBookCatalogBySearchRequestFullTextByPage(
+                "test search request", 0, 10);
+        //Then
+        assertThat(bookCatalogListResult.size(), is(4));
+
+        verify(bookCatalogDAO, times(1))
+                .findByKeywordsOrNameOrAuthorByPage("test search request",0, 10);
+        verify(bookCatalogAuthorDAO, times(1)).findAllByBookCatalogId(1);
+        verify(bookCatalogAuthorDAO, times(1)).findAllByBookCatalogId(2);
+        verify(bookCatalogAuthorDAO, times(1)).findAllByBookCatalogId(3);
+        verify(bookCatalogAuthorDAO, times(1)).findAllByBookCatalogId(4);
+        verify(authorDAO, times(12)).findEntity(anyInt());
+    }
+
+    @Test
+    public void testGetAllBookCatalogBySearchRequestFullTextQuantity() throws Exception{
+        //Given
+        given(bookCatalogDAO.findQuantityByKeywordsOrNameOrAuthor("Search request"))
+                .willReturn(15);
+
+        //When
+        int quantity = bookCatalogService.getAllBookCatalogBySearchRequestFullTextQuantity("Search request");
+        //Then
+        assertThat(quantity, is(15));
+
+        verify(bookCatalogDAO, times(1)).findQuantityByKeywordsOrNameOrAuthor("Search request");
+    }
+
+    @Test
+    public void testDeleteBookCatalogById() throws Exception{
+        //Given
+        given(bookCatalogAuthorDAO.findAllByBookCatalogId(1))
+                .willReturn(bookCatalogAuthorsList);
+        given(bookCatalogAuthorDAO.delete(any(BookCatalogAuthor.class)))
+                .willReturn(true);
+
+        given(bookItemDAO.findByBookCatalogId(1))
+                .willReturn(bookItemList);
+        given(bookItemUserDAO.findAllByBookItemId(anyInt()))
+                .willReturn(bookItemUserList);
+        given(bookItemUserDAO.delete(any(BookItemUser.class)))
+                .willReturn(true);
+        given(bookItemDAO.delete(any(BookItem.class)))
+                .willReturn(true);
+
+        given(bookCatalogDAO.delete(bookCatalogTest))
+                .willReturn(true);
+        given(bookCatalogDAO.findEntity(1))
+                .willReturn(bookCatalogTest);
+        //When
+        boolean result = bookCatalogService.deleteBookCatalogById(1);
+        //Then
+        assertThat(result, is(true));
+
+        verify(bookItemDAO, times(1)).findByBookCatalogId(1);
+        verify(bookItemUserDAO, times(3)).findAllByBookItemId(anyInt());
+        verify(bookItemUserDAO, times(9)).delete(any(BookItemUser.class));
+        verify(bookItemDAO, times(3)).delete(any(BookItem.class));
+
+        verify(bookCatalogAuthorDAO, times(1)).findAllByBookCatalogId(1);
+        verify(bookCatalogAuthorDAO, times(3)).delete(any(BookCatalogAuthor.class));
+
+        verify(bookCatalogDAO, times(1)).findEntity(1);
+        verify(bookCatalogDAO, times(1)).delete(bookCatalogTest);
+    }
+
+    @Test
+    public void testSaveBookCatalogEntity() throws Exception{
+
+    }
+
+    @Test
+    public void testGetAllAuthors() throws Exception{
+
+    }
+
+    @Test
+    public void testFindAuthorById() throws Exception{
+
     }
 
     @Test(expected = ServiceException.class)

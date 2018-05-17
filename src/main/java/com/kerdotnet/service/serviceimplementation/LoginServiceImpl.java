@@ -1,8 +1,8 @@
 package com.kerdotnet.service.serviceimplementation;
 
-import com.kerdotnet.beans.Authority;
-import com.kerdotnet.beans.User;
-import com.kerdotnet.beans.UserAuthority;
+import com.kerdotnet.entity.Authority;
+import com.kerdotnet.entity.User;
+import com.kerdotnet.entity.UserAuthority;
 import com.kerdotnet.dao.IAuthorityDAO;
 import com.kerdotnet.dao.IUserAuthorityDAO;
 import com.kerdotnet.dao.IUserDAO;

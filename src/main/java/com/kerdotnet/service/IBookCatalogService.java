@@ -1,7 +1,7 @@
 package com.kerdotnet.service;
 
-import com.kerdotnet.beans.Author;
-import com.kerdotnet.beans.BookCatalog;
+import com.kerdotnet.entity.Author;
+import com.kerdotnet.entity.BookCatalog;
 import com.kerdotnet.exceptions.ServiceException;
 
 import java.util.List;

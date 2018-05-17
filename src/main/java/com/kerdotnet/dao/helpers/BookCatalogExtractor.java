@@ -1,6 +1,6 @@
 package com.kerdotnet.dao.helpers;
 
-import com.kerdotnet.beans.BookCatalog;
+import com.kerdotnet.entity.BookCatalog;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

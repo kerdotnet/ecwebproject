@@ -1,4 +1,4 @@
-package com.kerdotnet.beans;
+package com.kerdotnet.entity;
 
 /**
  * java DTO class for Book items entities

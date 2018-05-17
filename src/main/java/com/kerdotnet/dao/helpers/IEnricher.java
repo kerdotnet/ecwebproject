@@ -1,6 +1,6 @@
 package com.kerdotnet.dao.helpers;
 
-import com.kerdotnet.beans.Entity;
+import com.kerdotnet.entity.Entity;
 import com.kerdotnet.exceptions.DAOSystemException;
 
 import javax.ejb.NoSuchEntityException;

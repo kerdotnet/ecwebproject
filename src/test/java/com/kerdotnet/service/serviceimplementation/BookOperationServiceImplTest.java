@@ -1,13 +1,12 @@
 package com.kerdotnet.service.serviceimplementation;
 
-import com.kerdotnet.beans.BookItemUser;
-import com.kerdotnet.beans.User;
+import com.kerdotnet.entity.BookItemUser;
+import com.kerdotnet.entity.User;
 import com.kerdotnet.dao.IBookItemUserDAO;
 import com.kerdotnet.dao.IUserDAO;
 import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.exceptions.ServiceException;
 import com.kerdotnet.service.IBookOperationService;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

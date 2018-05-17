@@ -1,6 +1,6 @@
 package com.kerdotnet.dao.mysqlimplementation;
 
-import com.kerdotnet.beans.Entity;
+import com.kerdotnet.entity.Entity;
 import com.kerdotnet.dao.connectionfactory.ConnectionFactory;
 import com.kerdotnet.dao.connectionfactory.ConnectionFactoryFactory;
 import com.kerdotnet.dao.connectionfactory.ConnectionWrapper;

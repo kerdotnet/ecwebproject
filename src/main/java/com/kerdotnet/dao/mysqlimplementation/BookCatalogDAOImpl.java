@@ -1,8 +1,7 @@
 package com.kerdotnet.dao.mysqlimplementation;
 
-import com.kerdotnet.beans.BookCatalog;
+import com.kerdotnet.entity.BookCatalog;
 import com.kerdotnet.dao.IBookCatalogDAO;
-import com.kerdotnet.dao.connectionfactory.ConnectionWrapper;
 import com.kerdotnet.dao.helpers.BookCatalogExtractor;
 import com.kerdotnet.dao.helpers.IEnricher;
 import com.kerdotnet.exceptions.DAOSystemException;

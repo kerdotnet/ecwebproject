@@ -1,6 +1,6 @@
 package com.kerdotnet.dao;
 
-import com.kerdotnet.beans.Author;
+import com.kerdotnet.entity.Author;
 
 /**
  * Author IDAO interface

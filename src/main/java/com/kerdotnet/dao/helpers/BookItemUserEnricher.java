@@ -1,7 +1,7 @@
 package com.kerdotnet.dao.helpers;
 
-import com.kerdotnet.beans.BookItemUser;
-import com.kerdotnet.beans.User;
+import com.kerdotnet.entity.BookItemUser;
+import com.kerdotnet.entity.User;
 import com.kerdotnet.dao.IUserDAO;
 import com.kerdotnet.exceptions.DAOSystemException;
 

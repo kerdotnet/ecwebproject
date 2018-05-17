@@ -1,6 +1,6 @@
 package com.kerdotnet.dao.mysqlimplementation;
 
-import com.kerdotnet.beans.BookItem;
+import com.kerdotnet.entity.BookItem;
 import com.kerdotnet.dao.IBookItemDAO;
 import com.kerdotnet.dao.helpers.BookItemEnricher;
 import com.kerdotnet.dao.helpers.BookItemExtractor;

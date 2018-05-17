@@ -1,6 +1,6 @@
 package com.kerdotnet.dao.helpers;
 
-import com.kerdotnet.beans.Authority;
+import com.kerdotnet.entity.Authority;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

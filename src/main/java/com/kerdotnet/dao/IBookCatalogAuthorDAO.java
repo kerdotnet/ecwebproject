@@ -1,6 +1,6 @@
 package com.kerdotnet.dao;
 
-import com.kerdotnet.beans.BookCatalogAuthor;
+import com.kerdotnet.entity.BookCatalogAuthor;
 import com.kerdotnet.exceptions.DAOSystemException;
 
 import java.util.List;

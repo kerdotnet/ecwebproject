@@ -1,4 +1,4 @@
-package com.kerdotnet.beans;
+package com.kerdotnet.entity;
 
 import java.time.Instant;
 import java.time.LocalDateTime;

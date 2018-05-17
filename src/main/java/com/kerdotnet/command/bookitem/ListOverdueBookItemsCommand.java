@@ -1,6 +1,6 @@
 package com.kerdotnet.command.bookitem;
 
-import com.kerdotnet.beans.BookItem;
+import com.kerdotnet.entity.BookItem;
 import com.kerdotnet.command.IActionCommand;
 import com.kerdotnet.controller.SessionRequestContent;
 import com.kerdotnet.exceptions.DAOSystemException;

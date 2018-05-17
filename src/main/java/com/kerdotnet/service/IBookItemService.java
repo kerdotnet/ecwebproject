@@ -1,8 +1,6 @@
 package com.kerdotnet.service;
 
-import com.kerdotnet.beans.BookItem;
-import com.kerdotnet.dao.daofactory.IDAOFactory;
-import com.kerdotnet.exceptions.DAOSystemException;
+import com.kerdotnet.entity.BookItem;
 import com.kerdotnet.exceptions.ServiceException;
 
 import java.util.List;

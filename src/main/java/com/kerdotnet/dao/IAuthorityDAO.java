@@ -1,6 +1,6 @@
 package com.kerdotnet.dao;
 
-import com.kerdotnet.beans.Authority;
+import com.kerdotnet.entity.Authority;
 
 /**
  * Authority IDAO interface

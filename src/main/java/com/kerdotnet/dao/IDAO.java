@@ -1,6 +1,6 @@
 package com.kerdotnet.dao;
 
-import com.kerdotnet.beans.Entity;
+import com.kerdotnet.entity.Entity;
 import com.kerdotnet.exceptions.DAOSystemException;
 
 import java.util.List;

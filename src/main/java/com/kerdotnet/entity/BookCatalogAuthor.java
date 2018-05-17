@@ -1,4 +1,4 @@
-package com.kerdotnet.beans;
+package com.kerdotnet.entity;
 
 /**
  * Ujava DTO class for links beetwen Book Catalog and Authors

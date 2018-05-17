@@ -21,6 +21,7 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -45,7 +46,7 @@ public class BookCatalogServiceImplTest {
     private List<Author> authorsList;
     private List<BookItem> bookItemList;
     private List<BookItemUser> bookItemUserList;
-    BookCatalog bookCatalogTest;
+    private BookCatalog bookCatalogEntity;
 
     @Before
     public void setUp() throws Exception{
@@ -80,14 +81,16 @@ public class BookCatalogServiceImplTest {
                 new BookItemUser(3,3, 1, LocalDateTime.now().minusDays(5), true)
         );
 
-        bookCatalogTest = new BookCatalog(1, "name", "descritpion", "", "", true);
+        bookCatalogEntity = new BookCatalog(
+                1, "name", "descritpion", "", "", true);
+        bookCatalogEntity.setAuthors(authorsList);
     }
 
     @Test
     public void testGetBookCatalogById_Success() throws Exception{
         //Given
         given(bookCatalogDAO.findEntity(1))
-                .willReturn(bookCatalogTest);
+                .willReturn(bookCatalogEntity);
         given(bookCatalogAuthorDAO.findAllByBookCatalogId(1))
                 .willReturn(bookCatalogAuthorsList);
         given(authorDAO.findEntity(1))
@@ -209,10 +212,10 @@ public class BookCatalogServiceImplTest {
         given(bookItemDAO.delete(any(BookItem.class)))
                 .willReturn(true);
 
-        given(bookCatalogDAO.delete(bookCatalogTest))
+        given(bookCatalogDAO.delete(bookCatalogEntity))
                 .willReturn(true);
         given(bookCatalogDAO.findEntity(1))
-                .willReturn(bookCatalogTest);
+                .willReturn(bookCatalogEntity);
         //When
         boolean result = bookCatalogService.deleteBookCatalogById(1);
         //Then
@@ -227,22 +230,95 @@ public class BookCatalogServiceImplTest {
         verify(bookCatalogAuthorDAO, times(3)).delete(any(BookCatalogAuthor.class));
 
         verify(bookCatalogDAO, times(1)).findEntity(1);
-        verify(bookCatalogDAO, times(1)).delete(bookCatalogTest);
+        verify(bookCatalogDAO, times(1)).delete(bookCatalogEntity);
     }
 
     @Test
-    public void testSaveBookCatalogEntity() throws Exception{
+    public void testSaveBookCatalogEntity_Create() throws Exception{
+        //Given
+        given(bookCatalogDAO.findEntity(1))
+                .willReturn(null);
+        given(bookCatalogDAO.update(bookCatalogEntity))
+                .willReturn(true);
+        given(bookCatalogDAO.create(bookCatalogEntity))
+                .willReturn(true);
+
+        given(bookCatalogAuthorDAO.deleteByBookCatalogId(anyInt()))
+                .willReturn(true);
+
+        given(bookCatalogAuthorDAO.create(any(BookCatalogAuthor.class)))
+                .willReturn(true);
+
+        //When
+        boolean result = bookCatalogService.saveBookCatalogEntity(bookCatalogEntity);
+        //Then
+        assertThat(result, is(true));
+
+        verify(bookCatalogDAO, times(1)).findEntity(1);
+        verify(bookCatalogDAO, times(1)).create(bookCatalogEntity);
+        verify(bookCatalogDAO, never()).update(bookCatalogEntity);
+
+        verify(bookCatalogAuthorDAO, times(1)).deleteByBookCatalogId(1);
+        verify(bookCatalogAuthorDAO, times(3)).create(any(BookCatalogAuthor.class));
+    }
+
+    @Test
+    public void testSaveBookCatalogEntity_Update() throws Exception{
+        //Given
+        given(bookCatalogDAO.findEntity(1))
+                .willReturn(bookCatalogEntity);
+        given(bookCatalogDAO.update(bookCatalogEntity))
+                .willReturn(true);
+        given(bookCatalogDAO.create(bookCatalogEntity))
+                .willReturn(true);
+
+        given(bookCatalogAuthorDAO.deleteByBookCatalogId(anyInt()))
+                .willReturn(true);
+
+        given(bookCatalogAuthorDAO.create(any(BookCatalogAuthor.class)))
+                .willReturn(true);
+
+        //When
+        boolean result = bookCatalogService.saveBookCatalogEntity(bookCatalogEntity);
+        //Then
+        assertThat(result, is(true));
+
+        verify(bookCatalogDAO, times(1)).findEntity(1);
+        verify(bookCatalogDAO, never()).create(bookCatalogEntity);
+        verify(bookCatalogDAO, times(1)).update(bookCatalogEntity);
+
+        verify(bookCatalogAuthorDAO, times(1)).deleteByBookCatalogId(1);
+        verify(bookCatalogAuthorDAO, times(3)).create(any(BookCatalogAuthor.class));
 
     }
 
     @Test
     public void testGetAllAuthors() throws Exception{
+        //Given
+        given(authorDAO.findAll())
+                .willReturn(authorsList);
 
+        //When
+        List<Author> authorsResult = bookCatalogService.getAllAuthors();
+        //Then
+        assertThat(authorsResult.size(), is(3));
+
+        verify(authorDAO, times(1)).findAll();
     }
 
     @Test
     public void testFindAuthorById() throws Exception{
+        //Given
+        Author authorEntity = new Author(1,"Name", "Description", true);
+        given(authorDAO.findEntity(1))
+                .willReturn(authorEntity);
 
+        //When
+        Author authorResult = bookCatalogService.findAuthorById(1);
+        //Then
+        assertThat(authorResult, is(authorEntity));
+
+        verify(authorDAO, times(1)).findEntity(1);
     }
 
     @Test(expected = ServiceException.class)

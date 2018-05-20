@@ -22,6 +22,8 @@ public class ReturnBookItemEntityCommand implements IActionCommand {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ReturnBookItemEntityCommand.class);
     private static final String BOOKITEMID = "bookitemid";
+    private static final String REFRESH_COMMAND = "refreshcommand";
+
 
     public ReturnBookItemEntityCommand() {
         ServiceFactory serviceFactory = null;
@@ -42,14 +44,15 @@ public class ReturnBookItemEntityCommand implements IActionCommand {
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
-        String page = ConfigurationManager.getProperty("path.page.refreshtakenbookitem");
-
         int bookItemId = 0;
         String bookItemIdParam = sessionRequestContent.getRequestParameter(BOOKITEMID);
 
         if (bookItemIdParam != null)
             bookItemId = Integer.parseInt(bookItemIdParam);
         LOGGER.debug("Id of the book item is: " + bookItemId);
+
+        String page = (String) sessionRequestContent.getSessionAttribute(REFRESH_COMMAND);
+        LOGGER.debug("Next page is " + page);
 
         try {
             if (!bookOperationService.returnBookItemById(bookItemId)){

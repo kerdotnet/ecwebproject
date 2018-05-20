@@ -18,11 +18,13 @@ public class BookItemUserDAOImpl extends AbstractDAO implements IBookItemUserDAO
             "SELECT * FROM bookitem_user WHERE bookitem_id=?";
     private static final String SQL_SELECT_ACTIVE_BY_BOOKITEM_ID =
             "SELECT * FROM bookitem_user WHERE bookitem_id=? and flag_enabled";
+    private static final String SQL_SELECT_ACTIVE_BY_BOOKITEM_ID_BY_STATUS =
+            "SELECT * FROM bookitem_user WHERE bookitem_id=? and flag_enabled and status = ?";
     private static final String SQL_INSERT_ONE = "INSERT INTO bookitem_user  " +
-            " (bookitem_id, user_id, date, flag_enabled) VALUES " +
-            " (?,?,?,?)";
+            " (bookitem_id, user_id, date, status, flag_enabled) VALUES " +
+            " (?,?,?,?,?)";
     private static final String SQL_UPDATE_ONE = "UPDATE bookitem_user SET " +
-            " bookitem_id = ?, user_id = ?, date = ?, flag_enabled = ? " +
+            " bookitem_id = ?, user_id = ?, date = ?, status = ?, flag_enabled = ? " +
             "WHERE id = ?";
     private static final String SQL_DELETE_ONE = "DELETE FROM bookitem_user WHERE id = ?";
 
@@ -43,6 +45,13 @@ public class BookItemUserDAOImpl extends AbstractDAO implements IBookItemUserDAO
     public BookItemUser findActiveEntityByBookItemId(int bookItemId) throws DAOSystemException {
         return (BookItemUser) findEntity(SQL_SELECT_ACTIVE_BY_BOOKITEM_ID, bookItemId,  new BookItemUserExtractor(),
                 new BookItemUserEnricher(new UserDAOImpl()));
+    }
+
+    @Override
+    public BookItemUser findActiveEntityByBookItemIdByStatus(int bookItemId, String status) throws DAOSystemException {
+        return (BookItemUser) findEntityByObjectParameters(
+                SQL_SELECT_ACTIVE_BY_BOOKITEM_ID_BY_STATUS, new BookItemUserExtractor(),
+                new BookItemUserEnricher(new UserDAOImpl()), bookItemId, status);
     }
 
     @Override

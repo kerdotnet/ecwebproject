@@ -177,6 +177,7 @@ CREATE TABLE `bookitem_user` (
   `bookitem_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `date` DATE NOT NULL,
+  `status` varchar(10),
   `flag_enabled` BOOLEAN NOT NULL DEFAULT TRUE,
   
   PRIMARY KEY (`id`),

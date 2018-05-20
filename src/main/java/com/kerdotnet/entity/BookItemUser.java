@@ -18,30 +18,48 @@ public class BookItemUser extends Entity {
     private int userId;
     private LocalDateTime date;
     private boolean enabled;
+    private String status;
     private User user;
 
     public BookItemUser() {
     }
 
     public BookItemUser(int bookItemId, int userId,
-                        LocalDateTime date, boolean enabled) {
+                        LocalDateTime date, BookItemStatus status, boolean enabled) {
         this.bookItemId = bookItemId;
         this.userId = userId;
         this.date = date;
+        this.status = status.name();
         this.enabled = enabled;
     }
 
     public BookItemUser(int id, int bookItemId, int userId,
-                        LocalDateTime date, boolean enabled) {
+                        LocalDateTime date, BookItemStatus status, boolean enabled) {
         this.setId(id);
         this.bookItemId = bookItemId;
         this.userId = userId;
         this.date = date;
+        this.status = status.name();
         this.enabled = enabled;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public BookItemUser(int bookItemId, int userId,
+                        LocalDateTime date, String status, boolean enabled) {
+        this.bookItemId = bookItemId;
+        this.userId = userId;
+        this.date = date;
+        this.status = status;
+        this.enabled = enabled;
+    }
+
+    public BookItemUser(int id, int bookItemId, int userId,
+                        LocalDateTime date, String status, boolean enabled) {
+        this.setId(id);
+        this.bookItemId = bookItemId;
+        this.userId = userId;
+        this.date = date;
+        this.status = status;
+        this.enabled = enabled;
     }
 
     public int getBookItemId() {
@@ -92,6 +110,26 @@ public class BookItemUser extends Entity {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setStatusByEnum(BookItemStatus status) {
+        this.status = status.name();
+    }
+
+    public BookItemStatus getStatusEnum() {
+        try {
+            return BookItemStatus.valueOf(status);
+        } catch (IllegalArgumentException e){
+            return BookItemStatus.EMPTY;
+        }
     }
 
     @Override

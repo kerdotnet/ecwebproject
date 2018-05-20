@@ -20,6 +20,7 @@ import javax.servlet.ServletException;
 public class DeleteBookItemEntityCommand implements IActionCommand {
     private static final Logger LOGGER = LoggerFactory.getLogger(DeleteBookItemEntityCommand.class);
     private IBookItemService bookItemService;
+    private static final String REFRESH_COMMAND = "refreshcommand";
 
     public DeleteBookItemEntityCommand() {
         ServiceFactory serviceFactory = null;
@@ -41,13 +42,14 @@ public class DeleteBookItemEntityCommand implements IActionCommand {
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
-        String page = ConfigurationManager.getProperty("path.page.refreshbookitem");
         int bookItemId = 0;
 
         String bookItemIdParam = sessionRequestContent.getRequestParameter("bookitemid");
         if (bookItemIdParam != null)
             bookItemId = Integer.parseInt(bookItemIdParam);
         LOGGER.debug("Id of the book item is: " + bookItemId);
+        String page = (String) sessionRequestContent.getSessionAttribute(REFRESH_COMMAND);
+        LOGGER.debug("Next page is " + page);
 
         try {
             if (!bookItemService.deleteBookItemById(bookItemId)){

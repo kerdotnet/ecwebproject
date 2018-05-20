@@ -22,6 +22,8 @@ public class ListOverdueBookItemsCommand implements IActionCommand {
     private static final Logger LOGGER = LoggerFactory.getLogger(ListOverdueBookItemsCommand.class);
     private IBookItemService bookItemService;
 
+    private static final String REFRESH_COMMAND = "refreshcommand";
+
     public ListOverdueBookItemsCommand() {
         ServiceFactory serviceFactory = null;
         try {
@@ -52,6 +54,8 @@ public class ListOverdueBookItemsCommand implements IActionCommand {
             sessionRequestContent.setSessionAttribute("bookitemlist", bookItems, true);
             sessionRequestContent.setRequestAttribute("takenbooks", true);
             sessionRequestContent.setRequestAttribute("overdue", true);
+            sessionRequestContent.setSessionAttribute(REFRESH_COMMAND,
+                    ConfigurationManager.getProperty("path.page.refreshoverduebookitems"));
         } catch (ServiceException e) {
             throw new ServletException(e);
         }

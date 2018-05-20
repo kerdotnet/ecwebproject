@@ -89,6 +89,14 @@ public enum CommandEnum {
         {
             this.command = new TakeBookItemEntityCommand();
         }
+    }, CONFIRMTAKEBOOKITEM {
+        {
+            this.command = new ConfirmTakeBookItemEntityCommand();
+        }
+    }, CONFIRMRETURNBOOKITEM {
+        {
+            this.command = new ConfirmReturnBookItemEntityCommand();
+        }
     }, LISTTAKENBOOKITEMS {
         {
             this.command = new ListTakenBookItemsCommand();

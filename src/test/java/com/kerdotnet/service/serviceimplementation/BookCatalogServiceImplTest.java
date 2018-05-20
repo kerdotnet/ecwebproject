@@ -76,9 +76,9 @@ public class BookCatalogServiceImplTest {
         );
 
         bookItemUserList = Arrays.asList(
-                new BookItemUser(1,1, 1, LocalDateTime.now().minusMonths(3), true),
-                new BookItemUser(2,2, 1, LocalDateTime.now().minusMonths(2), true),
-                new BookItemUser(3,3, 1, LocalDateTime.now().minusDays(5), true)
+                new BookItemUser(1,1, 1, LocalDateTime.now().minusMonths(3),BookItemStatus.REQUESTED, true),
+                new BookItemUser(2,2, 1, LocalDateTime.now().minusMonths(2),BookItemStatus.REQUESTED, true),
+                new BookItemUser(3,3, 1, LocalDateTime.now().minusDays(5),BookItemStatus.REQUESTED, true)
         );
 
         bookCatalogEntity = new BookCatalog(

@@ -177,6 +177,7 @@ CREATE TABLE `bookitem_user` (
   `bookitem_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `date` DATE NOT NULL,
+  `status` varchar(10),
   `flag_enabled` BOOLEAN NOT NULL DEFAULT TRUE,
   
   PRIMARY KEY (`id`),
@@ -371,10 +372,10 @@ UNLOCK TABLES;
 
 LOCK TABLES `bookitem_user` WRITE;
 
-INSERT INTO `bookitem_user` (`bookitem_id`, `user_id`, `date`)
+INSERT INTO `bookitem_user` (`bookitem_id`, `user_id`, `date`, `status`)
 VALUES 
-(1, 1, "2018-02-18"),
-(2, 1, "2018-04-12");
+(1, 1, "2018-02-18", "TORETURN"),
+(2, 1, "2018-04-12", "TORETURN");
 
 /*!40000 ALTER TABLE `bookitem_user` ENABLE KEYS */;
 UNLOCK TABLES;

@@ -1,5 +1,6 @@
 package com.kerdotnet.service.serviceimplementation;
 
+import com.kerdotnet.entity.BookItemStatus;
 import com.kerdotnet.entity.BookItemUser;
 import com.kerdotnet.entity.User;
 import com.kerdotnet.dao.IBookItemUserDAO;
@@ -17,6 +18,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -61,7 +63,7 @@ public class BookOperationServiceImplTest {
                         "$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG",
                         "", "", "", "", true));
         given(bookItemUserDAO.findActiveEntityByBookItemId(1))
-                .willReturn(new BookItemUser(1, 1, null, true));
+                .willReturn(new BookItemUser(1, 1, null, BookItemStatus.REQUESTED, true));
         given(bookItemUserDAO.create(Mockito.any(BookItemUser.class)))
                 .willReturn(true);
         //When
@@ -85,8 +87,8 @@ public class BookOperationServiceImplTest {
     @Test
     public void testReturnBookItemById_Success() throws Exception{
         //Given
-        given(bookItemUserDAO.findActiveEntityByBookItemId(1))
-                .willReturn(new BookItemUser());
+        given(bookItemUserDAO.findActiveEntityByBookItemIdByStatus(1, BookItemStatus.TAKEN.name()))
+                .willReturn(new BookItemUser(1,1,null,BookItemStatus.TAKEN,true));
         given(bookItemUserDAO.update(Mockito.any(BookItemUser.class)))
                 .willReturn(true);
         //When
@@ -94,14 +96,15 @@ public class BookOperationServiceImplTest {
         //Then
         assertThat(resultTakeBookItem, is(true));
 
-        verify(bookItemUserDAO, times(1)).findActiveEntityByBookItemId(1);
+        verify(bookItemUserDAO, times(1)).findActiveEntityByBookItemIdByStatus(
+                1, BookItemStatus.TAKEN.name());
         verify(bookItemUserDAO, times(1)).update(Mockito.any(BookItemUser.class));
     }
 
     @Test
     public void testReturnBookItemById_Fail() throws Exception{
         //Given
-        given(bookItemUserDAO.findActiveEntityByBookItemId(1))
+        given(bookItemUserDAO.findActiveEntityByBookItemIdByStatus(1, BookItemStatus.TAKEN.name()))
                 .willReturn(null);
         given(bookItemUserDAO.update(Mockito.any(BookItemUser.class)))
                 .willReturn(false);
@@ -110,15 +113,66 @@ public class BookOperationServiceImplTest {
         //Then
         assertThat(resultTakeBookItem, is(false));
 
-        verify(bookItemUserDAO, times(1)).findActiveEntityByBookItemId(1);
+        verify(bookItemUserDAO, times(1))
+                .findActiveEntityByBookItemIdByStatus(1, BookItemStatus.TAKEN.name());
         verify(bookItemUserDAO, never()).update(Mockito.any(BookItemUser.class));
+    }
+
+    @Test
+    public void testConfirmTakeBookItemById_Success() throws Exception{
+        //Given
+        given(bookItemUserDAO.findActiveEntityByBookItemIdByStatus(1, BookItemStatus.REQUESTED.name()))
+                .willReturn(new BookItemUser(1,1,null,BookItemStatus.REQUESTED,true));
+        given(bookItemUserDAO.update(Mockito.any(BookItemUser.class)))
+                .willReturn(true);
+        //When
+        boolean resultTakeBookItem = operationService.confirmTakeBookItemById(1);
+        //Then
+        assertThat(resultTakeBookItem, is(true));
+
+        verify(bookItemUserDAO, times(1)).findActiveEntityByBookItemIdByStatus(
+                1, BookItemStatus.REQUESTED.name());
+        verify(bookItemUserDAO, times(1)).update(Mockito.any(BookItemUser.class));
+    }
+
+    @Test
+    public void testConfirmReturnBookItemById_Success() throws Exception{
+        //Given
+        given(bookItemUserDAO.findActiveEntityByBookItemIdByStatus(1, BookItemStatus.TORETURN.name()))
+                .willReturn(new BookItemUser(1,1,null,BookItemStatus.TORETURN,true));
+        given(bookItemUserDAO.update(Mockito.any(BookItemUser.class)))
+                .willReturn(true);
+        //When
+        boolean resultTakeBookItem = operationService.confirmReturnBookItemById(1);
+        //Then
+        assertThat(resultTakeBookItem, is(true));
+
+        verify(bookItemUserDAO, times(1)).findActiveEntityByBookItemIdByStatus(
+                1, BookItemStatus.TORETURN.name());
+        verify(bookItemUserDAO, times(1)).update(Mockito.any(BookItemUser.class));
     }
 
     @Test(expected = ServiceException.class)
     public void testReturnBookItemById_Exception() throws Exception{
-        given(bookItemUserDAO.findActiveEntityByBookItemId(anyInt()))
+        given(bookItemUserDAO.findActiveEntityByBookItemIdByStatus(anyInt(), any(String.class)))
                 .willThrow(new DAOSystemException());
         //When
         boolean resultTakeBookItem = operationService.returnBookItemById( 1);
+    }
+
+    @Test(expected = ServiceException.class)
+    public void testConfirmTakeBookItemByIdByUser_Exception() throws Exception{
+        given(bookItemUserDAO.findActiveEntityByBookItemIdByStatus(anyInt(), any(String.class)))
+                .willThrow(new DAOSystemException());
+        //When
+        boolean resultTakeBookItem = operationService.confirmTakeBookItemById( 1);
+    }
+
+    @Test(expected = ServiceException.class)
+    public void testConfirmReturnBookItemByIdByUser_Exception() throws Exception{
+        given(bookItemUserDAO.findActiveEntityByBookItemIdByStatus(anyInt(), any(String.class)))
+                .willThrow(new DAOSystemException());
+        //When
+        boolean resultTakeBookItem = operationService.confirmReturnBookItemById( 1);
     }
 }

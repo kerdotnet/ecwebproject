@@ -14,8 +14,11 @@
             </c:if>
             <th scope="col"><fmt:message key="message.descriptionlabel" /></th>
             <th scope="col"><fmt:message key="message.bookshelf" /></th>
+            <c:if test="${(takenbooks || mybooks )}">
+                <th scope="col"><fmt:message key="message.status"/></th>
+            </c:if>
+            <th scope="col"><fmt:message key="message.actionlabel" /></th>
             <c:if test="${userType == 'ADMINISTRATOR'}">
-                <th scope="col"><fmt:message key="message.actionlabel" /></th>
                 <th scope="col"><fmt:message key="message.deletebutton" /></th>
             </c:if>
         </tr>
@@ -43,12 +46,37 @@
                     </c:if>
                     <td>${bookitemlist.description}</td>
                     <td>${bookitemlist.bookShelfAddress}</td>
+                    <c:if test="${(takenbooks || mybooks )}">
+                        <td>
+                            <ctg:status-info status="${bookitemlist.bookItemUser.status}"/>
+                        </td>
+                    </c:if>
                     <td>
-                        <c:if test="${takenbooks || mybooks && userType == 'ADMINISTRATOR'}">
+                        <!-- Here button to manage already taken books-->
+                        <c:if test="${bookitemlist.bookItemUser.status == 'REQUESTED'}" >
+                            <c:if test="${userType == 'ADMINISTRATOR'}">
+                                <a class="btn btn-primary"
+                                   href="controller?command=confirmtakebookitem&bookitemid=${bookitemlist.id}"
+                                   role="button"><fmt:message key="message.confirm" />
+                                </a>
+                            </c:if>
+                        </c:if>
+                        <c:if test="${bookitemlist.bookItemUser.status == 'TAKEN'}" >
+                            <!-- FOR USER OR ADMINISTRATOR-->
                             <a class="btn btn-primary"
                                href="controller?command=returnbookitem&bookitemid=${bookitemlist.id}"
-                               role="button"><fmt:message key="message.returnlabel" /></a>
+                               role="button"><fmt:message key="message.returnlabel" />
+                            </a>
                         </c:if>
+                        <c:if test="${bookitemlist.bookItemUser.status == 'TORETURN'}" >
+                            <c:if test="${userType == 'ADMINISTRATOR'}">
+                                <a class="btn btn-primary"
+                                   href="controller?command=confirmreturnbookitem&bookitemid=${bookitemlist.id}"
+                                   role="button"><fmt:message key="message.confirm" />
+                                </a>
+                            </c:if>
+                        </c:if>
+                        <!-- Here button to take a book from catalog -->
                         <c:if test="${!(takenbooks || mybooks )}">
                             <a class="btn btn-primary"
                                href="controller?command=takebookitem&bookitemid=${bookitemlist.id}"

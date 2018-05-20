@@ -45,9 +45,6 @@ public class LoginServiceImplTest {
     private List<UserAuthority> userAuthorityListWithoutAdmin;
     private List<Authority> authorityList;
 
-    //@Captor
-    //ArgumentCaptor<String> stringArgumentCaptor;
-
     @Before
     public void setUp() throws Exception{
         userAuthorityListWithAdmin = Arrays.asList(

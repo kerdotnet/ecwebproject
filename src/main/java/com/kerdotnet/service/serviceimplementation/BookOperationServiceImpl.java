@@ -1,5 +1,6 @@
 package com.kerdotnet.service.serviceimplementation;
 
+import com.kerdotnet.entity.BookItemStatus;
 import com.kerdotnet.entity.BookItemUser;
 import com.kerdotnet.entity.User;
 import com.kerdotnet.dao.IBookItemUserDAO;
@@ -46,6 +47,7 @@ public class BookOperationServiceImpl implements IBookOperationService{
                     bookItemUser = new BookItemUser(bookItemId,
                             user.getId(),
                             LocalDateTime.now(),
+                            BookItemStatus.REQUESTED,
                             true);
                     result = bookItemUserDAO.create(bookItemUser);
                 }
@@ -62,12 +64,48 @@ public class BookOperationServiceImpl implements IBookOperationService{
     public boolean returnBookItemById(int bookItemId) throws ServiceException{
         try {
                 boolean result = false;
-                BookItemUser bookItemUser = bookItemUserDAO.findActiveEntityByBookItemId(bookItemId);
+                BookItemUser bookItemUser = bookItemUserDAO.findActiveEntityByBookItemIdByStatus(
+                        bookItemId, BookItemStatus.TAKEN.name());
                 if (bookItemUser != null){
-                    bookItemUser.setEnabled(false);
+                    bookItemUser.setStatusByEnum(BookItemStatus.TORETURN);
                     result = bookItemUserDAO.update(bookItemUser);
                 }
                 return result;
+        } catch (DAOSystemException e) {
+            throw new ServiceException("Error in the BookOperation service (returnBookItemById)", e);
+        }
+    }
+
+    @Override
+    @InTransaction
+    public boolean confirmTakeBookItemById(int bookItemId) throws ServiceException {
+        try {
+            boolean result = false;
+            BookItemUser bookItemUser = bookItemUserDAO.findActiveEntityByBookItemIdByStatus(
+                    bookItemId, BookItemStatus.REQUESTED.name());
+            if (bookItemUser != null){
+                bookItemUser.setStatusByEnum(BookItemStatus.TAKEN);
+                result = bookItemUserDAO.update(bookItemUser);
+            }
+            return result;
+        } catch (DAOSystemException e) {
+            throw new ServiceException("Error in the BookOperation service (returnBookItemById)", e);
+        }
+    }
+
+    @Override
+    @InTransaction
+    public boolean confirmReturnBookItemById(int bookItemId) throws ServiceException {
+        try {
+            boolean result = false;
+            BookItemUser bookItemUser = bookItemUserDAO.findActiveEntityByBookItemIdByStatus(
+                    bookItemId, BookItemStatus.TORETURN.name());
+            if (bookItemUser != null){
+                bookItemUser.setEnabled(false);
+                bookItemUser.setStatusByEnum(BookItemStatus.RETURNED);
+                result = bookItemUserDAO.update(bookItemUser);
+            }
+            return result;
         } catch (DAOSystemException e) {
             throw new ServiceException("Error in the BookOperation service (returnBookItemById)", e);
         }

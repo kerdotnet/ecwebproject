@@ -22,6 +22,8 @@ public class ListTakenBookItemsCommand implements IActionCommand {
     private static final Logger LOGGER = LoggerFactory.getLogger(ListTakenBookItemsCommand.class);
     private IBookItemService bookItemService;
 
+    private static final String REFRESH_COMMAND = "refreshcommand";
+
     public ListTakenBookItemsCommand() {
         ServiceFactory serviceFactory = null;
         try {
@@ -51,6 +53,8 @@ public class ListTakenBookItemsCommand implements IActionCommand {
             LOGGER.debug("Find book items: " + bookItems);
             sessionRequestContent.setSessionAttribute("bookitemlist", bookItems, true);
             sessionRequestContent.setRequestAttribute("takenbooks", true);
+            sessionRequestContent.setSessionAttribute(REFRESH_COMMAND,
+                    ConfigurationManager.getProperty("path.page.refreshtakenbookitem"));
         } catch (ServiceException e) {
             throw new ServletException(e);
         }

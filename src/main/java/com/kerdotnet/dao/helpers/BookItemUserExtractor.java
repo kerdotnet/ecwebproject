@@ -27,9 +27,11 @@ public class BookItemUserExtractor extends Extractor<BookItemUser> {
         if (timestamp != null)
             date = timestamp.toLocalDateTime();
 
+        String status = rs.getString("status");
+
         boolean enabled = rs.getBoolean("flag_enabled");
 
-        return new BookItemUser(id, bookItemId, userId, date, enabled);
+        return new BookItemUser(id, bookItemId, userId, date, status, enabled);
     }
 
     @Override
@@ -37,12 +39,13 @@ public class BookItemUserExtractor extends Extractor<BookItemUser> {
         preparedStatement.setInt(1, entity.getBookItemId());
         preparedStatement.setInt(2, entity.getUserId());
         preparedStatement.setObject(3, entity.getDate());
-        preparedStatement.setBoolean(4, entity.isEnabled());
+        preparedStatement.setString(4, entity.getStatus());
+        preparedStatement.setBoolean(5, entity.isEnabled());
     }
 
     @Override
     public void setOneUpdate(PreparedStatement preparedStatement, BookItemUser entity) throws SQLException{
         setOneCreate(preparedStatement, entity);
-        preparedStatement.setInt(5, entity.getId());
+        preparedStatement.setInt(6, entity.getId());
     }
 }

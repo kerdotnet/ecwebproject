@@ -4,7 +4,6 @@ import com.kerdotnet.command.IActionCommand;
 import com.kerdotnet.controller.SessionRequestContent;
 import com.kerdotnet.exceptions.DAOSystemException;
 import com.kerdotnet.exceptions.ServiceException;
-import com.kerdotnet.resource.ConfigurationManager;
 import com.kerdotnet.resource.MessageManager;
 import com.kerdotnet.service.IBookOperationService;
 import com.kerdotnet.service.factory.ServiceFactory;
@@ -14,17 +13,17 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.ServletException;
 
 /**
- * Take the BookItem Entity by user
- * Yevhen Ivanov; 2018-04-30
+ * Confirm by administrator that the BookItem Entity was taken by user
+ * Yevhen Ivanov; 2018-05-20
  */
-public class TakeBookItemEntityCommand implements IActionCommand {
+public class ConfirmTakeBookItemEntityCommand implements IActionCommand {
     private IBookOperationService bookOperationService;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TakeBookItemEntityCommand.class);
-    public static final String BOOKITEMID = "bookitemid";
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConfirmTakeBookItemEntityCommand.class);
+    private static final String BOOKITEMID = "bookitemid";
     private static final String REFRESH_COMMAND = "refreshcommand";
 
-    public TakeBookItemEntityCommand() {
+    public ConfirmTakeBookItemEntityCommand() {
         ServiceFactory serviceFactory = null;
         try {
             serviceFactory = ServiceFactory.getInstance();
@@ -37,7 +36,7 @@ public class TakeBookItemEntityCommand implements IActionCommand {
         }
     }
 
-    public TakeBookItemEntityCommand(IBookOperationService bookOperationService) {
+    public ConfirmTakeBookItemEntityCommand(IBookOperationService bookOperationService) {
         this.bookOperationService = bookOperationService;
     }
 
@@ -55,7 +54,7 @@ public class TakeBookItemEntityCommand implements IActionCommand {
         LOGGER.debug("Next page is " + page);
 
         try {
-            if (!bookOperationService.takeBookItemByIdByUser(login, bookItemId)){
+            if (!bookOperationService.confirmTakeBookItemById(bookItemId)){
                 sessionRequestContent.setRequestAttribute("errorMessage",
                         MessageManager.getProperty("message.bookalreadytaken"));
             }

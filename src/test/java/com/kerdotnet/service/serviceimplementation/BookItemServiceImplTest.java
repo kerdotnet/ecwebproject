@@ -1,6 +1,7 @@
 package com.kerdotnet.service.serviceimplementation;
 
 import com.kerdotnet.entity.BookItem;
+import com.kerdotnet.entity.BookItemStatus;
 import com.kerdotnet.entity.BookItemUser;
 import com.kerdotnet.entity.User;
 import com.kerdotnet.dao.IBookItemDAO;
@@ -48,16 +49,16 @@ public class BookItemServiceImplTest {
     public void setUp() throws Exception{
         bookItemList = Arrays.asList(
                 new BookItem(1, 1,"","",true,
-                        new BookItemUser(1,1, 1, LocalDateTime.now().minusMonths(3), true)),
+                        new BookItemUser(1,1, 1, LocalDateTime.now().minusMonths(3), BookItemStatus.REQUESTED, true)),
                 new BookItem(2, 1, "", "", true,
-                        new BookItemUser(2,2, 1, LocalDateTime.now().minusMonths(2), true)),
+                        new BookItemUser(2,2, 1, LocalDateTime.now().minusMonths(2),BookItemStatus.REQUESTED, true)),
                 new BookItem(3, 1, "", "", true,
-                        new BookItemUser(3,3, 1, LocalDateTime.now().minusDays(5), true))
+                        new BookItemUser(3,3, 1, LocalDateTime.now().minusDays(5),BookItemStatus.REQUESTED, true))
         );
         bookItemUserList = Arrays.asList(
-                new BookItemUser(1,1, 1, LocalDateTime.now().minusMonths(3), true),
-                new BookItemUser(2,2, 1, LocalDateTime.now().minusMonths(2), true),
-                new BookItemUser(3,3, 1, LocalDateTime.now().minusDays(5), true)
+                new BookItemUser(1,1, 1, LocalDateTime.now().minusMonths(3),BookItemStatus.REQUESTED, true),
+                new BookItemUser(2,2, 1, LocalDateTime.now().minusMonths(2),BookItemStatus.REQUESTED, true),
+                new BookItemUser(3,3, 1, LocalDateTime.now().minusDays(5),BookItemStatus.REQUESTED, true)
         );
     }
 

@@ -12,7 +12,7 @@
 
                 <th scope="col"><fmt:message key="message.onshelveslabel" /></th>
                 <c:if test="${userType == 'ADMINISTRATOR'}">
-                    <th scope="col"><fmt:message key="message.deletebutton" /></th>
+                    <th scope="col"><fmt:message key="message.actionlabel" /></th>
                 </c:if>
             </tr>
         </thead>

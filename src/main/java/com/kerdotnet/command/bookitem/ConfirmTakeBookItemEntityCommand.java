@@ -24,16 +24,6 @@ public class ConfirmTakeBookItemEntityCommand implements IActionCommand {
     private static final String REFRESH_COMMAND = "refreshcommand";
 
     public ConfirmTakeBookItemEntityCommand() {
-        ServiceFactory serviceFactory = null;
-        try {
-            serviceFactory = ServiceFactory.getInstance();
-            bookOperationService = serviceFactory.getBookOperationService();
-        } catch (ServiceException e) {
-            //TODO: throw Servlet exception and refactor CommandEnum that it can throw exception
-            LOGGER.debug("return book item command error: " + e.getMessage());
-        } catch (DAOSystemException e) {
-            LOGGER.debug("return book item command error: " + e.getMessage());
-        }
     }
 
     public ConfirmTakeBookItemEntityCommand(IBookOperationService bookOperationService) {
@@ -43,6 +33,17 @@ public class ConfirmTakeBookItemEntityCommand implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         int bookItemId = 0;
+
+        if (bookOperationService == null){
+            try {
+                ServiceFactory serviceFactory = ServiceFactory.getInstance();
+                bookOperationService = serviceFactory.getBookOperationService();
+            } catch (ServiceException|DAOSystemException e) {
+                LOGGER.debug("ConfirmTakeBookItemEntityCommand bookCatalogService init error: " + e.getMessage());
+                throw new ServletException(e);
+            }
+        }
+
         String bookItemIdParam = sessionRequestContent.getRequestParameter(BOOKITEMID);
 
         if (bookItemIdParam != null)

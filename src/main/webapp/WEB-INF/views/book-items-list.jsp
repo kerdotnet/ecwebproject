@@ -19,7 +19,8 @@
             </c:if>
             <th scope="col"><fmt:message key="message.actionlabel" /></th>
             <c:if test="${userType == 'ADMINISTRATOR'}">
-                <th scope="col"><fmt:message key="message.deletebutton" /></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </c:if>
         </tr>
         </thead>
@@ -88,6 +89,11 @@
                             <a class="btn btn-primary"
                                href="controller?command=deletebookitem&bookitemid=${bookitemlist.id}"
                                role="button"><fmt:message key="message.deletebutton" /></a>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary"
+                               href="controller?command=notifyuser&bookitemid=${bookitemlist.id}"
+                               role="button"><fmt:message key="message.notifybutton" /></a>
                         </td>
                     </c:if>
                 </tr>

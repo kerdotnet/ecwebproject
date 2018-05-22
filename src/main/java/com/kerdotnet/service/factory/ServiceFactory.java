@@ -54,7 +54,8 @@ public class ServiceFactory {
 
     public IBookOperationService getBookOperationService() throws DAOSystemException{
         return (IBookOperationService) getProxy(IBookOperationService.class,
-                new BookOperationServiceImpl(daoFactory.getUserDAO(), daoFactory.getBookItemUserDAO()));
+                new BookOperationServiceImpl(
+                        daoFactory.getUserDAO(), daoFactory.getBookItemDAO(), daoFactory.getBookItemUserDAO()));
     }
 
     public IBookCatalogService getBookCatalogService() throws DAOSystemException{

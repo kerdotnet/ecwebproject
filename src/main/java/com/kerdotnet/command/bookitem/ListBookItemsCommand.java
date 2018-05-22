@@ -25,16 +25,6 @@ public class ListBookItemsCommand implements IActionCommand {
     private static final String REFRESH_COMMAND = "refreshcommand";
 
     public ListBookItemsCommand() {
-        ServiceFactory serviceFactory = null;
-        try {
-            serviceFactory = ServiceFactory.getInstance();
-            bookItemService = serviceFactory.getBookItemService();
-        } catch (ServiceException e) {
-            //TODO: throw Servlet exception and refactor CommandEnum that it can throw exception
-            LOGGER.debug("Add user init error: " + e.getMessage());
-        } catch (DAOSystemException e) {
-            LOGGER.debug("Add user init error: " + e.getMessage());
-        }
     }
 
     public ListBookItemsCommand(IBookItemService bookItemService) {
@@ -44,6 +34,15 @@ public class ListBookItemsCommand implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         String page;
+        if (bookItemService == null){
+            try {
+                ServiceFactory serviceFactory = ServiceFactory.getInstance();
+                bookItemService = serviceFactory.getBookItemService();
+            } catch (ServiceException|DAOSystemException e) {
+                LOGGER.debug("ListBookItemsCommand bookCatalogService init error: " + e.getMessage());
+                throw new ServletException(e);
+            }
+        }
 
         List<BookItem> bookItems;
 

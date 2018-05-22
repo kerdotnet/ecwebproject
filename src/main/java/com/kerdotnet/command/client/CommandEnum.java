@@ -12,7 +12,6 @@ import com.kerdotnet.command.*;
  * Command Enum which contains all commands in the application
  * Yevhen Ivanov; 2018-04-09
  */
-
 public enum CommandEnum {
     LOGIN{
         {
@@ -120,6 +119,10 @@ public enum CommandEnum {
     }, CHANGELOCALE {
         {
             this.command = new ChangeLocaleCommand();
+        }
+    }, NOTIFYUSER {
+        {
+            this.command = new NotifyUserCommand();
         }
     }
     ;

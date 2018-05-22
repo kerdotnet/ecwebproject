@@ -22,16 +22,6 @@ public class DeleteBookCatalogEntityCommand implements IActionCommand {
     private IBookCatalogService bookCatalogService;
 
     public DeleteBookCatalogEntityCommand() {
-        ServiceFactory serviceFactory = null;
-        try {
-            serviceFactory = ServiceFactory.getInstance();
-            bookCatalogService = serviceFactory.getBookCatalogService();
-        } catch (ServiceException e) {
-            //TODO: throw Servlet exception and refactor CommandEnum that it can throw exception
-            LOGGER.debug("Add user init error: " + e.getMessage());
-        } catch (DAOSystemException e) {
-            LOGGER.debug("Add user init error: " + e.getMessage());
-        }
     }
 
     public DeleteBookCatalogEntityCommand(IBookCatalogService bookCatalogService) {
@@ -43,6 +33,16 @@ public class DeleteBookCatalogEntityCommand implements IActionCommand {
         String page;
         boolean result;
         int bookCatalogId = 0;
+
+        if (bookCatalogService == null){
+            try {
+                ServiceFactory serviceFactory = ServiceFactory.getInstance();
+                bookCatalogService = serviceFactory.getBookCatalogService();
+            } catch (ServiceException|DAOSystemException e) {
+                LOGGER.debug("DeleteBookCatalogEntityCommand bookCatalogService init error: " + e.getMessage());
+                throw new ServletException(e);
+            }
+        }
 
         String bookCatalogIdParam = sessionRequestContent.getRequestParameter("bookcatalogid");
         if (bookCatalogIdParam != null)

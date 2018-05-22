@@ -29,16 +29,6 @@ public class EditBookCatalogAuthorsCommand implements IActionCommand {
     private static final String PARAM_BOOK_CATALOG_KEYWORDS = "keywords";
 
     public EditBookCatalogAuthorsCommand() {
-        ServiceFactory serviceFactory = null;
-        try {
-            serviceFactory = ServiceFactory.getInstance();
-            bookCatalogService = serviceFactory.getBookCatalogService();
-        } catch (ServiceException e) {
-            //TODO: throw Servlet exception and refactor CommandEnum that it can throw exception
-            LOGGER.debug("Add user init error: " + e.getMessage());
-        } catch (DAOSystemException e) {
-            LOGGER.debug("Add user init error: " + e.getMessage());
-        }
     }
 
     public EditBookCatalogAuthorsCommand(IBookCatalogService bookCatalogService) {
@@ -48,6 +38,16 @@ public class EditBookCatalogAuthorsCommand implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         String page;
+
+        if (bookCatalogService == null){
+            try {
+                ServiceFactory serviceFactory = ServiceFactory.getInstance();
+                bookCatalogService = serviceFactory.getBookCatalogService();
+            } catch (ServiceException|DAOSystemException e) {
+                LOGGER.debug("EditBookCatalogAuthorsCommand bookCatalogService init error: " + e.getMessage());
+                throw new ServletException(e);
+            }
+        }
 
         page = ConfigurationManager.getProperty("path.page.bookcatalogauthors");
 

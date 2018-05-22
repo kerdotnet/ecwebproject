@@ -13,56 +13,52 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.ServletException;
 
 /**
- * Confirm by administrator that the BookItem Entity was returned by user
- * Yevhen Ivanov; 2018-05-20
+ * Notify user via email by administrator
+ * Yevhen Ivanov; 2018-05-22
  */
-public class ConfirmReturnBookItemEntityCommand implements IActionCommand {
+public class NotifyUserCommand implements IActionCommand {
     private IBookOperationService bookOperationService;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ConfirmReturnBookItemEntityCommand.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(NotifyUserCommand.class);
     private static final String BOOKITEMID = "bookitemid";
     private static final String REFRESH_COMMAND = "refreshcommand";
 
-    public ConfirmReturnBookItemEntityCommand() {
+
+    public NotifyUserCommand() {
     }
 
-    public ConfirmReturnBookItemEntityCommand(IBookOperationService bookOperationService) {
+    public NotifyUserCommand(IBookOperationService bookOperationService) {
         this.bookOperationService = bookOperationService;
     }
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         int bookItemId = 0;
-
         if (bookOperationService == null){
             try {
                 ServiceFactory serviceFactory = ServiceFactory.getInstance();
                 bookOperationService = serviceFactory.getBookOperationService();
             } catch (ServiceException|DAOSystemException e) {
-                LOGGER.debug("ConfirmReturnBookItemEntityCommand bookCatalogService init error: " + e.getMessage());
+                LOGGER.debug("NotifyUserCommand bookCatalogService init error: " + e.getMessage());
                 throw new ServletException(e);
             }
         }
-
         String bookItemIdParam = sessionRequestContent.getRequestParameter(BOOKITEMID);
 
         if (bookItemIdParam != null)
             bookItemId = Integer.parseInt(bookItemIdParam);
         LOGGER.debug("Id of the book item is: " + bookItemId);
 
-        String login = (String) sessionRequestContent.getSessionAttribute("user");
         String page = (String) sessionRequestContent.getSessionAttribute(REFRESH_COMMAND);
         LOGGER.debug("Next page is " + page);
 
         try {
-            if (!bookOperationService.confirmReturnBookItemById(bookItemId)){
-                sessionRequestContent.setRequestAttribute("errorMessage",
-                        MessageManager.getProperty("message.bookalreadytaken"));
+            if (!bookOperationService.notifyUserByEmail(bookItemId)){
+                throw new ServletException(MessageManager.getProperty("message.businesslogicbookcatalog"));
             }
         } catch (ServiceException e) {
             throw new ServletException(e);
         }
-
         return page;
     }
 }

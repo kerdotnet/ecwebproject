@@ -28,4 +28,6 @@ public interface IBookOperationService  extends IService{
     boolean confirmTakeBookItemById(int bookItemId) throws ServiceException;
 
     boolean confirmReturnBookItemById(int bookItemId) throws ServiceException;
+
+    boolean notifyUserByEmail(int bookItemId) throws ServiceException;
 }

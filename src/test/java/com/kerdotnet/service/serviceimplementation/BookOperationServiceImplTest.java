@@ -1,5 +1,6 @@
 package com.kerdotnet.service.serviceimplementation;
 
+import com.kerdotnet.dao.IBookItemDAO;
 import com.kerdotnet.entity.BookItemStatus;
 import com.kerdotnet.entity.BookItemUser;
 import com.kerdotnet.entity.User;
@@ -30,6 +31,8 @@ public class BookOperationServiceImplTest {
     private IUserDAO userDAOMock;
     @Mock
     private IBookItemUserDAO bookItemUserDAO;
+    @Mock
+    private IBookItemDAO bookItemDAO;
 
     @InjectMocks
     private IBookOperationService operationService = new BookOperationServiceImpl();

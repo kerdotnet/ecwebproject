@@ -26,16 +26,6 @@ public class ReturnBookItemEntityCommand implements IActionCommand {
 
 
     public ReturnBookItemEntityCommand() {
-        ServiceFactory serviceFactory = null;
-        try {
-            serviceFactory = ServiceFactory.getInstance();
-            bookOperationService = serviceFactory.getBookOperationService();
-        } catch (ServiceException e) {
-            //TODO: throw Servlet exception and refactor CommandEnum that it can throw exception
-            LOGGER.debug("return book item command error: " + e.getMessage());
-        } catch (DAOSystemException e) {
-            LOGGER.debug("return book item command error: " + e.getMessage());
-        }
     }
 
     public ReturnBookItemEntityCommand(IBookOperationService bookOperationService) {
@@ -45,6 +35,15 @@ public class ReturnBookItemEntityCommand implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         int bookItemId = 0;
+        if (bookOperationService == null){
+            try {
+                ServiceFactory serviceFactory = ServiceFactory.getInstance();
+                bookOperationService = serviceFactory.getBookOperationService();
+            } catch (ServiceException|DAOSystemException e) {
+                LOGGER.debug("ReturnBookItemEntityCommand bookCatalogService init error: " + e.getMessage());
+                throw new ServletException(e);
+            }
+        }
         String bookItemIdParam = sessionRequestContent.getRequestParameter(BOOKITEMID);
 
         if (bookItemIdParam != null)
@@ -58,7 +57,6 @@ public class ReturnBookItemEntityCommand implements IActionCommand {
             if (!bookOperationService.returnBookItemById(bookItemId)){
                 throw new ServletException(MessageManager.getProperty("message.businesslogicbookcatalog"));
             }
-            sessionRequestContent.setRequestAttribute("takenbooks", true);
         } catch (ServiceException e) {
             throw new ServletException(e);
         }

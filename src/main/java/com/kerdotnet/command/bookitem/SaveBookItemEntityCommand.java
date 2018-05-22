@@ -27,16 +27,6 @@ public class SaveBookItemEntityCommand implements IActionCommand {
     private IBookItemService bookItemService;
 
     public SaveBookItemEntityCommand() {
-        ServiceFactory serviceFactory = null;
-        try {
-            serviceFactory = ServiceFactory.getInstance();
-            bookItemService = serviceFactory.getBookItemService();
-        } catch (ServiceException e) {
-            //TODO: throw Servlet exception and refactor CommandEnum that it can throw exception
-            LOGGER.debug("Add user init error: " + e.getMessage());
-        } catch (DAOSystemException e) {
-            LOGGER.debug("Add user init error: " + e.getMessage());
-        }
     }
 
     public SaveBookItemEntityCommand(IBookItemService bookItemService) {
@@ -47,7 +37,15 @@ public class SaveBookItemEntityCommand implements IActionCommand {
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         String page;
         boolean result;
-
+        if (bookItemService == null){
+            try {
+                ServiceFactory serviceFactory = ServiceFactory.getInstance();
+                bookItemService = serviceFactory.getBookItemService();
+            } catch (ServiceException|DAOSystemException e) {
+                LOGGER.debug("ReturnBookItemEntityCommand bookCatalogService init error: " + e.getMessage());
+                throw new ServletException(e);
+            }
+        }
         int bookCatalogId = 0;
 
         if (sessionRequestContent.getSessionAttribute("bookcatalogid") != null)

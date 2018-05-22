@@ -39,16 +39,6 @@ public class AddUserCommand implements IActionCommand {
     static final Logger LOGGER = LoggerFactory.getLogger(AddUserCommand.class);
 
     public AddUserCommand() {
-        ServiceFactory serviceFactory = null;
-        try {
-            serviceFactory = ServiceFactory.getInstance();
-            loginService = serviceFactory.getLoginService();
-        } catch (ServiceException e) {
-            //TODO: throw Servlet exception and refactor CommandEnum that it can throw exception
-            LOGGER.debug("Add user init error: " + e.getMessage());
-        } catch (DAOSystemException e) {
-            LOGGER.debug("Add user init error: " + e.getMessage());
-        }
     }
 
     public AddUserCommand(ILoginService loginService) {
@@ -58,6 +48,15 @@ public class AddUserCommand implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) throws ServletException {
         String page = null;
+        if (loginService == null){
+            try {
+                ServiceFactory serviceFactory = ServiceFactory.getInstance();
+                loginService = serviceFactory.getLoginService();
+            } catch (ServiceException|DAOSystemException e) {
+                LOGGER.debug("Add user loginService init error: " + e.getMessage());
+                throw new ServletException(e);
+            }
+        }
 
         User user = getUserByParameters(sessionRequestContent);
         String password = sessionRequestContent.getRequestParameter(PARAM_NAME_CONFIRMATION_PASSWORD);

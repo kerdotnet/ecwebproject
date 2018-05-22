@@ -209,7 +209,7 @@ LOCK TABLES `user` WRITE;
 
 INSERT INTO `user`  (`username`, `password`, `email`, `first_name`, `last_name`, `mobile`, `flag_enabled`)
 VALUES 
-	('kerdotnet','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','evgenys.ivanov@gmail.com','Евгений','Иванов', '+380952711261', 1),
+	('kerdotnet','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','evgenus.ivanov@gmail.com','Евгений','Иванов', '+380952711261', 1),
 	('marylogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','mary_ecproj@gmail.com','Mary','Grunvald', '+380951112233', 1),
 	('susanlogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','susan_ecproj@gmail.com','Susan','Zimmerman', '+380951114433', 1),
     ('piterlogin','$2a$12$A.rhSBlyO8U.cqEXbTmi..ascUBBPciDZUlZZZ./JkjlFoHyDQUQG','piter_ecproj@gmail.com','Piter','Sipula', '+380951112200', 1),

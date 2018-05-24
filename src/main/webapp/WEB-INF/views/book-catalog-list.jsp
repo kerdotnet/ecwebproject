@@ -41,7 +41,9 @@
                         <td>
                             <a class="btn btn-primary"
                                href="controller?command=deletebookcatalog&bookcatalogid=${bookcataloglist.id}"
-                               role="button"><fmt:message key="message.deletebutton" /></a>
+                               role="button">
+                                <fmt:message key="message.deletebutton" />
+                            </a>
                         </td>
                     </c:if>
                 </tr>
